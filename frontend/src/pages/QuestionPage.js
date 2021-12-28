@@ -8,9 +8,7 @@ import Logo from '../components/Logo';
 const QuestionPage = () => {
   return (
     <Layout>
-      <Header>
-        <Logo />
-      </Header>
+      <Header />
     </Layout>
   );
 };

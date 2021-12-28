@@ -11,7 +11,6 @@ const MainPage = () => {
   return (
     <Layout>
       <Header>
-        <Logo />
         <MenuWrap>
           <Menu>
             <MenuItem>
