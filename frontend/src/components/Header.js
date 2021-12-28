@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 // components
 import Logo from '../components/Logo';
+import HeaderMenu from './HeaderMenu';
 
-const Header = ({ children }) => {
+const Header = (props) => {
   return (
     <Container>
       <Logo />
-      {children}
+      {props.page === 'main' ? <HeaderMenu /> : null}
     </Container>
   );
 };
