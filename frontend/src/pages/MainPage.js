@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 const MainPage = (props) => {
   return (
     <Layout>
-      <Header page="main" {...props} />
+      <Header page="main" />
     </Layout>
   );
 };
