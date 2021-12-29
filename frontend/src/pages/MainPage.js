@@ -15,7 +15,6 @@ const MainPage = (props) => {
 
 const SectionWrapper = styled.div`
   background: var(--black);
-
   width: 100%;
   height: 100vh;
   `;
