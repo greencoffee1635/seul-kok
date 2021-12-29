@@ -5,7 +5,7 @@ import BlackHanSans from '../fonts/BlackHanSans.woff';
 
 const GlobalStyle = createGlobalStyle`
     :root{
-    --main: #D3455B;
+    --main: #e8384c;
     }
 
     @font-face {
