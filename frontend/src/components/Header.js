@@ -15,7 +15,11 @@ const Header = (props) => {
 };
 
 const Container = styled.header`
-  z-index: 100;
+  width: 100%;
+  height: 5rem;
+  top: 0;
+  display: sticky;
+  z-index: 1;
 `;
 
 export default Header;
