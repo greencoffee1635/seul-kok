@@ -1,33 +1,32 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
+import useMotion from '../utils/useMotion';
+
 // import { Link } from 'react-scroll';
 
 const IntroPage = (props) => {
   return (
     <SectionWrapper>
 
-      <>
-        <MainTitle>
-
-          <LogoTitle>
+          <LogoTitle dark {...useMotion('down', 1, 0.3)}>
             SEULKOK
           </LogoTitle>
 
-          <p>넷플릭스, 왓챠, 디즈니+, 쿠팡플레이스<br/>
-          컨텐츠 따라 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?<br/>
-          이제 <b style={{color: '#e8384c'}}>슬콕</b>이 <b style={{color: '#e8384c'}}>해결</b>해 드릴게요.</p>
+        <MainContent>
+          <p dark {...useMotion('down', 1, 0.2)}>넷플릭스, 왓챠, 디즈니+, 쿠팡플레이스<br/>
+          매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
 
-        </MainTitle>
+          <p dark {...useMotion('down', 2, 0.8)}>이제 <b style={{color: '#e8384c'}}>슬</b>기롭게 <b style={{color: '#e8384c'}}>콕</b>! 해결 해드릴게요.</p>
+
+        </MainContent>
 
         <ButtonWrapper>
           <StartButton>START</StartButton>
         </ButtonWrapper>
 
         <ScrollDiv>
-          더 알아보기
+          슬콕 하러가기
         </ScrollDiv>
-
-      </>
 
     </SectionWrapper>
 
@@ -61,12 +60,13 @@ export const ScrollDiv = styled.div`
   }
 `;
 
+//가로, 세로, 중앙
 
 const SectionWrapper = styled.div`
   background: radial-gradient(
-    69.83% 54.69% at 50% 7.13%,
-    #1d2442 0%,
-    #0f0c1d 100%
+    40% 40% at 50% 50%,
+    #2f1316 0%,
+    #000000 100%
   ),
   #594fa9;
 
@@ -87,7 +87,7 @@ const LogoTitle = styled.header`
   margin-bottom: 50px;
 `;
 
-const MainTitle = styled.div`
+const MainContent = styled.div`
   font-size: 3rem;
   line-height: 3.8rem;
   color: #ffffff;
