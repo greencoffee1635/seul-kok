@@ -6,43 +6,46 @@ import { head_1 } from '../shared/textStyle';
 
 const HeaderMenu = () => {
   return (
-    <div>
-      <MenuWrap>
-        <Menu>
-          <MenuItem>
-            <span>이달의 나의 OTT</span>
-          </MenuItem>
-          <MenuItem>
-            <span>마이 페이지</span>
-          </MenuItem>
-          <MenuItem>
-            <span>팀 소개</span>
-          </MenuItem>
-        </Menu>
-      </MenuWrap>
-    </div>
+    <>
+        <Menus>
+            <div>이달의 OTT</div>
+            <div>마이페이지</div>
+            <div>팀소개</div>
+        </Menus>
+    </>
   );
 };
 
-const MenuWrap = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-`;
+// justify-content: flex-end;
 
-const Menu = styled.ul`
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  margin-top: 30px;
-`;
+// const Menu = styled.ul`
+//   display: flex;
+//   justify-content: flex-end;
+//   position: fixed;
+//   margin-top: 30px;
+// `;
 
-const MenuItem = styled.li`
+// const MenuItem = styled.li`
+//   ${head_1}
+//   text-align: center;
+//   display: flex;
+//   justify-content: space-between;
+//   margin-left: 5rem;
+//   cursor: pointer;
+// `;
+
+const Menus = styled.div`
   ${head_1}
-  text-align: center;
+  color: white;
   display: flex;
-  justify-content: space-between;
-  margin-left: 5rem;
-  cursor: pointer;
+  alignItems: center;
+  div {
+    margin-left: 30px;
+  }
 `;
+// margin-left: 1rem;
+// flex-grow: 0;
+
+
 
 export default HeaderMenu;

@@ -2,13 +2,13 @@ import { css } from 'styled-components';
 
 // 로고
 export const logo = css`
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   font-weight: 700;
 `;
 
 // Header Menu
 export const head_1 = css`
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 500;
 `;
 
