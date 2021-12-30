@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import useMotion from '../utils/useMotion';
+import { Link } from "react-router-dom";
 
 // import styled, { keyframes } from 'styled-components';
 // import { Link } from 'react-scroll';
@@ -25,9 +26,9 @@ const IntroPage = (props) => {
           <StartButton><p2>START</p2></StartButton>
         </ButtonWrapper>
 
-        <ScrollDiv>
-          슬콕 하러가기
-        </ScrollDiv>
+        <Link to="/main">
+          <ScrollDiv>슬콕 시작하기</ScrollDiv>
+        </Link>
 
     </SectionWrapper>
 

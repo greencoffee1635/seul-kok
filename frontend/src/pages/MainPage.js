@@ -40,9 +40,8 @@ const MainPage = (props) => {
                 <p2 dark {...useMotion('down', 1, 0.2)}>
                   <span style={{color: 'var(--main)'}}>고민</span>되시죠?
                 </p2> */}
-                 <p2 dark {...useMotion('up', 2, 0.5)} >이번 달은<br/> <span style={{color: 'var(--main)'}}>어떤 사이트</span> 를<br/> <span style={{color: 'var(--main)'}}>구독</span>해야할지 <br/> <span style={{color: 'var(--main)'}}>고민</span>되시죠?</p2>
-
-
+                 <p dark {...useMotion('down', 2, 0.5)} >이번 달은<br/> <span style={{color: 'var(--main)'}}>어떤 사이트</span> 를<br/> <span style={{color: 'var(--main)'}}>구독</span>해야할지 <br/> <span style={{color: 'var(--main)'}}>고민</span>되시죠?</p>
+                 <StartButton><span>추천받기</span></StartButton>
               </ItemTitle>
             </Item>
           </Grid>
@@ -61,14 +60,13 @@ const SectionWrapper = styled.div`
 
 
 const Item = styled.div`
-  position: fixed;
   background: null;
   position: absolute;
 
   width: 600px;
   height: 500px;
 
-  margin-top: 300px;
+  margin-top: 250px;
   margin-left: 163px;
 
   `;
@@ -76,12 +74,13 @@ const Item = styled.div`
   // width: 49%;
 
 const ItemContent = styled.div`
-  margin-top: 50%;
-
+  margin-top: 65%;
   p, p2 {
     color: #ffffff;
   }
 `
+
+
 
 const ItemTitle = styled.div`
   font-size: 330%;
@@ -89,6 +88,28 @@ const ItemTitle = styled.div`
   p, p2 {
     color: #ffffff;
   }
+`
+
+const StartButton = styled.button`
+  display: inline;
+  text-align: center;
+  cusor: pointer;
+
+  width: 7.5rem;
+  height: 3.2rem;
+
+  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
+  border-radius: 50em;
+  border: none;
+
+  color: #ffffff;
+  font-style: normal;
+  font-wight: bold;
+  font-size: 1.5rem;
+  &:hover {
+    color: #671d25;
+  }
+
 `
 
 
