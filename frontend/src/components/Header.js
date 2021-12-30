@@ -38,7 +38,6 @@ const NavDiv = styled.div`
   width: 100%;
   position: absolute;
   top: 0;
-  background-color: var(--black);
 `;
 
 const StyledGrid = styled(Grid)`
