@@ -4,8 +4,8 @@ import { createGlobalStyle } from 'styled-components';
 import BlackHanSans from '../fonts/BlackHanSans.woff';
 
 const GlobalStyle = createGlobalStyle`
-    :root{
-    --main: #D3455B;
+:root{
+    --main: #e8384c;
     }
 
     @font-face {

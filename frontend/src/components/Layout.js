@@ -6,8 +6,9 @@ const Layout = ({ children }) => {
 };
 
 const Main = styled.main`
+  border: 1px solid black;
   margin: 0 3rem 0 3rem;
-  /* height: 200vh; // header test용 */
+  height: 100vh; // header test용
 `;
 
 export default Layout;
