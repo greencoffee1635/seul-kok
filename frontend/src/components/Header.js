@@ -27,8 +27,9 @@ const Header = (props) => {
 const NavContainer = styled.div`
   width: 100%;
   position: fixed;
-  fop: 0;
+  top: 0;
   z-index: 99;
+  background-color: null;
 `;
 
 const NavDiv = styled.div`
@@ -43,6 +44,7 @@ const NavDiv = styled.div`
 const StyledGrid = styled(Grid)`
   padding-top: 3.4rem;
   justify-content: center;
+  background-color: null;
 `;
 
 const InnerDiv = styled.div`
