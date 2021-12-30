@@ -24,7 +24,7 @@ const Header = (props) => {
   );
 };
 
-const NavContainer = styled.header`
+const NavContainer = styled.div`
   width: 100%;
   position: fixed;
   fop: 0;
@@ -38,7 +38,6 @@ const NavDiv = styled.div`
   width: 100%;
   position: absolute;
   top: 0;
-  background-color: var(--black);
 `;
 
 const StyledGrid = styled(Grid)`
