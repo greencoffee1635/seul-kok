@@ -42,6 +42,15 @@ const MainPage = (props) => {
                 </p2> */}
                  <p dark {...useMotion('down', 2, 0.5)} >이번 달은<br/> <span style={{color: 'var(--main)'}}>어떤 사이트</span> 를<br/> <span style={{color: 'var(--main)'}}>구독</span>해야할지 <br/> <span style={{color: 'var(--main)'}}>고민</span>되시죠?</p>
                  <StartButton><span>추천받기</span></StartButton>
+
+
+                 {/* <> //고민중인 스타일
+                  <p3 dark {...useMotion('down', 2, 0.5)} >이번 달은<br/> <span style={{color: 'var(--main)'}}>어떤 사이트</span>를 </p3> <br/>
+                  <p2 dark {...useMotion('down', 2, 0.5)} ><span style={{color: 'var(--main)'}}>구독</span>해야할지 <br/> <span style={{color: 'var(--main)'}}>고민</span>되시죠?</p2> <br/>
+                </>
+                 <StartButton><span>추천받기</span></StartButton> */}
+
+
               </ItemTitle>
             </Item>
           </Grid>
