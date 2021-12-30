@@ -46,7 +46,7 @@ const MainPage = (props) => {
             </Item>
           </Grid>
         </Grid>
-      <img src={process.env.PUBLIC_URL + `/image/image1.jpg`} alt="" />
+      <img src={process.env.PUBLIC_URL + `/image/image2.jpg`} alt="" />
     </SectionWrapper>
   );
 };
@@ -81,11 +81,11 @@ const ItemContent = styled.div`
 `
 
 
-
 const ItemTitle = styled.div`
   font-size: 330%;
   text-align: right;
   p, p2 {
+    font-weight: bold;
     color: #ffffff;
   }
 `
@@ -105,9 +105,12 @@ const StartButton = styled.button`
   color: #ffffff;
   font-style: normal;
   font-wight: bold;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   &:hover {
     color: #671d25;
+  }
+  span {
+    font-weight: bold;
   }
 
 `
