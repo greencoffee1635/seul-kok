@@ -122,6 +122,12 @@ const StartButton = styled.button`
   font-size: 1.5rem;
 
   margin-top: 40px;
+
+  cursor: pointer;
+  &:hover,
+  &:active {
+    color: #2f1316;
+  }
 `
 
 
