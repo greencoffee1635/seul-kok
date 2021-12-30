@@ -26,7 +26,7 @@ const IntroPage = (props) => {
           <StartButton><p2>START</p2></StartButton>
         </ButtonWrapper>
 
-        <Link to="/main">
+        <Link to="/main" style={{ textDecoration: 'none' }} >
           <ScrollDiv>슬콕 시작하기</ScrollDiv>
         </Link>
 
