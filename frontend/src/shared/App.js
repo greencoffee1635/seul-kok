@@ -7,6 +7,7 @@ import IntroPage from '../pages/IntroPage';
 import MainPage from '../pages/MainPage';
 import QuestionPage from '../pages/QuestionPage';
 import ResultPage from '../pages/ResultPage';
+import ComingSoonPage from '../pages/ComingSoonPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Route exact path="/" component={IntroPage} />
         <Route exact path="/main" component={MainPage} />
+        <Route exact path="/comingsoon" component={ComingSoonPage} />
         <Route exact path="/question" component={QuestionPage} />
         <Route exact path="/result" component={ResultPage} />
       </BrowserRouter>
