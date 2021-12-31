@@ -21,34 +21,36 @@ const QuestionPage = () => {
       <Header />
       <Layout>
         <Grid width="37rem" is_flex="space-between">
-          <TitleArea>
+          <Grid margin="0 0 5rem 0">
             <Title>
               주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
             </Title>
-          </TitleArea>
+          </Grid>
         </Grid>
 
         <Grid width="39rem">
-          <Text>Q1. 혼자 칠링타임이 주어졌을 때 보고싶은 소재</Text>
-          <Wrapper>
-            <Answer>영화/드라마</Answer>
-            <Answer>예능 프로그램</Answer>
-          </Wrapper>
-          <Text>Q2. 극장에서 친구와 영화를 본다</Text>
-          <Wrapper>
-            <Answer>헐리우드 블랙버스터</Answer>
-            <Answer>한국</Answer>
-          </Wrapper>
-          <Text>Q3. 연인과 크리스마스에 보고싶은 장르</Text>
-          <Wrapper>
-            <Answer>코미디</Answer>
-            <Answer>액션</Answer>
-          </Wrapper>
-          <Text>Q4. 연인과 크리스마스에 보고싶은 장르</Text>
-          <Wrapper>
-            <Answer>코미디</Answer>
-            <Answer>액션</Answer>
-          </Wrapper>
+          <Scroll>
+            <Text>Q1. 혼자 칠링타임이 주어졌을 때 보고싶은 소재</Text>
+            <Wrapper>
+              <Answer>영화/드라마</Answer>
+              <Answer>예능 프로그램</Answer>
+            </Wrapper>
+            <Text>Q2. 극장에서 친구와 영화를 본다</Text>
+            <Wrapper>
+              <Answer>헐리우드 블록버스터</Answer>
+              <Answer>한국</Answer>
+            </Wrapper>
+            <Text>Q3. 연인과 크리스마스에 보고싶은 장르</Text>
+            <Wrapper>
+              <Answer>코미디</Answer>
+              <Answer>액션</Answer>
+            </Wrapper>
+            <Text>Q4. 연인과 크리스마스에 보고싶은 장르</Text>
+            <Wrapper>
+              <Answer>코미디</Answer>
+              <Answer>액션</Answer>
+            </Wrapper>
+          </Scroll>
         </Grid>
       </Layout>
     </Template>
@@ -58,19 +60,32 @@ const QuestionPage = () => {
 const Title = styled.h2`
   ${head_2}
   color: var(--main);
-`;
-
-const TitleArea = styled.div`
-  margin-bottom: 5rem;
+  ${({ theme }) => theme.device.mobile} {
+    justify-content: center;
+  }
 `;
 
 const Text = styled.p`
   ${sub_1}
   color: var(--white);
   ${({ theme }) => theme.device.mobile} {
-    ${sub_1_mobile}
     max-width: 35rem;
   }
+`;
+
+const Scroll = styled.div`
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width:6px;
+    border-radius: 6px;
+    /* background: rgba(255, 255, 255, 0.4); */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3)
+    border-radius: 2px;
+  }
+  height: 90%;
+  margin: 0 auto;
 `;
 
 const Wrapper = styled.div`
@@ -78,6 +93,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
+  /* margin: 0 auto; */
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
   }
