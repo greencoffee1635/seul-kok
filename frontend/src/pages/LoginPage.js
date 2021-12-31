@@ -9,7 +9,7 @@ import useMotion from '../utils/useMotion';
 
 //components
 
-const ComingSoonPage = () => {
+const LoginPage = () => {
 
 
   return (
@@ -19,9 +19,8 @@ const ComingSoonPage = () => {
       </LogoTitle>
 
       <MainContent>
-        <p dark {...useMotion('down', 1, 0.2)}>이번달 <b>개봉작</b> 궁금하시죠? <br/>
-        <p2 dark {...useMotion('down', 1, 0.2)}> <span style={{color:'#e8384c'}}>슬콕</span>이 알려드려요</p2></p>
-        {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
+        <p dark {...useMotion('down', 1, 0.2)}>당신은 <b>슬콕</b>과 함께하고 계신가요? <br/>
+        <p2 dark {...useMotion('down', 1, 0.2)}> 이제 <span style={{color:'#e8384c'}}>슬콕</span>과 함께하세요</p2></p>
       </MainContent>
 
 
@@ -69,4 +68,4 @@ const MainContent = styled.div`
 
 
 
-export default ComingSoonPage
+export default LoginPage
