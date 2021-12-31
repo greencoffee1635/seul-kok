@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Layout = ({ children }) => {
-  // const { roomId } = useParams;
-  return <Main>{children}</Main>;
+  return <LayoutForm>{children}</LayoutForm>;
 };
 
-const Main = styled.div`
-  border: 1px solid black;
-  margin: 2.8rem 3rem 0 3rem;
-  height: 200vh; // header test용
+const LayoutForm = styled.section`
+  display: flex;
+  margin: 0 10rem 0 10rem;
+  box-sizing: border-box;
+  justify-content: space-between;
 `;
 
 export default Layout;
