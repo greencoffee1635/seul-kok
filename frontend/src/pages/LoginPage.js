@@ -29,7 +29,8 @@ const LoginPage = () => {
         <SignupTemplate>
           <SignupFrom>
             <p>Login</p>
-            <StyledInput autoComplete="username" name="username" placholder="아이디" />
+            <StyledInput autoComplete="username" name="username" placeholder="이메일을 입력해주세요." />
+            <StyledInput autoComplete="username" name="username" placeholder="비밀번호를 입력해주세요." />
           </SignupFrom>
         </SignupTemplate>
     </LoginContent>
@@ -97,15 +98,22 @@ const StyledInput =styled.input`
   border-color: var(--main);
   border-radius: 5px;
 
-  padding-bottom: 0.5rem;
+  margin-bottom: 20px;
   outline: none;
 
   width: 93%;
   height: 35px;
 
-  background: null;
+  background-color: var(--main);
+
+  ::placeholder {
+    color: #ffffff;
+    text-align: left;
+    padding: 0 0.6rem;
+  }
 `;
 
+// background-color:transparent;
 
 
 
