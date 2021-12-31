@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import IntroPage from '../pages/IntroPage';
 import MainPage from '../pages/MainPage';
 import QuestionPage from '../pages/QuestionPage';
+import PickPosterPage from '../pages/PickPosterPage';
 import ResultPage from '../pages/ResultPage';
 import ComingSoonPage from '../pages/ComingSoonPage';
 
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/main" component={MainPage} />
           <Route exact path="/comingsoon" component={ComingSoonPage} />
           <Route exact path="/question" component={QuestionPage} />
+          <Route exact path="/question2" component={PickPosterPage} />
           <Route exact path="/result" component={ResultPage} />
         </BrowserRouter>
       </ThemeProvider>
