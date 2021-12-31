@@ -8,11 +8,13 @@ import useMotion from '../utils/useMotion';
 // import ScrollHorizontal from 'react-scroll-horizontal';
 
 //components
+import SignupTemplate from '../components/SignupTemplate';
 
 const LoginPage = () => {
 
 
   return (
+    <>
     <SectionWrapper>
       <LogoTitle dark {...useMotion('down', 1, 0.3)}>
         SEULKOK
@@ -23,10 +25,17 @@ const LoginPage = () => {
         <p2 dark {...useMotion('down', 1, 0.2)}> 이제 <span style={{color:'#e8384c'}}>슬콕</span>과 함께하세요</p2></p>
       </MainContent>
 
-
-
+      <LoginContent>
+        <SignupTemplate>
+          <SignupFrom>
+            <p>Login</p>
+            <StyledInput autoComplete="username" name="username" placholder="아이디" />
+          </SignupFrom>
+        </SignupTemplate>
+    </LoginContent>
 
     </SectionWrapper>
+    </>
   )
 }
 
@@ -64,6 +73,40 @@ const MainContent = styled.div`
     margin-top: 5px;
   };
 `;
+
+
+const LoginContent = styled.div`
+
+`;
+
+const SignupFrom = styled.div`
+  padding-top: 20px;
+  padding-bottom: 24px;
+  padding-left: 30px;
+  p {
+    color: var(--main);
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+`;
+
+const StyledInput =styled.input`
+  font-size: 1rem;
+
+  border: 2px solid;
+  border-color: var(--main);
+  border-radius: 5px;
+
+  padding-bottom: 0.5rem;
+  outline: none;
+
+  width: 93%;
+  height: 35px;
+
+  background: null;
+`;
+
+
 
 
 
