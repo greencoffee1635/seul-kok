@@ -25,9 +25,19 @@ export const sub_1 = css`
   font-weight: 500;
 `;
 
+export const sub_1_mobile = css`
+  font-size: 1.6rem;
+  font-weight: 500;
+`;
+
 // Answers
 export const sub_2 = css`
   font-size: 1.6rem;
+  font-weight: 600;
+`;
+
+export const sub_2_mobile = css`
+  font-size: 1.4rem;
   font-weight: 600;
 `;
 
