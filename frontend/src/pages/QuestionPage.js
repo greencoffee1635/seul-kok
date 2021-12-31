@@ -66,7 +66,6 @@ const Answer = styled.button`
   ${sub_2}
   width: 19rem;
   height: 3.2rem;
-  /* margin-right: 2rem; */
   background: linear-gradient(80deg, var(--main) 0.73%, var(--darkred) 100%);
   color: var(--white);
   border-radius: 50px;
