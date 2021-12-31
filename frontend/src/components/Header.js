@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Grid} from '@mui/material';
+import { Grid } from '@mui/material';
 
 // components
 import Logo from '../components/Logo';
@@ -15,7 +15,7 @@ const Header = (props) => {
           <Grid item xs={9} md={9} lg={10}>
             <InnerDiv>
               <Logo />
-                {props.page === 'main' ? <HeaderMenu /> : null}
+              {props.page === 'main' ? <HeaderMenu /> : null}
             </InnerDiv>
           </Grid>
         </StyledGrid>
@@ -24,10 +24,10 @@ const Header = (props) => {
   );
 };
 
-const NavContainer = styled.header`
+const NavContainer = styled.div`
   width: 100%;
   position: fixed;
-  fop: 0;
+  top: 0;
   z-index: 99;
 `;
 
@@ -38,7 +38,6 @@ const NavDiv = styled.div`
   width: 100%;
   position: absolute;
   top: 0;
-  background-color: var(--black);
 `;
 
 const StyledGrid = styled(Grid)`
@@ -51,7 +50,5 @@ const InnerDiv = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-
 
 export default Header;

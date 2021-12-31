@@ -106,7 +106,7 @@ const ButtonWrapper = styled.div`
 const StartButton = styled.button`
   display: inline;
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
   align-items: center;
 
   width: 7.5rem;
@@ -118,7 +118,7 @@ const StartButton = styled.button`
 
   color: #ffffff;
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.5rem;
 
   margin-top: 40px;
