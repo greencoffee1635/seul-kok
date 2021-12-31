@@ -7,8 +7,12 @@ const Template = ({ children }) => {
 
 const Main = styled.main`
   padding-top: 10rem;
-  background: radial-gradient(60% 55% at 50% 8%, #2f1316 0%, #000000 100%),
-    #594fa9;
+  background: radial-gradient(
+      60% 55% at 50% 8%,
+      var(--deepdarkred) 0%,
+      var(--black) 100%
+    ),
+    var(--violet);
   width: 100%;
   height: 120vh;
 `;

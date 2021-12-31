@@ -10,9 +10,10 @@ const LayoutForm = styled.section`
   margin: 0 10rem 0 10rem;
   box-sizing: border-box;
   justify-content: space-between;
-  ${({ theme }) => theme.device.tablet} {
+  ${({ theme }) => theme.device.mobile} {
     flex-direction: column;
     flex-wrap: wrap;
+    margin: 0 4rem;
   }
 `;
 

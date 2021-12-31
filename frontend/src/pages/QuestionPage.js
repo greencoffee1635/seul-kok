@@ -7,7 +7,13 @@ import Grid from '../components/Grid';
 import Template from '../components/Template';
 import Layout from '../components/Layout';
 
-import { head_2, sub_1, sub_2 } from '../shared/textStyle';
+import {
+  head_2,
+  sub_1,
+  sub_2,
+  sub_1_mobile,
+  sub_2_mobile,
+} from '../shared/textStyle';
 
 const QuestionPage = () => {
   return (
@@ -15,7 +21,11 @@ const QuestionPage = () => {
       <Header />
       <Layout>
         <Grid width="37rem" is_flex="space-between">
-          <Title>주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.</Title>
+          <TitleArea>
+            <Title>
+              주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
+            </Title>
+          </TitleArea>
         </Grid>
 
         <Grid width="39rem">
@@ -50,9 +60,17 @@ const Title = styled.h2`
   color: var(--main);
 `;
 
+const TitleArea = styled.div`
+  margin-bottom: 5rem;
+`;
+
 const Text = styled.p`
   ${sub_1}
   color: var(--white);
+  ${({ theme }) => theme.device.mobile} {
+    ${sub_1_mobile}
+    max-width: 35rem;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -60,6 +78,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
+  ${({ theme }) => theme.device.mobile} {
+    max-width: 35rem;
+  }
 `;
 
 const Answer = styled.button`
@@ -70,6 +91,10 @@ const Answer = styled.button`
   color: var(--white);
   border-radius: 50px;
   border: none;
+  ${({ theme }) => theme.device.mobile} {
+    ${sub_2_mobile}
+    width: 17rem;
+  }
 `;
 
 export default QuestionPage;
