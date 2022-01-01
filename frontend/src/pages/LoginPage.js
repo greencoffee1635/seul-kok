@@ -135,7 +135,7 @@ const FormButton = styled.button`
       var(--main), #5a292f
     );
 
-  cusor: pointer;
+  cursor: pointer;
 
 `
 

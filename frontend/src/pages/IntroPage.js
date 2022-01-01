@@ -108,7 +108,7 @@ const ButtonWrapper = styled.div`
 const StartButton = styled.button`
   display: inline;
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
   align-items: center;
 
   width: 7.5rem;
