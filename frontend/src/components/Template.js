@@ -14,7 +14,7 @@ const Main = styled.main`
     ),
     var(--violet);
   width: 100%;
-  height: 120vh;
+  min-height: calc(100vh - 100px);
 `;
 
 export default Template;
