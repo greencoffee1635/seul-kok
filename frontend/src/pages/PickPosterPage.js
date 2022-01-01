@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import HorizontalScroll from 'react-scroll-horizontal';
 
 // components
 import Header from '../components/Header';
@@ -16,85 +17,93 @@ import {
 } from '../shared/textStyle';
 
 const PickPosterPage = () => {
+  const cards = [...new Array(10)].map((x, i) => ({
+    name: `card ${i}`,
+    img: 'https://source.unsplash.com/random',
+  }));
+  const scrollContainer = document.querySelector('main');
+
+  scrollContainer.addEventListener('wheel', (evt) => {
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY;
+  });
   return (
     <Template>
       <Header />
       <Layout>
         <Grid width="37rem" is_flex="space-between">
-          <TitleArea>
+          <Grid margin="0 0 5rem 0">
             <Title>
-              그동안 즐겁게 본 컨텐츠를 선택해주세요.
+              주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
             </Title>
-          </TitleArea>
+          </Grid>
         </Grid>
 
-        <Grid width="39rem">
-          {/* <Text>Q1. 혼자 칠링타임이 주어졌을 때 보고싶은 소재</Text>
+        <Grid width="40rem">
           <Wrapper>
-            <Answer>영화/드라마</Answer>
-            <Answer>예능 프로그램</Answer>
+            <HorizontalScroll
+              pageLock={true}
+              reverseScroll={true}
+              style={{ width: `37rem`, height: `43.061rem` }}
+              //config        = {{ stiffness: int, damping: int }}
+              //className     = { string }
+              //animValues    = { int }
+            >
+              {cards.map((card) => (
+                <div
+                  style={{ width: '500px', height: '500px', background: 'red' }}
+                >
+                  <img src={card.img} alt="" />
+                  <p>{card.name}</p>
+                </div>
+              ))}
+            </HorizontalScroll>
           </Wrapper>
-          <Text>Q2. 극장에서 친구와 영화를 본다</Text>
-          <Wrapper>
-            <Answer>헐리우드 블랙버스터</Answer>
-            <Answer>한국</Answer>
-          </Wrapper>
-          <Text>Q3. 연인과 크리스마스에 보고싶은 장르</Text>
-          <Wrapper>
-            <Answer>코미디</Answer>
-            <Answer>액션</Answer>
-          </Wrapper>
-          <Text>Q4. 연인과 크리스마스에 보고싶은 장르</Text>
-          <Wrapper>
-            <Answer>코미디</Answer>
-            <Answer>액션</Answer>
-          </Wrapper> */}
         </Grid>
       </Layout>
     </Template>
   );
 };
 
+// const HorizontalScroll = styled.div`
+//   overflow-y: hidden; 
+//   overflow-x:scroll;
+//   display: flex;
+
+//   &::-webkit-scrollbar {
+//     height:6px;
+//     border-radius: 6px;
+//     background: rgba(255, 255, 255, 0.4);
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     background-color: rgba(0,0,0,0.3)
+//     border-radius: 2px;
+//   }
+
+//   margin: 0 auto;
+//   img {
+//     width: 100px;
+//     height: 100px;
+//   }
+// `;
+
 const Title = styled.h2`
   ${head_2}
   color: var(--main);
+
+  ${({ theme }) => theme.device.mobile} {
+    justify-content: center;
+  }
 `;
 
-const TitleArea = styled.div`
-  margin-bottom: 5rem;
+const Wrapper = styled.div`
+  max-width: 40rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  ${({ theme }) => theme.device.mobile} {
+    max-width: 35rem;
+  }
 `;
-
-// const Text = styled.p`
-//   ${sub_1}
-//   color: var(--white);
-//   ${({ theme }) => theme.device.mobile} {
-//     ${sub_1_mobile}
-//     max-width: 35rem;
-//   }
-// `;
-
-// const Wrapper = styled.div`
-//   max-width: 40rem;
-//   display: flex;
-//   justify-content: space-between;
-//   padding-bottom: 1rem;
-//   ${({ theme }) => theme.device.mobile} {
-//     max-width: 35rem;
-//   }
-// `;
-
-// const Answer = styled.button`
-//   ${sub_2}
-//   width: 19rem;
-//   height: 3.2rem;
-//   background: linear-gradient(80deg, var(--main) 0.73%, var(--darkred) 100%);
-//   color: var(--white);
-//   border-radius: 50px;
-//   border: none;
-//   ${({ theme }) => theme.device.mobile} {
-//     ${sub_2_mobile}
-//     width: 17rem;
-//   }
-// `;
 
 export default PickPosterPage;

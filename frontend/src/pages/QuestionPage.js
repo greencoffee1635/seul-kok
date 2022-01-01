@@ -69,6 +69,7 @@ const Text = styled.p`
   ${sub_1}
   color: var(--white);
   ${({ theme }) => theme.device.mobile} {
+    ${sub_1_mobile}
     max-width: 35rem;
   }
 `;
