@@ -13,7 +13,10 @@ const SignupTemplateBlock = styled.div`
   width: 600px;
   height: 300px;
 
-  background: null;
+  background: linear-gradient(
+    to bottom right,
+    #5a292f, black
+  );
   border: 3px solid;
   border-radius: 16px;
   border-color: var(--main);

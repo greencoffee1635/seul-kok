@@ -31,6 +31,7 @@ const LoginPage = () => {
             <p>Login</p>
             <StyledInput autoComplete="username" name="username" placeholder="이메일을 입력해주세요." />
             <StyledInput autoComplete="username" name="username" placeholder="비밀번호를 입력해주세요." />
+            <FormButton><p2>Login</p2></FormButton>
           </SignupFrom>
         </SignupTemplate>
     </LoginContent>
@@ -82,7 +83,6 @@ const LoginContent = styled.div`
 
 const SignupFrom = styled.div`
   padding-top: 20px;
-  padding-bottom: 24px;
   padding-left: 30px;
   p {
     color: var(--main);
@@ -104,7 +104,7 @@ const StyledInput =styled.input`
   width: 93%;
   height: 35px;
 
-  background-color: var(--main);
+  background-color:transparent;
 
   ::placeholder {
     color: #ffffff;
@@ -113,8 +113,31 @@ const StyledInput =styled.input`
   }
 `;
 
-// background-color:transparent;
+// background-color: var(--main);
+// background: rgba(255, 255, 255, 0.15);
 
+const FormButton = styled.button`
+  font-size: 1rem;
+  color: #ffffff;
+
+  border-radius: 5px;
+  border: none;
+
+  margin-bottom: 20px;
+
+  width: 94.3%;
+  height: 40px;
+
+  background-color: var(--main);
+  &:hover {
+    background: linear-gradient(
+      to right,
+      var(--main), #5a292f
+    );
+
+  cusor: pointer;
+
+`
 
 
 
