@@ -29,8 +29,8 @@ const LoginPage = () => {
         <SignupTemplate>
           <SignupFrom>
             <p>Login</p>
-            <StyledInput autoComplete="username" name="username" placeholder="이메일을 입력해주세요." />
-            <StyledInput autoComplete="username" name="username" placeholder="비밀번호를 입력해주세요." />
+            <StyledInput autoComplete="useremail" name="username" placeholder="Useremail" />
+            <StyledInput autoComplete="passward" name="passward" placeholder="Passward" />
             <FormButton><p2>Login</p2></FormButton>
           </SignupFrom>
         </SignupTemplate>
