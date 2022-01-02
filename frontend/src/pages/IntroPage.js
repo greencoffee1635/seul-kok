@@ -1,7 +1,9 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import useMotion from '../utils/useMotion';
+import { Link } from "react-router-dom";
 
+// import styled, { keyframes } from 'styled-components';
 // import { Link } from 'react-scroll';
 
 const IntroPage = (props) => {
@@ -24,9 +26,9 @@ const IntroPage = (props) => {
           <StartButton><p2>START</p2></StartButton>
         </ButtonWrapper>
 
-        <ScrollDiv>
-          슬콕 하러가기
-        </ScrollDiv>
+        <Link to="/main" style={{ textDecoration: 'none' }} >
+          <ScrollDiv>슬콕 시작하기</ScrollDiv>
+        </Link>
 
     </SectionWrapper>
 
@@ -34,19 +36,19 @@ const IntroPage = (props) => {
 }
 
 
-const scroll = keyframes`
-    0% {
-      transform: rotate(-45deg) translate(0, 0);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(-45deg) translate(-20px, 20px);
-      opacity: 0;
-    }
-`;
+// const scroll = keyframes`
+//     0% {
+//       transform: rotate(-45deg) translate(0, 0);
+//       opacity: 0;
+//     }
+//     50% {
+//       opacity: 1;
+//     }
+//     100% {
+//       transform: rotate(-45deg) translate(-20px, 20px);
+//       opacity: 0;
+//     }
+// `;
 
 export const ScrollDiv = styled.div`
   position: relative;
@@ -106,7 +108,7 @@ const ButtonWrapper = styled.div`
 const StartButton = styled.button`
   display: inline;
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
   align-items: center;
 
   width: 7.5rem;
@@ -120,6 +122,9 @@ const StartButton = styled.button`
   font-style: normal;
   font-wight: bold;
   font-size: 1.5rem;
+  &:hover {
+    color: #671d25;
+  }
 
   margin-top: 40px;
 `

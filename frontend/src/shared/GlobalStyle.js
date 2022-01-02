@@ -5,7 +5,8 @@ import BlackHanSans from '../fonts/BlackHanSans.woff';
 
 const GlobalStyle = createGlobalStyle`
 :root{
-    --main: #e8384c;
+    --main: #f2273e;
+    --black: #000000;
     }
 
     @font-face {
@@ -26,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     // 로고, 메뉴 폰트 적용
-    header, nav {
+    header, p2 {
         font-family: 'Black Han Sans';
     }
 `;
