@@ -20,22 +20,21 @@ export const head_2 = css`
 
 // ResultPage Title
 export const head_3 = css`
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
 `;
 
-// Questions
+// QuestionPage Questions
 export const sub_1 = css`
   font-size: 1.8rem;
   font-weight: 500;
 `;
-
 export const sub_1_mobile = css`
   font-size: 1.6rem;
   font-weight: 500;
 `;
 
-// Answers
+// QuestionPage Answers
 export const sub_2 = css`
   font-size: 1.6rem;
   font-weight: 600;
