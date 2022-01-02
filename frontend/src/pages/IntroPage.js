@@ -120,7 +120,7 @@ const StartButton = styled.button`
 
   color: #ffffff;
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.5rem;
   &:hover {
     color: #671d25;

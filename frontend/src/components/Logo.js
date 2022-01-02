@@ -1,11 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 // components
 import { logo } from '../shared/textStyle';
 
-const Logo = () => {
-  return <LogoWrap>{LogoTitle}</LogoWrap>;
+const Logo = (props) => {
+  return (
+    <LogoWrap
+      onClick={() => {
+        props.history.push('/');
+      }}
+    >
+      {LogoTitle}
+    </LogoWrap>
+  );
 };
 
 const LogoTitle = 'SEULKOK';
@@ -13,14 +22,7 @@ const LogoTitle = 'SEULKOK';
 const LogoWrap = styled.header`
   ${logo}
   color: var(--main);
+  cursor: pointer;
 `;
 
-// color: var(--main);
-// text-align: center;
-// display: flex;
-// position: fixed;
-// align-items: center;
-// justify-content: space-between;
-// margin-top: 20px;
-
-export default Logo;
+export default withRouter(Logo);

@@ -8,20 +8,25 @@ import Grid from '../components/Grid';
 import Template from '../components/Template';
 import Layout from '../components/Layout';
 
-import { head_3, sub_3 } from '../shared/textStyle';
+import { head_2 } from '../shared/textStyle';
 
-const ResultPage = () => {
+// const cards = [...new Array(10)].map((x, i) => ({
+//   name: `card ${i}`,
+//   img: 'https://source.unsplash.com/random',
+// }));
+
+const PickPosterPage = () => {
   const child = { width: '200px', height: '320px' };
   const parent = { width: '592px', height: '689px' };
   return (
     <Template>
-      <Header page="main" />
+      <Header />
       <Layout>
         <Grid width="37rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
-            <Title>이달의 OTT 추천</Title>
-            <Text>________님, 이번달 추천하는 OTT는 ________ 입니다.</Text>
-            <Text>이번 달 가장 좋아할만한 컨텐츠는 ________입니다.</Text>
+            <Title>
+              주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
+            </Title>
           </Grid>
         </Grid>
 
@@ -81,15 +86,7 @@ const ResultPage = () => {
 };
 
 const Title = styled.h2`
-  ${head_3}
-  color: var(--main);
-  ${({ theme }) => theme.device.mobile} {
-    justify-content: center;
-  }
-`;
-
-const Text = styled.p`
-  ${sub_3}
+  ${head_2}
   color: var(--main);
   ${({ theme }) => theme.device.mobile} {
     justify-content: center;
@@ -115,4 +112,4 @@ const CardGrid = styled.div`
   }
 `;
 
-export default ResultPage;
+export default PickPosterPage;

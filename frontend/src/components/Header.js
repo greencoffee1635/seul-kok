@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Grid} from '@mui/material';
+import { Grid } from '@mui/material';
 
 // components
 import Logo from '../components/Logo';
@@ -15,7 +15,7 @@ const Header = (props) => {
           <Grid item xs={9} md={9} lg={10}>
             <InnerDiv>
               <Logo />
-                {props.page === 'main' ? <HeaderMenu /> : null}
+              {props.page === 'main' ? <HeaderMenu /> : null}
             </InnerDiv>
           </Grid>
         </StyledGrid>
@@ -52,7 +52,5 @@ const InnerDiv = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-
 
 export default Header;
