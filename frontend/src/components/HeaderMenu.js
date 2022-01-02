@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Grid} from '@mui/material';
+// import {Grid} from '@mui/material';
 
 // components
 import { head_1 } from '../shared/textStyle';
@@ -40,8 +40,12 @@ const Menus = styled.div`
   color: white;
   display: flex;
   alignItems: center;
+  font-weight: bold;
   div {
     margin-left: 30px;
+    &:hover {
+      color: var(--main);
+    }
   }
 `;
 // margin-left: 1rem;

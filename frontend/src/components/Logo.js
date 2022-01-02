@@ -10,7 +10,7 @@ const Logo = () => {
 
 const LogoTitle = 'SEULKOK';
 
-const LogoWrap = styled.div`
+const LogoWrap = styled.header`
   ${logo}
   color: var(--main);
 `;
