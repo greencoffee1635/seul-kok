@@ -12,6 +12,7 @@ import PickPosterPage from '../pages/PickPosterPage';
 import ResultPage from '../pages/ResultPage';
 import ComingSoonPage from '../pages/ComingSoonPage';
 import LoginPage from '../pages/LoginPage';
+import MyPage from '../pages/MyPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/question" component={QuestionPage} />
           <Route exact path="/question2" component={PickPosterPage} />
           <Route exact path="/result" component={ResultPage} />
+          <Route exact path="/mypage" component={MyPage} />
         </BrowserRouter>
         <GlobalStyle />
       </ThemeProvider>
