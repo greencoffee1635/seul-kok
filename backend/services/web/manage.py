@@ -1,3 +1,5 @@
+#api 연결
+
 from flask.cli import FlaskGroup
 
 from project import app, db, User
