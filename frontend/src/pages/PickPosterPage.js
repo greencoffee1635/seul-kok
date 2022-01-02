@@ -93,15 +93,6 @@ const PickPosterPage = ({ children }) => {
   );
 };
 
-const CardGrid = styled.div`
-  display: grid !important;
-  grid-template-rows: auto auto;
-  grid-auto-flow: column;
-  > div {
-    margin-right: 20px;
-  }
-`;
-
 const Title = styled.h2`
   ${head_2}
   color: var(--main);
@@ -117,6 +108,15 @@ const Wrapper = styled.div`
   padding-bottom: 1rem;
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
+  }
+`;
+
+const CardGrid = styled.div`
+  display: grid !important;
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
+  > div {
+    margin-right: 20px;
   }
 `;
 
