@@ -24,6 +24,7 @@ function App() {
           <Route exact path="/comingsoon" component={ComingSoonPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/question" component={QuestionPage} />
+          <Route exact path="/question2" component={PickPosterPage} />
           <Route exact path="/result" component={ResultPage} />
         </BrowserRouter>
         <GlobalStyle />

@@ -29,9 +29,10 @@ const LoginPage = () => {
         <SignupTemplate>
           <SignupFrom>
             <p>Login</p>
-            <StyledInput autoComplete="useremail" name="username" placeholder="Useremail" />
+            <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
             <StyledInput autoComplete="passward" name="passward" placeholder="Passward" />
             <FormButton><p2>Login</p2></FormButton>
+            <div>아직 <b>슬콕</b>을 이용 중이지 않으시다면? <span2 style={{color:'#e8384c'}}><b>Sign up</b></span2></div>
           </SignupFrom>
         </SignupTemplate>
     </LoginContent>
@@ -69,7 +70,7 @@ const MainContent = styled.div`
   font-size: 2.8rem;
   line-height: 3.8rem;
   color: #ffffff;
-  margin-bottom: 30px;
+
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;
@@ -82,17 +83,37 @@ const LoginContent = styled.div`
 `;
 
 const SignupFrom = styled.div`
-  padding-top: 20px;
-  padding-left: 30px;
+
+  width: 550px;
+  height: 300px;
+  display: inline;
+  position: absolute;
+  text-align: center;
+
+
   p {
     color: var(--main);
     font-size: 1.3rem;
     font-weight: bold;
+    text-align: left;
+    margin-left: 15px;
+  }
+  div {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.9rem;
+
+    span2 {
+      cursor: pointer;
+    }
   }
 `;
 
+// padding-top: 20px;
+// padding-left: 30px;
+
 const StyledInput =styled.input`
   font-size: 1rem;
+  color: white;
 
   border: 2px solid;
   border-color: var(--main);
@@ -104,15 +125,18 @@ const StyledInput =styled.input`
   width: 93%;
   height: 35px;
 
-  background-color:transparent;
+  background-color: rgba(255, 255, 255, 0.08);
 
   ::placeholder {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.54);
     text-align: left;
-    padding: 0 0.6rem;
+    padding: 0 0.5rem;
   }
 `;
 
+// background-color: rgba(229, 62, 68, 0.08);
+// background-color: #321316;
+// background-color: transparent
 // background-color: var(--main);
 // background: rgba(255, 255, 255, 0.15);
 
