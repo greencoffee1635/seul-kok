@@ -21,18 +21,19 @@ const SignupPage = () => {
       </LogoTitle>
 
       <MainContent>
-        <p dark {...useMotion('down', 1, 0.2)}>당신은 <b>슬콕</b>과 함께하고 계신가요? <br/>
+        <p dark {...useMotion('down', 1, 0.2)}>간단한 구독과 관리 <b>슬콕</b> <br/>
         <p2 dark {...useMotion('down', 1, 0.2)}> 이제 <span style={{color:'#e8384c'}}>슬콕</span>과 함께하세요</p2></p>
       </MainContent>
 
       <LoginContent>
         <SignupTemplate>
           <SignupFrom>
-            <p>Login</p>
+            <p>Sign up</p>
+            <StyledInput autoComplete="name" name="name" placeholder="name"  />
             <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
             <StyledInput autoComplete="passward" name="passward" placeholder="Passward" />
-            <FormButton><p2>Login</p2></FormButton>
-            <div>아직 <b>슬콕</b>을 이용 중이지 않으시다면? <span2 style={{color:'#e8384c'}}><b>Sign up</b></span2></div>
+            <FormButton><p2>Sign up</p2></FormButton>
+            {/* <div>아직 <b>슬콕</b>을 이용 중이지 않으시다면? <span2 style={{color:'#e8384c'}}><b>Sign up</b></span2></div> */}
           </SignupFrom>
         </SignupTemplate>
     </LoginContent>

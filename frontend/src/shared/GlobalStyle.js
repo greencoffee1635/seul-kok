@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
         src: url(${BlackHanSans}) format('woff'),
             url(${BlackHanSans}) format('woff2');
         font-weight: 400;
+        text-decoration: none;
     }
 
     * {
@@ -31,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     // 로고, 메뉴 폰트 적용
-    header, p2, span2 {
+    header, p2, a {
         font-family: 'Black Han Sans';
     }
 `;

@@ -12,6 +12,7 @@ import PickPosterPage from '../pages/PickPosterPage';
 import ResultPage from '../pages/ResultPage';
 import ComingSoonPage from '../pages/ComingSoonPage';
 import LoginPage from '../pages/LoginPage';
+import SignupPage from '../pages/SignupPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/main" component={MainPage} />
           <Route exact path="/comingsoon" component={ComingSoonPage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/question" component={QuestionPage} />
           <Route exact path="/question2" component={PickPosterPage} />
           <Route exact path="/result" component={ResultPage} />

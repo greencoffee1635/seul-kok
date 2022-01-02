@@ -22,11 +22,13 @@ const IntroPage = (props) => {
 
         </MainContent>
 
-        <ButtonWrapper>
-          <StartButton><p2>START</p2></StartButton>
-        </ButtonWrapper>
+        <Link to="/login" >
+          <ButtonWrapper>
+            <StartButton><p2>START</p2></StartButton>
+          </ButtonWrapper>
+        </Link>
 
-        <Link to="/main" style={{ textDecoration: 'none' }} >
+        <Link to="/main" >
           <ScrollDiv>슬콕 시작하기</ScrollDiv>
         </Link>
 
@@ -56,11 +58,12 @@ export const ScrollDiv = styled.div`
   margin: 2rem auto 0;
   text-align: center;
   cursor: pointer;
-  @media screen and (max-width: 480px) {
-    margin: 1rem auto;
-    padding-top: 0;
-  }
 `;
+
+// @media screen and (max-width: 480px) {
+//   margin: 1rem auto;
+//   padding-top: 0;
+// }
 
 //가로, 세로, 중앙
 
@@ -108,6 +111,7 @@ const ButtonWrapper = styled.div`
 const StartButton = styled.button`
   display: inline;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   align-items: center;
 
@@ -123,7 +127,7 @@ const StartButton = styled.button`
   font-weight: bold;
   font-size: 1.5rem;
   &:hover {
-    color: #671d25;
+    color: var(--black);
   }
 
   margin-top: 40px;
