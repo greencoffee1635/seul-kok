@@ -11,6 +11,8 @@ import Layout from '../components/Layout';
 import { head_3, sub_3 } from '../shared/textStyle';
 
 const ResultPage = () => {
+  const child = { width: '200px', height: '320px' };
+  const parent = { width: '592px', height: '689px' };
   return (
     <Template>
       <Header page="main" />
@@ -24,59 +26,49 @@ const ResultPage = () => {
         </Grid>
 
         <Grid width="40rem">
-          <Wrapper>
-            <HorizontalScroll
-              pageLock={true}
-              reverseScroll={true}
-              style={{ width: '592px', height: '689px' }}
-            >
+          <Wrapper style={parent}>
+            <HorizontalScroll pageLock={true} reverseScroll={true}>
               <CardGrid>
                 <div>
                   <img
                     src="https://source.unsplash.com/random"
-                    width="200px"
-                    height="320px"
                     alt="cardimg"
+                    style={child}
                   />
                 </div>
                 <div>
                   <img
                     src="https://source.unsplash.com/random"
-                    width="200px"
-                    height="320px"
                     alt="cardimg"
+                    style={child}
                   />
                 </div>
                 <div>
                   <img
                     src="https://source.unsplash.com/random"
-                    width="200px"
-                    height="320px"
                     alt="cardimg"
+                    style={child}
                   />
                 </div>
                 <div>
                   <img
                     src="https://source.unsplash.com/random"
-                    width="200px"
-                    height="320px"
                     alt="cardimg"
+                    style={child}
                   />
                 </div>
                 <div>
                   <img
                     src="https://source.unsplash.com/random"
-                    width="200px"
-                    height="320px"
                     alt="cardimg"
+                    style={child}
                   />
                 </div>
                 <div>
                   <img
                     src="https://source.unsplash.com/random"
-                    width="200px"
-                    height="320px"
                     alt="cardimg"
+                    style={child}
                   />
                 </div>
               </CardGrid>
