@@ -16,7 +16,12 @@ export const head_1 = css`
 export const head_2 = css`
   font-size: 3rem;
   font-weight: 600;
-  line-height: 4rem;
+`;
+
+// ResultPage Title
+export const head_3 = css`
+  font-size: 3rem;
+  font-weight: 600;
 `;
 
 // Questions
