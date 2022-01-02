@@ -10,10 +10,10 @@ import Layout from '../components/Layout';
 
 import { head_2 } from '../shared/textStyle';
 
-// const cards = [...new Array(10)].map((x, i) => ({
-//   name: `card ${i}`,
-//   img: 'https://source.unsplash.com/random',
-// }));
+const cards = [...new Array(10)].map((x, i) => ({
+  name: `card ${i}`,
+  img: 'https://source.unsplash.com/random',
+}));
 
 const PickPosterPage = () => {
   const child = { width: '200px', height: '320px' };
@@ -37,83 +37,12 @@ const PickPosterPage = () => {
               config={{ stiffness: 100, damping: 50 }}
             >
               <CardGrid>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
+                {cards.map((card) => (
+                  <div>
+                    <img src={card.img} style={child} alt="cardimg" />
+                    {/* <p>{card.name}</p> */}
+                  </div>
+                ))}
               </CardGrid>
             </HorizontalScroll>
           </Wrapper>
@@ -135,7 +64,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
-  :first-child {
+  /* :first-child {
     &::-webkit-scrollbar {
       height: 8px;
       border-radius: 6px;
@@ -144,7 +73,7 @@ const Wrapper = styled.div`
     &::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.3);
       border-radius: 6px;
-    }
+    } */
   }
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
