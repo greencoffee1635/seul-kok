@@ -8,15 +8,12 @@ import Grid from '../components/Grid';
 import Template from '../components/Template';
 import Layout from '../components/Layout';
 
-import {
-  head_3,
-  sub_3,
-} from '../shared/textStyle';
+import { head_3, sub_3 } from '../shared/textStyle';
 
 const ResultPage = () => {
   return (
     <Template>
-      <Header />
+      <Header page="main" />
       <Layout>
         <Grid width="37rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
