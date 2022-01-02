@@ -9,23 +9,11 @@ import Template from '../components/Template';
 import Layout from '../components/Layout';
 
 import {
-  head_2,
-  // sub_1,
-  // sub_2,
-  // sub_1_mobile,
-  // sub_2_mobile,
+  head_3,
+  sub_3,
 } from '../shared/textStyle';
 
 const ResultPage = () => {
-  const cards = [...new Array(10)].map((x, i) => ({
-    name: `card ${i}`,
-    img: 'https://source.unsplash.com/random',
-  }));
-  const scrollContainer = document.querySelector('main');
-  scrollContainer.addEventListener('wheel', (evt) => {
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
-  });
   return (
     <Template>
       <Header />
@@ -33,33 +21,69 @@ const ResultPage = () => {
         <Grid width="37rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
             <Title>이달의 OTT 추천</Title>
-            {/* <Text>________님, 이번달 추천하는 OTT는 ________ 입니다.</Text> */}
-            {/* <Text>이번 달 가장 좋아할만한 컨텐츠는 ________입니다.</Text> */}
+            <Text>________님, 이번달 추천하는 OTT는 ________ 입니다.</Text>
+            <Text>이번 달 가장 좋아할만한 컨텐츠는 ________입니다.</Text>
           </Grid>
         </Grid>
 
         <Grid width="40rem">
           <Wrapper>
-            <div id="scroll-horizontal" style={{ height: `45em` }}>
-              <HorizontalScroll>{cards}</HorizontalScroll>
-            </div>
-            {/* <HorizontalScroll
+            <HorizontalScroll
               pageLock={true}
               reverseScroll={true}
-              style={{ width: `37rem`, height: `43.061rem` }}
-              //config        = {{ stiffness: int, damping: int }}
-              //className     = { string }
-              //animValues    = { int }
+              style={{ width: '592px', height: '689px' }}
             >
-              {cards.map((card) => (
-                <div
-                  style={{ width: '500px', height: '500px', background: 'red' }}
-                >
-                  <img src={card.img} alt="" />
-                  <p>{card.name}</p>
+              <CardGrid>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    width="200px"
+                    height="320px"
+                    alt="cardimg"
+                  />
                 </div>
-              ))}
-            </HorizontalScroll> */}
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    width="200px"
+                    height="320px"
+                    alt="cardimg"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    width="200px"
+                    height="320px"
+                    alt="cardimg"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    width="200px"
+                    height="320px"
+                    alt="cardimg"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    width="200px"
+                    height="320px"
+                    alt="cardimg"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    width="200px"
+                    height="320px"
+                    alt="cardimg"
+                  />
+                </div>
+              </CardGrid>
+            </HorizontalScroll>
           </Wrapper>
         </Grid>
       </Layout>
@@ -67,51 +91,17 @@ const ResultPage = () => {
   );
 };
 
-// main {
-//   overflow-x: hidden;
-//   display: flex;
-// }
-
-// section {
-//   min-width: 50vw;
-//   min-height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-size: 4ch;
-// }
-
-// section:nth-child(even) {
-//   background-color: teal;
-//   color: white;
-// }
-
-// const HorizontalScroll = styled.div`
-//   overflow-y: hidden;
-//   overflow-x:scroll;
-//   display: flex;
-
-//   &::-webkit-scrollbar {
-//     height:6px;
-//     border-radius: 6px;
-//     background: rgba(255, 255, 255, 0.4);
-//   }
-//   &::-webkit-scrollbar-thumb {
-//     background-color: rgba(0,0,0,0.3)
-//     border-radius: 2px;
-//   }
-
-//   margin: 0 auto;
-//   img {
-//     width: 100px;
-//     height: 100px;
-//   }
-// `;
-
 const Title = styled.h2`
-  ${head_2}
+  ${head_3}
   color: var(--main);
+  ${({ theme }) => theme.device.mobile} {
+    justify-content: center;
+  }
+`;
 
+const Text = styled.p`
+  ${sub_3}
+  color: var(--main);
   ${({ theme }) => theme.device.mobile} {
     justify-content: center;
   }
@@ -124,6 +114,15 @@ const Wrapper = styled.div`
   padding-bottom: 1rem;
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
+  }
+`;
+
+const CardGrid = styled.div`
+  display: grid !important;
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
+  > div {
+    margin-right: 20px;
   }
 `;
 

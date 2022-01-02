@@ -20,7 +20,7 @@ export const head_2 = css`
 
 // ResultPage Title
 export const head_3 = css`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
 `;
 
@@ -44,6 +44,12 @@ export const sub_2 = css`
 export const sub_2_mobile = css`
   font-size: 1.4rem;
   font-weight: 600;
+`;
+
+// ResultPage Text
+export const sub_3 = css`
+  font-size: 2rem;
+  font-weight: 400;
 `;
 
 // // 예시
