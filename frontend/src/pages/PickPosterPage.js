@@ -32,8 +32,46 @@ const PickPosterPage = () => {
 
         <Grid width="40rem">
           <Wrapper style={parent}>
-            <HorizontalScroll pageLock={true} reverseScroll={true}>
+            <HorizontalScroll
+              style={{ overflow: 'scroll hidden' }}
+              config={{ stiffness: 100, damping: 50 }}
+            >
               <CardGrid>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    alt="cardimg"
+                    style={child}
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    alt="cardimg"
+                    style={child}
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    alt="cardimg"
+                    style={child}
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    alt="cardimg"
+                    style={child}
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://source.unsplash.com/random"
+                    alt="cardimg"
+                    style={child}
+                  />
+                </div>
                 <div>
                   <img
                     src="https://source.unsplash.com/random"
@@ -94,10 +132,20 @@ const Title = styled.h2`
 `;
 
 const Wrapper = styled.div`
-  max-width: 40rem;
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
+  :first-child {
+    &::-webkit-scrollbar {
+      height: 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+    }
+  }
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
   }
@@ -107,7 +155,7 @@ const CardGrid = styled.div`
   display: grid !important;
   grid-template-rows: auto auto;
   grid-auto-flow: column;
-  > div {
+  & div {
     margin-right: 20px;
   }
 `;

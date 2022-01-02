@@ -77,12 +77,12 @@ const Text = styled.p`
 const Scroll = styled.div`
   overflow-y: scroll;
   &::-webkit-scrollbar {
-    width:6px;
+    width: 6px;
     border-radius: 6px;
     /* background: rgba(255, 255, 255, 0.4); */
   }
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.3)
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 2px;
   }
   height: 90%;
