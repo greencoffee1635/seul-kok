@@ -3,6 +3,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const env = process.env;
+env.PUBLIC_URL = env.PUBLIC_URL || "";
+
 const MovieCard = () => {
   return (
     <MainScetion>
@@ -15,6 +18,10 @@ const MovieCard = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
           <MovieButton>자세히보기</MovieButton>
         </MovieContent>
+        {/* <img
+          src="https://source.unsplash.com/random"
+          alt="cardimg"
+        /> */}
       </Card>
       <Card>
         <MovieIntro>
@@ -70,14 +77,18 @@ const Card = styled.div`
   margin: auto;
   width: 300px;
   height: 420px;
-  background-color: var(--deepdarkred);
+
   text-align: left;
+
+  background-color: var(--deepdarkred);
+  background-image: url(https://source.unsplash.com/random);
+  background-size: contain;
 `;
+
 
 const MovieIntro = styled.div`
 
   margin-left: 1rem;
-  font-size:
   color: #ffffff;
 `;
 
