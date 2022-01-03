@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import useMotion from '../utils/useMotion';
 import ComingSoonPage from './ComingSoonPage';
 
+
 // import Layout from '../components/Layout';
 
 
@@ -21,7 +22,7 @@ const MainPage = () => {
 
     <MainScreen>
         <MainVideo loop autoPlay>
-          <source src={process.env.PUBLIC_URL + `/video/video1.mp4`} type="video/mp4" />
+          <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
         </MainVideo>
 
         <Header page="main" />
@@ -100,17 +101,17 @@ const MainItem = styled.div`
 
   span {
     position: absolute;
-    top: 85%;
+    top: 88%;
     left: 50%;
     width: 40px;
     height: 40px;
     margin-left: -12px;
-    border-left: 2px solid var(--main);
-    border-bottom: 2px solid var(--main);
+    border-left: 2px solid rgba(242, 38, 62, 0.41);
+    border-bottom: 2px solid rgba(242, 38, 62, 0.41);
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    -webkit-animation: ${scroll} 2.0s infinite;
-    animation: ${scroll} 2.0s infinite;
+    -webkit-animation: ${scroll} 2.5s infinite;
+    animation: ${scroll} 2.8s infinite;
     box-sizing: border-box;
 `;
 

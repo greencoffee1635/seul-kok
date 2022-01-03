@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 
+
 import useMotion from '../utils/useMotion';
 // import { useEffect, useState } from 'react';
+import MovieCard from '../components/MovieCard';
 
 // 짱멋진모듈(가로스크롤)
 // import ScrollHorizontal from 'react-scroll-horizontal';
@@ -24,6 +26,8 @@ const ComingSoonPage = () => {
         <p2 dark {...useMotion('down', 1, 0.2)}> <span style={{color:'#e8384c'}}>슬콕</span>이 알려드려요</p2></p>
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
+      <MovieCard />
+
       <StartButton><span>이달의 OTT 추천받기</span></StartButton>
 
 
