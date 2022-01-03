@@ -118,9 +118,10 @@ const StartButton = styled.button`
   width: 7.5rem;
   height: 3.2rem;
 
-  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
   border-radius: 50em;
   border: none;
+  background: linear-gradient(to right, var(--main), #5a292f);
+  
 
   color: #ffffff;
   font-style: normal;
@@ -130,8 +131,13 @@ const StartButton = styled.button`
     color: var(--black);
   }
 
+
+
+
   margin-top: 40px;
 `
+
+// background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
 
 
 export default IntroPage

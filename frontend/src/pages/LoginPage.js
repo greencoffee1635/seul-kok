@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 import useMotion from '../utils/useMotion';
 // import { useEffect, useState } from 'react';
@@ -31,7 +32,9 @@ const LoginPage = () => {
             <p>Log in</p>
             <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
             <StyledInput autoComplete="passward" name="passward" placeholder="Passward" />
-            <FormButton><p2>Log in</p2></FormButton>
+            <Link to="/main">
+              <FormButton><p2>Log in</p2></FormButton>
+            </Link>
 
             <div>아직 <b>슬콕</b>을 이용 중이지 않으시다면? &nbsp;
               <a
