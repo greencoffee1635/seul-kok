@@ -24,6 +24,17 @@ export const head_3 = css`
   font-weight: 600;
 `;
 
+export const head_4 = css`
+  font-size: 2.8rem;
+  line-height: 3.8rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  p2 {
+    font-size: 3.6rem;
+    margin-top: 5px;
+  };
+`;
+
 // QuestionPage Questions
 export const sub_1 = css`
   font-size: 1.8rem;

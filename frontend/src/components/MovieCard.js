@@ -109,8 +109,8 @@ const Card = styled.div`
   background-size: contain;
 
   &:hover {
-    background: rgba(242, 38, 62, 0.57);
-    border: 3px solid;
+    background: rgba(216, 14, 27, 0.44);
+    border: 3.5px solid;
     border-color: var(--darkred);
   };
 

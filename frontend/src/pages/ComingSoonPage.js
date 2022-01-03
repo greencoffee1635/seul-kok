@@ -2,14 +2,12 @@ import React from 'react'
 import styled from 'styled-components';
 
 
-import useMotion from '../utils/useMotion';
-// import { useEffect, useState } from 'react';
-import MovieCard from '../components/MovieCard';
-
-// 짱멋진모듈(가로스크롤)
-// import ScrollHorizontal from 'react-scroll-horizontal';
-
 //components
+import useMotion from '../utils/useMotion';
+import MovieCard from '../components/MovieCard';
+import { head_4 } from '../shared/textStyle';
+
+
 
 const ComingSoonPage = () => {
 
@@ -55,15 +53,9 @@ const SectionWrapper = styled.div`
 
 
 const MainContent = styled.div`
-  font-size: 2.8rem;
-  line-height: 3.8rem;
-  color: #ffffff;
-  margin-bottom: 20px;
-  p2 {
-    font-size: 3.6rem;
-    margin-top: 5px;
-  };
+  ${head_4}
 `;
+
 
 const StartButton = styled.button`
 
