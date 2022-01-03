@@ -105,7 +105,7 @@ const StartButton = styled.button`
 
   border-radius: 50em;
   border: none;
-  background: linear-gradient(to right, var(--main), #5a292f);
+  background: var(--main);
 
 
   color: #ffffff;
