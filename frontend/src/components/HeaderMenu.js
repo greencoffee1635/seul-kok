@@ -40,7 +40,7 @@ const Menus = styled.div`
   color: white;
   display: flex;
   alignItems: center;
-  font-weight: bold;
+  font-weight: nomal;
   div {
     margin-left: 30px;
     &:hover {
