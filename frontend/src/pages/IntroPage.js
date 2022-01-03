@@ -29,8 +29,8 @@ const IntroPage = (props, swiper) => {
         </Link>
 
 
-        <a href="/signup"
-            style={{color:'#e8384c', textDecoration: 'none'}}><p>Sign up</p></a>
+        <a href="/login"
+            style={{color:'#e8384c', textDecoration: 'none', fontSize: '0.8rem'}}><p>슬기롭게 콕 LogIn</p></a>
 
 
     </SectionWrapper>
@@ -66,7 +66,6 @@ const SectionWrapper = styled.div`
   justify-content: center;
 
   p {
-    color: var(--main);
     font-family: noal;
   }
 

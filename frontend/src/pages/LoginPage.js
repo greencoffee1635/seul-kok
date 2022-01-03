@@ -38,8 +38,8 @@ const LoginPage = () => {
 
             <div>아직 <b>슬콕</b>을 이용 중이지 않으시다면? &nbsp;
               <a
-                href="/login"
-                style={{color:'#e8384c'}}><b>Log In</b></a></div>
+                href="/signup"
+                style={{color:'#e8384c'}}><b>Sign up</b></a></div>
 
           </SignupFrom>
         </SignupTemplate>
