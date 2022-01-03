@@ -1,7 +1,8 @@
 
 
 import React from 'react';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
+import useMotion from '../utils/useMotion';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
@@ -44,18 +45,34 @@ const MovieCard = () => {
         </MovieContent>
       </Card>
       <Card>
-        <MovieIntro>
-          <p2>DISNEYPLUS</p2>
-        </MovieIntro>
-        <MovieContent>
-          <p2>Arcane: League of Legends</p2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-          <MovieButton>자세히보기</MovieButton>
-        </MovieContent>
+
+          <MovieIntro>
+            <p2>DISNEYPLUS</p2>
+          </MovieIntro>
+          <MovieContent>
+            <p2>Arcane: League of Legends</p2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+            <MovieButton>자세히보기</MovieButton>
+          </MovieContent>
       </Card>
     </MainScetion>
   )
 }
+
+
+const scroll = keyframes`
+    0% {
+      translate(-50%, -50%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      translate(-50%, -50%);
+      opacity: 0;
+    }
+`;
 
 const MainScetion = styled.div`
 
@@ -77,6 +94,7 @@ const Card = styled.div`
   margin: auto;
   width: 300px;
   height: 420px;
+  cusor:pointer;
 
   text-align: left;
 
@@ -88,8 +106,44 @@ const Card = styled.div`
     rgba(20, 20, 20, 0.9) 90%,
     rgba(20, 20, 20, 1) 100%
   ), url(https://source.unsplash.com/random);
-background-size: contain;
-`;
+  background-size: contain;
+  &:hover {
+    background: var(--main); };
+    border-color: #ffffff;
+
+
+  `;
+
+// const MovieWrapper = styled.div`
+
+//   width: 100%;
+//   height: 100%;
+//   &:hover {
+//     background: var(--main);
+//     position: absolute;
+//     top: 80%;
+//     left: 50%;
+//     width: 300px;
+//     height: 400px;
+//     -webkit-translate(-50%, -50%);
+//     transform: translate(-50%, -50%);
+//     -webkit-animation: ${scroll} 2.5s infinite;
+//     animation: ${scroll} 2.8s infinite;
+//   }
+// `;
+
+
+  // p, p2 {
+  //   position: absolute;
+  //   top: 80%;
+  //   left: 50%;
+  //   width: 300px;
+  //   height: 400px;
+  //   -webkit-translate(-50%, -50%);
+  //   transform: translate(-50%, -50%);
+  //   -webkit-animation: ${scroll} 2.5s infinite;
+  //   animation: ${scroll} 2.8s infinite;
+  // }
 
 // const Card = styled.div`
 
@@ -125,11 +179,15 @@ const MovieContent = styled.div`
 
 const MovieButton = styled.button`
 
-  margin-top: 1rem auto;
+  margin-top: 1.3rem auto;
+
   border: 1px solid;
   border-color: #ffffff;
+  border-radius: 0.1em;
+
   color: #ffffff;
   background-color: transparent;
+  opacity: 0.5;
 
 `
 
