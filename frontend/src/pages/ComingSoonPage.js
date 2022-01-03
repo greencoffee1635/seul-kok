@@ -24,14 +24,12 @@ const ComingSoonPage = () => {
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
 
-
-
-
     </SectionWrapper>
   )
 }
 
 const SectionWrapper = styled.div`
+  margin: 0;
   background: radial-gradient(
     60% 55% at 50% 8%,
     #2f1316 0%,
@@ -45,6 +43,8 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+
+  position: relative;
 
   `;
 

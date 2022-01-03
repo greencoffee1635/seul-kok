@@ -120,7 +120,7 @@ const StartButton = styled.button`
   span {
     font-weight: bold;
   }
-  
+
   &:hover {
     background: linear-gradient(
       to right,
