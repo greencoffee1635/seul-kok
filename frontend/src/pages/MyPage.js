@@ -14,14 +14,14 @@ const MyPage = () => {
     <Template>
       <Header page="main" />
       <Layout>
-        <Grid width="30%" is_flex="space-between">
+        <Grid width="35rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
             <Title>구독내역</Title>
             <Text>최근 6개월간 ________을 가장 많이 이용하셨습니다.</Text>
           </Grid>
         </Grid>
 
-        <Grid width="30%">
+        <Grid width="35rem">
           <Title>구독관리</Title>
           <Wrapper></Wrapper>
         </Grid>

@@ -17,7 +17,7 @@ const cards = [...new Array(10)].map((x, i) => ({
 
 const PickPosterPage = () => {
   const child = { width: '200px', height: '320px' };
-  const parent = { width: '592px', height: '689px' };
+  const parent = { width: '800px', height: '689px' };
   return (
     <Template>
       <Header />
@@ -30,7 +30,7 @@ const PickPosterPage = () => {
           </Grid>
         </Grid>
 
-        <Grid width="40rem">
+        <Grid width="50rem">
           <Wrapper style={parent}>
             <HorizontalScroll
               style={{ overflow: 'scroll hidden' }}
@@ -73,8 +73,8 @@ const Wrapper = styled.div`
     &::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.3);
       border-radius: 6px;
-    } */
-  }
+    }
+  } */
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
   }

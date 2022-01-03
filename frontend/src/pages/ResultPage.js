@@ -17,7 +17,7 @@ const cards = [...new Array(10)].map((x, i) => ({
 
 const ResultPage = () => {
   const child = { width: '200px', height: '320px' };
-  const parent = { width: '720px', height: '689px' };
+  const parent = { width: '880px', height: '689px' };
   return (
     <Template>
       <Header page="main" />
@@ -30,7 +30,7 @@ const ResultPage = () => {
           </Grid>
         </Grid>
 
-        <Grid width="45rem">
+        <Grid width="55rem">
           <Wrapper style={parent}>
             <HorizontalScroll
               pageLock={true}
@@ -71,7 +71,7 @@ const Text = styled.p`
 `;
 
 const Wrapper = styled.div`
-  max-width: 40rem;
+  /* max-width: 40rem; */
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;

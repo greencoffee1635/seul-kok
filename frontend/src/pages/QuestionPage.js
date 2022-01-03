@@ -28,7 +28,7 @@ const QuestionPage = () => {
           </Grid>
         </Grid>
 
-        <Grid width="39rem">
+        <Grid width="45rem">
           <Scroll>
             <Text>Q1. 혼자 칠링타임이 주어졌을 때 보고싶은 소재</Text>
             <Wrapper>
