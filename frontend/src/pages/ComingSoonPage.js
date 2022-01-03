@@ -58,7 +58,7 @@ const MainContent = styled.div`
   font-size: 2.8rem;
   line-height: 3.8rem;
   color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;

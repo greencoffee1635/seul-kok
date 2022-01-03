@@ -1,49 +1,49 @@
 
 
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 
 const MovieCard = () => {
   return (
     <MainScetion>
       <Card>
         <MovieIntro>
-          <h4>제작사</h4>
-          <h3>영화 이름</h3>
+          <h4>NEXFLIX</h4>
         </MovieIntro>
         <MovieContent>
-          <p>줄거리 간략하게 조잘조잘 어쩌고 저쩌고</p>
+          <h3>Arcane: League of Legends</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+          <MovieButton>자세히보기</MovieButton>
         </MovieContent>
       </Card>
       <Card>
         <MovieIntro>
-          <h4>제작사</h4>
-          <h3>영화 이름</h3>
+          <h4>WATCHA</h4>
         </MovieIntro>
         <MovieContent>
-          <p>줄거리 간략하게 조잘조잘 어쩌고 저쩌고</p>
+          <h3>Arcane: League of Legends</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+          <MovieButton>자세히보기</MovieButton>
         </MovieContent>
       </Card>
       <Card>
         <MovieIntro>
-          <h4>제작사</h4>
-          <h3>영화 이름</h3>
+          <h4>TVING</h4>
         </MovieIntro>
         <MovieContent>
-          <p>줄거리 간략하게 조잘조잘 어쩌고 저쩌고</p>
+          <h3>Arcane: League of Legends</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+          <MovieButton>자세히보기</MovieButton>
         </MovieContent>
       </Card>
       <Card>
         <MovieIntro>
-          <h4>제작사</h4>
-          <h3>영화 이름</h3>
+          <h4>DISNEYPLUS</h4>
         </MovieIntro>
         <MovieContent>
-          <p>줄거리 간략하게 조잘조잘 어쩌고 저쩌고</p>
+          <p>Arcane: League of Legends</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+          <MovieButton>자세히보기</MovieButton>
         </MovieContent>
       </Card>
     </MainScetion>
@@ -52,7 +52,7 @@ const MovieCard = () => {
 
 const MainScetion = styled.div`
 
-  margin-top: 500px;
+  margin-top: 300px;
   margin: auto;
 
   width: 85%;
@@ -70,12 +70,9 @@ const Card = styled.div`
   margin: auto;
   width: 300px;
   height: 420px;
-  background-color: var(--main);
-
+  background-color: var(--deepdarkred);
   text-align: left;
-
-
-`
+`;
 
 const MovieIntro = styled.div`
 
@@ -87,10 +84,21 @@ const MovieIntro = styled.div`
 const MovieContent = styled.div`
 
   margin-left: 1rem;
-  margin-top: 6rem;
+  margin-top: 11rem;
   font-size: 1rem;
   color: #ffffff
 
   `
+
+
+const MovieButton = styled.button`
+
+  margin-top: 1rem auto;
+  border: 1px solid;
+  border-color: #ffffff;
+  color: #ffffff;
+  background-color: transparent;
+
+`
 
 export default MovieCard;
