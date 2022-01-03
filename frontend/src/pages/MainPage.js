@@ -1,12 +1,13 @@
-import React  from 'react';
-import styled from 'styled-components';
-
+import React from 'react';
+import styled, {keyframes} from 'styled-components';
 
 // import { Grid } from '@mui/material';
 
 // components
 import Header from '../components/Header';
 import useMotion from '../utils/useMotion';
+import ComingSoonPage from './ComingSoonPage';
+
 // import Layout from '../components/Layout';
 
 
@@ -15,12 +16,12 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 
 const MainPage = () => {
 
-
   return (
+    <>
 
     <MainScreen>
         <MainVideo loop autoPlay>
-          <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
+          <source src={process.env.PUBLIC_URL + `/video/video5.mp4`} type="video/mp4" />
         </MainVideo>
 
         <Header page="main" />
@@ -29,35 +30,42 @@ const MainPage = () => {
             <p style={{fontSize: '20px', color: '#ffffff'}}><b>액션/아케이드</b></p>
             <p2 style={{fontSize: '40px', color: 'var(--main)'} }>Arcane: League of Legends</p2>
             <p style={{color: '#ffffff'}}>모든 전설엔 시작이 있다. 《리그 오브 레전드》 제작진이 만든 새로운 애니메이션 시리즈 《아케인》. 레전드가 된 두 챔피언과 전운에 가득 뒤덮인 한 도시의 시작을 따라간다.</p>
-            <StartButton><span>이달의 OTT 추천받기</span></StartButton>
+
           </MainItem>
 
+          <ScrollImage>
+            <span></span>
+          </ScrollImage>
 
-          {/* <Grid width="20rem" is_flex="space-between">
-            <Item>
-
-                <p dark {...useMotion('down', 2, 0.5)} >이번 달은<br/> <span style={{color: 'var(--main)'}}>어떤 사이트</span> 를<br/> <span style={{color: 'var(--main)'}}>구독</span>해야할지 <br/> <span style={{color: 'var(--main)'}}>고민</span>되시죠?</p>
-                <StartButton><span>추천받기</span></StartButton>
-
-            </Item>
-          </Grid> */}
-        {/* <img src={process.env.PUBLIC_URL + `/image/image2.jpg`} alt="" /> */}
-
-
+          <ComingSoonPage />
 
     </MainScreen>
+
+  </>
 
 
   );
 };
 
-
+const scroll = keyframes`
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+`;
 
 const MainScreen = styled.div`
   width: 100%;
-  height: 100vh;
-  background: black;
-  position: fixed;
+  height: 1000vh;
+  background-color: black;
+  display: flex;
 `;
 
 
@@ -85,49 +93,26 @@ const MainItem = styled.div`
   `;
 
 
-// const ItemContent = styled.div`
-//   margin-top: 65%;
-//   p, p2 {
-//     color: #ffffff;
-//   }
-// `
-// const ItemTitle = styled.div`
-//   font-size: 330%;
-//   text-align: right;
-//   p, p2 {
-//     font-weight: bold;
-//     color: #ffffff;
-//   }
-// `
+  const ScrollImage = styled.div`
 
-const StartButton = styled.button`
+  width: 100%;
+  align-items: center;
 
-  text-align: center;
-  cusor: pointer;
-
-  width: 13rem;
-  height: 3rem;
-  margin-top: 20px;
-
-  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
-  border-radius: 50em;
-  border: none;
-
-  color: #ffffff;
-  font-style: normal;
-  font-wight: bold;
-  font-size: 1.2rem;
   span {
-    font-weight: bold;
-  }
-
-  &:hover {
-    background: linear-gradient(
-      to right,
-      var(--main), #5a292f
-    );
-
-`
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: -12px;
+    border-left: 2px solid var(--main);
+    border-bottom: 2px solid var(--main);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: ${scroll} 2.0s infinite;
+    animation: ${scroll} 2.0s infinite;
+    box-sizing: border-box;
+`;
 
 
 export default MainPage;

@@ -10,9 +10,9 @@ import MainPage from '../pages/MainPage';
 import QuestionPage from '../pages/QuestionPage';
 import PickPosterPage from '../pages/PickPosterPage';
 import ResultPage from '../pages/ResultPage';
-import ComingSoonPage from '../pages/ComingSoonPage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
+
 
 function App() {
   return (
@@ -22,7 +22,6 @@ function App() {
         <BrowserRouter>
           <Route exact path="/" component={IntroPage} />
           <Route exact path="/main" component={MainPage} />
-          <Route exact path="/comingsoon" component={ComingSoonPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/question" component={QuestionPage} />

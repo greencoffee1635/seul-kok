@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // import styled, { keyframes } from 'styled-components';
 // import { Link } from 'react-scroll';
 
-const IntroPage = (props) => {
+const IntroPage = (props, swiper) => {
   return (
     <SectionWrapper>
 
@@ -22,15 +22,16 @@ const IntroPage = (props) => {
 
         </MainContent>
 
-        <Link to="/login" >
+        <Link to="/main" style={{textDecoration: 'none'}}>
           <ButtonWrapper>
             <StartButton><p2>START</p2></StartButton>
           </ButtonWrapper>
         </Link>
 
-        <Link to="/main" >
-          <ScrollDiv>슬콕 시작하기</ScrollDiv>
-        </Link>
+
+        <a href="/signup"
+            style={{color:'#e8384c', textDecoration: 'none'}}><p>Sign up</p></a>
+
 
     </SectionWrapper>
 
@@ -38,27 +39,7 @@ const IntroPage = (props) => {
 }
 
 
-// const scroll = keyframes`
-//     0% {
-//       transform: rotate(-45deg) translate(0, 0);
-//       opacity: 0;
-//     }
-//     50% {
-//       opacity: 1;
-//     }
-//     100% {
-//       transform: rotate(-45deg) translate(-20px, 20px);
-//       opacity: 0;
-//     }
-// `;
 
-export const ScrollDiv = styled.div`
-  position: relative;
-  color: var(--main);
-  margin: 2rem auto 0;
-  text-align: center;
-  cursor: pointer;
-`;
 
 // @media screen and (max-width: 480px) {
 //   margin: 1rem auto;
@@ -83,6 +64,11 @@ const SectionWrapper = styled.div`
 
   text-align: center;
   justify-content: center;
+
+  p {
+    color: var(--main);
+    font-family: noal;
+  }
 
   `;
 
@@ -121,7 +107,7 @@ const StartButton = styled.button`
   border-radius: 50em;
   border: none;
   background: linear-gradient(to right, var(--main), #5a292f);
-  
+
 
   color: #ffffff;
   font-style: normal;
