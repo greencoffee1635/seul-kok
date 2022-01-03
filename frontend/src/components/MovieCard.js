@@ -11,10 +11,10 @@ const MovieCard = () => {
     <MainScetion>
       <Card>
         <MovieIntro>
-          <h4>NEXFLIX</h4>
+          <p2>NEXFLIX</p2>
         </MovieIntro>
         <MovieContent>
-          <h3>Arcane: League of Legends</h3>
+          <p2>Arcane: League of Legends</p2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
           <MovieButton>자세히보기</MovieButton>
         </MovieContent>
@@ -25,30 +25,30 @@ const MovieCard = () => {
       </Card>
       <Card>
         <MovieIntro>
-          <h4>WATCHA</h4>
+          <p2>WATCHA</p2>
         </MovieIntro>
         <MovieContent>
-          <h3>Arcane: League of Legends</h3>
+          <p2>Arcane: League of Legends</p2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
           <MovieButton>자세히보기</MovieButton>
         </MovieContent>
       </Card>
       <Card>
         <MovieIntro>
-          <h4>TVING</h4>
+          <p2>TVING</p2>
         </MovieIntro>
         <MovieContent>
-          <h3>Arcane: League of Legends</h3>
+          <p2>Arcane: League of Legends</p2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
           <MovieButton>자세히보기</MovieButton>
         </MovieContent>
       </Card>
       <Card>
         <MovieIntro>
-          <h4>DISNEYPLUS</h4>
+          <p2>DISNEYPLUS</p2>
         </MovieIntro>
         <MovieContent>
-          <p>Arcane: League of Legends</p>
+          <p2>Arcane: League of Legends</p2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
           <MovieButton>자세히보기</MovieButton>
         </MovieContent>
@@ -80,16 +80,37 @@ const Card = styled.div`
 
   text-align: left;
 
-  background-color: var(--deepdarkred);
-  background-image: url(https://source.unsplash.com/random);
-  background-size: contain;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 0) 10%,
+    rgba(20, 20, 20, 0.20) 20%,
+    rgba(20, 20, 20, 0.8) 80%,
+    rgba(20, 20, 20, 0.9) 90%,
+    rgba(20, 20, 20, 1) 100%
+  ), url(https://source.unsplash.com/random);
+background-size: contain;
 `;
+
+// const Card = styled.div`
+
+//   margin: auto;
+//   width: 300px;
+//   height: 420px;
+
+//   text-align: left;
+
+//   background-color: var(--deepdarkred);
+//   background-image: url(https://source.unsplash.com/random);
+//   background-size: contain;
+// `;
 
 
 const MovieIntro = styled.div`
 
   margin-left: 1rem;
-  color: #ffffff;
+  margin-top: 1rem;
+  color: var(--main);
+  font-weight: 500;
 `;
 
 const MovieContent = styled.div`
