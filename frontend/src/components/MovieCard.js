@@ -107,10 +107,12 @@ const Card = styled.div`
     rgba(20, 20, 20, 1) 100%
   ), url(https://source.unsplash.com/random);
   background-size: contain;
-  &:hover {
-    background: var(--main); };
-    border-color: #ffffff;
 
+  &:hover {
+    background: rgba(242, 38, 62, 0.57);
+    border: 3px solid;
+    border-color: var(--darkred);
+  };
 
   `;
 
