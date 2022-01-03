@@ -8,8 +8,8 @@ export const logo = css`
 
 // Header Menu
 export const head_1 = css`
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 400;
 `;
 
 // QuestionPage Title
