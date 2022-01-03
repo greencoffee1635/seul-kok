@@ -33,8 +33,12 @@ const PickPosterPage = () => {
         <Grid width="50rem">
           <Wrapper style={parent}>
             <HorizontalScroll
+              // pageLock={true}
+              // reverseScroll={true}
               style={{ overflow: 'scroll hidden' }}
               config={{ stiffness: 100, damping: 50 }}
+              className={'scrollbar'}
+              // animValues={int}
             >
               <CardGrid>
                 {cards.map((card) => (
@@ -64,17 +68,18 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
-  /* :first-child {
+  .scrollbar {
     &::-webkit-scrollbar {
       height: 8px;
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.4);
     }
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.3);
-      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 2px;
     }
-  } */
+    width: 80%;
+  }
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
   }

@@ -6,6 +6,7 @@ const Template = ({ children }) => {
 };
 
 const Main = styled.main`
+  width: 100%;
   padding-top: 10rem;
   background: radial-gradient(
       60% 55% at 50% 8%,
@@ -13,7 +14,6 @@ const Main = styled.main`
       var(--black) 100%
     ),
     var(--violet);
-  width: 100%;
   min-height: calc(100vh - 100px);
 `;
 
