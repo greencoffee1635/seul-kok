@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // import styled, { keyframes } from 'styled-components';
 // import { Link } from 'react-scroll';
 
-const IntroPage = (props) => {
+const IntroPage = (props, swiper) => {
   return (
     <SectionWrapper>
 
@@ -22,13 +22,16 @@ const IntroPage = (props) => {
 
         </MainContent>
 
-        <ButtonWrapper>
-          <StartButton><p2>START</p2></StartButton>
-        </ButtonWrapper>
-
-        <Link to="/main" style={{ textDecoration: 'none' }} >
-          <ScrollDiv>슬콕 시작하기</ScrollDiv>
+        <Link to="/main" style={{textDecoration: 'none'}}>
+          <ButtonWrapper>
+            <StartButton><p2>START</p2></StartButton>
+          </ButtonWrapper>
         </Link>
+
+
+        <a href="/login"
+            style={{color:'#e8384c', textDecoration: 'none', fontSize: '0.8rem'}}><p>슬기롭게 콕 LogIn</p></a>
+
 
     </SectionWrapper>
 
@@ -36,31 +39,12 @@ const IntroPage = (props) => {
 }
 
 
-// const scroll = keyframes`
-//     0% {
-//       transform: rotate(-45deg) translate(0, 0);
-//       opacity: 0;
-//     }
-//     50% {
-//       opacity: 1;
-//     }
-//     100% {
-//       transform: rotate(-45deg) translate(-20px, 20px);
-//       opacity: 0;
-//     }
-// `;
 
-export const ScrollDiv = styled.div`
-  position: relative;
-  color: var(--main);
-  margin: 2rem auto 0;
-  text-align: center;
-  cursor: pointer;
-  @media screen and (max-width: 480px) {
-    margin: 1rem auto;
-    padding-top: 0;
-  }
-`;
+
+// @media screen and (max-width: 480px) {
+//   margin: 1rem auto;
+//   padding-top: 0;
+// }
 
 //가로, 세로, 중앙
 
@@ -80,6 +64,10 @@ const SectionWrapper = styled.div`
 
   text-align: center;
   justify-content: center;
+
+  p {
+    font-family: noal;
+  }
 
   `;
 
@@ -108,26 +96,33 @@ const ButtonWrapper = styled.div`
 const StartButton = styled.button`
   display: inline;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   align-items: center;
 
   width: 7.5rem;
   height: 3.2rem;
 
-  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
   border-radius: 50em;
   border: none;
+  background: var(--main);
+
 
   color: #ffffff;
   font-style: normal;
   font-weight: bold;
   font-size: 1.5rem;
   &:hover {
-    color: #671d25;
+    color: var(--black);
   }
+
+
+
 
   margin-top: 40px;
 `
+
+// background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
 
 
 export default IntroPage

@@ -2,14 +2,14 @@ import { css } from 'styled-components';
 
 // 로고
 export const logo = css`
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   font-weight: 700;
 `;
 
 // Header Menu
 export const head_1 = css`
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 // QuestionPage Title
@@ -22,6 +22,17 @@ export const head_2 = css`
 export const head_3 = css`
   font-size: 2.5rem;
   font-weight: 600;
+`;
+
+export const head_4 = css`
+  font-size: 2.8rem;
+  line-height: 3.8rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  p2 {
+    font-size: 3.6rem;
+    margin-top: 5px;
+  };
 `;
 
 // QuestionPage Questions
