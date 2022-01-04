@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal';
 
 // components
-import Header from '../components/Header';
+import Header2 from '../components/Header2';
 import Grid from '../components/Grid';
 import Template from '../components/Template';
 import Layout from '../components/Layout';
@@ -17,10 +17,10 @@ const cards = [...new Array(10)].map((x, i) => ({
 
 const ResultPage = () => {
   const child = { width: '200px', height: '320px' };
-  const parent = { width: '880px', height: '689px' };
+  const parent = { width: '500px', height: '689px' };
   return (
     <Template>
-      <Header page="main" />
+      <Header2 page="main" />
       <Layout>
         <Grid width="32rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
@@ -30,7 +30,7 @@ const ResultPage = () => {
           </Grid>
         </Grid>
 
-        <Grid width="55rem">
+        <Grid width="32rem">
           <Wrapper style={parent}>
             <HorizontalScroll
               // pageLock={true}
