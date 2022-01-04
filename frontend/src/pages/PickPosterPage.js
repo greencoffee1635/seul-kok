@@ -10,14 +10,14 @@ import Layout from '../components/Layout';
 
 import { head_2 } from '../shared/textStyle';
 
-// const cards = [...new Array(10)].map((x, i) => ({
-//   name: `card ${i}`,
-//   img: 'https://source.unsplash.com/random',
-// }));
+const cards = [...new Array(10)].map((x, i) => ({
+  name: `card ${i}`,
+  img: 'https://source.unsplash.com/random',
+}));
 
 const PickPosterPage = () => {
   const child = { width: '200px', height: '320px' };
-  const parent = { width: '592px', height: '689px' };
+  const parent = { width: '800px', height: '689px' };
   return (
     <Template>
       <Header />
@@ -30,52 +30,23 @@ const PickPosterPage = () => {
           </Grid>
         </Grid>
 
-        <Grid width="40rem">
+        <Grid width="50rem">
           <Wrapper style={parent}>
-            <HorizontalScroll pageLock={true} reverseScroll={true}>
+            <HorizontalScroll
+              // pageLock={true}
+              // reverseScroll={true}
+              style={{ overflow: 'scroll hidden' }}
+              config={{ stiffness: 100, damping: 50 }}
+              className={'scrollbar'}
+              // animValues={int}
+            >
               <CardGrid>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://source.unsplash.com/random"
-                    alt="cardimg"
-                    style={child}
-                  />
-                </div>
+                {cards.map((card) => (
+                  <div>
+                    <img src={card.img} style={child} alt="cardimg" />
+                    {/* <p>{card.name}</p> */}
+                  </div>
+                ))}
               </CardGrid>
             </HorizontalScroll>
           </Wrapper>
@@ -94,10 +65,21 @@ const Title = styled.h2`
 `;
 
 const Wrapper = styled.div`
-  max-width: 40rem;
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
+  .scrollbar {
+    &::-webkit-scrollbar {
+      height: 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 2px;
+    }
+    width: 80%;
+  }
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
   }
@@ -107,7 +89,7 @@ const CardGrid = styled.div`
   display: grid !important;
   grid-template-rows: auto auto;
   grid-auto-flow: column;
-  > div {
+  & div {
     margin-right: 20px;
   }
 `;

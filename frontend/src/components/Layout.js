@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
 
 const LayoutForm = styled.section`
   display: flex;
-  margin: 0 10rem 0 10rem;
+  margin: 0 12rem 0 12rem;
   box-sizing: border-box;
   justify-content: space-between;
   ${({ theme }) => theme.device.mobile} {

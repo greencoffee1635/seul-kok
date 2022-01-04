@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     /* letter-spacing: -0.015em; */
     }
 
-    body{
+    body {
         margin: 0;
         padding: 0;
     }
