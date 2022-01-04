@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
 
 // components
 import { logo } from '../shared/textStyle';
 
 const Logo = (props) => {
+  const { history } = props;
+
   return (
     <LogoWrap
       onClick={() => {
-        props.history.push('/');
+        history.push('/');
       }}
     >
       {LogoTitle}
