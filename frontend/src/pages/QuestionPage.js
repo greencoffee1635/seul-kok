@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 // components
 import Header from '../components/Header';
@@ -15,7 +15,23 @@ import {
   sub_2_mobile,
 } from '../shared/textStyle';
 
-const QuestionPage = () => {
+const scroll = keyframes`
+0% {
+  transform: rotate(-45deg) translate(0, 0);
+  opacity: 0;
+}
+50% {
+  opacity: 1;
+}
+100% {
+  transform: rotate(-45deg) translate(-20px, 20px);
+  opacity: 0;
+}
+`;
+
+const QuestionPage = (props) => {
+  const { history } = props;
+
   return (
     <Template>
       <Header />
@@ -53,9 +69,36 @@ const QuestionPage = () => {
           </Scroll>
         </Grid>
       </Layout>
+
+      <ArrowWrapper
+        onClick={() => {
+          history.push('/question2');
+          // swiper.slideTo(0);
+          // window.scrollTo(0, 0, 'smooth');
+        }}
+      >
+        <span></span>
+      </ArrowWrapper>
     </Template>
   );
 };
+
+export const ArrowWrapper = styled.div`
+  padding-top: 5rem;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  span {
+    width: 0px;
+    height: 0px;
+    border-radius: 2px 2px 2px 0;
+    border-bottom: 40px solid var(--main);
+    border-right: 40px solid transparent;
+    /* -webkit-animation: ${scroll} 1.5s infinite; */
+    animation: ${scroll} 1.5s infinite;
+  }
+`;
 
 const Title = styled.h2`
   ${head_2}
