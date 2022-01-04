@@ -109,9 +109,17 @@ const Card = styled.div`
   background-size: contain;
 
   &:hover {
-    background: rgba(216, 14, 27, 0.44);
-    border: 3.5px solid;
-    border-color: var(--darkred);
+    background: linear-gradient(
+      to bottom,
+      rgba(216, 14, 27, 0.1) 10%,
+      rgba(216, 14, 27, 0.3) 30%,
+      rgba(242, 39, 62, 0.5) 50%,
+      rgba(242, 39, 62, 0.7) 70%,
+      rgba(242, 39, 62, 1) 100%
+    );
+    background-size: contain;
+    border: 3px solid;
+    border-color: var(--main);
   };
 
   `;
