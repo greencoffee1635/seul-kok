@@ -2,14 +2,14 @@ import { css } from 'styled-components';
 
 // 로고
 export const logo = css`
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   font-weight: 700;
 `;
 
 // Header Menu
 export const head_1 = css`
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 // QuestionPage Title
