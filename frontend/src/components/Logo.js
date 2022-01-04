@@ -26,4 +26,4 @@ const LogoWrap = styled.header`
   cursor: pointer;
 `;
 
-export default withRouter(Logo);
+export default Logo;
