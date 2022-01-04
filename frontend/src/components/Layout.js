@@ -11,21 +11,20 @@ const Layout = ({ children }) => {
 
 const Container = styled.section`
   display: flex;
-  /* position: fixed; */
   justify-content: center !important;
+  /* position: fixed; */
 `;
 
 const LayoutForm = styled.div`
+  width: 1400px;
+  display: flex !important;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top: 5rem;
   /* display: flex; */
   /* margin: 0 12rem 0 12rem; */
   /* top: 0; */
-  padding-top: 5rem;
-  width: 1400px;
-  box-sizing: border-box;
-  display: flex !important;
   /* flex-direction: row; */
-
-  justify-content: space-between;
   ${({ theme }) => theme.device.mobile} {
     flex-direction: column;
     flex-wrap: wrap;
