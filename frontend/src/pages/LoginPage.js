@@ -34,12 +34,12 @@ const LoginPage = () => {
             <LoginForm>
               <Link to="/main">
                 <FormButton>
-                  <b style={{ color: '#55ca6c' }}>NAVER</b>LogIn
+                  <b style={{ color: '#55ca6c' }}>NAVER</b>로 로그인
                 </FormButton>
               </Link>
               <Link to="/main">
                 <FormButton>
-                  <b style={{ color: '#f9e14c' }}>Kakao</b>LogIn
+                  <b style={{ color: '#f9e14c' }}>Kakao</b>로 로그인
                 </FormButton>
               </Link>
               <div>
@@ -120,7 +120,7 @@ const FormButton = styled.button`
 
   margin-bottom: 20px;
 
-  width: 65%;
+  width: 68%;
   height: 40px;
 
   background-color: rgba(255, 255, 255, 0.2);
