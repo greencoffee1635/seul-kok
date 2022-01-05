@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-
+import { useHistory } from 'react-router-dom';
 
 //components
 import useMotion from '../utils/useMotion';
@@ -9,9 +9,8 @@ import { head_4 } from '../shared/textStyle';
 import Modal from '../components/Modal';
 
 
-
-const ComingSoonPage = (props) => {
-
+const ComingSoonPage = () => {
+  const history = useHistory();
 
   return (
     <SectionWrapper>
@@ -28,7 +27,7 @@ const ComingSoonPage = (props) => {
       <MovieCard onClick={Modal}>
       </MovieCard>
 
-      <StartButton><span>이달의 OTT 추천받기</span></StartButton>
+      <StartButton type="button" onClick={() => history.push('/question')}><span>이달의 OTT 추천받기</span></StartButton>
 
 
     </SectionWrapper>

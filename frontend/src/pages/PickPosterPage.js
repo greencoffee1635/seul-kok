@@ -10,19 +10,19 @@ import Layout from '../components/Layout';
 
 import { head_2 } from '../shared/textStyle';
 
-const cards = [...new Array(10)].map((x, i) => ({
+const cards = [...new Array(8)].map((x, i) => ({
   name: `card ${i}`,
   img: 'https://source.unsplash.com/random',
 }));
 
 const PickPosterPage = () => {
-  const child = { width: '200px', height: '320px' };
+  const child = { width: '150px', height: '280px' };
   const parent = { width: '800px', height: '689px' };
   return (
     <Template>
       <Header />
       <Layout>
-        <Grid width="37rem" is_flex="space-between">
+        <Grid width="35rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
             <Title>
               주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
@@ -30,16 +30,16 @@ const PickPosterPage = () => {
           </Grid>
         </Grid>
 
-        <Grid width="50rem">
+        <Grid width="38rem">
           <Wrapper style={parent}>
-            <HorizontalScroll
+            {/* <HorizontalScroll
               // pageLock={true}
               // reverseScroll={true}
               style={{ overflow: 'scroll hidden' }}
               config={{ stiffness: 100, damping: 50 }}
               className={'scrollbar'}
               // animValues={int}
-            >
+            > */}
               <CardGrid>
                 {cards.map((card) => (
                   <div>
@@ -48,7 +48,7 @@ const PickPosterPage = () => {
                   </div>
                 ))}
               </CardGrid>
-            </HorizontalScroll>
+            {/* </HorizontalScroll> */}
           </Wrapper>
         </Grid>
       </Layout>
@@ -68,7 +68,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
-  .scrollbar {
+  /* .scrollbar {
     &::-webkit-scrollbar {
       height: 8px;
       border-radius: 6px;
@@ -79,7 +79,7 @@ const Wrapper = styled.div`
       border-radius: 2px;
     }
     width: 80%;
-  }
+  } */
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
   }
