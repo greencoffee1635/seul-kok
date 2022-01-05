@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import HorizontalScroll from 'react-scroll-horizontal';
+// import HorizontalScroll from 'react-scroll-horizontal';
 
 // components
-import Header2 from '../components/Header2';
+import Header from '../components/Header';
 import Grid from '../components/Grid';
 import Template from '../components/Template';
 import Layout from '../components/Layout';
@@ -20,7 +20,7 @@ const ResultPage = () => {
   const parent = { width: '500px', height: '689px' };
   return (
     <Template>
-      <Header2 page="main" />
+      <Header page="main" />
       <Layout>
         <Grid width="32rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
@@ -32,23 +32,23 @@ const ResultPage = () => {
 
         <Grid width="32rem">
           <Wrapper style={parent}>
-            <HorizontalScroll
+            {/* <HorizontalScroll
               // pageLock={true}
               // reverseScroll={true}
               style={{ overflow: 'scroll hidden' }}
               config={{ stiffness: 100, damping: 50 }}
               className={'scrollbar'}
               // animValues={int}
-            >
-              <CardGrid>
-                {cards.map((card) => (
-                  <div>
-                    <img src={card.img} style={child} alt="cardimg" />
-                    {/* <p>{card.name}</p> */}
-                  </div>
-                ))}
-              </CardGrid>
-            </HorizontalScroll>
+            > */}
+            <CardGrid>
+              {cards.map((card) => (
+                <div>
+                  <img src={card.img} style={child} alt="cardimg" />
+                  {/* <p>{card.name}</p> */}
+                </div>
+              ))}
+            </CardGrid>
+            {/* </HorizontalScroll> */}
           </Wrapper>
         </Grid>
       </Layout>

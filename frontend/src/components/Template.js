@@ -7,8 +7,7 @@ const Template = ({ children }) => {
 
 const MainForm = styled.main`
   width: 100%;
-  height: 100%;
-  /* position: fixed; */
+  min-height: calc(120vh - 100px);
   z-index: -1;
   background: radial-gradient(
       60% 55% at 50% 8%,
@@ -16,9 +15,8 @@ const MainForm = styled.main`
       var(--black) 100%
     ),
     var(--violet);
-  min-height: calc(120vh - 100px);
-  ${({ theme }) => theme.device.tablet} {
-    min-height: calc(120vh - 100px);
+  ${({ theme }) => theme.device.mobile} {
+    min-height: calc(140vh - 100px);
   }
 `;
 

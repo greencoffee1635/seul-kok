@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal';
 
 // components
-import Header2 from '../components/Header2';
+import Header from '../components/Header';
 import Grid from '../components/Grid';
 import Template from '../components/Template';
 import Layout from '../components/Layout';
@@ -20,7 +20,7 @@ const PickPosterPage = () => {
   const parent = { width: '800px', height: '689px' };
   return (
     <Template>
-      <Header2 />
+      <Header />
       <Layout>
         <Grid width="35rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">

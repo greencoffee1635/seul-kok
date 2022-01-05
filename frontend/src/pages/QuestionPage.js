@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // components
@@ -15,20 +15,6 @@ import {
   sub_2_mobile,
 } from '../shared/textStyle';
 
-const scroll = keyframes`
-0% {
-  transform: rotate(-45deg) translate(0, 0);
-  opacity: 0;
-}
-50% {
-  opacity: 1;
-}
-100% {
-  transform: rotate(-45deg) translate(-20px, 20px);
-  opacity: 0;
-}
-`;
-
 const QuestionPage = (props) => {
   const { history } = props;
 
@@ -36,7 +22,7 @@ const QuestionPage = (props) => {
     <Template>
       <Header />
       <Layout>
-        <Grid width="37rem" is_flex="space-between">
+        <Grid width="32rem" is_flex="space-between">
           <Grid margin="0 0 5rem 0">
             <Title>
               주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
@@ -44,7 +30,7 @@ const QuestionPage = (props) => {
           </Grid>
         </Grid>
 
-        <Grid width="45rem">
+        <Grid width="38rem">
           <Scroll>
             <Text>Q1. 혼자 칠링타임이 주어졌을 때 보고싶은 소재</Text>
             <Wrapper>
@@ -70,34 +56,33 @@ const QuestionPage = (props) => {
         </Grid>
       </Layout>
 
-      <ArrowWrapper
-        onClick={() => {
-          history.push('/question2');
-          // swiper.slideTo(0);
-          // window.scrollTo(0, 0, 'smooth');
-        }}
-      >
-        <span></span>
-      </ArrowWrapper>
+      <Grid>
+        <Arrow
+          onClick={() => {
+            history.push('/question2');
+            // swiper.slideTo(0);
+            // window.scrollTo(0, 0, 'smooth');
+          }}
+        >
+          <span></span>
+        </Arrow>
+      </Grid>
     </Template>
   );
 };
 
-export const ArrowWrapper = styled.div`
-  padding-top: 5rem;
-  /* text-align: center; */
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  span {
-    width: 0px;
-    height: 0px;
-    border-radius: 2px 2px 2px 0;
-    border-bottom: 40px solid var(--main);
-    border-right: 40px solid transparent;
-    /* -webkit-animation: ${scroll} 1.5s infinite; */
-    animation: ${scroll} 1.5s infinite;
+const scroll = keyframes`
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
   }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+    }
 `;
 
 const Title = styled.h2`
@@ -156,5 +141,47 @@ const Answer = styled.button`
     width: 17rem;
   }
 `;
+
+const Arrow = styled.div`
+  /* padding-top: 5rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center !important;
+  cursor: pointer;
+  span {
+    width: 40px;
+    height: 40px;
+    border-left: 2px solid rgba(242, 38, 62, 0.41);
+    border-bottom: 2px solid rgba(242, 38, 62, 0.41);
+    transform: rotate(-45deg);
+    animation: ${scroll} 2.8s infinite;
+    /* border-radius: 2px 2px 2px 0;
+    border-bottom: 40px solid var(--main);
+    border-right: 40px solid transparent; */
+  }
+`;
+
+// const ArrowWrapper = styled.div`
+//   padding-top: 5rem;
+//   display: flex;
+//   justify-content: center;
+//   //   cursor: pointer;
+//   cursor: pointer;
+//   span {
+//     /* position: absolute; */
+//     top: 88%;
+//     left: 50%;
+//     width: 40px;
+//     height: 40px;
+//     /* margin-left: -12px; */
+//     border-left: 2px solid rgba(242, 38, 62, 0.41);
+//     border-bottom: 2px solid rgba(242, 38, 62, 0.41);
+//     /* -webkit-transform: rotate(-45deg); */
+//     transform: rotate(-45deg);
+//     /* -webkit-animation: ${scroll} 2.5s infinite; */
+//     animation: ${scroll} 2.8s infinite;
+//     box-sizing: border-box;
+//   }
+// `;
 
 export default QuestionPage;

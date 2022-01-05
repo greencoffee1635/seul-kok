@@ -33,7 +33,7 @@ const LayoutForm = styled.div`
   ${({ theme }) => theme.device.mobile} {
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 0 4rem;
+    justify-content: flex-start;
   }
 `;
 
