@@ -4,9 +4,10 @@ import styled, {keyframes} from 'styled-components';
 // import { Grid } from '@mui/material';
 
 // components
-import Header from '../components/Header';
+import MainHeader from '../components/MainHeader';
 import useMotion from '../utils/useMotion';
 import ComingSoonPage from './ComingSoonPage';
+
 
 
 // import Layout from '../components/Layout';
@@ -25,13 +26,12 @@ const MainPage = () => {
           <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
         </MainVideo>
 
-        <Header page="main" />
+        <MainHeader page="main" />
 
           <MainItem>
             <p style={{fontSize: '20px', color: '#ffffff'}}><b>액션/아케이드</b></p>
             <p2 style={{fontSize: '40px', color: 'var(--main)'} }>Arcane: League of Legends</p2>
             <p style={{color: '#ffffff'}}>모든 전설엔 시작이 있다. 《리그 오브 레전드》 제작진이 만든 새로운 애니메이션 시리즈 《아케인》. 레전드가 된 두 챔피언과 전운에 가득 뒤덮인 한 도시의 시작을 따라간다.</p>
-
           </MainItem>
 
           <ScrollImage>

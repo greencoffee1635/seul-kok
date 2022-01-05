@@ -69,7 +69,7 @@ const SectionWrapper = styled.div`
   justify-content: center;
 
   p {
-    font-family: noal;
+    font-family: normal;
   }
 
   `;
