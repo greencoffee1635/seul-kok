@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     // 로고, 메뉴 폰트 적용
-    header, p2, a {
+    header, p2 {
         font-family: 'Black Han Sans';
     }
 `;

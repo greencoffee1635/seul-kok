@@ -42,13 +42,6 @@ const IntroPage = (props) => {
 }
 
 
-
-
-// @media screen and (max-width: 480px) {
-//   margin: 1rem auto;
-//   padding-top: 0;
-// }
-
 //가로, 세로, 중앙
 
 const SectionWrapper = styled.div`
