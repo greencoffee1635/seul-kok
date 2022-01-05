@@ -62,6 +62,7 @@ const MenuItem = styled.li`
   margin-left: 30px;
   cursor: pointer;
   :hover {
+    font-weight: bold;
     color: var(--main);
   }
 `;
