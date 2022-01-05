@@ -48,8 +48,8 @@ const Menus = styled.ul`
   ${head_1}
   color: white;
   display: flex;
-  alignitems: center;
-  font-weight: nomal;
+  align-items: center;
+  font-weight: normal;
 `;
 
 const MenuItem = styled.li`

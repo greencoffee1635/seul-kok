@@ -94,7 +94,7 @@ const Card = styled.div`
   margin: auto;
   width: 300px;
   height: 420px;
-  cusor:pointer;
+  cursor:pointer;
 
   text-align: left;
 
@@ -182,9 +182,9 @@ const MovieContent = styled.div`
   margin-left: 1rem;
   margin-top: 11rem;
   font-size: 1rem;
-  color: #ffffff
+  color: #ffffff;
 
-  `
+  `;
 
 
 const MovieButton = styled.button`

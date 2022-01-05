@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 //components
 import useMotion from '../utils/useMotion';
@@ -10,7 +10,7 @@ import Modal from '../components/Modal';
 
 
 const ComingSoonPage = () => {
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
     <SectionWrapper>
@@ -27,7 +27,9 @@ const ComingSoonPage = () => {
       <MovieCard onClick={Modal}>
       </MovieCard>
 
-      <StartButton type="button" onClick={() => history.push('/question')}><span>이달의 OTT 추천받기</span></StartButton>
+      <StartButton 
+      // type="button" onClick={() => history.push('/question')}
+      ><span>이달의 OTT 추천받기</span></StartButton>
 
 
     </SectionWrapper>
@@ -61,7 +63,7 @@ const MainContent = styled.div`
 const StartButton = styled.button`
 
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
 
   width: 13rem;
   height: 3rem;
@@ -73,7 +75,7 @@ const StartButton = styled.button`
 
   color: #ffffff;
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.2rem;
   span {
     font-weight: bold;
@@ -83,8 +85,8 @@ const StartButton = styled.button`
     color: var(--black);
     background: linear-gradient(
       to right,
-      var(--main), #5a292f
-    );
+      var(--main), #5a292f)
+    }
 
 `
 
