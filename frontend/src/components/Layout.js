@@ -21,7 +21,7 @@ const Container = styled.section`
   display: flex;
   /* width: 1400px; */
   justify-content: center !important;
-  /* padding-top: 4rem; */
+  padding-top: 9rem;
   /* position: fixed; */
 `;
 
@@ -45,9 +45,9 @@ const LayoutForm = styled.div`
 
 const GridLayoutForm = styled.div`
   width: 100%;
-  margin: 0 3rem 0 3rem;
+  margin: 0 3rem 0 9.6rem;
   display: flex;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   box-sizing: border-box;
   padding-top: 5rem;
   ${({ theme }) => theme.device.tablet} {

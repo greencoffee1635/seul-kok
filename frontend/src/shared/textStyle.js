@@ -15,7 +15,8 @@ export const head_1 = css`
 // QuestionPage Title
 export const head_2 = css`
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Black Han Sans';
 `;
 
 // ResultPage Title
@@ -32,7 +33,7 @@ export const head_4 = css`
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;
-  };
+  }
 `;
 
 // QuestionPage Questions
@@ -40,6 +41,7 @@ export const sub_1 = css`
   font-size: 1.8rem;
   font-weight: 500;
 `;
+
 export const sub_1_mobile = css`
   font-size: 1.6rem;
   font-weight: 500;
@@ -47,13 +49,13 @@ export const sub_1_mobile = css`
 
 // QuestionPage Answers
 export const sub_2 = css`
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 500;
 `;
 
 export const sub_2_mobile = css`
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 // ResultPage Text
