@@ -6,9 +6,10 @@ import HorizontalScroll from 'react-scroll-horizontal';
 import Header from '../components/Header';
 import Grid from '../components/Grid';
 import Template from '../components/Template';
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 
 import { head_2 } from '../shared/textStyle';
+import Background from '../components/Background';
 
 const cards = [...new Array(8)].map((x, i) => ({
   name: `card ${i}`,
@@ -19,20 +20,16 @@ const PickPosterPage = () => {
   const child = { width: '150px', height: '280px' };
   const parent = { width: '800px', height: '689px' };
   return (
-    <Template>
-      <Header />
-      <Layout>
-        <Grid width="35rem" is_flex="space-between">
-          <Grid margin="0 0 5rem 0">
-            <Title>
-              주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
-            </Title>
-          </Grid>
+    <Layout>
+      <Grid width="35rem" is_flex="space-between">
+        <Grid margin="0 0 5rem 0">
+          <Title>주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.</Title>
         </Grid>
+      </Grid>
 
-        <Grid width="38rem">
-          <Wrapper style={parent}>
-            {/* <HorizontalScroll
+      <Grid width="38rem">
+        <Wrapper style={parent}>
+          {/* <HorizontalScroll
               // pageLock={true}
               // reverseScroll={true}
               style={{ overflow: 'scroll hidden' }}
@@ -40,19 +37,18 @@ const PickPosterPage = () => {
               className={'scrollbar'}
               // animValues={int}
             > */}
-              <CardGrid>
-                {cards.map((card) => (
-                  <div>
-                    <img src={card.img} style={child} alt="cardimg" />
-                    {/* <p>{card.name}</p> */}
-                  </div>
-                ))}
-              </CardGrid>
-            {/* </HorizontalScroll> */}
-          </Wrapper>
-        </Grid>
-      </Layout>
-    </Template>
+          <CardGrid>
+            {cards.map((card) => (
+              <div>
+                <img src={card.img} style={child} alt="cardimg" />
+                {/* <p>{card.name}</p> */}
+              </div>
+            ))}
+          </CardGrid>
+          {/* </HorizontalScroll> */}
+        </Wrapper>
+      </Grid>
+    </Layout>
   );
 };
 

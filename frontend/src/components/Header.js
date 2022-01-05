@@ -20,13 +20,19 @@ const Header = (props) => {
 };
 
 const NavContainer = styled.nav`
-  z-index: 1;
+  z-index: 99;
+  max-width: 1400px;
+  width: 100%;
+
   display: flex;
   justify-content: center !important;
+  & * {
+    box-sizing: border-box;
+  }
 `;
 
 const NavDiv = styled.div`
-  width: 1400px;
+  width: 100%;
   background-color: transparent;
   margin: 0 3rem 0 3rem;
   padding-top: 3.4rem;

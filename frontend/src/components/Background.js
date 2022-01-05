@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Background = ({ children }) => {
-  return <Bg>{children}</Bg>;
+const Background = () => {
+  return (
+    <div>
+      <Bg />
+    </div>
+  );
 };
 
 const Bg = styled.div`
@@ -16,10 +20,10 @@ const Bg = styled.div`
       var(--black) 100%
     ),
     var(--violet);
-  min-height: calc(100vh - 100px);
+  /* min-height: calc(100vh - 100px);
   ${({ theme }) => theme.device.tablet} {
     min-height: calc(120vh - 100px);
-  }
+  } */
 `;
 
 export default Background;

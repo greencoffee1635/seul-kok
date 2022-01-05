@@ -4,7 +4,7 @@ import styled, {keyframes} from 'styled-components';
 // import { Grid } from '@mui/material';
 
 // components
-import Header from '../components/Header';
+import MainHeader from '../components/MainHeader';
 import useMotion from '../utils/useMotion';
 import ComingSoonPage from './ComingSoonPage';
 
@@ -25,7 +25,7 @@ const MainPage = () => {
           <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
         </MainVideo>
 
-        <Header page="main" />
+        <MainHeader page="main" />
 
           <MainItem>
             <p style={{fontSize: '20px', color: '#ffffff'}}><b>액션/아케이드</b></p>
