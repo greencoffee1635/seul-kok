@@ -63,6 +63,36 @@ const MainContent = styled.div`
 `;
 
 
+// const StartButton = styled.button`
+
+//   text-align: center;
+//   cusor: pointer;
+
+//   width: 13rem;
+//   height: 3rem;
+//   margin-top: 20px;
+
+//   background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
+//   border-radius: 15px;
+//   border: none;
+
+//   color: #ffffff;
+//   font-style: normal;
+//   font-wight: bold;
+//   font-size: 1.2rem;
+//   span {
+//     font-weight: bold;
+//   }
+
+//   &:hover {
+//     color: var(--black);
+//     background: linear-gradient(
+//       to right,
+//       var(--main), #5a292f
+//     );
+
+// `
+
 const StartButton = styled.button`
 
   text-align: center;
@@ -72,11 +102,11 @@ const StartButton = styled.button`
   height: 3rem;
   margin-top: 20px;
 
-  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
-  border-radius: 50em;
-  border: none;
+  background: transparent;
+  border-radius: 15px;
+  border: 2px solid var(--main);
 
-  color: #ffffff;
+  color: var(--main);
   font-style: normal;
   font-wight: bold;
   font-size: 1.2rem;
@@ -85,7 +115,7 @@ const StartButton = styled.button`
   }
 
   &:hover {
-    color: var(--black);
+    color: #ffffff;
     background: linear-gradient(
       to right,
       var(--main), #5a292f

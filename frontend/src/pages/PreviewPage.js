@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 // import { Grid } from '@mui/material';
 
@@ -56,7 +56,9 @@ const PreviewPage = () => {
               </PictureCardContent>
             </PictureCardSection>
 
-            <BackButton><b>뒤로가기</b></BackButton>
+            <Link to="/main" style={{textDecoration: 'none'}}>
+              <BackButton><b>뒤로가기</b></BackButton>
+            </Link>
           </MovieItem>
 
 
@@ -188,22 +190,48 @@ const PictureCardContent = styled.div`
   width: 9rem;
   height: 2.7rem;
 
-  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
-  border-radius: 50em;
-  border: none;
+  background: transparent;
+  border-radius: 12px;
+  border: 2px solid var(--main);
 
-  color: #ffffff;
+  color: var(--main);
   font-style: normal;
   font-wight: bold;
   font-size: 1.2rem;
 
   &:hover {
-    color: var(--black);
+    color: #ffffff;
     background: linear-gradient(
       to right,
       var(--main), #5a292f
     );
 
 `
+
+// const BackButton = styled.button`
+
+// text-align: center;
+// cusor: pointer;
+
+// width: 9rem;
+// height: 2.7rem;
+
+// background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
+// border-radius: 50em;
+// border: none;
+
+// color: #ffffff;
+// font-style: normal;
+// font-wight: bold;
+// font-size: 1.2rem;
+
+// &:hover {
+//   color: var(--black);
+//   background: linear-gradient(
+//     to right,
+//     var(--main), #5a292f
+//   );
+
+// `
 
 export default PreviewPage;

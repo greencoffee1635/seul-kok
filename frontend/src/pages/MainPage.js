@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
+
 // components
 import MainHeader from '../components/MainHeader';
 import useMotion from '../utils/useMotion';
@@ -39,6 +40,7 @@ const MainPage = () => {
           </ScrollImage>
 
           <ComingSoonPage />
+
 
     </MainScreen>
 
@@ -113,6 +115,8 @@ const MainItem = styled.div`
     animation: ${scroll} 2.8s infinite;
     box-sizing: border-box;
 `;
+
+
 
 
 export default MainPage;

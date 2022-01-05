@@ -34,12 +34,12 @@ const LoginPage = () => {
             <LoginForm>
               <Link to="/main">
                 <FormButton>
-                  <b style={{ color: '#55ca6c' }}>NAVER</b>로 로그인
+                  <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
                 </FormButton>
               </Link>
               <Link to="/main">
                 <FormButton>
-                  <b style={{ color: '#f9e14c' }}>Kakao</b>로 로그인
+                  <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
                 </FormButton>
               </Link>
               <div>
