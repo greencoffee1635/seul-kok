@@ -5,7 +5,6 @@ import styled, {keyframes} from 'styled-components';
 
 // components
 import MainHeader from '../components/MainHeader';
-import ComingSoonPage from './ComingSoonPage';
 
 
 // import Layout from '../components/Layout';
@@ -26,30 +25,35 @@ const PreviewPage = () => {
 
         <MainHeader page="previewpage" />
 
-          {/* <ScrollImage>
-            <span></span>
-          </ScrollImage> */}
-
-          <MainItem>
-            <p2 style={{fontSize: '40px', color: 'var(--main)'} }>Arcane: League of Legends</p2>
-          </MainItem>
-
           <MovieItem>
 
-            <p style={{fontSize: '20px', color: '#ffffff'}}><b>영화 줄거리</b></p>
+            <MovieTitle>
+              <p2>Arcane: League of Legends</p2>
+            </MovieTitle>
 
-            <p style={{color: '#ffffff'}}>모든 전설엔 시작이 있다. 《리그 오브 레전드》 제작진이 만든 새로운 애니메이션 시리즈 《아케인》. 레전드가 된 두 챔피언과 전운에 가득 뒤덮인 한 도시의 시작을 따라간다.</p>
-              <span style={{color: '#ffffff'}}><b>개봉일</b>: 2021년 11월 7일</span> &emsp;
-              <span style={{color: '#ffffff'}}><b>출연진</b>: 징크스, 바이, 케이틀린, 제이스 등</span> &emsp;
-              <span style={{color: '#ffffff'}}><b>상영시간</b>: 에피소드 1~7편, 총 6시간 45분</span>
+            <MovieItemTitle>
+              <p><b>영화 줄거리</b></p>
+            </MovieItemTitle>
 
-
-            <p style={{fontSize: '20px', color: '#ffffff'}}><b>관련영상</b></p>
+            <MovieItemIntro>
+              <p>모든 전설엔 시작이 있다. 《리그 오브 레전드》 제작진이 만든 새로운 애니메이션 시리즈 《아케인》. 레전드가 된 두 챔피언과 전운에 가득 뒤덮인 한 도시의 시작을 따라간다.</p>
+              <IntroSection>
+                <p><b>개봉일</b> 2021년 11월 7일</p>
+                <p><b>장르</b> 아케이드</p>
+                <p><b>출연진</b> 징크스, 바이, 케이틀린, 제이스 등</p>
+                <p><b>상영시간</b> 에피소드 1~7편, 총 6시간 45분</p>
+              </IntroSection>
+            </MovieItemIntro>
 
             <PictureCardSection>
-              <PictureCard></PictureCard>
-              <PictureCard></PictureCard>
-              <PictureCard></PictureCard>
+              <PictureCardTitle>
+                <p><b>관련영상</b></p>
+              </PictureCardTitle>
+              <PictureCardContent>
+                <PictureCard></PictureCard>
+                <PictureCard></PictureCard>
+                <PictureCard></PictureCard>
+              </PictureCardContent>
             </PictureCardSection>
 
           </MovieItem>
@@ -99,28 +103,13 @@ const MainVideo = styled.video`
 
 
 
-const MainItem = styled.div`
-
-  margin: 0;
-
-  width: 1010px;
-  top: 80%;
-
-  text-align: center;
-
-    span {
-      b {
-        color: var(--main);
-      }
-    };
-  `;
 
 const MovieItem = styled.div`
 
 margin: 0 auto;
 
 width: 1010px;
-top: 100%;
+top: 90%;
 left: 15%;
 
 text-align: left;
@@ -135,18 +124,55 @@ position: absolute;
 `;
 
 
-const PictureCardSection = styled.div`
-  width: 1010px;
-  height: 250px;
+const MovieTitle = styled.p`
+  font-size: 45px;
+  color: var(--main);
+`;
 
-  display: flex;
+const MovieItemTitle = styled.p`
+  font-size: 30px;
+  color: #ffffff;
+`;
+
+const MovieItemIntro = styled.p`
+  color: #ffffff;
+`;
+
+const IntroSection = styled.div`
+  width: 1010px;
+  margin-top: 50px;
+  b {
+    color: var(--main);
+  }
+`;
+
+
+
+const PictureCardSection = styled.div`
+
+  margin-top: 100px;
+  width: 1010px;
+  height: 700px;
+
   justify-content: space-between;
 
-  cursor: pointer;
   `;
 
-  const PictureCard = styled.div`
+const PictureCardTitle = styled.p`
+  font-size: 30px;
+  color: #ffffff;
+`;
 
+
+const PictureCardContent = styled.div`
+  display: flex;
+  cursor: pointer;
+`;
+
+
+
+
+  const PictureCard = styled.div`
 
   margin: auto;
   width: 328px;
