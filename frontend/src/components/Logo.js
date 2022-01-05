@@ -11,7 +11,7 @@ const Logo = () => {
   return (
     <LogoWrap
       onClick={() => {
-        history.push('/');
+        history.push('/main');
       }}
     >
       {LogoTitle}
