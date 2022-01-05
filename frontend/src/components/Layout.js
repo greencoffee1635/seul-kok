@@ -17,6 +17,14 @@ export const GridLayout = ({ children }) => {
   );
 };
 
+export const CenterLayout = ({ children }) => {
+  return (
+    <Container>
+      <CenterLayoutForm>{children}</CenterLayoutForm>
+    </Container>
+  );
+};
+
 const Container = styled.section`
   display: flex;
   /* width: 1400px; */
@@ -47,7 +55,7 @@ const GridLayoutForm = styled.div`
   width: 100%;
   margin: 0 3rem 0 9.6rem;
   display: flex;
-  justify-content: flex-start !important;
+  justify-content: flex-start;
   box-sizing: border-box;
   padding-top: 5rem;
   ${({ theme }) => theme.device.tablet} {
@@ -56,6 +64,23 @@ const GridLayoutForm = styled.div`
   ${({ theme }) => theme.device.mobile} {
     width: 100%;
     flex-direction: column;
+    flex-wrap: wrap;
+  }
+`;
+
+const CenterLayoutForm = styled.div`
+  width: 100%;
+  /* margin: 0 3rem 0 9.6rem; */
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
+  flex-direction: column;
+  ${({ theme }) => theme.device.tablet} {
+    width: 100%;
+  }
+  ${({ theme }) => theme.device.mobile} {
+    width: 100%;
+
     flex-wrap: wrap;
   }
 `;
