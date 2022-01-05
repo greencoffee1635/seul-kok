@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 
 //components
@@ -25,9 +26,13 @@ const ComingSoonPage = (propss) => {
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
 
-      <MovieCard />
+      <Link to ="preview" style={{textDecoration: 'none'}} >
+        <MovieCard />
+      </Link>
 
-      <StartButton><span>이달의 OTT 추천받기</span></StartButton>
+      <Link to="/question" style={{textDecoration: 'none'}}>
+        <StartButton><span>이달의 OTT 추천받기</span></StartButton>
+      </Link>
 
 
     </SectionWrapper>

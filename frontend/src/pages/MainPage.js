@@ -1,8 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
-// import { Grid } from '@mui/material';
-
 // components
 import MainHeader from '../components/MainHeader';
 import useMotion from '../utils/useMotion';

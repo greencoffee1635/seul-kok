@@ -1,13 +1,13 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
+
 // import { Grid } from '@mui/material';
 
 // components
 import MainHeader from '../components/MainHeader';
-
-
 // import Layout from '../components/Layout';
+
 
 
 const env = process.env;
@@ -20,7 +20,7 @@ const PreviewPage = () => {
 
     <MainScreen>
         <MainVideo loop autoPlay>
-          <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
+          <source src={process.env.PUBLIC_URL + `/video/video4.mp4`} type="video/mp4" />
         </MainVideo>
 
         <MainHeader page="previewpage" />
@@ -28,7 +28,7 @@ const PreviewPage = () => {
           <MovieItem>
 
             <MovieTitle>
-              <p2>Arcane: League of Legends</p2>
+              <p2>지옥</p2>
             </MovieTitle>
 
             <MovieItemTitle>
@@ -36,12 +36,12 @@ const PreviewPage = () => {
             </MovieItemTitle>
 
             <MovieItemIntro>
-              <p>모든 전설엔 시작이 있다. 《리그 오브 레전드》 제작진이 만든 새로운 애니메이션 시리즈 《아케인》. 레전드가 된 두 챔피언과 전운에 가득 뒤덮인 한 도시의 시작을 따라간다.</p>
+              <p>어느 날 기이한 존재로부터 지옥행을 선고받은 사람들. 충격과 두려움에 휩싸인 도시에 대혼란의 시대가 도래한다. 신의 심판을 외치며 세를 확장하려는 종교단체와 진실을 파헤치는 자들의 이야기.</p>
               <IntroSection>
-                <p><b>개봉일</b> 2021년 11월 7일</p>
-                <p><b>장르</b> 아케이드</p>
-                <p><b>출연진</b> 징크스, 바이, 케이틀린, 제이스 등</p>
-                <p><b>상영시간</b> 에피소드 1~7편, 총 6시간 45분</p>
+                <p><b>개봉일</b> 2021년 11월 19일</p>
+                <p><b>장르</b> 범죄, 미스터리, 웹툰 한국 드라마</p>
+                <p><b>출연진</b> 유아인, 김현주, 박정민 등</p>
+                <p><b>상영시간</b> 에피소드 1~6편, 총 6시간 45분</p>
               </IntroSection>
             </MovieItemIntro>
 
@@ -56,12 +56,8 @@ const PreviewPage = () => {
               </PictureCardContent>
             </PictureCardSection>
 
+            <BackButton><b>뒤로가기</b></BackButton>
           </MovieItem>
-
-
-          <MovieContent>
-
-          </MovieContent>
 
 
     </MainScreen>
@@ -152,7 +148,7 @@ const PictureCardSection = styled.div`
 
   margin-top: 100px;
   width: 1010px;
-  height: 700px;
+  height: 400px;
 
   justify-content: space-between;
 
@@ -170,46 +166,44 @@ const PictureCardContent = styled.div`
 `;
 
 
-
-
   const PictureCard = styled.div`
 
   margin: auto;
   width: 328px;
   height: 230px;
-  background-color: var(--main);
-
+  background-color: var(--deepdarkred);
   display: flex;
+
+  &:hover {
+    border: 3px solid;
+    border-color: var(--main);
   `;
 
 
+  const BackButton = styled.button`
 
+  text-align: center;
+  cusor: pointer;
 
-//   const ScrollImage = styled.div`
+  width: 9rem;
+  height: 2.7rem;
 
-//   width: 100%;
-//   align-items: center;
+  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
+  border-radius: 50em;
+  border: none;
 
-//   span {
-//     position: absolute;
-//     top: 88%;
-//     left: 50%;
-//     width: 40px;
-//     height: 40px;
-//     margin-left: -12px;
-//     border-left: 2px solid rgba(242, 38, 62, 0.41);
-//     border-bottom: 2px solid rgba(242, 38, 62, 0.41);
-//     -webkit-transform: rotate(-45deg);
-//     transform: rotate(-45deg);
-//     -webkit-animation: ${scroll} 2.5s infinite;
-//     animation: ${scroll} 2.8s infinite;
-//     box-sizing: border-box;
-// `;
+  color: #ffffff;
+  font-style: normal;
+  font-wight: bold;
+  font-size: 1.2rem;
 
+  &:hover {
+    color: var(--black);
+    background: linear-gradient(
+      to right,
+      var(--main), #5a292f
+    );
 
-const MovieContent = styled.div`
-  width:
-`;
-
+`
 
 export default PreviewPage;
