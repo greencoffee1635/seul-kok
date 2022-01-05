@@ -7,7 +7,7 @@ import useMotion from '../utils/useMotion';
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
 
-const MovieCard = () => {
+const MovieCard = (props) => {
   return (
     <MainScetion>
       <Card>
@@ -17,7 +17,7 @@ const MovieCard = () => {
         <MovieContent>
           <p2>Arcane: League of Legends</p2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-          <MovieButton>자세히보기</MovieButton>
+          <MovieButton>미리보기</MovieButton>
         </MovieContent>
         {/* <img
           src="https://source.unsplash.com/random"
@@ -31,7 +31,7 @@ const MovieCard = () => {
         <MovieContent>
           <p2>Arcane: League of Legends</p2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-          <MovieButton>자세히보기</MovieButton>
+          <MovieButton>미리보기</MovieButton>
         </MovieContent>
       </Card>
       <Card>
@@ -41,7 +41,7 @@ const MovieCard = () => {
         <MovieContent>
           <p2>Arcane: League of Legends</p2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-          <MovieButton>자세히보기</MovieButton>
+          <MovieButton>미리보기</MovieButton>
         </MovieContent>
       </Card>
       <Card>
@@ -52,7 +52,7 @@ const MovieCard = () => {
           <MovieContent>
             <p2>Arcane: League of Legends</p2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-            <MovieButton>자세히보기</MovieButton>
+            <MovieButton>미리보기</MovieButton>
           </MovieContent>
       </Card>
     </MainScetion>

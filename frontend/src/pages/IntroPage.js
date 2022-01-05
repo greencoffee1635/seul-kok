@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 // import styled, { keyframes } from 'styled-components';
 // import { Link } from 'react-scroll';
 
-const IntroPage = (props, swiper) => {
+const IntroPage = (props) => {
+
+
   return (
     <SectionWrapper>
 
@@ -15,7 +17,8 @@ const IntroPage = (props, swiper) => {
           </LogoTitle>
 
         <MainContent>
-          <p dark {...useMotion('down', 1, 0.2)}>넷플릭스, 왓챠, 디즈니+, 쿠팡플레이스<br/>
+
+          <p dark {...useMotion('down', 1, 0.2)}>넷플릭스, 왓챠, 디즈니+, 티빙<br/>
           매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
 
           <p2 dark {...useMotion('up', 2, 0.8)}>이제 <p2 style={{color: '#e8384c'}}>슬</p2>기롭게 <p2 style={{color: '#e8384c'}}>콕</p2>! 해결 해드릴게요</p2>
