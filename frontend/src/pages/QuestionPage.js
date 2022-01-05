@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // components
@@ -22,36 +22,59 @@ const QuestionPage = (props) => {
     <Template>
       <Header />
       <Layout>
-        <Grid width="32rem" is_flex="space-between">
-          <Grid margin="0 0 5rem 0">
+        <Grid width="35rem" is_flex="space-between">
+          <Grid margin="0 3rem 5rem 3rem">
             <Title>
               주어진 상황에 맞게 선택하고 컨텐츠에 대해서 알려주세요.
             </Title>
           </Grid>
         </Grid>
 
-        <Grid width="38rem">
+        <Grid width="45rem" margin="0 3rem 5rem 3rem">
           <Scroll>
-            <Text>Q1. 혼자 칠링타임이 주어졌을 때 보고싶은 소재</Text>
-            <Wrapper>
-              <Answer>영화/드라마</Answer>
-              <Answer>예능 프로그램</Answer>
-            </Wrapper>
-            <Text>Q2. 극장에서 친구와 영화를 본다</Text>
-            <Wrapper>
-              <Answer>헐리우드 블록버스터</Answer>
-              <Answer>한국</Answer>
-            </Wrapper>
-            <Text>Q3. 연인과 크리스마스에 보고싶은 장르</Text>
-            <Wrapper>
-              <Answer>코미디</Answer>
-              <Answer>액션</Answer>
-            </Wrapper>
-            <Text>Q4. 연인과 크리스마스에 보고싶은 장르</Text>
-            <Wrapper>
-              <Answer>코미디</Answer>
-              <Answer>액션</Answer>
-            </Wrapper>
+            <Text>
+              Q1. 과도한 공부와 업무로 번아웃이 온 당신. 이를 극복하기 위해
+            </Text>
+            {/* <Wrapper> */}
+            <Answer>
+              친구에게 당장 전화를 건다. 어디야? 놀러가자. (코미디)
+            </Answer>
+            <Answer>
+              집이 최고. 그동안 밀렸던 드라마를 정주행 한다. (드라마)
+            </Answer>
+            {/* </Wrapper> */}
+            <Text>
+              Q2. 오랜만에 애인과 영화관 데이트를 즐기기로 했다. 내가 고른
+              영화는
+            </Text>
+            {/* <Wrapper> */}
+            <Answer>
+              내 어깨에 기대. 내가 지켜줄게. 무서운 공포영화 (공포영화)
+            </Answer>
+            <Answer>
+              오랜만에 연애세포를 다시 일깨워볼까? 사랑스러운 로맨스 영화
+              (로맨스)
+            </Answer>
+            {/* </Wrapper> */}
+            <Text>
+              Q3. 오랫동안 사귀었던 전 애인과 절친의 연애 사실을 알게되었다.
+              나는
+            </Text>
+            {/* <Wrapper> */}
+            <Answer>바로 친구의 멱살을 잡는다. 우당탕탕 (액션)</Answer>
+            <Answer>사랑이 죄는 아니잖아. 이해해준다. (로맨스)</Answer>
+            {/* </Wrapper> */}
+            <Text>
+              Q4. 나와 가장 친했던 친구가 갑자기 연락을 끊었다. 이 때 나는
+            </Text>
+            {/* <Wrapper> */}
+            <Answer>
+              무슨 일이 있겠지. 먼저 연락이 올 때 까지 기다린다. (로맨스)
+            </Answer>
+            <Answer>
+              걱정되어서 잠을 잘 수가 없어. 바로 전화한다. (코미디)
+            </Answer>
+            {/* </Wrapper> */}
           </Scroll>
         </Grid>
       </Layout>
@@ -70,20 +93,6 @@ const QuestionPage = (props) => {
     </Template>
   );
 };
-
-const scroll = keyframes`
-  0% {
-    transform: rotate(-45deg) translate(0, 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(-45deg) translate(-20px, 20px);
-    opacity: 0;
-    }
-`;
 
 const Title = styled.h2`
   ${head_2}
@@ -117,16 +126,16 @@ const Scroll = styled.div`
   margin: 0 auto;
 `;
 
-const Wrapper = styled.div`
-  max-width: 40rem;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 1rem;
-  /* margin: 0 auto; */
-  ${({ theme }) => theme.device.mobile} {
-    max-width: 35rem;
-  }
-`;
+// const Wrapper = styled.div`
+//   max-width: 40rem;
+//   display: flex;
+//   justify-content: space-between;
+//   padding-bottom: 1rem;
+//   /* margin: 0 auto; */
+//   ${({ theme }) => theme.device.mobile} {
+//     max-width: 35rem;
+//   }
+// `;
 
 const Answer = styled.button`
   ${sub_2}
@@ -140,6 +149,20 @@ const Answer = styled.button`
     ${sub_2_mobile}
     width: 17rem;
   }
+`;
+
+const scroll = keyframes`
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+    }
 `;
 
 const Arrow = styled.div`

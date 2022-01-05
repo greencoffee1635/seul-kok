@@ -17,7 +17,8 @@ const Container = styled.section`
 `;
 
 const LayoutForm = styled.div`
-  width: 1400px;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 3rem 0 3rem;
   display: flex !important;
   justify-content: space-between;
@@ -28,12 +29,12 @@ const LayoutForm = styled.div`
   /* top: 0; */
   /* flex-direction: row; */
   ${({ theme }) => theme.device.tablet} {
-    margin: 0 3rem 0 3rem;
+    width: 100%;
   }
   ${({ theme }) => theme.device.mobile} {
+    width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
   }
 `;
 
