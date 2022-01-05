@@ -93,7 +93,7 @@ const LoginContent = styled.div`
 const SignupFrom = styled.div`
 
   width: 550px;
-  height: 300px;
+  height: 200px;
   display: inline;
   position: absolute;
   text-align: center;

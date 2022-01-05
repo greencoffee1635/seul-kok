@@ -11,7 +11,7 @@ const SignupTemplate = ({ children }) => {
 
 const SignupTemplateBlock = styled.div`
   width: 580px;
-  height: 370px;
+  height: 310px;
   position: relative;
 
   background: linear-gradient(
