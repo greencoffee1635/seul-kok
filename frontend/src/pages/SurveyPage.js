@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Background from '../components/Background';
-import MainHeader from '../components/MainHeader';
-import { GridLayout } from '../components/Layout';
-// import Template from '../components/Template';
 import HorizontalScroll from 'react-scroll-horizontal';
 
 // components
 import Grid from '../components/Grid';
-import PickPosterPage from './PickPosterPage';
-import QuestionPage from './QuestionPage';
+import Background from '../components/Background';
+import MainHeader from '../components/MainHeader';
+import { GridLayout } from '../components/Layout';
 import {
   head_2,
   sub_1,
