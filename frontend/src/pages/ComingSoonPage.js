@@ -116,12 +116,10 @@ const StartButton = styled.button`
 
   &:hover {
     color: #ffffff;
-    background: linear-gradient(
-      to right,
-      var(--main), #5a292f
-    );
+    background: var(--main);
+  );
 
-`
+`;
 
 
 export default ComingSoonPage

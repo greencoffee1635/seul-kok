@@ -189,6 +189,7 @@ const PictureCardContent = styled.div`
 
   width: 9rem;
   height: 2.7rem;
+  float: right;
 
   background: transparent;
   border-radius: 12px;
@@ -201,9 +202,7 @@ const PictureCardContent = styled.div`
 
   &:hover {
     color: #ffffff;
-    background: linear-gradient(
-      to right,
-      var(--main), #5a292f
+    background: var(--main);
     );
 
 `

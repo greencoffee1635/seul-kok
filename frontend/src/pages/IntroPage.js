@@ -77,7 +77,7 @@ const MainContent = styled.div`
   font-size: 2.8rem;
   line-height: 3.8rem;
   color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   p2 {
     font-size: 3.5rem;
   }
@@ -138,6 +138,7 @@ const StartButton = styled.button`
   font-size: 1.5rem;
   &:hover {
     color: #ffffff;
+    background: var(--main);
   }
 
 
