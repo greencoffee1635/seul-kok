@@ -76,40 +76,40 @@ const MainScetion = styled.div`
 `;
 
 
-const Button = styled.button`
+// const Button = styled.button`
 
-  margin: auto;
-  width: 300px;
-  height: 420px;
-  cursor: pointer;
+//   margin: auto;
+//   width: 300px;
+//   height: 420px;
+//   cursor: pointer;
 
-  text-align: left;
+//   text-align: left;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(20, 20, 20, 0) 10%,
-    rgba(20, 20, 20, 0.20) 20%,
-    rgba(20, 20, 20, 0.8) 80%,
-    rgba(20, 20, 20, 0.9) 90%,
-    rgba(20, 20, 20, 1) 100%
-  ), url(https://source.unsplash.com/random);
-  background-size: contain;
+//   background: linear-gradient(
+//     to bottom,
+//     rgba(20, 20, 20, 0) 10%,
+//     rgba(20, 20, 20, 0.20) 20%,
+//     rgba(20, 20, 20, 0.8) 80%,
+//     rgba(20, 20, 20, 0.9) 90%,
+//     rgba(20, 20, 20, 1) 100%
+//   ), url(https://source.unsplash.com/random);
+//   background-size: contain;
 
-  &:hover {
-    background: linear-gradient(
-      to bottom,
-      rgba(216, 14, 27, 0.1) 10%,
-      rgba(216, 14, 27, 0.3) 30%,
-      rgba(242, 39, 62, 0.5) 50%,
-      rgba(242, 39, 62, 0.7) 70%,
-      rgba(242, 39, 62, 1) 100%
-    );
-    background-size: contain;
-    border: 3px solid;
-    border-color: var(--main);
-  };
+//   &:hover {
+//     background: linear-gradient(
+//       to bottom,
+//       rgba(216, 14, 27, 0.1) 10%,
+//       rgba(216, 14, 27, 0.3) 30%,
+//       rgba(242, 39, 62, 0.5) 50%,
+//       rgba(242, 39, 62, 0.7) 70%,
+//       rgba(242, 39, 62, 1) 100%
+//     );
+//     background-size: contain;
+//     border: 3px solid;
+//     border-color: var(--main);
+//   };
 
-`;
+// `;
 
 const Card = styled.div`
 
@@ -127,7 +127,7 @@ const Card = styled.div`
     rgba(20, 20, 20, 0.8) 80%,
     rgba(20, 20, 20, 0.9) 90%,
     rgba(20, 20, 20, 1) 100%
-  ), url(https://source.unsplash.com/random);
+  ), url(./Image/image5.jpg);
   background-size: contain;
 
   &:hover {
