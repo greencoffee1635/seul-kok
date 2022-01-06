@@ -9,7 +9,7 @@ const HeaderMenu = () => {
   const history = useHistory();
   return (
     <Menus>
-      <Link to ="question" style={{textDecoration: 'none'}}>
+      <Link to ="survey" style={{textDecoration: 'none'}}>
         <MenuItem>
           이달의 OTT
         </MenuItem>
