@@ -9,6 +9,7 @@ services:
     volumes:
       - static_volume:/home/app/web/project/static
       - media_volume:/home/app/web/project/media
+      - react_volume:/home/app/web
     expose:
       - 5000
     env_file:
@@ -26,8 +27,9 @@ services:
     volumes:
       - static_volume:/home/app/web/project/static
       - media_volume:/home/app/web/project/media
+      - react_volume:/home/app/web
     ports:
-      - 1337:80
+      - 80:80
     depends_on:
       - web
 
@@ -35,3 +37,4 @@ volumes:
   postgres_data_prod:
   static_volume:
   media_volume:
+  react_volume:
