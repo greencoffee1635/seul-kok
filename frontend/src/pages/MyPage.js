@@ -167,7 +167,7 @@ const MyPage = () => {
 
 const Title = styled.h2`
   ${head_5}
-  color: #ffffff;
+  color: var(--main);
   ${({ theme }) => theme.device.mobile} {
     justify-content: center;
   }
