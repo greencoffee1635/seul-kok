@@ -56,3 +56,11 @@ def upload_file():
       <p><input type=file name=file><input type=submit value=Upload>
     </form>
     """
+
+
+@app.route("/question", methods=["GET", "POST"])
+def survey():
+    if request.method == "POST":
+        survey = request.form["survey"]
+        data = {'mostOTT':'netflix', 'mostContent':'ironman', 'survey':survey}
+    return jsonify(data)
