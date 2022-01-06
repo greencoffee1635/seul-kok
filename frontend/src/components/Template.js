@@ -7,7 +7,7 @@ const Template = ({ children }) => {
 
 const MainForm = styled.main`
   width: 100%;
-  min-height: calc(120vh - 100px);
+  /* min-height: calc(120vh - 100px); */
   /* z-index: -1;
   background: radial-gradient(
       60% 55% at 50% 8%,

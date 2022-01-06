@@ -5,13 +5,15 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Grid from '../components/Grid';
 import Template from '../components/Template';
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 
 import { head_3, sub_3 } from '../shared/textStyle';
+import Background from '../components/Background';
 
 const MyPage = () => {
   return (
     <Template>
+      <Background />
       <Header page="main" />
       <Layout>
         <Grid width="35rem" is_flex="space-between">

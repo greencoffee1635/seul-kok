@@ -15,27 +15,27 @@ import ResultPage from '../pages/ResultPage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import MyPage from '../pages/MyPage';
+import SurveyPage from '../pages/SurveyPage';
 
 function App() {
   return (
     <React.Fragment>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <BrowserRouter>
-            {/* <ScrollToTop> */}
-              <Route exact path="/" component={IntroPage} />
-              <Route exact path="/main" component={MainPage} />
-              <Route exact path="/preview" component={PreviewPage} />
-              <Route exact path="/login" component={LoginPage} />
-              <Route exact path="/signup" component={SignupPage} />
-              <Route exact path="/question" component={QuestionPage} />
-              <Route exact path="/question2" component={PickPosterPage} />
-              <Route exact path="/result" component={ResultPage} />
-              <Route exact path="/mypage" component={MyPage} />
-            {/* </ScrollToTop> */}
-          </BrowserRouter>
-          <GlobalStyle />
-        </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <BrowserRouter>
+          <Route exact path="/" component={IntroPage} />
+          <Route exact path="/main" component={MainPage} />
+          <Route exact path="/preview" component={PreviewPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignupPage} />
+          {/* <Route exact path="/question" component={QuestionPage} />
+          <Route exact path="/question2" component={PickPosterPage} /> */}
+          <Route exact path="/survey" component={SurveyPage} />
+          <Route exact path="/result" component={ResultPage} />
+          <Route exact path="/mypage" component={MyPage} />
+        </BrowserRouter>
+        <GlobalStyle />
+      </ThemeProvider>
     </React.Fragment>
   );
 }

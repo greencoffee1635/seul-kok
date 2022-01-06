@@ -1,105 +1,108 @@
 import React from 'react';
 import styled from 'styled-components';
-// import HorizontalScroll from 'react-scroll-horizontal';
 
 // components
 import Header from '../components/Header';
 import Grid from '../components/Grid';
-import Template from '../components/Template';
-import Layout from '../components/Layout';
+import Background from '../components/Background';
+import MainHeader from '../components/MainHeader';
+// import Template from '../components/Template';
+
+import { CenterLayout } from '../components/Layout';
 
 import { head_3, sub_3 } from '../shared/textStyle';
 
-const cards = [...new Array(10)].map((x, i) => ({
+const cards = [...new Array(8)].map((x, i) => ({
   name: `card ${i}`,
   img: 'https://source.unsplash.com/random',
 }));
 
 const ResultPage = () => {
-  const child = { width: '200px', height: '320px' };
-  const parent = { width: '500px', height: '689px' };
+  const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
+  const child = { width: '40rem', height: '35rem' };
   return (
     <Template>
-      <Header page="main" />
-      <Layout>
-        <Grid width="32rem" is_flex="space-between">
-          <Grid margin="0 0 5rem 0">
-            <Title>이달의 OTT 추천</Title>
-            <Text>________님, 이번달 추천하는 OTT는 ________ 입니다.</Text>
-            <Text>이번 달 가장 좋아할만한 컨텐츠는 ________입니다.</Text>
-          </Grid>
+      <Background />
+      <MainHeader page="main" />
+      <CenterLayout>
+        <Grid>
+          <Title>____님의 이번달 OTT 슬콕! 하세요.</Title>
         </Grid>
 
-        <Grid width="32rem">
-          <Wrapper style={parent}>
-            {/* <HorizontalScroll
-              // pageLock={true}
-              // reverseScroll={true}
-              style={{ overflow: 'scroll hidden' }}
-              config={{ stiffness: 100, damping: 50 }}
-              className={'scrollbar'}
-              // animValues={int}
-            > */}
-            <CardGrid>
-              {cards.map((card) => (
-                <div>
-                  <img src={card.img} style={child} alt="cardimg" />
-                  {/* <p>{card.name}</p> */}
-                </div>
-              ))}
-            </CardGrid>
-            {/* </HorizontalScroll> */}
-          </Wrapper>
+        <Grid>
+          <Desc style={{ color: 'var(--main)' }}>
+            앉으나 서나 _____ 생각인 ____님!
+          </Desc>
         </Grid>
-      </Layout>
+
+        <ChartWrapper>
+          <Chart width="30rem" height="30rem"></Chart>
+        </ChartWrapper>
+        <Grid>
+          <Title>____님의 이번달 OTT 슬콕! 하세요.</Title>
+        </Grid>
+
+        <CardGrid>
+          {cards.map((card) => (
+            <div>
+              <img src={card.img} width="230px" height="320px" alt="cardimg" />
+              {/* <p>{card.name}</p> */}
+            </div>
+          ))}
+        </CardGrid>
+      </CenterLayout>
     </Template>
   );
 };
 
+const Template = styled.main`
+  width: 100%;
+  min-height: calc(300vh - 100px);
+  justify-content: center;
+`;
+
 const Title = styled.h2`
   ${head_3}
   color: var(--main);
-  ${({ theme }) => theme.device.mobile} {
-    justify-content: center;
-  }
-`;
-
-const Text = styled.p`
-  ${sub_3}
-  color: var(--main);
-  ${({ theme }) => theme.device.mobile} {
-    justify-content: center;
-  }
-`;
-
-const Wrapper = styled.div`
-  /* max-width: 40rem; */
   display: flex;
-  justify-content: space-between;
-  padding-bottom: 1rem;
-  .scrollbar {
-    &::-webkit-scrollbar {
-      height: 8px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.4);
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 2px;
-    }
-    width: 80%;
-  }
+  /* text-align: center; */
+  justify-content: center;
   ${({ theme }) => theme.device.mobile} {
-    max-width: 35rem;
+    justify-content: center;
   }
+`;
+
+const Desc = styled.p`
+  display: flex;
+  justify-content: center;
+`;
+
+const ChartWrapper = styled.div`
+  justify-content: center;
+  display: flex;
+  align-items: center;
+`;
+
+const Chart = styled.div`
+  width: 40rem;
+  height: 40rem;
+  border: 5px solid var(--white);
+  background-color: var(--white);
 `;
 
 const CardGrid = styled.div`
   display: grid !important;
   grid-template-rows: auto auto;
   grid-auto-flow: column;
-  & div {
-    margin-right: 20px;
+  grid-gap: 1rem;
+  cursor: pointer;
+  /* & img :hover {
+    border: 3px solid;
+    border-color: var(--main);
+  } */
+  &:last-child :hover {
+    border: 2px solid var(--main);
+    /* border-color:  */
   }
 `;
 
