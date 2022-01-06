@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal';
+import axios from 'axios';
 
 // components
 import Grid from '../components/Grid';
@@ -14,9 +15,6 @@ import {
   sub_1_mobile,
   sub_2_mobile,
 } from '../shared/textStyle';
-// import fetchData from '../api/fetch';
-// import { surveyDummy } from '../data/dummy';
-import axios from 'axios';
 
 const cards = [...new Array(8)].map((x, i) => ({
   name: `card ${i}`,
@@ -25,6 +23,47 @@ const cards = [...new Array(8)].map((x, i) => ({
 
 const SurveyPage = (props) => {
   const [posts, setPosts] = useState({});
+  const [hoverState, setHoverState] = useState(null);
+  // const [checkedItems, setCheckedItems] = useState(new Set());
+
+  const [bCheckedArray, setCheckedArray] = useState(
+    Array.from({ length: cards.length }, () => false),
+  );
+  // const [bCheckedArray, setCheckedArray] = useState([]);
+  const [selected, setSelected] = useState(0);
+  // setCheckedArray((bCheckedArray) => [...bCheckedArray, false]);
+  const activeHandler = (idx) => {
+    if (bCheckedArray[idx] === true) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // const tt = (idx) => {
+  //   console.log('activehandler called');
+  //   if (selected === idx) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+  // const setTT = (idx) => {
+  //   setSelected(idx);
+  // };
+  // console.log(bCheckedArray);
+
+  const setChecked = (id) => {
+    let newArray = [...bCheckedArray];
+    newArray[id] = !newArray[id];
+    setCheckedArray(newArray);
+  };
+
+  useEffect(() => {
+    // setCheckedArray((bCheckedArray) => [...bCheckedArray, false]);
+    console.log('useEffect');
+    // console.log(bCheckedArray);
+  });
 
   const handleClick = () => {
     // setIdFromButtonClick(id);
@@ -173,6 +212,11 @@ const SurveyPage = (props) => {
   );
 };
 
+const Test = styled.div`
+  outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
+  outline-offset: -2px;
+`;
+
 const Template = styled.main`
   width: 100%;
   min-height: calc(200vh - 100px);
@@ -299,13 +343,10 @@ const CardGrid = styled.div`
   grid-auto-flow: column;
   grid-gap: 1rem;
   cursor: pointer;
-  /* & img :hover {
-    border: 3px solid;
-    border-color: var(--main);
-  } */
-  &:last-child :hover {
-    border: 2px solid var(--main);
-    /* border-color:  */
+
+  div :hover {
+    outline: 3px solid var(--main);
+    // outline-offset: px;
   }
 `;
 
