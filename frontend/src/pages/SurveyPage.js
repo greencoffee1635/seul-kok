@@ -8,6 +8,7 @@ import Grid from '../components/Grid';
 import Background from '../components/Background';
 import Header from '../components/Header';
 import { GridLayout } from '../components/Layout';
+import { surveyDummy, MovieDummy } from '../data/dummy';
 import {
   head_2,
   sub_1,
@@ -22,23 +23,31 @@ const cards = [...new Array(8)].map((x, i) => ({
 }));
 
 const SurveyPage = (props) => {
-  const [posts, setPosts] = useState({});
-  const [hoverState, setHoverState] = useState(null);
-  // const [checkedItems, setCheckedItems] = useState(new Set());
+  // const [posts, setPosts] = useState({});
 
-  const [bCheckedArray, setCheckedArray] = useState(
-    Array.from({ length: cards.length }, () => false),
-  );
-  // const [bCheckedArray, setCheckedArray] = useState([]);
-  const [selected, setSelected] = useState(0);
-  // setCheckedArray((bCheckedArray) => [...bCheckedArray, false]);
-  const activeHandler = (idx) => {
-    if (bCheckedArray[idx] === true) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  // const [surveyList, setSurveyList] = useState({});
+
+  // const [hoverState, setHoverState] = useState(null);
+  // // const [checkedItems, setCheckedItems] = useState(new Set());
+
+  // const [bCheckedArray, setCheckedArray] = useState(
+  //   Array.from({ length: cards.length }, () => false),
+  // );
+  // // const [bCheckedArray, setCheckedArray] = useState([]);
+  // const [selected, setSelected] = useState(0);
+  // // setCheckedArray((bCheckedArray) => [...bCheckedArray, false]);
+  // const activeHandler = (idx) => {
+  //   if (bCheckedArray[idx] === true) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+
+  // const asdf = [2,3,4]
+  // var newasdf = asdf.map(function(a){
+  //   return a*2
+  // })
 
   // const tt = (idx) => {
   //   console.log('activehandler called');
@@ -53,17 +62,11 @@ const SurveyPage = (props) => {
   // };
   // console.log(bCheckedArray);
 
-  const setChecked = (id) => {
-    let newArray = [...bCheckedArray];
-    newArray[id] = !newArray[id];
-    setCheckedArray(newArray);
-  };
-
-  useEffect(() => {
-    // setCheckedArray((bCheckedArray) => [...bCheckedArray, false]);
-    console.log('useEffect');
-    // console.log(bCheckedArray);
-  });
+  // const setChecked = (id) => {
+  //   let newArray = [...bCheckedArray];
+  //   newArray[id] = !newArray[id];
+  //   setCheckedArray(newArray);
+  // };
 
   const handleClick = () => {
     // setIdFromButtonClick(id);
@@ -117,46 +120,19 @@ const SurveyPage = (props) => {
                 className={'scrollbar'}
                 // animValues={int}
               >
-                <SurveyWrapper style={child}>
-                  <Text>
-                    Q1. 과도한 공부와 업무로 번아웃이 온 당신. 이를 극복하기
-                    위해
-                  </Text>
-                  <AnswerWrapper>
-                    <Answer>
-                      친구에게 당장 전화를 건다. 어디야? 놀러가자.
-                    </Answer>
-                    <Answer>
-                      집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
-                    </Answer>
-                    <Answer>
-                      집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
-                    </Answer>
-                    <Answer>
-                      집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
-                    </Answer>
-                  </AnswerWrapper>
-                </SurveyWrapper>
-                <SurveyWrapper>
-                  <Text>
-                    Q1. 과도한 공부와 업무로 번아웃이 온 당신. 이를 극복하기
-                    위해
-                  </Text>
-                  <Wrapper>
-                    <Answer>
-                      친구에게 당장 전화를 건다. 어디야? 놀러가자.
-                    </Answer>
-                    <Answer>
-                      집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
-                    </Answer>
-                    <Answer>
-                      집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
-                    </Answer>
-                    <Answer>
-                      집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
-                    </Answer>
-                  </Wrapper>
-                </SurveyWrapper>
+                {surveyDummy[1].map((survey, idx) => {
+                  return (
+                    <SurveyWrapper style={child}>
+                      <Text>{survey.question}</Text>
+                      <AnswerWrapper>
+                        <Answer>{survey.answer1}</Answer>
+                        <Answer>{survey.answer2}</Answer>
+                        <Answer>{survey.answer3}</Answer>
+                        <Answer>{survey.answer4}</Answer>
+                      </AnswerWrapper>
+                    </SurveyWrapper>
+                  );
+                })}
               </HorizontalScroll>
             </ScrollWrapper>
             {/* </Scroll> */}
@@ -184,38 +160,41 @@ const SurveyPage = (props) => {
           <Grid>
             <Wrapper>
               <CardGrid>
-                {cards.map((card) => (
-                  <div>
-                    <img
-                      src={card.img}
-                      width="230px"
-                      height="320px"
-                      alt="cardimg"
-                    />
-                    {/* <p>{card.name}</p> */}
-                  </div>
-                ))}
+                {MovieDummy[1].map((movie, idx) => {
+                  return (
+                    <div>
+                      <img
+                        src={movie.image}
+                        width="230px"
+                        height="320px"
+                        alt="cardimg"
+                      />
+                      <p>{movie.genre}</p>
+                    </div>
+
+                  );
+                })}
               </CardGrid>
             </Wrapper>
           </Grid>
-          <Grid>
+          {/* <Grid>
             <div>
               <button type="button" onClick={handleClick}>
                 Fetch Test
               </button>
               <div>{posts.title}</div>
             </div>
-          </Grid>
+          </Grid> */}
         </GridWrapper>
       </GridLayout>
     </Template>
   );
 };
 
-const Test = styled.div`
-  outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
-  outline-offset: -2px;
-`;
+// const Test = styled.div`
+//   outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
+//   outline-offset: -2px;
+// `;
 
 const Template = styled.main`
   width: 100%;
