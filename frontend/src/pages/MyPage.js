@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +13,11 @@ import { head_5, sub_4 } from '../shared/textStyle';
 import Background from '../components/Background';
 
 const MyPage = () => {
+
+  const ottNames = ['NETFLIX', 'WATCHA', 'Disney+', 'TVING']
+  // const ottNamesColor = ['#d92f27','#f1355c','#ffffff','#ffffff']
+  const ottNamesList = ottNames.map((name, index) => (<FormButton key={index}>{name}</FormButton>));
+
   return (
     <Template>
       <Background />
@@ -26,7 +31,7 @@ const MyPage = () => {
                 <OttWrapper>
                   <SubsForm>
                       <DateForm>
-                        <p><b style={{ color: '#d92f27', textDecoration: 'none' }}>NEXFLIX</b><span>&emsp;<b></b>2022년 2월 10일까지</span></p>
+                        <p><b style={{ color: '#d92f27', textDecoration: 'none' }}>NETFLIX</b><span>&emsp;<b></b>2022년 2월 10일까지</span></p>
                       </DateForm>
                       <CurrentSubForm>
                         <p><b style={{ color: 'var(--main)', textDecoration: 'none' }}>이번구독</b></p>
@@ -50,8 +55,15 @@ const MyPage = () => {
                   <OttWrapper>
                     <LoginForm>
 
-                        <FormButton>
-                          <b style={{ color: '#d92f27', textDecoration: 'none' }}>NEXFLIX</b>
+                      {ottNamesList}
+
+                      {/* <b style={{color: '#d92f27'}}>{ottNamesList[0]}</b>
+                      <b style={{color: '#f1355c'}}>{ottNamesList[1]}</b>
+                      <b style={{color: '#ffffff'}}>{ottNamesList[2]}</b>
+                      <b style={{color: '#ffffff'}}>{ottNamesList[3]}</b> */}
+
+                        {/* <FormButton>
+                          <b style={{ color: '#d92f27', textDecoration: 'none' }}>NETFLIX</b>
                         </FormButton>
 
                         <FormButton>
@@ -59,12 +71,12 @@ const MyPage = () => {
                         </FormButton>
 
                         <FormButton>
-                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>Desney+</b>
+                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>Disney+</b>
                         </FormButton>
 
                         <FormButton>
                           <b style={{ color: '#ffffff', textDecoration: 'none'}}>TVING</b>
-                        </FormButton>
+                        </FormButton> */}
 
                     </LoginForm>
                   </OttWrapper>
@@ -306,7 +318,8 @@ const FormButton = styled.button`
   height: 40px;
 
   background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: var(--main);
+  font-weight: 600;
   cursor: pointer;
 
   &:hover {
