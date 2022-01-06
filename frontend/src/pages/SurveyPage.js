@@ -20,7 +20,7 @@ const cards = [...new Array(8)].map((x, i) => ({
   img: 'https://source.unsplash.com/random',
 }));
 
-const SurveyPage = () => {
+const SurveyPage = (props) => {
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
   return (
@@ -29,21 +29,21 @@ const SurveyPage = () => {
       <Header />
       <GridLayout>
         <GridWrapper>
-          <Grid is_flex="space-between">
-            <Grid>
-              <Title>
-                {/* <span>주어진 상황</span>에 맞게 선택하고 <span>컨텐츠</span>에
+          {/* <Grid width="30rem"> */}
+          <TitleWrapper>
+            <Title>
+              {/* <span>주어진 상황</span>에 맞게 선택하고 <span>컨텐츠</span>에
                 대해서 알려주세요. */}
-                <span style={{ color: 'var(--main)' }}>주어진 상황</span>에 맞게
-                <br />
-                <span style={{ color: 'var(--main)' }}>선택</span>하고
-                <br />
-                <span style={{ color: 'var(--main)' }}>컨텐츠</span>에 대해서
-                <br />
-                알려주세요.
-              </Title>
-            </Grid>
-          </Grid>
+              <span style={{ color: 'var(--main)' }}>주어진 상황</span>에 맞게
+              <br />
+              <span style={{ color: 'var(--main)' }}>선택</span>하고
+              <br />
+              <span style={{ color: 'var(--main)' }}>컨텐츠</span>에 대해서
+              <br />
+              알려주세요.
+            </Title>
+          </TitleWrapper>
+          {/* </Grid> */}
 
           <Grid>
             {/* <Scroll> */}
@@ -57,7 +57,7 @@ const SurveyPage = () => {
                 className={'scrollbar'}
                 // animValues={int}
               >
-                <QuestionWrapper style={child}>
+                <SurveyWrapper style={child}>
                   <Text>
                     Q1. 과도한 공부와 업무로 번아웃이 온 당신. 이를 극복하기
                     위해
@@ -76,8 +76,8 @@ const SurveyPage = () => {
                       집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
                     </Answer>
                   </AnswerWrapper>
-                </QuestionWrapper>
-                <QuestionWrapper>
+                </SurveyWrapper>
+                <SurveyWrapper>
                   <Text>
                     Q1. 과도한 공부와 업무로 번아웃이 온 당신. 이를 극복하기
                     위해
@@ -96,28 +96,33 @@ const SurveyPage = () => {
                       집이 최고. 그동안 밀렸던 드라마를 정주행 한다.
                     </Answer>
                   </Wrapper>
-                </QuestionWrapper>
+                </SurveyWrapper>
               </HorizontalScroll>
               {/* </div> */}
             </ScrollWrapper>
             {/* </Scroll> */}
           </Grid>
 
-          <Grid width="30rem" is_flex="space-between">
-            <Grid>
-              <Title>
-                그동안{' '}
-                <span style={{ color: 'var(--main)' }}>
-                  즐겁게 본 <br />
-                  컨텐츠
-                </span>
-                를 <span style={{ color: 'var(--main)' }}>선택</span>
-                해주세요. (최대 3개)
-              </Title>
-            </Grid>
-          </Grid>
+          {/* <Grid width="30rem"> */}
+          <TitleWrapper>
+            <Title>
+              그동안 {/* <br /> */}
+              <span style={{ color: 'var(--main)' }}>
+                즐겁게 본 <br />
+                컨텐츠
+              </span>
+              를
+              <span style={{ color: 'var(--main)' }}>
+                <br />
+                선택
+              </span>
+              해주세요.
+              <br /> (최대 3개)
+            </Title>
+          </TitleWrapper>
+          {/* </Grid> */}
 
-          <Grid width="30rem">
+          <Grid>
             <Wrapper>
               <CardGrid>
                 {cards.map((card) => (
@@ -146,17 +151,38 @@ const Template = styled.main`
 `;
 
 const GridWrapper = styled.section`
+  width: 100%;
   display: grid;
   grid-template-columns: 35rem 61rem;
   grid-template-rows: 35rem 35rem;
   grid-gap: 18rem 3rem;
-
+  /* justify-items: center; */
   /* justify-content: space-between; */
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.tablet} {
+    grid-gap: 3rem 3rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
   }
+`;
+
+const TitleWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 9.6rem;
+  ${({ theme }) => theme.device.tablet} {
+    margin-left: 6rem;
+  }
+  ${({ theme }) => theme.device.mobile} {
+    margin-left: 3rem;
+  }
+  /* justify-content: center;
+  align-items: center;
+  justify-items: center; */
 `;
 
 const Title = styled.h2`
@@ -199,7 +225,7 @@ const ScrollWrapper = styled.div`
   }
 `;
 
-const QuestionWrapper = styled.section`
+const SurveyWrapper = styled.section`
   flex-direction: column;
   margin-right: 2rem;
   justify-content: center;
@@ -242,6 +268,9 @@ const Answer = styled.button`
 // `;
 
 const Wrapper = styled.div`
+  max-width: 61rem;
+  /* justify-content:center; */
+
   /* max-width: 40rem; */
   /* display: flex;
   justify-content: space-between;
