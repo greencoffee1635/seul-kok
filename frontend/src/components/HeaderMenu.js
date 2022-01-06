@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 // components
 import { head_1 } from '../shared/textStyle';
@@ -9,17 +9,17 @@ const HeaderMenu = () => {
   const history = useHistory();
   return (
     <Menus>
-      <MenuItem
-      // type="button" onClick={() => history.push('/')}
-      >
-        이달의 OTT
-      </MenuItem>
-      <MenuItem type="button" onClick={() => history.push('/mypage')}>
-        마이페이지
-      </MenuItem>
-      <MenuItem
-      // type="button" onClick={() => history.push('/')}
-      >
+      <Link to ="question" style={{textDecoration: 'none'}}>
+        <MenuItem>
+          이달의 OTT
+        </MenuItem>
+      </Link>
+      <Link to ="mypage" style={{textDecoration: 'none'}}>
+        <MenuItem>
+          마이페이지
+        </MenuItem>
+      </Link>
+      <MenuItem>
         팀소개
       </MenuItem>
     </Menus>
@@ -55,12 +55,14 @@ const Menus = styled.ul`
 const MenuItem = styled.li`
   ${head_1}
   display: flex;
+  color: #ffffff;
   /* text-align: center;
   justify-content: space-between;
   margin-left: 5rem; */
   margin-left: 30px;
   cursor: pointer;
   :hover {
+    font-weight: bold;
     color: var(--main);
   }
 `;

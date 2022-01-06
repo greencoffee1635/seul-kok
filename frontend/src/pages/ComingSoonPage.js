@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
-// import { useHistory } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 
 //components
 import useMotion from '../utils/useMotion';
 import MovieCard from '../components/MovieCard';
 import { head_4 } from '../shared/textStyle';
-import Modal from '../components/Modal';
 
 
-const ComingSoonPage = () => {
-  // const history = useHistory();
+
+const ComingSoonPage = (propss) => {
+
 
   return (
     <SectionWrapper>
@@ -24,12 +25,14 @@ const ComingSoonPage = () => {
         <p2 dark {...useMotion('down', 1, 0.2)}> <span style={{color:'#e8384c'}}>슬콕</span>이 알려드려요</p2></p>
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
-      <MovieCard onClick={Modal}>
-      </MovieCard>
 
-      <StartButton 
-      // type="button" onClick={() => history.push('/question')}
-      ><span>이달의 OTT 추천받기</span></StartButton>
+      <Link to ="preview" style={{textDecoration: 'none'}} >
+        <MovieCard />
+      </Link>
+
+      <Link to="/question" style={{textDecoration: 'none'}}>
+        <StartButton><span>이달의 OTT 추천받기</span></StartButton>
+      </Link>
 
 
     </SectionWrapper>
@@ -60,35 +63,63 @@ const MainContent = styled.div`
 `;
 
 
+// const StartButton = styled.button`
+
+//   text-align: center;
+//   cusor: pointer;
+
+//   width: 13rem;
+//   height: 3rem;
+//   margin-top: 20px;
+
+//   background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
+//   border-radius: 15px;
+//   border: none;
+
+//   color: #ffffff;
+//   font-style: normal;
+//   font-wight: bold;
+//   font-size: 1.2rem;
+//   span {
+//     font-weight: bold;
+//   }
+
+//   &:hover {
+//     color: var(--black);
+//     background: linear-gradient(
+//       to right,
+//       var(--main), #5a292f
+//     );
+
+// `
+
 const StartButton = styled.button`
 
   text-align: center;
-  cursor: pointer;
+  cusor: pointer;
 
   width: 13rem;
   height: 3rem;
   margin-top: 20px;
 
-  background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
-  border-radius: 50em;
-  border: none;
+  background: transparent;
+  border-radius: 15px;
+  border: 2px solid var(--main);
 
-  color: #ffffff;
+  color: var(--main);
   font-style: normal;
-  font-weight: bold;
+  font-wight: bold;
   font-size: 1.2rem;
   span {
     font-weight: bold;
   }
 
   &:hover {
-    color: var(--black);
-    background: linear-gradient(
-      to right,
-      var(--main), #5a292f)
-    }
+    color: #ffffff;
+    background: var(--main);
+  );
 
-`
+`;
 
 
 export default ComingSoonPage
