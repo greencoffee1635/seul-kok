@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled, {keyframes} from 'styled-components';
 import { Link } from 'react-router-dom';
+import MovieContentdData from '../Data/MovieContentData';
 
 // import { Grid } from '@mui/material';
 
@@ -13,14 +14,16 @@ import Header from '../components/Header';
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
 
-const PreviewPage = () => {
+const PreviewPage = (props) => {
+
+  let [movieContent, setmovieContent] = useState(MovieContentdData);
 
   return (
     <>
 
     {/* muted */}
     <MainScreen>
-        <MainVideo loop autoPlay>
+        <MainVideo muted loop autoPlay>
           <source src={process.env.PUBLIC_URL + `/video/video4.mp4`} type="video/mp4" />
         </MainVideo>
 
@@ -29,7 +32,7 @@ const PreviewPage = () => {
           <MovieItem>
 
             <MovieTitle>
-              <p2>지옥</p2>
+              <p2>{movieContent[0].title}</p2>
             </MovieTitle>
 
             <MovieItemTitle>
@@ -37,12 +40,12 @@ const PreviewPage = () => {
             </MovieItemTitle>
 
             <MovieItemIntro>
-              <p>어느 날 기이한 존재로부터 지옥행을 선고받은 사람들. 충격과 두려움에 휩싸인 도시에 대혼란의 시대가 도래한다. 신의 심판을 외치며 세를 확장하려는 종교단체와 진실을 파헤치는 자들의 이야기.</p>
+              <p>{movieContent[0].content}</p>
               <IntroSection>
-                <p><b>개봉일</b> 2021년 11월 19일</p>
-                <p><b>장르</b> 범죄, 미스터리, 웹툰 한국 드라마</p>
-                <p><b>출연진</b> 유아인, 김현주, 박정민 등</p>
-                <p><b>상영시간</b> 에피소드 1~6편, 총 6시간 45분</p>
+                <p><b>개봉일</b> {movieContent[0].playdate}</p>
+                <p><b>장르</b> {movieContent[0].genre}</p>
+                <p><b>출연진</b> {movieContent[0].cast}</p>
+                <p><b>상영시간</b> {movieContent[0].time}</p>
               </IntroSection>
             </MovieItemIntro>
 
