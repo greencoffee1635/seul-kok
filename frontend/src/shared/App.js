@@ -16,6 +16,7 @@ import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import MyPage from '../pages/MyPage';
 import SurveyPage from '../pages/SurveyPage';
+import PayForPage from '../pages/PayForPage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/survey" component={SurveyPage} />
           <Route exact path="/result" component={ResultPage} />
           <Route exact path="/mypage" component={MyPage} />
+          <Route exact path="/payfor" component={PayForPage} />
         </BrowserRouter>
         <GlobalStyle />
       </ThemeProvider>

@@ -129,35 +129,11 @@ const MyPage = () => {
                       </LoginForm>
                     </DateWrapper3>
                 </SubSetion>
+                <Link to="/payfor" style={{textDecoration: 'none'}}>
+                <SubsButton><b>예약/결제</b></SubsButton>
+                </Link>
               </NextOtt>
 
-          {/* <Title>구독 예약</Title>
-          <NextOtt>
-            <Text>다음달 원하는 OTT를 선택해주세요.</Text>
-            <LoginWrapper>
-              <LoginForm>
-
-                  <FormButton>
-                    <b style={{ color: '#d92f27', textDecoration: 'none' }}>NEXFLIX</b>
-                  </FormButton>
-
-                  <FormButton>
-                    <b style={{ color: '#f1355c', textDecoration: 'none'}}>WATCHA</b>
-                  </FormButton>
-
-                  <FormButton>
-                    <b style={{ color: '#ffffff', textDecoration: 'none'}}>Desney+</b>
-                  </FormButton>
-
-                  <FormButton>
-                    <b style={{ color: '#ffffff', textDecoration: 'none'}}>TVING</b>
-                  </FormButton>
-
-              </LoginForm>
-            </LoginWrapper>
-          </NextOtt> */}
-
-          {/* <Wrapper></Wrapper> */}
           </Grid>
         </Grid>
       </Layout>
@@ -339,6 +315,32 @@ const FormButton = styled.button`
   }
 `;
 
+const SubsButton = styled.button`
+
+  text-align: center;
+  cusor: pointer;
+
+  width: 8rem;
+  height: 2.5rem;
+
+  margin-top: 40px;
+  margin-left: 360px;
+
+  background: transparent;
+  border-radius: 12px;
+  border: 2px solid var(--main);
+
+  color: var(--main);
+  font-style: normal;
+  font-wight: bold;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: #ffffff;
+    background: var(--main);
+    );
+
+`
 
 
 export default MyPage;

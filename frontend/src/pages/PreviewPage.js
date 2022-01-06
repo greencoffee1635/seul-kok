@@ -86,7 +86,7 @@ const scroll = keyframes`
 
 const MainScreen = styled.div`
   width: 100%;
-  height: 1000vh;
+  height: 230vh;
   background-color: black;
   display: flex;
 
@@ -187,8 +187,8 @@ const PictureCardContent = styled.div`
   text-align: center;
   cusor: pointer;
 
-  width: 9rem;
-  height: 2.7rem;
+  width: 8rem;
+  height: 2.5rem;
   float: right;
 
   background: transparent;

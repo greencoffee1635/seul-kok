@@ -20,6 +20,8 @@ const cards = [...new Array(8)].map((x, i) => ({
   img: 'https://source.unsplash.com/random',
 }));
 
+
+
 const SurveyPage = () => {
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
