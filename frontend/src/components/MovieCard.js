@@ -20,7 +20,7 @@ const MovieCard = (props) => {
           <p2>{props.card.ott}</p2>
         </MovieIntro>
         <MovieContent>
-          <p2>{props.card.title}</p2>
+          <p2>{props.card.title} <sapn>{props.card.playdate}</sapn> </p2>
           <p>{props.card.content} ... <b>미리보기</b></p>
           {/* <MovieButton>미리보기</MovieButton> */}
         </MovieContent>
@@ -127,43 +127,21 @@ const Card = styled.div`
   background-size: contain;
 
   &:hover {
-    background: linear-gradient(
-      to bottom,
-      rgba(216, 14, 27, 0.1) 10%,
-      rgba(216, 14, 27, 0.3) 30%,
-      rgba(242, 39, 62, 0.5) 50%,
-      rgba(242, 39, 62, 0.7) 70%,
-      rgba(242, 39, 62, 1) 100%
-    );
-    background-size: contain;
-    border: 3px solid;
-    border-color: var(--main);
+    background: var(--main);
+    border: 3px solid var(--main);
   };
 
 `;
 
-
-
-
-//   width: 100%;
-//   height: 100%;
-//   &:hover {
-//     background: var(--main);
-//     position: absolute;
-//     top: 80%;
-//     left: 50%;
-//     width: 300px;
-//     height: 400px;
-//     -webkit-translate(-50%, -50%);
-//     transform: translate(-50%, -50%);
-//     -webkit-animation: ${scroll} 2.5s infinite;
-//     animation: ${scroll} 2.8s infinite;
-//   }
-// `;
-
-
-
-
+// &:hover {
+//   background: linear-gradient(
+//     to bottom,
+//     rgba(216, 14, 27, 0.1) 10%,
+//     rgba(216, 14, 27, 0.3) 30%,
+//     rgba(242, 39, 62, 0.5) 50%,
+//     rgba(242, 39, 62, 0.7) 70%,
+//     rgba(242, 39, 62, 1) 100%
+//   );
 
 const MovieIntro = styled.div`
 
@@ -171,6 +149,8 @@ const MovieIntro = styled.div`
   margin-top: 1rem;
   color: var(--main);
   font-weight: 500;
+
+
 `;
 
 const MovieContent = styled.div`
@@ -182,6 +162,15 @@ const MovieContent = styled.div`
   width: 90%;
   height: 180px;
   color: #ffffff;
+
+  p2 {
+    font-size: 20px;
+  }
+
+  sapn {
+    font-family: none;
+    font-size: 12px;
+  }
 
   `;
 
