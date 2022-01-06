@@ -14,6 +14,9 @@ import {
   sub_1_mobile,
   sub_2_mobile,
 } from '../shared/textStyle';
+// import fetchData from '../api/fetch';
+// import { surveyDummy } from '../data/dummy';
+import axios from 'axios';
 
 const cards = [...new Array(8)].map((x, i) => ({
   name: `card ${i}`,
@@ -21,6 +24,29 @@ const cards = [...new Array(8)].map((x, i) => ({
 }));
 
 const SurveyPage = (props) => {
+  const [posts, setPosts] = useState({});
+
+  const handleClick = () => {
+    // setIdFromButtonClick(id);
+    let formData = new FormData();
+    formData.append('survey', 'AAA');
+    // formData.append('pwd', this.userPass);
+    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com:5000/question`;
+    axios
+      .post(url, formData, {
+        // timeout: 10000,
+        headers: {
+          'Content-Type': `multipart/form-data`,
+        },
+      })
+      .then((res) => {
+        console.log('res : ', res.data.mostOTT);
+      })
+      .catch((error) => {
+        console.log('failed', error);
+      });
+  };
+
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
   return (
@@ -29,11 +55,8 @@ const SurveyPage = (props) => {
       <Header />
       <GridLayout>
         <GridWrapper>
-          {/* <Grid width="30rem"> */}
           <TitleWrapper>
             <Title>
-              {/* <span>주어진 상황</span>에 맞게 선택하고 <span>컨텐츠</span>에
-                대해서 알려주세요. */}
               <span style={{ color: 'var(--main)' }}>주어진 상황</span>에 맞게
               <br />
               <span style={{ color: 'var(--main)' }}>선택</span>하고
@@ -43,12 +66,10 @@ const SurveyPage = (props) => {
               알려주세요.
             </Title>
           </TitleWrapper>
-          {/* </Grid> */}
 
           <Grid>
             {/* <Scroll> */}
             <ScrollWrapper style={parent}>
-              {/* <div style={{ justifyContent: 'space-between' }}> */}
               <HorizontalScroll
                 // pageLock={true}
                 // reverseScroll={true}
@@ -98,7 +119,6 @@ const SurveyPage = (props) => {
                   </Wrapper>
                 </SurveyWrapper>
               </HorizontalScroll>
-              {/* </div> */}
             </ScrollWrapper>
             {/* </Scroll> */}
           </Grid>
@@ -106,7 +126,7 @@ const SurveyPage = (props) => {
           {/* <Grid width="30rem"> */}
           <TitleWrapper>
             <Title>
-              그동안 {/* <br /> */}
+              그동안
               <span style={{ color: 'var(--main)' }}>
                 즐겁게 본 <br />
                 컨텐츠
@@ -139,6 +159,14 @@ const SurveyPage = (props) => {
               </CardGrid>
             </Wrapper>
           </Grid>
+          <Grid>
+            <div>
+              <button type="button" onClick={handleClick}>
+                Fetch Test
+              </button>
+              <div>{posts.title}</div>
+            </div>
+          </Grid>
         </GridWrapper>
       </GridLayout>
     </Template>
@@ -156,8 +184,6 @@ const GridWrapper = styled.section`
   grid-template-columns: 35rem 61rem;
   grid-template-rows: 35rem 35rem;
   grid-gap: 18rem 3rem;
-  /* justify-items: center; */
-  /* justify-content: space-between; */
   ${({ theme }) => theme.device.tablet} {
     grid-gap: 3rem 3rem;
     display: flex;
@@ -180,9 +206,6 @@ const TitleWrapper = styled.div`
   ${({ theme }) => theme.device.mobile} {
     margin-left: 3rem;
   }
-  /* justify-content: center;
-  align-items: center;
-  justify-items: center; */
 `;
 
 const Title = styled.h2`
@@ -229,7 +252,6 @@ const SurveyWrapper = styled.section`
   flex-direction: column;
   margin-right: 2rem;
   justify-content: center;
-  /* display: flex; */
 `;
 
 const AnswerWrapper = styled.div``;
@@ -268,16 +290,7 @@ const Answer = styled.button`
 // `;
 
 const Wrapper = styled.div`
-  max-width: 61rem;
-  /* justify-content:center; */
-
-  /* max-width: 40rem; */
-  /* display: flex;
-  justify-content: space-between;
-  padding-bottom: 1rem;
-  ${({ theme }) => theme.device.mobile} {
-    max-width: 35rem;
-  } */
+  /* max-width: 61rem; */
 `;
 
 const CardGrid = styled.div`
