@@ -22,7 +22,8 @@ const PayForPage = () => {
 
           <MainContent>
             <p dark {...useMotion('down', 1, 0.2)}>
-              <b>구독 예약</b>과 <b>결제</b> 중입니다! <br />
+              이번달은 <b>어떤 OTT</b>를 <b>구독</b>과 결제할까요? <br />
+              <b>구독 예약</b>과 <b>결제</b>까지! <br />
               <p2 dark {...useMotion('down', 1, 0.2)}>
                 <span style={{ color: '#e8384c' }}>슬콕</span>에서 편리하게 관리하세요!
               </p2>
@@ -31,19 +32,24 @@ const PayForPage = () => {
 
           <LoginWrapper>
             <LoginForm>
-              <Link to="/main">
+
                 <FormButton>
-                  <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
+                  <b style={{ textDecoration: 'none' }}>공동인증서</b>로 한 번에 등록하기
                 </FormButton>
-              </Link>
-              <Link to="/main">
+
                 <FormButton>
-                  <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
+                  <b style={{ textDecoration: 'none'}}>신용 및 체크카드</b>
                 </FormButton>
-              </Link>
-              <div>
-                간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
-              </div>
+
+                <FormButton>
+                  <b style={{ textDecoration: 'none'}}>은행 계좌</b>
+                </FormButton>
+
+                <FormButton>
+                  <b style={{ textDecoration: 'none'}}>네이버페이</b> 간편결제
+                </FormButton>
+
+
             </LoginForm>
           </LoginWrapper>
         </LoginSetion>
@@ -61,7 +67,7 @@ const SectionWrapper = styled.div`
   #594fa9;
 
   width: 100%;
-  height: 100vh;
+  height: 110vh;
 
   display: flex;
   flex-direction: column;
@@ -71,7 +77,7 @@ const SectionWrapper = styled.div`
 `;
 
 const LoginSetion = styled.div`
-  margin-top: 8%;
+  margin-top: 5%;
 `;
 
 
@@ -83,13 +89,13 @@ const LogoTitle = styled.header`
 `;
 
 const MainContent = styled.div`
-  font-size: 2.8rem;
+  font-size: 2.3rem;
   line-height: 3.8rem;
   color: #ffffff;
   top: 10%;
 
   p2 {
-    font-size: 3.6rem;
+    font-size: 3rem;
     margin-top: 5px;
   }
 `;
@@ -125,6 +131,10 @@ const FormButton = styled.button`
   background-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   cursor: pointer;
+
+  &: hover {
+    border: 2px solid var(--main);
+  }
 `;
 
 export default PayForPage;

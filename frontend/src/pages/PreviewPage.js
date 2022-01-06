@@ -18,8 +18,9 @@ const PreviewPage = () => {
   return (
     <>
 
+    {/* muted */}
     <MainScreen>
-        <MainVideo loop muted autoPlay>
+        <MainVideo loop autoPlay>
           <source src={process.env.PUBLIC_URL + `/video/video4.mp4`} type="video/mp4" />
         </MainVideo>
 
