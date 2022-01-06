@@ -21,7 +21,7 @@ const MainPage = () => {
     <>
 
     <MainScreen>
-        <MainVideo loop autoPlay>
+        <MainVideo loop muted autoPlay>
           <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
         </MainVideo>
 

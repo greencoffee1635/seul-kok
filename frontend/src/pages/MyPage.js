@@ -26,7 +26,7 @@ const MyPage = () => {
                 <OttWrapper>
                   <SubsForm>
                       <DateForm>
-                        <p><b style={{ color: '#d92f27', textDecoration: 'none' }}>NEXFLIX</b><span>&emsp;&emsp;&emsp;<b></b>2022년 2월 10일까지</span></p>
+                        <p><b style={{ color: '#d92f27', textDecoration: 'none' }}>NEXFLIX</b><span>&emsp;<b></b>2022년 2월 10일까지</span></p>
                       </DateForm>
                       <CurrentSubForm>
                         <p><b style={{ color: 'var(--main)', textDecoration: 'none' }}>이번구독</b></p>

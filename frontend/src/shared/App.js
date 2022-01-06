@@ -23,9 +23,10 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <BrowserRouter>
+          <ScrollToTop />
           <Route exact path="/" component={IntroPage} />
           <Route exact path="/main" component={MainPage} />
-          <Route exact path="/preview" component={PreviewPage} />
+          <Route exact path="/preview"s component={PreviewPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
           {/* <Route exact path="/question" component={QuestionPage} />
