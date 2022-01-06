@@ -26,14 +26,14 @@ const IntroPage = (props) => {
         </MainContent>
 
         <Link to="/main" style={{textDecoration: 'none'}}>
-          <ButtonWrapper>
+          {/* <ButtonWrapper> */}
             <StartButton><p2>START</p2></StartButton>
-          </ButtonWrapper>
+          {/* </ButtonWrapper> */}
         </Link>
 
 
         <a href="/login"
-            style={{color:'#e8384c', textDecoration: 'none', fontSize: '0.8rem'}}><p>슬기롭게 콕 LogIn</p></a>
+            style={{color:'#e8384c', textDecoration: 'none', fontSize: '1rem'}}><p>슬기롭게 콕! <b>LogIn</b></p></a>
 
 
     </SectionWrapper>
@@ -41,13 +41,6 @@ const IntroPage = (props) => {
   )
 }
 
-
-
-
-// @media screen and (max-width: 480px) {
-//   margin: 1rem auto;
-//   padding-top: 0;
-// }
 
 //가로, 세로, 중앙
 
@@ -69,7 +62,7 @@ const SectionWrapper = styled.div`
   justify-content: center;
 
   p {
-    font-family: noal;
+    font-family: normal;
   }
 
   `;
@@ -84,18 +77,46 @@ const MainContent = styled.div`
   font-size: 2.8rem;
   line-height: 3.8rem;
   color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   p2 {
     font-size: 3.5rem;
   }
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+// const ButtonWrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// `
 
+// const StartButton = styled.button`
+//   display: inline;
+//   text-align: center;
+//   text-decoration: none;
+//   cursor: pointer;
+//   align-items: center;
+
+//   width: 7.2rem;
+//   height: 3rem;
+
+//   border-radius: 15px;
+//   border: none;
+//   background: var(--main);
+
+
+//   color: #ffffff;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 1.5rem;
+//   &:hover {
+//     color: var(--black);
+//   }
+
+
+
+
+//   margin-top: 40px;
+// `
 const StartButton = styled.button`
   display: inline;
   text-align: center;
@@ -103,20 +124,21 @@ const StartButton = styled.button`
   cursor: pointer;
   align-items: center;
 
-  width: 7.5rem;
-  height: 3.2rem;
+  width: 7.2rem;
+  height: 3rem;
 
-  border-radius: 50em;
-  border: none;
-  background: var(--main);
+  border-radius: 15px;
+  border: 2px solid var(--main);
+  background: transparent;
 
 
-  color: #ffffff;
+  color: var(--main);
   font-style: normal;
   font-weight: bold;
   font-size: 1.5rem;
   &:hover {
-    color: var(--black);
+    color: #ffffff;
+    background: var(--main);
   }
 
 
