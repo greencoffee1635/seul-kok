@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import { Grid } from '@mui/material';
 
 // components
-import MainHeader from '../components/MainHeader';
+import Header from '../components/Header';
 // import Layout from '../components/Layout';
 
 
@@ -23,7 +23,7 @@ const PreviewPage = () => {
           <source src={process.env.PUBLIC_URL + `/video/video4.mp4`} type="video/mp4" />
         </MainVideo>
 
-        <MainHeader page="previewpage" />
+        <Header page="previewpage" />
 
           <MovieItem>
 

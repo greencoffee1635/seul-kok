@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
 // components
 import Logo from './Logo';
@@ -10,39 +10,41 @@ const Header = (props) => {
   return (
     <NavContainer>
       <NavDiv>
-        <InnerDiv>
-          <Logo />
-          {props.page === 'main' ? <HeaderMenu /> : null}
-        </InnerDiv>
+        <StyledGrid container spacing={1}>
+          {/* <Grid item xs={10} md={9} lg={9}> */}
+          <Grid item xs={9} md={9} lg={10}>
+            <InnerDiv>
+              <Logo />
+              {props.page === 'main' ? <HeaderMenu /> : null}
+            </InnerDiv>
+          </Grid>
+        </StyledGrid>
       </NavDiv>
     </NavContainer>
   );
 };
 
-const NavContainer = styled.nav`
-  z-index: 99;
-  max-width: 1400px;
+const NavContainer = styled.div`
   width: 100%;
-
-  display: flex;
-  justify-content: center !important;
-  & * {
-    box-sizing: border-box;
-  }
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background-color: transparent;
 `;
 
 const NavDiv = styled.div`
+  height: 7vh;
+  min-height: 3.1rem;
+  max-height: 5rem;
   width: 100%;
-  background-color: transparent;
-  margin: 0 3rem 0 3rem;
+  position: absolute;
+  top: 0;
+`;
+
+const StyledGrid = styled(Grid)`
   padding-top: 3.4rem;
   justify-content: center;
-  ${({ theme }) => theme.device.tablet} {
-    /* margin: 0 3rem 0 3rem; */
-  }
-  ${({ theme }) => theme.device.mobile} {
-    /* margin: 0 3rem 0 3rem; */
-  }
+  background-color: transparent;
 `;
 
 const InnerDiv = styled.div`
@@ -50,21 +52,5 @@ const InnerDiv = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-// const StyledGrid = styled.div`
-
-// `;
-
-// const GridBox = styled.div`
-/* padding-top: 3rem;
-box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  flex-direction: row;
-  margin-top: -8px;
-  width: calc(100% + 8px);
-  margin-left: -8px; */
-// `;
 
 export default Header;

@@ -30,7 +30,7 @@ const ComingSoonPage = (propss) => {
         <MovieCard />
       </Link>
 
-      <Link to="/question" style={{textDecoration: 'none'}}>
+      <Link to="/survey" style={{textDecoration: 'none'}}>
         <StartButton><span>이달의 OTT 추천받기</span></StartButton>
       </Link>
 

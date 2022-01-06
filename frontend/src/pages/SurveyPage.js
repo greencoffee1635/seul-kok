@@ -5,7 +5,7 @@ import HorizontalScroll from 'react-scroll-horizontal';
 // components
 import Grid from '../components/Grid';
 import Background from '../components/Background';
-import MainHeader from '../components/MainHeader';
+import Header from '../components/Header';
 import { GridLayout } from '../components/Layout';
 import {
   head_2,
@@ -26,7 +26,7 @@ const SurveyPage = () => {
   return (
     <Template>
       <Background />
-      <MainHeader />
+      <Header />
       <GridLayout>
         <GridWrapper>
           <Grid is_flex="space-between">

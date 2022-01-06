@@ -60,18 +60,21 @@ const SectionWrapper = styled.div`
     #000000 100%
   ),
   #594fa9;
+
   width: 100%;
   height: 100vh;
 
   display: flex;
   flex-direction: column;
-  // justify-content: center;
+
+  // justify-content:center;
   text-align: center;
 `;
 
 const LoginSetion = styled.div`
   margin-top: 8%;
 `;
+
 
 const LogoTitle = styled.header`
   color: var(--main);
@@ -94,11 +97,14 @@ const MainContent = styled.div`
 
 const LoginWrapper = styled.div`
   margin-top: 5px;
+  display: flex;
+  justify-content: center;
 `;
 
 const LoginForm = styled.div`
   width: 550px;
   text-align: center;
+
   div {
     color: rgba(255, 255, 255, 0.72);
     font-size: 0.9rem;
@@ -110,7 +116,7 @@ const FormButton = styled.button`
   font-size: 1rem;
 
   border-radius: 5px;
-  border: 2px solid var(--deepdarkred);
+  border: none;
 
   margin-bottom: 20px;
 

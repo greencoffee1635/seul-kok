@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Grid from '../components/Grid';
 import Background from '../components/Background';
-import MainHeader from '../components/MainHeader';
 // import Template from '../components/Template';
 
 import { CenterLayout } from '../components/Layout';
@@ -23,7 +22,7 @@ const ResultPage = () => {
   return (
     <Template>
       <Background />
-      <MainHeader page="main" />
+      <Header page="main" />
       <CenterLayout>
         <Grid>
           <Title>____님의 이번달 OTT 슬콕! 하세요.</Title>

@@ -3,7 +3,7 @@ import styled, {keyframes} from 'styled-components';
 
 
 // components
-import MainHeader from '../components/MainHeader';
+import Header from '../components/Header';
 import useMotion from '../utils/useMotion';
 import ComingSoonPage from './ComingSoonPage';
 
@@ -25,7 +25,7 @@ const MainPage = () => {
           <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
         </MainVideo>
 
-        <MainHeader page="main" />
+        <Header page="main" />
 
           <MainItem>
             <p style={{fontSize: '20px', color: '#ffffff'}}><b>액션/아케이드</b></p>
