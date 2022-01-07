@@ -36,6 +36,10 @@ const TeamPage = (props) => {
             슬콕은 하나의 플랫폼 안에서 다양한 OTT를 구독 예약, 구독, 구독 취소, 결제까지 가능하게 만들자는<br />
             목표로 프로젝트가 진행되었습니다.</p>
 
+            <ScrollImage>
+            <span></span>
+            </ScrollImage>
+
             <TeamContent>
               <p dark {...useMotion('up', 1, 0.2)}>
               <p2>오히려 좋은 <sapn style={{color: 'var(--main'}}>18팀</sapn></p2> <br />
@@ -90,6 +94,28 @@ const scroll = keyframes`
       transform: rotate(-45deg) translate(-20px, 20px);
       opacity: 0;
     }
+`;
+
+
+const ScrollImage = styled.div`
+
+  width: 100%;
+  align-items: center;
+
+  span {
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: -12px;
+    border-left: 2px solid rgba(242, 38, 62, 0.41);
+    border-bottom: 2px solid rgba(242, 38, 62, 0.41);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: ${scroll} 2.5s infinite;
+    animation: ${scroll} 2.8s infinite;
+    box-sizing: border-box;
 `;
 
 const MainScreen = styled.div`

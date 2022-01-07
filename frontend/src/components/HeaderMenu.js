@@ -7,6 +7,7 @@ import { head_1 } from '../shared/textStyle';
 
 const HeaderMenu = () => {
   const history = useHistory();
+
   return (
     <Menus>
       <Link to ="survey" style={{textDecoration: 'none'}}>
@@ -19,9 +20,11 @@ const HeaderMenu = () => {
           마이페이지
         </MenuItem>
       </Link>
+      <Link to ="team">
       <MenuItem>
         팀소개
       </MenuItem>
+      </Link>
     </Menus>
   );
 };

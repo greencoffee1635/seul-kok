@@ -1,4 +1,4 @@
-
+import React, {useState} from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -14,9 +14,16 @@ import Background from '../components/Background';
 
 const MyPage = () => {
 
+  let [ottsSubsDates, setOttSubsDattes] = useState();
+  let [ottsName, setOttsName] = useState();
+
   const ottNames = ['NETFLIX', 'WATCHA', 'Disney+', 'TVING']
-  // const ottNamesColor = ['#d92f27','#f1355c','#ffffff','#ffffff']
   const ottNamesList = ottNames.map((name, index) => (<FormButton key={index}>{name}</FormButton>));
+
+  const ottSubsDates = ['1개월', '2개월', '3개월', '4개월', '4개월', '6개월', '7개월', '8개월', '9개월', '10개월', '11개월', '12개월']
+  const ottSubsDatesList = ottSubsDates.map((date, index) => (<FormButton>
+    <b style={{ color: '#ffffff', textDecoration: 'none' }} key={index}>{date}</b>
+  </FormButton>));
 
   return (
     <Template>
@@ -57,11 +64,6 @@ const MyPage = () => {
 
                       {ottNamesList}
 
-                      {/* <b style={{color: '#d92f27'}}>{ottNamesList[0]}</b>
-                      <b style={{color: '#f1355c'}}>{ottNamesList[1]}</b>
-                      <b style={{color: '#ffffff'}}>{ottNamesList[2]}</b>
-                      <b style={{color: '#ffffff'}}>{ottNamesList[3]}</b> */}
-
                         {/* <FormButton>
                           <b style={{ color: '#d92f27', textDecoration: 'none' }}>NETFLIX</b>
                         </FormButton>
@@ -83,63 +85,9 @@ const MyPage = () => {
                 </>
                 <SubSetion>
                   <Text>원하는 <b>구독기간</b>를 선택해주세요.</Text>
-                    <DateWrapper1>
-                      <LoginForm>
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none' }}>1개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>2개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>3개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>4개월</b>
-                          </FormButton>
-                      </LoginForm>
-                    </DateWrapper1>
-                    <DateWrapper2>
-                      <LoginForm>
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none' }}>5개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>6개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>7개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>8개월</b>
-                          </FormButton>
-                      </LoginForm>
-                    </DateWrapper2>
-                    <DateWrapper3>
-                      <LoginForm>
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none' }}>9개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>10개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>11개월</b>
-                          </FormButton>
-
-                          <FormButton>
-                            <b style={{ color: '#ffffff', textDecoration: 'none'}}>12개월</b>
-                          </FormButton>
-                      </LoginForm>
-                    </DateWrapper3>
+                    <DateWrapper>
+                      {ottSubsDatesList}
+                    </DateWrapper>
                 </SubSetion>
                 <Link to="/payfor" style={{textDecoration: 'none'}}>
                 <SubsButton><b>예약/결제</b></SubsButton>
@@ -198,17 +146,10 @@ const OttWrapper = styled.div`
 
 `;
 
-const DateWrapper1 = styled.div`
+const DateWrapper = styled.div`
 
 `;
 
-const DateWrapper2 = styled.div`
-  margin-top: 10px;
-`;
-
-const DateWrapper3 = styled.div`
-margin-top: 10px;
-`;
 
   // margin-top: 5px;
   // display: flex;
@@ -313,6 +254,7 @@ const FormButton = styled.button`
   float: left;
 
   margin-right: 3px;
+  margin-bottom: 4px;
 
   width: 120px;
   height: 40px;
@@ -323,7 +265,7 @@ const FormButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #ffffff;
+    // color: var(--deepdarkred);
     border: 2px solid var(--main);
   }
 `;
