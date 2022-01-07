@@ -8,6 +8,7 @@ import axios from 'axios';
 import Grid from '../components/Grid';
 import Background from '../components/Background';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import { GridLayout } from '../components/Layout';
 import { surveyDummy, MovieDummy } from '../data/dummy';
 import {
@@ -23,6 +24,7 @@ const cards = [...new Array(8)];
 
 const SurveyPage = (props) => {
   const history = { useHistory };
+  const [loading, setLoading] = useState(true);
   // const [posts, setPosts] = useState({});
   // 버튼
   // const [hoverState, setHoverState] = useState(null);
@@ -141,6 +143,13 @@ const SurveyPage = (props) => {
 
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
+  if (loading)
+    return (
+      <>
+        <Loading />
+      </>
+    );
+
   return (
     <Template>
       <Background />

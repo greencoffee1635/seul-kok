@@ -1,6 +1,6 @@
-export const MovieContentdData = {
+export const resultDummy = {
   ott: 'netflix',
-  userName: '오슬콕',
+  // userName: '오슬콕', 없애던가 임의로 쓰던가 이메일을 쓰던가
   contents: [
     {
       title: '지금 우리 학교는',
