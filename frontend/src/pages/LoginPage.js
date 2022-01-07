@@ -11,6 +11,8 @@ import useMotion from '../utils/useMotion';
 //components
 // import SignupTemplate from '../components/SignupTemplate';
 
+import { KAKAO_AUTH_URL } from "../oAuth_kakao";
+
 const LoginPage = () => {
   return (
     <>
