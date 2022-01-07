@@ -17,61 +17,110 @@ import {
   sub_2_mobile,
 } from '../shared/textStyle';
 
-const cards = [...new Array(8)].map((x, i) => ({
-  name: `card ${i}`,
-  img: 'https://source.unsplash.com/random',
-}));
+const questions = [...new Array(4)];
+const cards = [...new Array(8)];
 
 const SurveyPage = (props) => {
   // const [posts, setPosts] = useState({});
-
-  // const [surveyList, setSurveyList] = useState({});
-
+  // 버튼
   // const [hoverState, setHoverState] = useState(null);
-  // // const [checkedItems, setCheckedItems] = useState(new Set());
+  // const [checkedItems, setCheckedItems] = useState(new Set());
 
-  // const [bCheckedArray, setCheckedArray] = useState(
-  //   Array.from({ length: cards.length }, () => false),
-  // );
-  // // const [bCheckedArray, setCheckedArray] = useState([]);
+
+  const [bCheckedArray, setCheckedArray] = useState(Array.from({ length: cards.length }, () => false),);
   // const [selected, setSelected] = useState(0);
-  // // setCheckedArray((bCheckedArray) => [...bCheckedArray, false]);
-  // const activeHandler = (idx) => {
-  //   if (bCheckedArray[idx] === true) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
 
-  // const asdf = [2,3,4]
-  // var newasdf = asdf.map(function(a){
-  //   return a*2
-  // })
+  const activeHandler = (idx) => {
+    if (bCheckedArray[idx] === true) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
-  // const tt = (idx) => {
-  //   console.log('activehandler called');
-  //   if (selected === idx) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-  // const setTT = (idx) => {
-  //   setSelected(idx);
-  // };
   // console.log(bCheckedArray);
 
-  // const setChecked = (id) => {
-  //   let newArray = [...bCheckedArray];
-  //   newArray[id] = !newArray[id];
-  //   setCheckedArray(newArray);
+  const setChecked = (id) => {
+    let newArray = [...bCheckedArray];
+    newArray[id] = !newArray[id];
+    setCheckedArray(newArray);
+  };
+
+
+  const [answerList, setAnswerList] = useState(Array.from({ length: questions.length }, () => 0),);
+  const [answer, setAnswer] = useState(0)
+ 
+  const handleCheck = (e, index) => {
+    let answerArray = {...answerList};
+    setAnswer({
+      answer: e.target.value,
+    });
+      if (answer === '1') {
+      setAnswerList(answerList.push(answer));
+      
+    } else if (answer === '2') {
+      setAnswerList(answerList.push(answerArray));
+  
+    } else if (answer === '3') {
+      setAnswerList(answerList.push(answerArray));
+
+    } else if (answer === '4') {
+      setAnswerList(answerList.push(answerArray));
+     
+    }
+    console.log(e.target.value)
+    console.log(answerArray)
+  };
+
+
+
+
+
+  // const handleCheck = (e) => {
+  //   let answerArray = [...answerList];
+  //   setAnswer({
+  //     answer: e.target.value,
+  //   });
+  //   if (answer === '1') {
+  //     setAnswerList(answer.push(e.target.value));
+  //     setAnswer('')
+  //   } else if (answer === '2') {
+  //     setAnswerList(answer.push(e.target.value));
+  //     setAnswer('')
+  //   } else if (answer === '3') {
+  //     setAnswerList(answer.push(e.target.value));
+  //     setAnswer('')
+  //   } else if (answer === '4') {
+  //     setAnswerList(answer.push(e.target.value));
+  //     setAnswer('')
+  //   }
+  //   setAnswerList(answerArray);
+  //   // setAnswerList(answerList.push(answer))
+  //   // console.log(e.target.value);
+  //   // setAnswerList(e.target.value)
+  //   // setAnswer(answer)
+  //   console.log(e.target.value)
+  //   console.log(answerArray)
   // };
 
-  const handleClick = () => {
+
+
+   // const activeSurveyHandler = (idx) => {
+  //   if (answerList[idx] === true) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+
+
+
+
+
+  const handleClick = (data) => {
     // setIdFromButtonClick(id);
     let formData = new FormData();
-    formData.append('survey', 'AAA');
+    formData.append('survey', data.survey);
     // formData.append('pwd', this.userPass);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com:5000/question`;
     axios
@@ -108,7 +157,11 @@ const SurveyPage = (props) => {
               알려주세요.
             </Title>
           </TitleWrapper>
-
+      {/* <button>
+       등록하기
+      </button> */}
+      
+   
           <Grid>
             {/* <Scroll> */}
             <ScrollWrapper style={parent}>
@@ -120,16 +173,57 @@ const SurveyPage = (props) => {
                 className={'scrollbar'}
                 // animValues={int}
               >
-                {surveyDummy[1].map((survey, idx) => {
+                {surveyDummy[1].map((survey, index) => {
                   return (
                     <SurveyWrapper style={child}>
                       <Text>{survey.question}</Text>
-                      <AnswerWrapper>
-                        <Answer>{survey.answer1}</Answer>
-                        <Answer>{survey.answer2}</Answer>
-                        <Answer>{survey.answer3}</Answer>
-                        <Answer>{survey.answer4}</Answer>
-                      </AnswerWrapper>
+                      {/* <AnswerWrapper> */}
+                      <Answer
+                        value="1"
+                        // active={activeSurveyHandler(index)}
+                        // onClick={() => {
+                        //   setSurveyChecked(index);
+                        // }}
+                        // onClick={handleCheck}
+                        onClick={handleCheck}
+                        >
+                        {survey.answer1}
+                      </Answer>
+                      <Answer
+                        value="2"
+                        // active={activeSurveyHandler(index)}
+                        // onClick={() => {
+                        //   setSurveyChecked(index);
+                        // }}
+                       
+                  // onClick={handleCheck}
+                  onClick={handleCheck}
+                      >
+                        {survey.answer2}
+                      </Answer>
+                      <Answer
+                        value="3"
+                        // active={activeSurveyHandler(index)}
+                        // onClick={() => {
+                        //   setSurveyChecked(index);
+                        // }}
+                        // onClick={handleCheck}
+                        onClick={handleCheck}
+                      >
+                        {survey.answer3}
+                      </Answer>
+                      <Answer
+                        value="4"
+                        // active={activeSurveyHandler(index)}
+                        // onClick={() => {
+                        //   setSurveyChecked(index);
+                        // }}
+                        // onClick={handleCheck}
+                        onClick={handleCheck}
+                      >
+                        {survey.answer4}
+                      </Answer>
+                      {/* </AnswerWrapper> */}
                     </SurveyWrapper>
                   );
                 })}
@@ -160,18 +254,21 @@ const SurveyPage = (props) => {
           <Grid>
             <Wrapper>
               <CardGrid>
-                {MovieDummy[1].map((movie, idx) => {
+                {MovieDummy[1].map((movies, index) => {
                   return (
-                    <div>
+                    <CardWrapper
+                      active={activeHandler(index)}
+                      onClick={() => {
+                        setChecked(index);
+                      }}
+                    >
                       <img
-                        src={movie.image}
+                        src={movies.image}
                         width="230px"
                         height="320px"
                         alt="cardimg"
                       />
-                      <p>{movie.genre}</p>
-                    </div>
-
+                    </CardWrapper>
                   );
                 })}
               </CardGrid>
@@ -187,14 +284,14 @@ const SurveyPage = (props) => {
           </Grid> */}
         </GridWrapper>
       </GridLayout>
+      <Button type="button" onClick={handleClick}>
+        결과
+      </Button>
     </Template>
   );
 };
 
-// const Test = styled.div`
-//   outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
-//   outline-offset: -2px;
-// `;
+const Button = styled.button``;
 
 const Template = styled.main`
   width: 100%;
@@ -205,7 +302,7 @@ const GridWrapper = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: 35rem 61rem;
-  grid-template-rows: 35rem 35rem;
+  grid-template-rows: 35rem 35rem 5rem;
   grid-gap: 18rem 3rem;
   ${({ theme }) => theme.device.tablet} {
     grid-gap: 3rem 3rem;
@@ -277,8 +374,6 @@ const SurveyWrapper = styled.section`
   justify-content: center;
 `;
 
-const AnswerWrapper = styled.div``;
-
 const Answer = styled.button`
   ${sub_2}
   width: 39rem;
@@ -327,6 +422,11 @@ const CardGrid = styled.div`
     outline: 3px solid var(--main);
     // outline-offset: px;
   }
+`;
+
+const CardWrapper = styled.div`
+  outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
+  outline-offset: -2px;
 `;
 
 const scroll = keyframes`
