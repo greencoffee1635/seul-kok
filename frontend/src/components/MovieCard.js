@@ -39,12 +39,20 @@ const MovieCard = (props) => {
           return <MovieCards card={carddata}
                               onClick={() => {
                                 history.push({
-                                  pathname: `/priview/${props.card.id}`
+                                  pathname: `/preview/${props.card.id}`
                                 });
                               }}
                               />
         })
       }
+
+      {/* {
+        card.map((carddata, i)=>{
+          return <Link to = {{pathname: `/preview/${props.card.id}`}}>
+                    <MovieCards card={carddata}/>
+                  </Link>
+        })
+      } */}
 
     </MainScetion>
   )
