@@ -11,7 +11,7 @@ import useMotion from '../utils/useMotion';
 //components
 // import SignupTemplate from '../components/SignupTemplate';
 
-import { KAKAO_AUTH_URL } from "../oAuth_kakao";
+import { KAKAO_AUTH_URL } from '../oAuth_kakao';
 
 const LoginPage = () => {
   return (
@@ -35,7 +35,7 @@ const LoginPage = () => {
           <LoginWrapper>
             <LoginForm>
               <Link to="/main">
-                <FormButton>
+                <FormButton href={KAKAO_AUTH_URL}>
                   <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
                 </FormButton>
               </Link>
