@@ -8,6 +8,7 @@ import MovieContentdData from '../Data/MovieContentData';
 // components
 import Header from '../components/Header';
 // import Layout from '../components/Layout';
+import thumbnailData from '../Data/thumbnailData';
 
 
 
@@ -17,7 +18,13 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 const PreviewPage = (props) => {
 
   let { id } = useParams();
-  let [movieContent, setmovieContent] = useState(MovieContentdData);
+  let [movieContent, setMovieContent] = useState(MovieContentdData);
+  let [movieUrl, setMovieUrl] = useState(thumbnailData);
+
+  function thumbnailCard(props) {
+    return (<PictureCard onClick={()=> window.open('', '_blank')}>
+      </PictureCard>)
+  }
 
 
   return (
@@ -25,7 +32,7 @@ const PreviewPage = (props) => {
 
     {/* muted */}
     <MainScreen>
-        <MainVideo loop autoPlay>
+        <MainVideo muted loop autoPlay>
           <source src={process.env.PUBLIC_URL + `/video/video${movieContent[id].id}.mp4`} type="video/mp4" />
         </MainVideo>
 
@@ -56,9 +63,9 @@ const PreviewPage = (props) => {
                 <p><b>관련영상</b></p>
               </PictureCardTitle>
               <PictureCardContent>
-                <PictureCard></PictureCard>
-                <PictureCard></PictureCard>
-                <PictureCard></PictureCard>
+                <PictureCard>
+
+                </PictureCard>
               </PictureCardContent>
             </PictureCardSection>
 
