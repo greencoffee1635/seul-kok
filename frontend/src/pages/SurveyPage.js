@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 // components
@@ -21,6 +22,7 @@ const questions = [...new Array(4)];
 const cards = [...new Array(8)];
 
 const SurveyPage = (props) => {
+  const history = { useHistory };
   // const [posts, setPosts] = useState({});
   // 버튼
   // const [hoverState, setHoverState] = useState(null);
@@ -45,26 +47,34 @@ const SurveyPage = (props) => {
     let newArray = [...bCheckedArray];
     newArray[id] = !newArray[id];
     setCheckedArray(newArray);
+    console.log(newArray);
   };
 
   const [answerList, setAnswerList] = useState([]);
-  const [answer, setAnswer] = useState(0);
+  // const [answer, setAnswer] = useState(0);
 
   const handleCheck = (e, index) => {
     // let answerArray = [...answerList];
-    setAnswer(e.target.value);
-    if (answer === '1') {
-      setAnswerList((answerList) => [...answerList, answer]);
-    } else if (answer === '2') {
-      setAnswerList((answerList) => [...answerList, answer]);
-    } else if (answer === '3') {
-      setAnswerList((answerList) => [...answerList, answer]);
-    } else if (answer === '4') {
-      setAnswerList((answerList) => [...answerList, answer]);
-    }
-    console.log(e.target.value);
+    setAnswerList((answerList) => [...answerList, e.target.value]);
+    // if (answer === '1') {
+    //
+    // } else if (answer === '2') {
+    //   setAnswerList((answerList) => [...answerList, answer]);
+    // } else if (answer === '3') {
+    //   setAnswerList((answerList) => [...answerList, answer]);
+    // } else if (answer === '4') {
+    //   setAnswerList((answerList) => [...answerList, answer]);
+    // }
+    // console.log(e.target.value);
     console.log(answerList);
+    console.log(initialState);
   };
+
+  const initialState = {
+    answerList: ['1', '3', '4'],
+  };
+
+  const [surveyResult, setSurveyResult] = useState(0);
 
   const handleClick = (data) => {
     // setIdFromButtonClick(id);
@@ -106,10 +116,6 @@ const SurveyPage = (props) => {
               알려주세요.
             </Title>
           </TitleWrapper>
-          {/* <button>
-       등록하기
-      </button> */}
-
           <Grid>
             {/* <Scroll> */}
             <ScrollWrapper style={parent}>
@@ -210,6 +216,8 @@ const SurveyPage = (props) => {
                         width="230px"
                         height="320px"
                         alt="cardimg"
+                        onClick={() => props.history.push('/result')}
+                        // onClick={()=>history.push}
                       />
                     </CardWrapper>
                   );
@@ -227,7 +235,7 @@ const SurveyPage = (props) => {
           </Grid> */}
         </GridWrapper>
       </GridLayout>
-      <Button type="button" onClick={handleClick}>
+      <Button type="button" onClick={() => props.history.push('/result')}>
         결과
       </Button>
     </Template>
@@ -356,8 +364,12 @@ const Wrapper = styled.div`
 
 const CardGrid = styled.div`
   display: grid !important;
-  grid-template-rows: auto auto;
-  grid-auto-flow: column;
+  /* grid-template-rows: auto auto; */
+  /* grid-auto-flow: column; */
+  display: grid;
+  grid-template-rows: 320px 320px;
+  grid-template-columns: 230px 230px 230px 230px;
+  /* grid-gap: 18rem 3rem; */
   grid-gap: 1rem;
   cursor: pointer;
 
