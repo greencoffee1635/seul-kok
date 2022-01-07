@@ -20,9 +20,10 @@ const MainPage = () => {
   return (
     <>
 
+    {/* muted */}
     <MainScreen>
         <MainVideo muted loop autoPlay>
-          <source src={process.env.PUBLIC_URL + `/video/video3.mp4`} type="video/mp4" />
+          <source src={process.env.PUBLIC_URL + `/video/video00.mp4`} type="video/mp4" />
         </MainVideo>
 
         <Header page="main" />

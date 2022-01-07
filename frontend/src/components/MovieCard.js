@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import MovieCardData from '../Data/MovieCardData';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory, withRouter } from "react-router-dom";
 // import MovieCardData from '../Data/MovieCardData';
 
 const env = process.env;
@@ -12,12 +12,16 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 const MovieCard = (props) => {
 
   let [card, setCard] = useState(MovieCardData);
-  const { history } = props;
+  const history = useHistory();
 
 
   function MovieCards(props) {
     return (
-      <Card>
+      <Card onClick={() => {
+        history.push({
+          pathname: `/preview/${props.card.id}`
+        });
+      }}>
         <MovieIntro>
           <p2>{props.card.ott}</p2>
         </MovieIntro>
@@ -36,15 +40,11 @@ const MovieCard = (props) => {
 
       {
         card.map((carddata, i)=>{
-          return <MovieCards card={carddata}
-                              onClick={() => {
-                                history.push({
-                                  pathname: `/preview/${props.card.id}`
-                                });
-                              }}
-                              />
+          return <MovieCards card={carddata}/>
         })
       }
+
+
 
       {/* {
         card.map((carddata, i)=>{
@@ -53,6 +53,12 @@ const MovieCard = (props) => {
                   </Link>
         })
       } */}
+
+      {/* <MovieCards card={card[0]} />
+      <MovieCards card={card[1]} />
+      <MovieCards card={card[2]} />
+      <MovieCards card={card[3]} /> */}
+
 
     </MainScetion>
   )
@@ -206,4 +212,4 @@ const MovieContent = styled.div`
 //   bottom: 0;
 // `;
 
-export default MovieCard;
+export default withRouter (MovieCard);
