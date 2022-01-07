@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React, { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { useHistory } from 'react-router-dom';
 // components
 import Header from '../components/Header';
 import Grid from '../components/Grid';
@@ -8,17 +8,39 @@ import Background from '../components/Background';
 // import Template from '../components/Template';
 
 import { CenterLayout } from '../components/Layout';
+import { surveyDummy, MovieDummy } from '../data/dummy';
 
 import { head_3, sub_3 } from '../shared/textStyle';
 
-const cards = [...new Array(8)].map((x, i) => ({
-  name: `card ${i}`,
-  img: 'https://source.unsplash.com/random',
-}));
+const cards = [...new Array(8)];
 
-const ResultPage = () => {
+const ResultPage = (props) => {
+  const history = { useHistory };
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
+
+  const [bCheckedArray, setCheckedArray] = useState(
+    Array.from({ length: cards.length }, () => false),
+  );
+  // const [selected, setSelected] = useState(0);
+
+  const activeHandler = (idx) => {
+    if (bCheckedArray[idx] === true) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // console.log(bCheckedArray);
+
+  const setChecked = (id) => {
+    let newArray = [...bCheckedArray];
+    newArray[id] = !newArray[id];
+    setCheckedArray(newArray);
+    console.log(newArray);
+  };
+
   return (
     <Template>
       <Background />
@@ -42,17 +64,54 @@ const ResultPage = () => {
         </Grid>
 
         <CardGrid>
-          {cards.map((card) => (
-            <div>
-              <img src={card.img} width="230px" height="320px" alt="cardimg" />
-              {/* <p>{card.name}</p> */}
-            </div>
-          ))}
+          {MovieDummy[1].map((movies, index) => {
+            return (
+              <CardWrapper
+                active={activeHandler(index)}
+                onClick={() => {
+                  setChecked(index);
+                }}
+              >
+                <img
+                  src={movies.image}
+                  width="230px"
+                  height="320px"
+                  alt="cardimg"
+                  onClick={() => props.history.push('/preview')}
+                  // onClick={()=>history.push}
+                />
+              </CardWrapper>
+            );
+          })}
         </CardGrid>
+        {/* <Card>
+        {
+        card.map((carddata, i)=>{
+          return <MovieCards card={carddata}/>
+        })
+      }
+        </Card> */}
       </CenterLayout>
     </Template>
   );
 };
+
+// const Card = styled.div`
+//   margin: auto;
+//   width: 300px;
+//   height: 420px;
+//   cursor: pointer;
+
+//   text-align: left;
+//   line-height: 23px;
+
+//   position: fixed;
+//   background-image: url(`./Image/image5`);
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center;
+
+// `;
 
 const Template = styled.main`
   width: 100%;
@@ -91,18 +150,24 @@ const Chart = styled.div`
 
 const CardGrid = styled.div`
   display: grid !important;
-  grid-template-rows: auto auto;
-  grid-auto-flow: column;
+  /* grid-template-rows: auto auto; */
+  /* grid-auto-flow: column; */
+  display: grid;
+  grid-template-rows: 320px 320px;
+  grid-template-columns: 230px 230px 230px 230px;
+  /* grid-gap: 18rem 3rem; */
   grid-gap: 1rem;
   cursor: pointer;
-  /* & img :hover {
-    border: 3px solid;
-    border-color: var(--main);
-  } */
-  &:last-child :hover {
-    border: 2px solid var(--main);
-    /* border-color:  */
+
+  div :hover {
+    outline: 3px solid var(--main);
+    // outline-offset: px;
   }
+`;
+
+const CardWrapper = styled.div`
+  outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
+  outline-offset: -2px;
 `;
 
 export default ResultPage;
