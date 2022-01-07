@@ -28,7 +28,6 @@ const MovieCard = (props) => {
         <MovieContent>
           <p2>{props.card.title} <sapn>{props.card.playdate}</sapn> </p2>
           <p>{props.card.content} ... <b>미리보기</b></p>
-          {/* <MovieButton>미리보기</MovieButton> */}
         </MovieContent>
       </Card>
     )

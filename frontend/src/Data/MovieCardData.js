@@ -2,7 +2,7 @@
 export const MovieCardData = [
   {
     id: 0,
-    ott: 'NEXFLIX',
+    ott: 'NETFLIX',
     title: '지옥',
     content: '어느 날 기이한 존재로부터 지옥행을 선고받은 사람들. 충격과 두려움에 휩싸인 도시에 대혼란의 시대가 도래한다. 신의 심판을 외치며 세를 확장하려는 종교단체와 진실을 파헤치는 자들의 이야기.',
     playdate: '2021년 11월 19일'
