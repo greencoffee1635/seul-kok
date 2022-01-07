@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
 import { Link, useParams } from "react-router-dom";
-import { useHistory, useLocation } from "react-router";
+import { useLocation } from "react-router";
 
 
 //components
@@ -12,10 +12,13 @@ import MovieContentdData from '../Data/MovieContentData';
 
 
 
-const ComingSoonPage = (propss) => {
+const ComingSoonPage = (props) => {
 
   let { id } = useParams();
-  const history = useHistory();
+
+  const previews = ['1', '2', '3', '4']
+  const previewsList = previews.map((numbers) => numbers);
+
   let [movieContent, setmovieContent] = useState(MovieContentdData);
 
 
@@ -32,9 +35,11 @@ const ComingSoonPage = (propss) => {
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
 
-      <Link to ="/preview/1" style={{textDecoration: 'none'}}>
-        <MovieCard />
-      </Link>
+      {/* ${previewsList} */}
+
+        {/* <Link to = {{pathname: `/preview/1`}}> */}
+          <MovieCard/>
+        {/* </Link>; */}
 
 
       <Link to="/survey" style={{textDecoration: 'none'}}>

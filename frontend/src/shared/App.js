@@ -5,6 +5,7 @@ import theme from '../shared/theme';
 import { ThemeProvider } from 'styled-components';
 import ScrollToTop from '../components/ScrollToTop';
 
+
 // pages
 import IntroPage from '../pages/IntroPage';
 import MainPage from '../pages/MainPage';
