@@ -34,7 +34,7 @@ const PreviewPage = (props) => {
           <MovieItem>
 
             <MovieTitle>
-              <p2>{movieContent[id].title}</p2>
+              <p2>{movieContent[id].title}<sapn>&emsp;{movieContent[id].keyword}</sapn></p2>
             </MovieTitle>
 
             <MovieItemTitle>
@@ -113,7 +113,7 @@ const MovieItem = styled.div`
 margin: 0 auto;
 
 width: 1010px;
-top: 90%;
+top: 99%;
 left: 15%;
 
 text-align: left;
@@ -131,6 +131,12 @@ position: absolute;
 const MovieTitle = styled.p`
   font-size: 45px;
   color: var(--main);
+
+  sapn {
+    color: #ffffff;
+    font-family: normal;
+    font-size: 20px;
+  }
 `;
 
 const MovieItemTitle = styled.p`

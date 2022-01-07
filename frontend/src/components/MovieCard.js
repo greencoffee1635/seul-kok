@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import MovieCardData from '../Data/MovieCardData';
@@ -22,6 +21,7 @@ const MovieCard = (props) => {
           pathname: `/preview/${props.card.id}`
         });
       }}>
+        <img alt="" src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.jpg`} width="300px" />
         <MovieIntro>
           <p2>{props.card.ott}</p2>
         </MovieIntro>
@@ -126,12 +126,24 @@ const Card = styled.div`
   text-align: left;
   line-height: 23px;
 
-  background: var(--darkred);
+  display: flex;
 
-  // &:hover {
-  //   background: var(--main);
-  //   border: 3px solid var(--main);
-  // };
+  background: var(--darkred);
+  overflow: hidden;
+
+  img {
+    object-fit:cover;
+    background-size: contain;
+  }
+
+  img:hover {
+    background: var(--main);
+  }
+
+  &:hover {
+    background: var(--main);
+    border: 3px solid var(--main);
+  };
 
 `;
 
@@ -171,6 +183,8 @@ const MovieIntro = styled.div`
   color: var(--main);
   font-weight: 500;
 
+  position: absolute;
+
 
 `;
 
@@ -178,11 +192,13 @@ const MovieContent = styled.div`
 
   margin-top: 180px;
   margin-left: 1rem;
-  top: 50%;
+  top: 37%;
   font-size: 0.9rem;
-  width: 90%;
+  width: 270px;
   height: 180px;
   color: #ffffff;
+  position: absolute;
+
 
   p2 {
     font-size: 20px;

@@ -35,7 +35,7 @@ export const MovieContentdData = [
     playdate: '2022년 01월 28일',
     genre: '애니메이션, 코미디',
     cast: '우카쉬 엠부드카, 사이먼 페그, 빈센트 통 등',
-    keyword: '#애니메이션 #슬픈·위로 #프랑스 #1994년',
+    keyword: '#미국 #애니메이션 #모험 #코미디 #가족',
     time: null
   },
 
@@ -48,7 +48,7 @@ export const MovieContentdData = [
     playdate: '2022년 1월 14일',
     genre: '메디컬, 코미디',
     cast: '이서진, 라미란, 신은정 등',
-    keyword: '#애니메이션 #슬픈·위로 #프랑스 #1994년',
+    keyword: '#한국 #드라마 #코미디',
     time: null
   },
 
