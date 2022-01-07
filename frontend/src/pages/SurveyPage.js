@@ -18,7 +18,7 @@ import {
   sub_2_mobile,
 } from '../shared/textStyle';
 
-const questions = [...new Array(4)];
+const questions = [...new Array(3)];
 const cards = [...new Array(8)];
 
 const SurveyPage = (props) => {
@@ -28,6 +28,49 @@ const SurveyPage = (props) => {
   // const [hoverState, setHoverState] = useState(null);
   // const [checkedItems, setCheckedItems] = useState(new Set());
 
+  // 설문 대답 저장
+  const [answerList, setAnswerList] = useState([]);
+
+  const handleCheck = (e, index) => {
+    setAnswerList((answerList) => [...answerList, e.target.value]);
+    // setSurveyChecked(index);
+    // setGenderClicked(1);
+    console.log(answerList);
+    // console.log(initialState.answerList);
+    // console.log(surveyResult);
+  };
+
+  const [bSurveyCheckedArray, setSurveyCheckedArray] = useState(
+    Array.from({ length: questions.length }, () => 0),
+  );
+
+  const [selected, setSelected] = useState(0);
+
+  const activeSurveyHandler = (index, value) => {
+    if (bSurveyCheckedArray[index] === value) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const setSurveyChecked = (index, value) => {
+    // let newbSurveyCheckedArray = [...bSurveyCheckedArray];
+
+    // newbSurveyCheckedArray[index] = !newbSurveyCheckedArray[index];
+    //setSurveyCheckedArray(newbSurveyCheckedArray);
+    setSurveyCheckedArray((cur) => {
+      const newbSurveyCheckedArray = [...cur];
+      newbSurveyCheckedArray[index] = value;
+      console.log(newbSurveyCheckedArray);
+      return newbSurveyCheckedArray;
+    });
+    // console.log(bCheckedArray);
+    // console.log(initialState.bCheckedArray);
+    // console.log(initialState);
+  };
+
+  // 영화 카드 선택
   const [bCheckedArray, setCheckedArray] = useState(
     Array.from({ length: cards.length }, () => false),
   );
@@ -41,47 +84,45 @@ const SurveyPage = (props) => {
     }
   };
 
-  // console.log(bCheckedArray);
-
   const setChecked = (id) => {
     let newArray = [...bCheckedArray];
     newArray[id] = !newArray[id];
     setCheckedArray(newArray);
-    console.log(newArray);
+    // console.log(newArray);
+    // console.log(bCheckedArray);
+    // console.log(initialState.bCheckedArray);
+    // console.log(initialState);
   };
 
-  const [answerList, setAnswerList] = useState([]);
-  // const [answer, setAnswer] = useState(0);
+  // const handleAnswerChange = value => {
 
-  const handleCheck = (e, index) => {
-    // let answerArray = [...answerList];
-    setAnswerList((answerList) => [...answerList, e.target.value]);
-    // if (answer === '1') {
-    //
-    // } else if (answer === '2') {
-    //   setAnswerList((answerList) => [...answerList, answer]);
-    // } else if (answer === '3') {
-    //   setAnswerList((answerList) => [...answerList, answer]);
-    // } else if (answer === '4') {
-    //   setAnswerList((answerList) => [...answerList, answer]);
-    // }
-    // console.log(e.target.value);
-    console.log(answerList);
-    console.log(initialState);
-  };
+  //   // const selectedGender = value ? "100323" : "100324";
+  //   console.log(value);
+  //   setGender(value);
+  //   console.log(value === "100323" ? "Male" : "Female": '3' :);
+  //   // setUserInfo([...userInfo, e.target.value]);
+  //   if (typeof window !== "undefined") {
+  //     localStorage.setItem("userGender", value);
+  //   }
+  // };
 
+  // 초기값 설정
   const initialState = {
     answerList: ['1', '3', '4'],
+    bCheckedArray: [true, false, true, false, true, false, true, false],
   };
 
-  const [surveyResult, setSurveyResult] = useState(0);
+  const surveyResult = [initialState.answerList, initialState.bCheckedArray];
 
   const handleClick = (data) => {
     // setIdFromButtonClick(id);
     let formData = new FormData();
     formData.append('survey', data.survey);
-    // formData.append('pwd', this.userPass);
-    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com:5000/question`;
+    formData.append('survey', surveyResult);
+    console.log(surveyResult);
+    // formData.append('pwd', this.userPasss);
+    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com:5000/survey`;
+    // http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey
     axios
       .post(url, formData, {
         // timeout: 10000,
@@ -95,6 +136,7 @@ const SurveyPage = (props) => {
       .catch((error) => {
         console.log('failed', error);
       });
+    props.history.push('/result');
   };
 
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
@@ -132,43 +174,62 @@ const SurveyPage = (props) => {
                     <SurveyWrapper style={child}>
                       <Text>{survey.question}</Text>
                       {/* <AnswerWrapper> */}
+                      {/* suvery.answer1~4 = > survey {question : question, answer:[answer1,answer2,answer3,answer4]}
+                      survey.map((answer,idx)=>{
+                        <Answer value={idx+1}
+                        active={activeSurveyHandler(index,idx+1)}
+                        onClick={(e)=>{
+                          setSurveyChecked(index,idx+1);
+                          handleCheck(e);
+                        }} 
+                      })*/}
+
                       <Answer
                         value="1"
-                        // active={activeSurveyHandler(index)}
+                        active={activeSurveyHandler(index, 1)}
                         // onClick={() => {
-                        //   setSurveyChecked(index);
+                        //   handleCheck();
                         // }}
-                        onClick={handleCheck}
+                        onClick={(e) => {
+                          setSurveyChecked(index, 1);
+                          handleCheck(e);
+                        }}
                       >
                         {survey.answer1}
                       </Answer>
                       <Answer
                         value="2"
-                        // active={activeSurveyHandler(index)}
-                        // onClick={() => {
-                        //   setSurveyChecked(index);
-                        // }}
-                        onClick={handleCheck}
+                        active={activeSurveyHandler(index, 2)}
+                        onClick={(e) => {
+                          setSurveyChecked(index, 2);
+                          handleCheck(e);
+                        }}
                       >
                         {survey.answer2}
                       </Answer>
                       <Answer
                         value="3"
-                        // active={activeSurveyHandler(index)}
+                        active={activeSurveyHandler(index, 3)}
                         // onClick={() => {
                         //   setSurveyChecked(index);
                         // }}
-                        onClick={handleCheck}
+                        onClick={(e) => {
+                          setSurveyChecked(index, 3);
+                          handleCheck(e);
+                        }}
                       >
                         {survey.answer3}
                       </Answer>
                       <Answer
                         value="4"
-                        // active={activeSurveyHandler(index)}
+                        active={activeSurveyHandler(index, 4)}
                         // onClick={() => {
                         //   setSurveyChecked(index);
                         // }}
-                        onClick={handleCheck}
+                        onClick={(e) => {
+                          setSurveyChecked(index, 4);
+                          handleCheck(e);
+                        }}
                       >
                         {survey.answer4}
                       </Answer>
@@ -216,7 +277,7 @@ const SurveyPage = (props) => {
                         width="230px"
                         height="320px"
                         alt="cardimg"
-                        onClick={() => props.history.push('/result')}
+                        // onClick={() => props.history.push('/result')}
                         // onClick={()=>history.push}
                       />
                     </CardWrapper>
@@ -235,7 +296,11 @@ const SurveyPage = (props) => {
           </Grid> */}
         </GridWrapper>
       </GridLayout>
-      <Button type="button" onClick={() => props.history.push('/result')}>
+      <Button
+        type="button"
+        // onClick={() => props.history.push('/result')}
+        onClick={handleClick}
+      >
         결과
       </Button>
     </Template>
@@ -340,6 +405,12 @@ const Answer = styled.button`
     ${sub_2_mobile}
     width: 17rem;
     height: 4rem;
+  }
+
+  outline: ${(props) => (props.active ? '10px solid var(--violet)' : 'none')};
+  :hover {
+    outline: 3px solid var(--main);
+    // outline-offset: px;
   }
 `;
 
