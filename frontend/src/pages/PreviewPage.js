@@ -21,15 +21,17 @@ const PreviewPage = (props) => {
   let [movieContent, setMovieContent] = useState(MovieContentdData);
   let [movieUrl, setMovieUrl] = useState(thumbnailData);
 
-  function thumbnailCard(props) {
-    return (<PictureCard onClick={()=> window.open('', '_blank')}>
-      </PictureCard>)
+
+
+  function ThumbnailCard(props) {
+    return (<PictureCard onClick={() => window.open(`${props.movieUrl.url}`, '_blank')}>
+            <img alt="" src={process.env.PUBLIC_URL + `/Thumbnail/thumbnail${props.movieUrl.id}.png`} />
+            </PictureCard>);
   }
 
 
   return (
     <>
-
     {/* muted */}
     <MainScreen>
         <MainVideo muted loop autoPlay>
@@ -63,9 +65,13 @@ const PreviewPage = (props) => {
                 <p><b>관련영상</b></p>
               </PictureCardTitle>
               <PictureCardContent>
-                <PictureCard>
 
-                </PictureCard>
+                  {
+                    movieUrl.map((thumbnail, i)=>{
+                      return <ThumbnailCard movieUrl={thumbnail}/>
+                    })
+                  }
+
               </PictureCardContent>
             </PictureCardSection>
 
@@ -101,8 +107,6 @@ const MainScreen = styled.div`
   width: 100%;
   height: 230vh;
   background-color: black;
-  display: flex;
-
 
 `;
 
@@ -111,7 +115,6 @@ const MainVideo = styled.video`
   width: 100%;
   position: absolute;
   `;
-
 
 
 
@@ -125,7 +128,6 @@ left: 15%;
 
 text-align: left;
 position: absolute;
-
 
   span {
     b {
@@ -182,22 +184,38 @@ const PictureCardTitle = styled.p`
 
 
 const PictureCardContent = styled.div`
-  display: flex;
+  width: 1080px;
+  height: 300px;
+
   cursor: pointer;
+  display: flex;
+
+  top: 90%;
 `;
 
 
   const PictureCard = styled.div`
 
-  margin: auto;
-  width: 328px;
+  margin: 0 auto;
+
+  width: 350px;
   height: 230px;
-  background-color: var(--deepdarkred);
+  cursor: pointer;
+
   display: flex;
+
+  background-color: var(--deepdarkred);
+  overflow: hidden;
 
   &:hover {
     border: 3px solid;
     border-color: var(--main);
+  };
+
+  img {
+    object-fit:cover;
+    background-size: contain;
+  };
   `;
 
 

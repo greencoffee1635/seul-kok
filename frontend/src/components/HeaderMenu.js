@@ -20,7 +20,7 @@ const HeaderMenu = () => {
           마이페이지
         </MenuItem>
       </Link>
-      <Link to ="team">
+      <Link to ="team" style={{textDecoration: 'none'}}>
       <MenuItem>
         팀소개
       </MenuItem>

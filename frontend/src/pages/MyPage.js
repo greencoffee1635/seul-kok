@@ -14,8 +14,15 @@ import Background from '../components/Background';
 
 const MyPage = () => {
 
-  let [ottsSubsDates, setOttSubsDattes] = useState();
-  let [ottsName, setOttsName] = useState();
+  let [ottSubsCheck, setOttSubsCheck] = useState([]);
+  let [ottNameCheck, setOttsNameCheck] = useState([]);
+
+  // const ottNames = [
+  //   { id: "NETFLIX" },
+  //   { id: "WATCHA" },
+  //   { id: "Disney+" },
+  //   { id: "TVING" },
+  // ];
 
   const ottNames = ['NETFLIX', 'WATCHA', 'Disney+', 'TVING']
   const ottNamesList = ottNames.map((name, index) => (<FormButton key={index}>{name}</FormButton>));
@@ -28,7 +35,9 @@ const MyPage = () => {
   return (
     <Template>
       <Background />
+
       <Header page="main" />
+
       <Layout>
         <Grid width="40rem" is_flex="space-between">
           <Grid margin="0 0 5rem 5rem">
@@ -83,14 +92,16 @@ const MyPage = () => {
                     </LoginForm>
                   </OttWrapper>
                 </>
+
                 <SubSetion>
                   <Text>원하는 <b>구독기간</b>를 선택해주세요.</Text>
                     <DateWrapper>
                       {ottSubsDatesList}
                     </DateWrapper>
                 </SubSetion>
+
                 <Link to="/payfor" style={{textDecoration: 'none'}}>
-                <SubsButton><b>예약/결제</b></SubsButton>
+                  <SubsButton><b>예약/결제</b></SubsButton>
                 </Link>
               </NextOtt>
 

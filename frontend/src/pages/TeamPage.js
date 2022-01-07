@@ -118,9 +118,11 @@ const ScrollImage = styled.div`
     box-sizing: border-box;
 `;
 
+
+
 const MainScreen = styled.div`
   width: 100%;
-  height: 230vh;
+  height: 200vh;
   display: flex;
 
   background: radial-gradient(
