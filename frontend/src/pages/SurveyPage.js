@@ -26,8 +26,9 @@ const SurveyPage = (props) => {
   // const [hoverState, setHoverState] = useState(null);
   // const [checkedItems, setCheckedItems] = useState(new Set());
 
-
-  const [bCheckedArray, setCheckedArray] = useState(Array.from({ length: cards.length }, () => false),);
+  const [bCheckedArray, setCheckedArray] = useState(
+    Array.from({ length: cards.length }, () => false),
+  );
   // const [selected, setSelected] = useState(0);
 
   const activeHandler = (idx) => {
@@ -46,76 +47,24 @@ const SurveyPage = (props) => {
     setCheckedArray(newArray);
   };
 
+  const [answerList, setAnswerList] = useState([]);
+  const [answer, setAnswer] = useState(0);
 
-  const [answerList, setAnswerList] = useState(Array.from({ length: questions.length }, () => 0),);
-  const [answer, setAnswer] = useState(0)
- 
   const handleCheck = (e, index) => {
-    let answerArray = {...answerList};
-    setAnswer({
-      answer: e.target.value,
-    });
-      if (answer === '1') {
-      setAnswerList(answerList.push(answer));
-      
+    // let answerArray = [...answerList];
+    setAnswer(e.target.value);
+    if (answer === '1') {
+      setAnswerList((answerList) => [...answerList, answer]);
     } else if (answer === '2') {
-      setAnswerList(answerList.push(answerArray));
-  
+      setAnswerList((answerList) => [...answerList, answer]);
     } else if (answer === '3') {
-      setAnswerList(answerList.push(answerArray));
-
+      setAnswerList((answerList) => [...answerList, answer]);
     } else if (answer === '4') {
-      setAnswerList(answerList.push(answerArray));
-     
+      setAnswerList((answerList) => [...answerList, answer]);
     }
-    console.log(e.target.value)
-    console.log(answerArray)
+    console.log(e.target.value);
+    console.log(answerList);
   };
-
-
-
-
-
-  // const handleCheck = (e) => {
-  //   let answerArray = [...answerList];
-  //   setAnswer({
-  //     answer: e.target.value,
-  //   });
-  //   if (answer === '1') {
-  //     setAnswerList(answer.push(e.target.value));
-  //     setAnswer('')
-  //   } else if (answer === '2') {
-  //     setAnswerList(answer.push(e.target.value));
-  //     setAnswer('')
-  //   } else if (answer === '3') {
-  //     setAnswerList(answer.push(e.target.value));
-  //     setAnswer('')
-  //   } else if (answer === '4') {
-  //     setAnswerList(answer.push(e.target.value));
-  //     setAnswer('')
-  //   }
-  //   setAnswerList(answerArray);
-  //   // setAnswerList(answerList.push(answer))
-  //   // console.log(e.target.value);
-  //   // setAnswerList(e.target.value)
-  //   // setAnswer(answer)
-  //   console.log(e.target.value)
-  //   console.log(answerArray)
-  // };
-
-
-
-   // const activeSurveyHandler = (idx) => {
-  //   if (answerList[idx] === true) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-
-
-
-
 
   const handleClick = (data) => {
     // setIdFromButtonClick(id);
@@ -157,11 +106,10 @@ const SurveyPage = (props) => {
               알려주세요.
             </Title>
           </TitleWrapper>
-      {/* <button>
+          {/* <button>
        등록하기
       </button> */}
-      
-   
+
           <Grid>
             {/* <Scroll> */}
             <ScrollWrapper style={parent}>
@@ -184,9 +132,8 @@ const SurveyPage = (props) => {
                         // onClick={() => {
                         //   setSurveyChecked(index);
                         // }}
-                        // onClick={handleCheck}
                         onClick={handleCheck}
-                        >
+                      >
                         {survey.answer1}
                       </Answer>
                       <Answer
@@ -195,9 +142,7 @@ const SurveyPage = (props) => {
                         // onClick={() => {
                         //   setSurveyChecked(index);
                         // }}
-                       
-                  // onClick={handleCheck}
-                  onClick={handleCheck}
+                        onClick={handleCheck}
                       >
                         {survey.answer2}
                       </Answer>
@@ -207,7 +152,6 @@ const SurveyPage = (props) => {
                         // onClick={() => {
                         //   setSurveyChecked(index);
                         // }}
-                        // onClick={handleCheck}
                         onClick={handleCheck}
                       >
                         {survey.answer3}
@@ -218,7 +162,6 @@ const SurveyPage = (props) => {
                         // onClick={() => {
                         //   setSurveyChecked(index);
                         // }}
-                        // onClick={handleCheck}
                         onClick={handleCheck}
                       >
                         {survey.answer4}
