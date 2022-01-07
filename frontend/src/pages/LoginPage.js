@@ -34,7 +34,7 @@ const LoginPage = () => {
           <LoginWrapper>
             <LoginForm>
               <Link to="/main">
-                <FormButton>
+                <FormButton herf = 'http://seulkok.xyz/login'>
                   <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
                 </FormButton>
               </Link>
