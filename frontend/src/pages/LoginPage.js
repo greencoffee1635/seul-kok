@@ -11,7 +11,6 @@ import useMotion from '../utils/useMotion';
 //components
 // import SignupTemplate from '../components/SignupTemplate';
 
-import { KAKAO_AUTH_URL } from '../oAuth_kakao';
 
 const LoginPage = () => {
   return (
@@ -40,7 +39,7 @@ const LoginPage = () => {
                 </FormButton>
               </Link>
               <Link to="/main">
-                <FormButton href={KAKAO_AUTH_URL}>
+                <FormButton>
                   <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
                 </FormButton>
               </Link>
