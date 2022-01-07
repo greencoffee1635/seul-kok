@@ -63,6 +63,7 @@ export const MovieContentdData = [
     keyword: '#애니메이션 #Leagur of Legends',
     time: '9부작'
   }
+
 ]
 
 export default MovieContentdData;

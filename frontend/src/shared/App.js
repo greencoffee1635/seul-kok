@@ -10,6 +10,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import IntroPage from '../pages/IntroPage';
 import MainPage from '../pages/MainPage';
 import PreviewPage from '../pages/PreviewPage';
+import PreviewPage2 from '../pages/PreviewPage2';
 import QuestionPage from '../pages/QuestionPage';
 import PickPosterPage from '../pages/PickPosterPage';
 import ResultPage from '../pages/ResultPage';
@@ -18,6 +19,7 @@ import SignupPage from '../pages/SignupPage';
 import MyPage from '../pages/MyPage';
 import SurveyPage from '../pages/SurveyPage';
 import PayForPage from '../pages/PayForPage';
+import TeamPage from '../pages/TeamPage';
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
             <Route exact path="/main" component={MainPage} />
             <Route exact path="/preview" component={PreviewPage} />
             <Route exact path="/preview/:id" component={PreviewPage} />
+            <Route exact path="/preview2/:id" component={PreviewPage2} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
             {/* <Route exact path="/question" component={QuestionPage} />
@@ -39,6 +42,7 @@ function App() {
             <Route exact path="/result" component={ResultPage} />
             <Route exact path="/mypage" component={MyPage} />
             <Route exact path="/payfor" component={PayForPage} />
+            <Route exact path="/team" component={TeamPage} />
           </Switch>
         </BrowserRouter>
         <GlobalStyle />

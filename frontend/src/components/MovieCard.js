@@ -118,7 +118,7 @@ const MainScetion = styled.div`
 
 const Card = styled.div`
 
-  margin: auto;
+  margin: 0 auto;
   width: 300px;
   height: 420px;
   cursor: pointer;
@@ -127,17 +127,21 @@ const Card = styled.div`
   line-height: 23px;
 
   display: flex;
+  margin-bottom: 30px;
 
-  background: var(--darkred);
+  background: var(--main);
   overflow: hidden;
 
   img {
     object-fit:cover;
     background-size: contain;
+    transform: scale(1.0);
+    transition: all 0.25s linear;
   }
 
   img:hover {
-    background: var(--main);
+    opacity: 0.2;
+    transform: scale(1.25);
   }
 
   &:hover {
@@ -145,41 +149,16 @@ const Card = styled.div`
     border: 3px solid var(--main);
   };
 
+  position: relative;
+
 `;
 
-// const Card = styled.div`
 
-//   margin: auto;
-//   width: 300px;
-//   height: 420px;
-//   cursor: pointer;
-
-//   text-align: left;
-//   line-height: 23px;
-
-//   background: var(--darkred);
-
-//   &:hover {
-//     background: var(--main);
-//     border: 3px solid var(--main);
-//   };
-
-// `;
-
-// &:hover {
-//   background: linear-gradient(
-//     to bottom,
-//     rgba(216, 14, 27, 0.1) 10%,
-//     rgba(216, 14, 27, 0.3) 30%,
-//     rgba(242, 39, 62, 0.5) 50%,
-//     rgba(242, 39, 62, 0.7) 70%,
-//     rgba(242, 39, 62, 1) 100%
-//   );
 
 const MovieIntro = styled.div`
 
   margin-left: 1rem;
-  margin-top: 2rem;
+  margin-top: 10px;
   color: var(--main);
   font-weight: 500;
 
@@ -190,18 +169,26 @@ const MovieIntro = styled.div`
 
 const MovieContent = styled.div`
 
-  margin-top: 180px;
+  margin-top: 230px;
   margin-left: 1rem;
-  top: 37%;
+
   font-size: 0.9rem;
   width: 270px;
   height: 180px;
+
   color: #ffffff;
+
   position: absolute;
 
+  p2, p {
+    position: absolute;
+    opacity: 0;
+
+  }
 
   p2 {
     font-size: 20px;
+    margin-bottom: 20px;
   }
 
   sapn {
@@ -211,20 +198,28 @@ const MovieContent = styled.div`
 
   `;
 
+// const MovieContent = styled.div`
 
-// const MovieButton = styled.button`
+// margin-top: 180px;
+// margin-left: 1rem;
+// top: 37%;
+// font-size: 0.9rem;
+// width: 270px;
+// height: 180px;
+// color: #ffffff;
+// position: absolute;
 
-//   margin-bottom: 10px;
 
-//   border: 1px solid;
-//   border-color: #ffffff;
-//   border-radius: 0.1em;
+// p2 {
+//   font-size: 20px;
+// }
 
-//   color: #ffffff;
-//   background-color: transparent;
-//   opacity: 0.8;
+// sapn {
+//   font-family: none;
+//   font-size: 12px;
+// }
 
-//   bottom: 0;
 // `;
+
 
 export default withRouter (MovieCard);
