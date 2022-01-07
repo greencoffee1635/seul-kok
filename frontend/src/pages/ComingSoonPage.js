@@ -32,8 +32,9 @@ const ComingSoonPage = (propss) => {
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
 
-
+      <Link to ="/preview/1" style={{textDecoration: 'none'}}>
         <MovieCard />
+      </Link>
 
 
       <Link to="/survey" style={{textDecoration: 'none'}}>
