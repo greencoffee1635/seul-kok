@@ -2,13 +2,14 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import MovieCardData from '../Data/MovieCardData';
+import { Link, useParams } from "react-router-dom";
 // import MovieCardData from '../Data/MovieCardData';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
 
 
-const MovieCard = (props) => {
+const MovieCard = () => {
 
   let [card, setCard] = useState(MovieCardData);
 
@@ -32,11 +33,11 @@ const MovieCard = (props) => {
   return (
     <MainScetion>
 
-      {
+      {/* {
         card.map((carddata, i)=>{
           return <MovieCards card={carddata} />
         })
-      }
+      } */}
 
       {/* {
         card.map((a, i)=>{
@@ -44,10 +45,11 @@ const MovieCard = (props) => {
         })
       } */}
 
-      {/* <MovieCards card={card[0]} />
-      <MovieCards card={card[1]} />
-      <MovieCards card={card[2]} />
-      <MovieCards card={card[3]} /> */}
+      <Link to="/preview/0" style={{textDecoration: 'none'}}><MovieCards card={card[0]} /></Link>
+      <Link to="/preview/1" style={{textDecoration: 'none'}}><MovieCards card={card[1]} /></Link>
+      <Link to="/preview/2" style={{textDecoration: 'none'}}><MovieCards card={card[2]} /></Link>
+      <Link to="/preview/3" style={{textDecoration: 'none'}}><MovieCards card={card[3]} /></Link>
+
 
     </MainScetion>
   )
@@ -116,22 +118,33 @@ const Card = styled.div`
   text-align: left;
   line-height: 23px;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(20, 20, 20, 0) 10%,
-    rgba(20, 20, 20, 0.20) 20%,
-    rgba(20, 20, 20, 0.8) 80%,
-    rgba(20, 20, 20, 0.9) 90%,
-    rgba(20, 20, 20, 1) 100%
-  ), url(./Image/image5.jpg);
-  background-size: contain;
+  background: var(--darkred);
 
-  &:hover {
-    background: var(--main);
-    border: 3px solid var(--main);
-  };
+  // &:hover {
+  //   background: var(--main);
+  //   border: 3px solid var(--main);
+  // };
 
 `;
+
+// const Card = styled.div`
+
+//   margin: auto;
+//   width: 300px;
+//   height: 420px;
+//   cursor: pointer;
+
+//   text-align: left;
+//   line-height: 23px;
+
+//   background: var(--darkred);
+
+//   &:hover {
+//     background: var(--main);
+//     border: 3px solid var(--main);
+//   };
+
+// `;
 
 // &:hover {
 //   background: linear-gradient(
@@ -146,7 +159,7 @@ const Card = styled.div`
 const MovieIntro = styled.div`
 
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   color: var(--main);
   font-weight: 500;
 

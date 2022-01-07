@@ -1,16 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useHistory, useLocation } from "react-router";
 
 
 //components
 import useMotion from '../utils/useMotion';
 import MovieCard from '../components/MovieCard';
 import { head_4 } from '../shared/textStyle';
+import MovieContentdData from '../Data/MovieContentData';
 
 
 
 const ComingSoonPage = (propss) => {
+
+  let { id } = useParams();
+  const history = useHistory();
+  let [movieContent, setmovieContent] = useState(MovieContentdData);
 
 
   return (
@@ -26,9 +32,9 @@ const ComingSoonPage = (propss) => {
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
 
-      <Link to ="preview" style={{textDecoration: 'none'}} >
+
         <MovieCard />
-      </Link>
+
 
       <Link to="/survey" style={{textDecoration: 'none'}}>
         <StartButton><span>이달의 OTT 추천받기</span></StartButton>

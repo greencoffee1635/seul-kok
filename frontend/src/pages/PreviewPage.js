@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 import styled, {keyframes} from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import MovieContentdData from '../Data/MovieContentData';
 
 // import { Grid } from '@mui/material';
@@ -16,7 +16,9 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 
 const PreviewPage = (props) => {
 
+  let { id } = useParams();
   let [movieContent, setmovieContent] = useState(MovieContentdData);
+
 
   return (
     <>
@@ -32,7 +34,7 @@ const PreviewPage = (props) => {
           <MovieItem>
 
             <MovieTitle>
-              <p2>{movieContent[0].title}</p2>
+              <p2>{movieContent[id].title}</p2>
             </MovieTitle>
 
             <MovieItemTitle>
@@ -40,12 +42,12 @@ const PreviewPage = (props) => {
             </MovieItemTitle>
 
             <MovieItemIntro>
-              <p>{movieContent[0].content}</p>
+              <p>{movieContent[id].content}</p>
               <IntroSection>
-                <p><b>개봉일</b> {movieContent[0].playdate}</p>
-                <p><b>장르</b> {movieContent[0].genre}</p>
-                <p><b>출연진</b> {movieContent[0].cast}</p>
-                <p><b>상영시간</b> {movieContent[0].time}</p>
+                <p><b>개봉일</b> {movieContent[id].playdate}</p>
+                <p><b>장르</b> {movieContent[id].genre}</p>
+                <p><b>출연진</b> {movieContent[id].cast}</p>
+                <p><b>상영시간</b> {movieContent[id].time}</p>
               </IntroSection>
             </MovieItemIntro>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import GlobalStyle from '../shared/GlobalStyle';
 import theme from '../shared/theme';
 import { ThemeProvider } from 'styled-components';
@@ -25,17 +25,20 @@ function App() {
         <GlobalStyle />
         <BrowserRouter>
           <ScrollToTop />
-          <Route exact path="/" component={IntroPage} />
-          <Route exact path="/main" component={MainPage} />
-          <Route exact path="/preview"s component={PreviewPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/signup" component={SignupPage} />
-          {/* <Route exact path="/question" component={QuestionPage} />
-          <Route exact path="/question2" component={PickPosterPage} /> */}
-          <Route exact path="/survey" component={SurveyPage} />
-          <Route exact path="/result" component={ResultPage} />
-          <Route exact path="/mypage" component={MyPage} />
-          <Route exact path="/payfor" component={PayForPage} />
+          <Switch>
+            <Route exact path="/" component={IntroPage} />
+            <Route exact path="/main" component={MainPage} />
+            <Route exact path="/preview" component={PreviewPage} />
+            <Route exact path="/preview/:id" component={PreviewPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={SignupPage} />
+            {/* <Route exact path="/question" component={QuestionPage} />
+            <Route exact path="/question2" component={PickPosterPage} /> */}
+            <Route exact path="/survey" component={SurveyPage} />
+            <Route exact path="/result" component={ResultPage} />
+            <Route exact path="/mypage" component={MyPage} />
+            <Route exact path="/payfor" component={PayForPage} />
+          </Switch>
         </BrowserRouter>
         <GlobalStyle />
       </ThemeProvider>

@@ -31,7 +31,7 @@ const MainPage = () => {
             <p style={{fontSize: '20px', color: '#ffffff'}}><b>액션/아케이드</b></p>
             <p2 style={{fontSize: '40px', color: 'var(--main)'} }>Arcane: League of Legends</p2>
             <p style={{color: '#ffffff'}}>모든 전설엔 시작이 있다. 《리그 오브 레전드》 제작진이 만든 새로운 애니메이션 시리즈 《아케인》. 레전드가 된 두 챔피언과 전운에 가득 뒤덮인 한 도시의 시작을 따라간다.</p>
-            <a href="/preview"
+            <a href="/preview/4"
                 style={{color:'#e8384c', textDecoration: 'none'}}>자세히보기</a>
           </MainItem>
 
