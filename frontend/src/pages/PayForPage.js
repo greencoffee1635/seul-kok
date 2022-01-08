@@ -49,6 +49,10 @@ const PayForPage = () => {
                   <b style={{ textDecoration: 'none'}}>네이버페이</b> 간편결제
                 </FormButton>
 
+                {/* <FormButton>
+                  <b style={{ textDecoration: 'none'}}>완료</b>
+                </FormButton> */}
+
 
             </LoginForm>
           </LoginWrapper>

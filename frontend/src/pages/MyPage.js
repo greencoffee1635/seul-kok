@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router";
 
 // components
 import Header from '../components/Header';
@@ -14,23 +15,71 @@ import Background from '../components/Background';
 
 const MyPage = () => {
 
-  let [ottSubsCheck, setOttSubsCheck] = useState([]);
-  let [ottNameCheck, setOttsNameCheck] = useState([]);
+  const history = useHistory();
+  // const [temp, setTemp] = useState(new Set()); // 한 페이지에서 선택한 것 받고 초기화
 
-  // const ottNames = [
-  //   { id: "NETFLIX" },
-  //   { id: "WATCHA" },
-  //   { id: "Disney+" },
-  //   { id: "TVING" },
-  // ];
+  // const checkHandler = ({ target }: any) => {
+  //   setIsChecked(!isChecked);
+  //   handleCheck(target.id, target.checked);
+  // };
 
-  const ottNames = ['NETFLIX', 'WATCHA', 'Disney+', 'TVING']
-  const ottNamesList = ottNames.map((name, index) => (<FormButton key={index}>{name}</FormButton>));
 
-  const ottSubsDates = ['1개월', '2개월', '3개월', '4개월', '4개월', '6개월', '7개월', '8개월', '9개월', '10개월', '11개월', '12개월']
-  const ottSubsDatesList = ottSubsDates.map((date, index) => (<FormButton>
-    <b style={{ color: '#ffffff', textDecoration: 'none' }} key={index}>{date}</b>
+
+  const [selected, setSelected] = useState(false);
+  const [ottResult, setOttResult] = useState([]);
+
+
+  // const handleCheck = (e, index) => {
+  //   const resultKey = Math.floor((e.target.value));
+  //   const newObj = {...ottResult};
+  //   setOttResult(newObj);
+  //   console.log(e.target.value);
+  // };
+
+  const ottNames = [
+    { name: 'ott', id: 'NETFLIX', value: 'NETFLIX'},
+    { name: 'ott', id: 'WATCHA', value: 'WATCHA' },
+    { name: 'ott', id: 'Disney+', value: 'Disney+' },
+    { name: 'ott', id: 'TVING', value: 'TVING' },
+  ];
+  const ottDates = [
+    { name: 'date', id: '1개월', value: '1개월'},
+    { name: 'date', id: '2개월', value: '2개월'},
+    { name: 'date', id: '3개월', value: '3개월'},
+    { name: 'date', id: '4개월', value: '4개월'},
+    { name: 'date', id: '5개월', value: '5개월'},
+    { name: 'date', id: '6개월', value: '6개월'},
+    { name: 'date', id: '7개월', value: '7개월'},
+    { name: 'date', id: '8개월', value: '8개월'},
+    { name: 'date', id: '9개월', value: '9개월'},
+    { name: 'date', id: '10개월', value: '10개월'},
+    { name: 'date', id: '11개월', value: '11개월'},
+    { name: 'date', id: '12개월', value: '12개월'},
+  ];
+
+
+  const handleCheck = (e) => {
+    setOttResult({
+      ...ottResult,
+      [e.target.name]: e.target.value
+    });
+    console.log(e.target.value);
+  };
+
+
+
+  const ottNamesList = ottNames.map((name, index) =>
+    (<FormButton key={index}
+                onClick={handleCheck}>{name.id}</FormButton>));
+
+  const ottSubsDatesList = ottDates.map((date, index) => (<FormButton>
+    <b style={{ color: '#ffffff', textDecoration: 'none' }}
+      key={index}
+      >{date.id}</b>
   </FormButton>));
+
+
+
 
   return (
     <Template>
@@ -72,22 +121,6 @@ const MyPage = () => {
                     <LoginForm>
 
                       {ottNamesList}
-
-                        {/* <FormButton>
-                          <b style={{ color: '#d92f27', textDecoration: 'none' }}>NETFLIX</b>
-                        </FormButton>
-
-                        <FormButton>
-                          <b style={{ color: '#f1355c', textDecoration: 'none'}}>WATCHA</b>
-                        </FormButton>
-
-                        <FormButton>
-                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>Disney+</b>
-                        </FormButton>
-
-                        <FormButton>
-                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>TVING</b>
-                        </FormButton> */}
 
                     </LoginForm>
                   </OttWrapper>
