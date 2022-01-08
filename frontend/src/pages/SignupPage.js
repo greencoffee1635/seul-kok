@@ -2,12 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 
 import useMotion from '../utils/useMotion';
-// import { useEffect, useState } from 'react';
-
-// 짱멋진모듈(가로스크롤)
-// import ScrollHorizontal from 'react-scroll-horizontal';
-
-//components
 
 const SignupPage = () => {
 

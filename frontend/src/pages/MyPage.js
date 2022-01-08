@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 
 // components
 import Header from '../components/Header';
@@ -12,7 +13,7 @@ import { Layout } from '../components/Layout';
 import { head_5, sub_4 } from '../shared/textStyle';
 import Background from '../components/Background';
 
-const MyPage = () => {
+const MyPage = (props) => {
   const history = useHistory();
   // const [temp, setTemp] = useState(new Set()); // 한 페이지에서 선택한 것 받고 초기화
 
@@ -55,7 +56,7 @@ const MyPage = () => {
     { id: '12개월', value: '12개월' },
   ];
 
-  const handleCheck = (e, idx) => {
+  const handleCheckOtt = (e, idx) => {
     setOttResult({
       ...ottResult,
       [e.target.name]: e.target.value,
@@ -63,11 +64,52 @@ const MyPage = () => {
     console.log(e.target.value);
     console.log(idx);
     setOttSelected(idx);
+    // console.log(e.target);
+    // console.log(e.target.value);
+    // console.log(e.target.value);
+  };
+
+
+  const handleCheckDate = (e, idx) => {
+    setOttResult({
+      ...ottResult,
+      [e.target.name]: e.target.value,
+    });
+    console.log(e.target.value);
+    console.log(idx);
     setOttDateSelected(idx);
     // console.log(e.target);
     // console.log(e.target.value);
     // console.log(e.target.value);
   };
+
+  const handleClick = (data) => {
+    // setIdFromButtonClick(id);
+    let formData = new FormData();
+    formData.append('mypage', ottResult);
+    console.log();
+    // formData.append('pwd', this.userPasss);
+    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/mypage`;
+    // http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey (물어보기)
+    axios
+      .post(url, formData, {
+        // timeout: 10000,
+        headers: {
+          'Content-Type': `multipart/form-data`,
+        },
+      })
+      .then((res) => {
+        console.log('res : ', res.data.mostOTT);
+      })
+      .catch((error) => {
+        console.log('failed', error);
+      });
+    props.history.push('/payfor');
+  };
+
+
+
+
 
   const ottBtnActiveHandler = (idx) => {
     if (idx === ottSelected) {
@@ -89,7 +131,7 @@ const MyPage = () => {
   const ottNameList = ottNames.map((item, index) => (
     <FormButton
         onClick={(e) => {
-          handleCheck(e, index);
+          handleCheckOtt(e, index);
         }}
         active={ottBtnActiveHandler(index)}
         key={index}
@@ -110,7 +152,7 @@ const MyPage = () => {
   const ottSubsDatesList = ottDates.map((date, index) => (
     <FormButton
         onClick={(e) => {
-          handleCheck(e, index);
+          handleCheckDate(e, index);
         }}
         active={ottDateBtnActiveHandler(index)}
         name="date"
@@ -193,11 +235,10 @@ const MyPage = () => {
                 <DateWrapper>{ottSubsDatesList}</DateWrapper>
               </SubSetion>
 
-              <Link to="/payfor" style={{ textDecoration: 'none' }}>
-                <SubsButton>
+
+                <SubsButton onClick={handleClick}>
                   <b>예약/결제</b>
                 </SubsButton>
-              </Link>
             </NextOtt>
           </Grid>
         </Grid>
