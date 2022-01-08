@@ -170,7 +170,7 @@ const ResultPage = (props) => {
         </Grid>
 
         <CardGrid>
-          {MovieDummy[1].map((movie, index) => {
+          {getParams.map((movie, index) => {
             return (
               <CardWrapper
                 active={activeHandler(index)}

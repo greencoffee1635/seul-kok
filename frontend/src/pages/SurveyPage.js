@@ -44,8 +44,7 @@ const SurveyPage = (props) => {
       )
       .then((res) => {
         setGetData(res.data.contents); // 화면에 나타난다.
-        // setGetData(res.data); // 화면에 나타난다.
-        console.log(res.data); // console.log에 나타난다.
+        // console.log(res.data); // console.log에 나타난다.
       })
       .catch((err) => {
         console.log(err);
@@ -148,16 +147,20 @@ const SurveyPage = (props) => {
       return false;
     }
   };
-
   const setChecked = (id) => {
     let newArray = [...bCheckedArray];
-    newArray[id] = !newArray[id];
-    setCheckedArray(newArray);
-    // console.log(newArray);
-    // console.log(bCheckedArray);
+
+    let count = newArray.filter((element) => true === element).length;
+    if (newArray[id] === true) {
+      newArray[id] = false;
+    } else if (newArray[id] === false && count < 3) {
+      newArray[id] = true;
+    }
+    // newArray[id] = !newArray[id];
     // console.log(initialState.bCheckedArray);
     // console.log(initialState);
     // console.log(surveyResult);
+    setCheckedArray(newArray);
   };
 
   // 초기값 설정
@@ -245,7 +248,7 @@ const SurveyPage = (props) => {
   //     });
   // };
 
-  const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
+  const parent = { width: '42rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
   // if (loading)
   //   return (
@@ -379,7 +382,7 @@ const SurveyPage = (props) => {
           <Grid>
             <Wrapper>
               <CardGrid>
-                {MovieDummy[1].map((movies, index) => {
+                {getData.map((movies, index) => {
                   return (
                     <CardWrapper
                       active={activeHandler(index)}
@@ -388,7 +391,7 @@ const SurveyPage = (props) => {
                       }}
                     >
                       <img
-                        src={movies.image}
+                        src={movies.poster}
                         width="230px"
                         height="320px"
                         alt="cardimg"
@@ -515,10 +518,10 @@ const ScrollWrapper = styled.div`
     &::-webkit-scrollbar {
       height: 8px;
       border-radius: 6px;
-      background: rgba(255, 255, 255, 0.4);
+      background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(111, 111, 111, 0.1);
       border-radius: 2px;
     }
     width: 80%;
@@ -530,6 +533,7 @@ const ScrollWrapper = styled.div`
 
 const SurveyWrapper = styled.section`
   flex-direction: column;
+  margin-left: 0.5rem;
   margin-right: 2rem;
   justify-content: center;
 `;
