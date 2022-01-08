@@ -58,7 +58,7 @@ const GridLayoutForm = styled.div`
   display: flex;
   justify-content: flex-start;
   box-sizing: border-box;
-  padding-top: 5rem;
+  padding-top: 2.5rem;
   ${({ theme }) => theme.device.tablet} {
     width: 100%;
   }

@@ -31,26 +31,9 @@ const LoginPage = () => {
             </p>
           </MainContent>
 
+
+
           <LoginWrapper>
-            <LoginForm>
-              <Link to="/main">
-                <FormButton>
-                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
-                </FormButton>
-              </Link>
-              <Link to="/main">
-                <FormButton>
-                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
-                </FormButton>
-              </Link>
-              <div>
-                간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
-              </div>
-            </LoginForm>
-          </LoginWrapper>
-
-
-          {/* <LoginWrapper>
             <LoginForm>
               <Link to="/main">
                 <FormButton>
@@ -58,7 +41,7 @@ const LoginPage = () => {
                 </FormButton>
               </Link>
 
-                <FormButton herf = 'http://seulkok.xyz/login'>
+                <FormButton>
                   <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
                 </FormButton>
 
@@ -66,7 +49,30 @@ const LoginPage = () => {
                 간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
               </div>
             </LoginForm>
+          </LoginWrapper>
+
+
+
+          {/* <LoginWrapper>
+            <LoginForm>
+              <Link to="/main">
+                <FormButton>
+                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
+                </FormButton>
+              </Link>
+              <Link to="/main">
+                <FormButton>
+                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
+                </FormButton>
+              </Link>
+              <div>
+                간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
+              </div>
+            </LoginForm>
           </LoginWrapper> */}
+
+
+
 
 
         </LoginSetion>
