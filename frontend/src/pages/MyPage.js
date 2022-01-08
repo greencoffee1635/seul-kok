@@ -9,31 +9,15 @@ import Header from '../components/Header';
 import Grid from '../components/Grid';
 import Template from '../components/Template';
 import { Layout } from '../components/Layout';
-
 import { head_5, sub_4 } from '../shared/textStyle';
 import Background from '../components/Background';
 
 const MyPage = (props) => {
   const history = useHistory();
-  // const [temp, setTemp] = useState(new Set()); // 한 페이지에서 선택한 것 받고 초기화
-
-  // const checkHandler = ({ target }: any) => {
-  //   setIsChecked(!isChecked);
-  //   handleCheck(target.id, target.checked);
-  // };
-
 
   const [ottResult, setOttResult] = useState([]);
-
   const [ottSelected, setOttSelected] = useState(0);
   const [ottDateSelected, setOttDateSelected] = useState(0);
-
-  // const handleCheck = (e, index) => {
-  //   const resultKey = Math.floor((e.target.value));
-  //   const newObj = {...ottResult};
-  //   setOttResult(newObj);
-  //   console.log(e.target.value);
-  // };
 
   const ottNames = [
     { name: 'ott', id: 'NETFLIX', value: 'NETFLIX', color: '#d92f27' },
@@ -64,11 +48,7 @@ const MyPage = (props) => {
     console.log(e.target.value);
     console.log(idx);
     setOttSelected(idx);
-    // console.log(e.target);
-    // console.log(e.target.value);
-    // console.log(e.target.value);
   };
-
 
   const handleCheckDate = (e, idx) => {
     setOttResult({
@@ -78,22 +58,16 @@ const MyPage = (props) => {
     console.log(e.target.value);
     console.log(idx);
     setOttDateSelected(idx);
-    // console.log(e.target);
-    // console.log(e.target.value);
-    // console.log(e.target.value);
   };
 
   const handleClick = (data) => {
-    // setIdFromButtonClick(id);
     let formData = new FormData();
     formData.append('mypage', ottResult);
     console.log();
-    // formData.append('pwd', this.userPasss);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/mypage`;
-    // http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey (물어보기)
+
     axios
       .post(url, formData, {
-        // timeout: 10000,
         headers: {
           'Content-Type': `multipart/form-data`,
         },
@@ -106,10 +80,6 @@ const MyPage = (props) => {
       });
     props.history.push('/payfor');
   };
-
-
-
-
 
   const ottBtnActiveHandler = (idx) => {
     if (idx === ottSelected) {
@@ -126,7 +96,6 @@ const MyPage = (props) => {
       return false;
     }
   };
-
 
   const ottNameList = ottNames.map((item, index) => (
     <FormButton
@@ -147,8 +116,6 @@ const MyPage = (props) => {
       </FormButton>
   ));
 
-
-
   const ottSubsDatesList = ottDates.map((date, index) => (
     <FormButton
         onClick={(e) => {
@@ -163,14 +130,10 @@ const MyPage = (props) => {
     </FormButton>
   ));
 
-
-
   return (
     <Template>
       <Background />
-
       <Header page="main" />
-
       <Layout>
         <Grid width="40rem" is_flex="space-between">
           <Grid margin="0 0 5rem 5rem">
@@ -235,7 +198,6 @@ const MyPage = (props) => {
                 <DateWrapper>{ottSubsDatesList}</DateWrapper>
               </SubSetion>
 
-
                 <SubsButton onClick={handleClick}>
                   <b>예약/결제</b>
                 </SubsButton>
@@ -288,9 +250,6 @@ const OttWrapper = styled.div``;
 
 const DateWrapper = styled.div``;
 
-// margin-top: 5px;
-// display: flex;
-
 const SubsForm = styled.div`
   text-align: center;
   width: 570px;
@@ -307,7 +266,6 @@ const DateForm = styled.div`
   float: left;
 
   text-align: left;
-
   margin-right: 3px;
 
   width: 460px;
@@ -328,7 +286,6 @@ const CurrentSubForm = styled.div`
   display: felx;
 
   text-align: left;
-
   margin-right: 10px;
 
   width: 225px;
@@ -348,7 +305,6 @@ const NextSubForm = styled.div`
   float: left;
 
   text-align: left;
-
   margin-right: 3px;
 
   width: 225px;
@@ -375,8 +331,6 @@ const LoginForm = styled.div`
   }
 `;
 
-// position: absolute;
-
 const FormButton = styled.button`
   font-size: 1rem;
 
@@ -396,7 +350,6 @@ const FormButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    // color: var(--deepdarkred);
     border: 2px solid var(--main);
   }
 
@@ -426,8 +379,7 @@ const SubsButton = styled.button`
   &:hover {
     color: #ffffff;
     background: var(--main);
-    );
-
+  };
 `;
 
 export default MyPage;

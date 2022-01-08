@@ -2,14 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// components
 import useMotion from '../utils/useMotion';
-// import { useEffect, useState } from 'react';
-
-// 짱멋진모듈(가로스크롤)
-// import ScrollHorizontal from 'react-scroll-horizontal';
-
-//components
-// import SignupTemplate from '../components/SignupTemplate';
 
 const PayForPage = () => {
   return (
@@ -49,11 +43,6 @@ const PayForPage = () => {
                   <b style={{ textDecoration: 'none'}}>네이버페이</b> 간편결제
                 </FormButton>
 
-                {/* <FormButton>
-                  <b style={{ textDecoration: 'none'}}>완료</b>
-                </FormButton> */}
-
-
             </LoginForm>
           </LoginWrapper>
         </LoginSetion>
@@ -69,14 +58,10 @@ const SectionWrapper = styled.div`
     #000000 100%
   ),
   #594fa9;
-
   width: 100%;
   height: 110vh;
-
   display: flex;
   flex-direction: column;
-
-  // justify-content:center;
   text-align: center;
 `;
 
@@ -123,12 +108,10 @@ const LoginForm = styled.div`
 
 const FormButton = styled.button`
   font-size: 1rem;
-
   border-radius: 5px;
   border: none;
 
   margin-bottom: 20px;
-
   width: 68%;
   height: 40px;
 
@@ -136,7 +119,7 @@ const FormButton = styled.button`
   color: #ffffff;
   cursor: pointer;
 
-  &: hover {
+  &:hover {
     border: 2px solid var(--main);
   }
 `;

@@ -30,7 +30,6 @@ const Container = styled.section`
   /* width: 1400px; */
   justify-content: center !important;
   padding-top: 9rem;
-  /* position: fixed; */
 `;
 
 const LayoutForm = styled.div`
@@ -53,8 +52,6 @@ const LayoutForm = styled.div`
 
 const GridLayoutForm = styled.div`
   width: 100%;
-  /* margin: 0 3rem 0 9.6rem; */
-  /* margin: 0 3rem 0 9.6rem; */
   display: flex;
   justify-content: flex-start;
   box-sizing: border-box;
@@ -81,7 +78,6 @@ const CenterLayoutForm = styled.div`
   }
   ${({ theme }) => theme.device.mobile} {
     width: 100%;
-
     flex-wrap: wrap;
   }
 `;

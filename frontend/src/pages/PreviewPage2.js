@@ -3,36 +3,24 @@ import styled, { keyframes } from 'styled-components';
 import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
 import MovieContentdData from '../data/MovieContentData';
 
-// import { Grid } from '@mui/material';
-
 // components
 import Header from '../components/Header';
 import useMotion from '../utils/useMotion';
 import axios from 'axios';
 
-// import Layout from '../components/Layout';
-
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const PreviewPage2 = (props) => {
-  console.log('###################');
   const history = { useHistory };
   const location = useLocation();
   const getParams = JSON.parse(localStorage.getItem('movieinfo')).movieinfo;
   console.log('surveyResultData : ', getParams);
 
-  // let { id } = useParams();
-  // let [movieContent, setmovieContent] = useState(MovieContentdData);
-
   return (
     <>
       <MainScreen>
         <Header page="previewpage2" />
-
-        {/* <MainContent>
-            <p dark {...useMotion('down', 1, 0.2)}>이번달 <b>추천 컨텐츠</b> 입니다. <br/></p>
-          </MainContent> */}
 
         <MovieItem dark {...useMotion('down', 1, 0.3)}>
           <MovieTitle>
@@ -124,7 +112,6 @@ const MainContent = styled.div`
 
 const MovieItem = styled.div`
   margin: 0 auto;
-
   width: 1010px;
   top: 20%;
   left: 15%;
@@ -171,7 +158,6 @@ const PictureCardSection = styled.div`
   margin-top: 100px;
   width: 1010px;
   height: 400px;
-
   justify-content: space-between;
 `;
 
@@ -196,7 +182,8 @@ const PictureCard = styled.div`
   &:hover {
     border: 3px solid;
     border-color: var(--main);
-  `;
+  }
+`;
 
 const BackButton = styled.button`
   text-align: center;

@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import useMotion from '../utils/useMotion';
 import { Link } from "react-router-dom";
 
-// import styled, { keyframes } from 'styled-components';
-// import { Link } from 'react-scroll';
+// components
+import useMotion from '../utils/useMotion';
 
 const IntroPage = (props) => {
-
-
   return (
     <SectionWrapper>
 
@@ -16,33 +13,23 @@ const IntroPage = (props) => {
             SEULKOK
           </LogoTitle>
 
-        <MainContent>
+          <MainContent>
+            <p dark {...useMotion('down', 1, 0.2)}><b>NETFLIX</b>, <b>WATCHA</b>, <b>Disney+</b>, <b>TVING</b><br/>
+            매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
 
-          <p dark {...useMotion('down', 1, 0.2)}><b>NEXFLIX</b>, <b>WATCHA</b>, <b>Desney+</b>, <b>TVING</b><br/>
-          매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
+            <p2 dark {...useMotion('up', 2, 0.8)}>이제 <p2 style={{color: '#e8384c'}}>슬</p2>기롭게 <p2 style={{color: '#e8384c'}}>콕</p2>! 해결 해드릴게요</p2>
+          </MainContent>
 
-          <p2 dark {...useMotion('up', 2, 0.8)}>이제 <p2 style={{color: '#e8384c'}}>슬</p2>기롭게 <p2 style={{color: '#e8384c'}}>콕</p2>! 해결 해드릴게요</p2>
+          <Link to="/main" style={{textDecoration: 'none'}}>
+              <StartButton><p2>START</p2></StartButton>
+          </Link>
 
-        </MainContent>
-
-        <Link to="/main" style={{textDecoration: 'none'}}>
-          {/* <ButtonWrapper> */}
-            <StartButton><p2>START</p2></StartButton>
-          {/* </ButtonWrapper> */}
-        </Link>
-
-
-        <a href="/login"
-            style={{color:'#e8384c', textDecoration: 'none', fontSize: '1rem'}}><p>슬기롭게 콕! <b>LogIn</b></p></a>
-
+          <a href="/login"
+              style={{color:'#e8384c', textDecoration: 'none', fontSize: '1rem'}}><p>슬기롭게 콕! <b>LogIn</b></p></a>
 
     </SectionWrapper>
-
-  )
-}
-
-
-//가로, 세로, 중앙
+  );
+};
 
 const SectionWrapper = styled.div`
   background: radial-gradient(
@@ -64,8 +51,7 @@ const SectionWrapper = styled.div`
   p {
     font-family: normal;
   }
-
-  `;
+`;
 
 const LogoTitle = styled.header`
   color: var(--main);
@@ -83,40 +69,6 @@ const MainContent = styled.div`
   }
 `;
 
-// const ButtonWrapper = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `
-
-// const StartButton = styled.button`
-//   display: inline;
-//   text-align: center;
-//   text-decoration: none;
-//   cursor: pointer;
-//   align-items: center;
-
-//   width: 7.2rem;
-//   height: 3rem;
-
-//   border-radius: 15px;
-//   border: none;
-//   background: var(--main);
-
-
-//   color: #ffffff;
-//   font-style: normal;
-//   font-weight: bold;
-//   font-size: 1.5rem;
-//   &:hover {
-//     color: var(--black);
-//   }
-
-
-
-
-//   margin-top: 40px;
-// `
 const StartButton = styled.button`
   display: inline;
   text-align: center;
@@ -131,7 +83,6 @@ const StartButton = styled.button`
   border: 2px solid var(--main);
   background: transparent;
 
-
   color: var(--main);
   font-style: normal;
   font-weight: bold;
@@ -140,14 +91,7 @@ const StartButton = styled.button`
     color: #ffffff;
     background: var(--main);
   }
-
-
-
-
   margin-top: 40px;
 `
-
-// background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
-
 
 export default IntroPage

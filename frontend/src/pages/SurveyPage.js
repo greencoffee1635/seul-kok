@@ -19,7 +19,7 @@ import {
   sub_2_mobile,
 } from '../shared/textStyle';
 
-const questions = [...new Array(3)];
+const questions = [...new Array(5)];
 const cards = [...new Array(8)];
 
 const SurveyPage = (props) => {
@@ -28,7 +28,6 @@ const SurveyPage = (props) => {
 
   // 설문 대답 저장
   const [answerList, setAnswerList] = useState([]);
-
   const [getData, setGetData] = useState([]);
 
   useEffect(() => {
@@ -38,26 +37,19 @@ const SurveyPage = (props) => {
       )
       .then((res) => {
         setGetData(res.data.contents);
-        // console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
 
   const handleCheck = (e, index) => {
     setAnswerList((answerList) => [...answerList, e.target.value]);
-
-    console.log(surveyResult);
   };
-
-  const [movieCard, setMovieCard] = useState();
 
   const [bSurveyCheckedArray, setSurveyCheckedArray] = useState(
     Array.from({ length: questions.length }, () => 0),
   );
-
-  const [selected, setSelected] = useState(0);
 
   const activeSurveyHandler = (index, value) => {
     if (bSurveyCheckedArray[index] === value) {
@@ -71,11 +63,9 @@ const SurveyPage = (props) => {
     setSurveyCheckedArray((cur) => {
       const newbSurveyCheckedArray = [...cur];
       newbSurveyCheckedArray[index] = value;
-      console.log(newbSurveyCheckedArray);
+      // console.log(newbSurveyCheckedArray);
       return newbSurveyCheckedArray;
     });
-    // console.log(bCheckedArray);
-    // console.log(initialState.bCheckedArray);
   };
 
   // 영화 카드 선택
@@ -90,6 +80,7 @@ const SurveyPage = (props) => {
       return false;
     }
   };
+
   const setChecked = (id) => {
     let newArray = [...bCheckedArray];
 
@@ -99,22 +90,19 @@ const SurveyPage = (props) => {
     } else if (newArray[id] === false && count < 3) {
       newArray[id] = true;
     }
-    // console.log(initialState);
-    // console.log(surveyResult);
     setCheckedArray(newArray);
   };
 
   // 초기값 설정
-  // const initialState = {
-  //   answerList: ['1', '3', '4', '3', '1'],
-  //   bCheckedArray: [true, false, true, false, true, false, true, false],
-  // };
+  const initialState = {
+    answerList: ['1', '3', '4', '3', '1'],
+    bCheckedArray: [true, false, true, false, true, false, true, false],
+  };
 
   const surveyResult = [bSurveyCheckedArray, bCheckedArray];
 
   const handleClick = (data) => {
     let formData = new FormData();
-    // formData.append('survey', data.survey);
     formData.append('survey', surveyResult);
     console.log(surveyResult);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
@@ -143,18 +131,10 @@ const SurveyPage = (props) => {
   const parent = { width: '42rem', height: '37rem', margin: '3rem 6rem' };
   const child = { width: '40rem', height: '35rem' };
 
-  // if (loading)
-  //   return (
-  //     <>
-  //       <Loading />
-  //     </>
-  //   );
-
   return (
     <Template>
       <Background />
       <Header />
-      {/* <button width="30px" onClick={asdf}></button> */}
       <GridLayout>
         <GridWrapper>
           <TitleWrapper>
@@ -173,12 +153,9 @@ const SurveyPage = (props) => {
             {/* <Scroll> */}
             <ScrollWrapper style={parent}>
               <HorizontalScroll
-                // pageLock={true}
-                // reverseScroll={true}
                 style={{ overflow: 'scroll hidden' }}
                 config={{ stiffness: 100, damping: 50 }}
                 className={'scrollbar'}
-                // animValues={int}
               >
                 {SurveyDummy[1].map((survey, index) => {
                   return (
@@ -276,14 +253,6 @@ const SurveyPage = (props) => {
               </ButtonWrapper>
             </Wrapper>
           </Grid>
-          {/* <button type="button" onClick={asdf}>
-            Fetch Test
-          </button> */}
-          {/* <Grid>
-            <div>
-              <div>{posts.title}</div>
-            </div>
-          </Grid> */}
         </GridWrapper>
       </GridLayout>
     </Template>
@@ -305,7 +274,6 @@ const Button = styled.button`
   background: transparent;
   border-radius: 15px;
   border: 2px solid var(--main);
-
   color: var(--main);
   font-style: normal;
   font-weight: bold;
@@ -419,7 +387,6 @@ const Answer = styled.button`
   outline: ${(props) => (props.active ? '3px solid var(--white)' : 'none')};
   /* :hover {
     outline: 3px solid var(--main);
-    // outline-offset: px;
   } */
 `;
 
@@ -438,9 +405,7 @@ const Answer = styled.button`
 //   margin: 0 auto;
 // `;
 
-const Wrapper = styled.div`
-  /* max-width: 61rem; */
-`;
+const Wrapper = styled.div``;
 
 const CardGrid = styled.div`
   display: grid !important;
@@ -453,7 +418,6 @@ const CardGrid = styled.div`
 
   div :hover {
     outline: 3px solid var(--main);
-    // outline-offset: px;
   }
 `;
 
@@ -489,9 +453,6 @@ const Arrow = styled.div`
     border-bottom: 2px solid rgba(242, 38, 62, 0.41);
     transform: rotate(-45deg);
     animation: ${scroll} 2.8s infinite;
-    /* border-radius: 2px 2px 2px 0;
-    border-bottom: 40px solid var(--main);
-    border-right: 40px solid transparent; */
   }
 `;
 

@@ -2,15 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// components
 import useMotion from '../utils/useMotion';
-// import { useEffect, useState } from 'react';
-
-// 짱멋진모듈(가로스크롤)
-// import ScrollHorizontal from 'react-scroll-horizontal';
-
-//components
-// import SignupTemplate from '../components/SignupTemplate';
-
 
 const LoginPage = () => {
   return (
@@ -49,26 +42,6 @@ const LoginPage = () => {
             </LoginForm>
           </LoginWrapper>
 
-
-          {/* <LoginWrapper>
-            <LoginForm>
-              <Link to="/main">
-                <FormButton>
-                  <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
-                </FormButton>
-              </Link>
-
-                <FormButton herf = 'http://seulkok.xyz/login'>
-                  <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
-                </FormButton>
-
-              <div>
-                간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
-              </div>
-            </LoginForm>
-          </LoginWrapper> */}
-
-
         </LoginSetion>
       </SectionWrapper>
     </>
@@ -89,7 +62,6 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  // justify-content:center;
   text-align: center;
 `;
 

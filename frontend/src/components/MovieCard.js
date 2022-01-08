@@ -13,7 +13,6 @@ const MovieCard = (props) => {
   let [card, setCard] = useState(MovieCardData);
   const history = useHistory();
 
-
   function MovieCards(props) {
     return (
       <Card onClick={() => {
@@ -32,7 +31,6 @@ const MovieCard = (props) => {
       </Card>
     )
   };
-
 
   return (
     <MainScetion>

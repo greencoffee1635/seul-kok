@@ -58,7 +58,7 @@ const ResultPage = (props) => {
   const PreviewClick = (data) => {
     let formData = new FormData();
     // formData.append('survey', data.survey);
-    formData.append('ott', 'netflix');
+    formData.append('ott', data.ott);
     formData.append('title', data.title);
     console.log(data.title);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/detail`;
@@ -120,7 +120,6 @@ const CardGrid = styled.div`
   display: grid;
   grid-template-rows: 320px 320px;
   grid-template-columns: 230px 230px 230px 230px;
-  /* grid-gap: 18rem 3rem; */
   grid-gap: 1rem;
   justify-content: center;
   cursor: pointer;

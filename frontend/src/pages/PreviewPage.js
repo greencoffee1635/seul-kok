@@ -1,16 +1,12 @@
-import React, {useState, useMemo} from 'react';
-import styled, {keyframes} from 'styled-components';
+import React, { useState, useMemo } from 'react';
+import styled, { keyframes } from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
 import MovieContentdData from '../data/MovieContentData';
-
-// import { Grid } from '@mui/material';
 
 // components
 import Header from '../components/Header';
 // import Layout from '../components/Layout';
 import thumbnailData from '../data/thumbnailData';
-
-
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
@@ -21,14 +17,11 @@ const PreviewPage = (props) => {
   let [movieContent, setMovieContent] = useState(MovieContentdData);
   let [movieUrl, setMovieUrl] = useState(thumbnailData);
 
-
-
   function ThumbnailCard(props) {
     return (<PictureCard onClick={() => window.open(`${props.movieUrl.url}`, '_blank')}>
             <img alt="" src={process.env.PUBLIC_URL + `/Thumbnail/thumbnail${props.movieUrl.id}.png`} />
             </PictureCard>);
   }
-
 
   return (
     <>
@@ -80,54 +73,44 @@ const PreviewPage = (props) => {
             </Link>
           </MovieItem>
 
-
     </MainScreen>
-
   </>
-
-
   );
 };
 
 const scroll = keyframes`
-    0% {
-      transform: rotate(-45deg) translate(0, 0);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(-45deg) translate(-20px, 20px);
-      opacity: 0;
-    }
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
 `;
 
 const MainScreen = styled.div`
   width: 100%;
   height: 230vh;
   background-color: black;
-
 `;
-
 
 const MainVideo = styled.video`
   width: 100%;
   position: absolute;
   `;
 
-
-
 const MovieItem = styled.div`
+  margin: 0 auto;
+  width: 1010px;
+  top: 99%;
+  left: 15%;
 
-margin: 0 auto;
-
-width: 1010px;
-top: 99%;
-left: 15%;
-
-text-align: left;
-position: absolute;
+  text-align: left;
+  position: absolute;
 
   span {
     b {
@@ -135,7 +118,6 @@ position: absolute;
     }
   };
 `;
-
 
 const MovieTitle = styled.p`
   font-size: 45px;
@@ -165,23 +147,17 @@ const IntroSection = styled.div`
   }
 `;
 
-
-
 const PictureCardSection = styled.div`
-
   margin-top: 100px;
   width: 1010px;
   height: 400px;
-
   justify-content: space-between;
-
-  `;
+`;
 
 const PictureCardTitle = styled.p`
   font-size: 30px;
   color: #ffffff;
 `;
-
 
 const PictureCardContent = styled.div`
   width: 1080px;
@@ -193,17 +169,12 @@ const PictureCardContent = styled.div`
   top: 90%;
 `;
 
-
-  const PictureCard = styled.div`
-
+const PictureCard = styled.div`
   margin: 0 auto;
-
   width: 350px;
   height: 230px;
   cursor: pointer;
-
   display: flex;
-
   background-color: var(--deepdarkred);
   overflow: hidden;
 
@@ -216,11 +187,9 @@ const PictureCardContent = styled.div`
     object-fit:cover;
     background-size: contain;
   };
-  `;
-
+`;
 
   const BackButton = styled.button`
-
   text-align: center;
   cursor: pointer;
 
@@ -240,34 +209,7 @@ const PictureCardContent = styled.div`
   &:hover {
     color: #ffffff;
     background: var(--main);
-    );
-
-`
-
-// const BackButton = styled.button`
-
-// text-align: center;
-// cursor: pointer;
-
-// width: 9rem;
-// height: 2.7rem;
-
-// background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
-// border-radius: 50em;
-// border: none;
-
-// color: #ffffff;
-// font-style: normal;
-// font-weight: bold;
-// font-size: 1.2rem;
-
-// &:hover {
-//   color: var(--black);
-//   background: linear-gradient(
-//     to right,
-//     var(--main), #5a292f
-//   );
-
-// `
+  }
+`;
 
 export default PreviewPage;
