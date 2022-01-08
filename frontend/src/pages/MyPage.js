@@ -102,7 +102,7 @@ const MyPage = (props) => {
         }
       })
       .then((res) => {
-        localStorage.setItem('nextOTT',res.data.nextOTT);
+        localStorage.setItem('nextOTT', res.data.nextOTT);
         console.log('res : ', res.data.nextOTT);
         props.history.push('/payfor');
       })
