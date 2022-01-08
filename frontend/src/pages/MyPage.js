@@ -406,7 +406,7 @@ const FormButton = styled.button`
 const SubsButton = styled.button`
 
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
 
   width: 8rem;
   height: 2.5rem;
@@ -420,7 +420,7 @@ const SubsButton = styled.button`
 
   color: var(--main);
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.2rem;
 
   &:hover {

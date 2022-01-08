@@ -188,7 +188,7 @@ position: absolute;
   const BackButton = styled.button`
 
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
 
   width: 8rem;
   height: 2.5rem;
@@ -202,7 +202,7 @@ position: absolute;
 
   color: var(--main);
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.2rem;
 
   &:hover {

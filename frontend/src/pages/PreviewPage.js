@@ -1,14 +1,14 @@
 import React, {useState, useMemo} from 'react';
 import styled, {keyframes} from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
-import MovieContentdData from '../Data/MovieContentData';
+import MovieContentdData from '../data/MovieContentData';
 
 // import { Grid } from '@mui/material';
 
 // components
 import Header from '../components/Header';
 // import Layout from '../components/Layout';
-import thumbnailData from '../Data/thumbnailData';
+import thumbnailData from '../data/thumbnailData';
 
 
 
@@ -222,7 +222,7 @@ const PictureCardContent = styled.div`
   const BackButton = styled.button`
 
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
 
   width: 8rem;
   height: 2.5rem;
@@ -234,7 +234,7 @@ const PictureCardContent = styled.div`
 
   color: var(--main);
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.2rem;
 
   &:hover {
@@ -247,7 +247,7 @@ const PictureCardContent = styled.div`
 // const BackButton = styled.button`
 
 // text-align: center;
-// cusor: pointer;
+// cursor: pointer;
 
 // width: 9rem;
 // height: 2.7rem;
@@ -258,7 +258,7 @@ const PictureCardContent = styled.div`
 
 // color: #ffffff;
 // font-style: normal;
-// font-wight: bold;
+// font-weight: bold;
 // font-size: 1.2rem;
 
 // &:hover {

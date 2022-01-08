@@ -8,7 +8,7 @@ import { useLocation } from "react-router";
 import useMotion from '../utils/useMotion';
 import MovieCard from '../components/MovieCard';
 import { head_4 } from '../shared/textStyle';
-import MovieContentdData from '../Data/MovieContentData';
+import MovieContentdData from '../data/MovieContentData';
 
 
 
@@ -78,7 +78,7 @@ const MainContent = styled.div`
 // const StartButton = styled.button`
 
 //   text-align: center;
-//   cusor: pointer;
+//   cursor: pointer;
 
 //   width: 13rem;
 //   height: 3rem;
@@ -90,7 +90,7 @@ const MainContent = styled.div`
 
 //   color: #ffffff;
 //   font-style: normal;
-//   font-wight: bold;
+//   font-weight: bold;
 //   font-size: 1.2rem;
 //   span {
 //     font-weight: bold;
@@ -108,7 +108,7 @@ const MainContent = styled.div`
 const StartButton = styled.button`
 
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
 
   width: 13rem;
   height: 3rem;
@@ -120,7 +120,7 @@ const StartButton = styled.button`
 
   color: var(--main);
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.2rem;
   span {
     font-weight: bold;

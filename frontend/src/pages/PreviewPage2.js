@@ -1,7 +1,7 @@
 import React, {useState, useMemo} from 'react';
 import styled, {keyframes} from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
-import MovieContentdData from '../Data/MovieContentData';
+import MovieContentdData from '../data/MovieContentData';
 
 // import { Grid } from '@mui/material';
 
@@ -208,7 +208,7 @@ const PictureCardContent = styled.div`
   const BackButton = styled.button`
 
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
 
   width: 8rem;
   height: 2.5rem;
@@ -222,7 +222,7 @@ const PictureCardContent = styled.div`
 
   color: var(--main);
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.2rem;
 
   &:hover {
