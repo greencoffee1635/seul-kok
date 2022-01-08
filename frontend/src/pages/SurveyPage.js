@@ -8,7 +8,7 @@ import axios from 'axios';
 import Grid from '../components/Grid';
 import Background from '../components/Background';
 import Header from '../components/Header';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 import { GridLayout } from '../components/Layout';
 import { SurveyDummy, MovieDummy } from '../data/dummy';
 import {
@@ -26,12 +26,6 @@ const SurveyPage = (props) => {
   const history = { useHistory };
   const location = useLocation();
 
-  // const [loading, setLoading] = useState(true);
-  // const [posts, setPosts] = useState({});
-  // 버튼
-  // const [hoverState, setHoverState] = useState(null);
-  // const [checkedItems, setCheckedItems] = useState(new Set());
-
   // 설문 대답 저장
   const [answerList, setAnswerList] = useState([]);
 
@@ -43,66 +37,21 @@ const SurveyPage = (props) => {
         `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`,
       )
       .then((res) => {
-        setGetData(res.data.contents); // 화면에 나타난다.
-        // console.log(res.data); // console.log에 나타난다.
+        setGetData(res.data.contents);
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  // const getPageData = (data) => {
-  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
-  //   axios
-  //     .get(url, {
-  //       headers: {
-  //         'Content-Type': `multipart/form-data`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       setGetData(res.data.contents);
-  //       // this.getData = res.data;
-  //       // console.log(this.getData);
-  //     })
-  //     .catch((err) => {
-  //       console.log('failed', err);
-  //     });
-  // };
-
-  // getPageData();
   const handleCheck = (e, index) => {
     setAnswerList((answerList) => [...answerList, e.target.value]);
-    // setSurveyChecked(index);
-    // setGenderClicked(1);
-    // console.log(answerList);
-    // console.log(initialState.answerList);
+
     console.log(surveyResult);
   };
 
   const [movieCard, setMovieCard] = useState();
-
-  // useEffect((data) => {
-  //   let formData = new FormData();
-  //   // formData.append('survey', data.survey);
-  //   // formData.append('survey', surveyResult);
-  //   // console.log(surveyResult);
-  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
-  //   axios
-  //     .get(url, formData, {
-  //       // timeout: 10000,
-  //       headers: {
-  //         'Content-Type': `multipart/form-data`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //       console.log('res : ', res.data);
-  //       setMovieCard(res.data.contents);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // });
 
   const [bSurveyCheckedArray, setSurveyCheckedArray] = useState(
     Array.from({ length: questions.length }, () => 0),
@@ -119,10 +68,6 @@ const SurveyPage = (props) => {
   };
 
   const setSurveyChecked = (index, value) => {
-    // let newbSurveyCheckedArray = [...bSurveyCheckedArray];
-
-    // newbSurveyCheckedArray[index] = !newbSurveyCheckedArray[index];
-    //setSurveyCheckedArray(newbSurveyCheckedArray);
     setSurveyCheckedArray((cur) => {
       const newbSurveyCheckedArray = [...cur];
       newbSurveyCheckedArray[index] = value;
@@ -131,14 +76,12 @@ const SurveyPage = (props) => {
     });
     // console.log(bCheckedArray);
     // console.log(initialState.bCheckedArray);
-    // console.log(initialState);
   };
 
   // 영화 카드 선택
   const [bCheckedArray, setCheckedArray] = useState(
     Array.from({ length: cards.length }, () => false),
   );
-  // const [selected, setSelected] = useState(0);
 
   const activeHandler = (idx) => {
     if (bCheckedArray[idx] === true) {
@@ -156,8 +99,6 @@ const SurveyPage = (props) => {
     } else if (newArray[id] === false && count < 3) {
       newArray[id] = true;
     }
-    // newArray[id] = !newArray[id];
-    // console.log(initialState.bCheckedArray);
     // console.log(initialState);
     // console.log(surveyResult);
     setCheckedArray(newArray);
@@ -172,12 +113,10 @@ const SurveyPage = (props) => {
   const surveyResult = [bSurveyCheckedArray, bCheckedArray];
 
   const handleClick = (data) => {
-    // setIdFromButtonClick(id);
     let formData = new FormData();
     // formData.append('survey', data.survey);
     formData.append('survey', surveyResult);
     console.log(surveyResult);
-    // formData.append('pwd', this.userPasss);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
     axios
       .post(url, formData, {
@@ -188,9 +127,7 @@ const SurveyPage = (props) => {
       })
       .then((res) => {
         // 받을 때
-        // console.log('res : ', res.data.mostOTT);
         // console.log('res : ', res.data.contents);
-        // console.log('res : ', res.data.contents.info);
         props.history.push({
           pathname: '/result',
           state: { contents: res.data.contents },
@@ -199,54 +136,7 @@ const SurveyPage = (props) => {
       .catch((err) => {
         console.log('failed', err);
       });
-    // props.history.push('/result');
-    // props.history.push('/result');
   };
-
-  // const asdf = (data) => {
-  //   // setIdFromButtonClick(id);
-  //   let formData = new FormData();
-  //   // formData.append('survey', data.survey);
-  //   // formData.append('survey', surveyResult);
-  //   // console.log(surveyResult);
-  //   // formData.append('pwd', this.userPasss);
-  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
-  //   axios
-  //     .post(url, formData, {
-  //       // timeout: 10000,
-  //       headers: {
-  //         'Content-Type': `multipart/form-data`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       // 받을 때
-  //       // console.log('res : ', res.data.mostOTT);
-  //       console.log('res : ', res.data.contents);
-  //       // console.log('res : ', res.data.contents.info);
-  //     })
-  //     .catch((err) => {
-  //       console.log('failed', err);
-  //     });
-  //   // props.history.push('/result');
-  //   props.history.push('/result');
-  // };
-
-  // const asdf = (data) => {
-  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
-  //   axios
-  //     .get(url, {
-  //       timeout: 10000,
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data',
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log('response : ', response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log('failed', error);
-  //     });
-  // };
 
   const parent = { width: '42rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
@@ -291,23 +181,9 @@ const SurveyPage = (props) => {
                   return (
                     <SurveyWrapper style={child}>
                       <Text>{survey.question}</Text>
-                      {/* <AnswerWrapper> */}
-                      {/* suvery.answer1~4 = > survey {question : question, answer:[answer1,answer2,answer3,answer4]}
-                      survey.map((answer,idx)=>{
-                        <Answer value={idx+1}
-                        active={activeSurveyHandler(index,idx+1)}
-                        onClick={(e)=>{
-                          setSurveyChecked(index,idx+1);
-                          handleCheck(e);
-                        }} 
-                      })*/}
-
                       <Answer
                         value="1"
                         active={activeSurveyHandler(index, 1)}
-                        // onClick={() => {
-                        //   handleCheck();
-                        // }}
                         onClick={(e) => {
                           setSurveyChecked(index, 1);
                           handleCheck(e);
@@ -328,9 +204,6 @@ const SurveyPage = (props) => {
                       <Answer
                         value="3"
                         active={activeSurveyHandler(index, 3)}
-                        // onClick={() => {
-                        //   setSurveyChecked(index);
-                        // }}
                         onClick={(e) => {
                           setSurveyChecked(index, 3);
                           handleCheck(e);
@@ -341,9 +214,6 @@ const SurveyPage = (props) => {
                       <Answer
                         value="4"
                         active={activeSurveyHandler(index, 4)}
-                        // onClick={() => {
-                        //   setSurveyChecked(index);
-                        // }}
                         onClick={(e) => {
                           setSurveyChecked(index, 4);
                           handleCheck(e);
@@ -351,16 +221,13 @@ const SurveyPage = (props) => {
                       >
                         {survey.answer4}
                       </Answer>
-                      {/* </AnswerWrapper> */}
                     </SurveyWrapper>
                   );
                 })}
               </HorizontalScroll>
             </ScrollWrapper>
-            {/* </Scroll> */}
           </Grid>
 
-          {/* <Grid width="30rem"> */}
           <TitleWrapper>
             <Title>
               그동안&nbsp;
@@ -377,7 +244,6 @@ const SurveyPage = (props) => {
               <br /> (최대 3개)
             </Title>
           </TitleWrapper>
-          {/* </Grid> */}
 
           <Grid>
             <Wrapper>
@@ -395,19 +261,13 @@ const SurveyPage = (props) => {
                         width="230px"
                         height="320px"
                         alt="cardimg"
-                        // onClick={() => props.history.push('/result')}
-                        // onClick={()=>history.push}
                       />
                     </CardWrapper>
                   );
                 })}
               </CardGrid>
               <ButtonWrapper>
-                <Button
-                  type="button"
-                  // onClick={() => props.history.push('/result')}
-                  onClick={handleClick}
-                >
+                <Button type="button" onClick={handleClick}>
                   결과
                 </Button>
               </ButtonWrapper>
@@ -431,7 +291,6 @@ const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  /* margin-top: -20rem; */
 `;
 
 const Button = styled.button`
@@ -504,7 +363,7 @@ const Text = styled.p`
   color: var(--white);
   width: 39rem;
   ${({ theme }) => theme.device.mobile} {
-    ${sub_1_mobile}/* max-width: 35rem; */
+    ${sub_1_mobile}
   }
 `;
 
@@ -554,7 +413,6 @@ const Answer = styled.button`
     width: 17rem;
     height: 4rem;
   }
-
   outline: ${(props) => (props.active ? '5px solid var(--white)' : 'none')};
   /* :hover {
     outline: 3px solid var(--main);
@@ -583,8 +441,6 @@ const Wrapper = styled.div`
 
 const CardGrid = styled.div`
   display: grid !important;
-  /* grid-template-rows: auto auto; */
-  /* grid-auto-flow: column; */
   display: grid;
   grid-template-rows: 320px 320px;
   grid-template-columns: 230px 230px 230px 230px;
