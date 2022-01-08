@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useHistory } from "react-router";
+import { useHistory } from 'react-router';
 
 // components
 import Header from '../components/Header';
@@ -9,12 +9,10 @@ import Grid from '../components/Grid';
 import Template from '../components/Template';
 import { Layout } from '../components/Layout';
 
-
 import { head_5, sub_4 } from '../shared/textStyle';
 import Background from '../components/Background';
 
 const MyPage = () => {
-
   const history = useHistory();
   // const [temp, setTemp] = useState(new Set()); // 한 페이지에서 선택한 것 받고 초기화
 
@@ -24,10 +22,10 @@ const MyPage = () => {
   // };
 
 
-
-  const [selected, setSelected] = useState(false);
   const [ottResult, setOttResult] = useState([]);
 
+  const [ottSelected, setOttSelected] = useState(0);
+  const [ottDateSelected, setOttDateSelected] = useState(0);
 
   // const handleCheck = (e, index) => {
   //   const resultKey = Math.floor((e.target.value));
@@ -37,47 +35,91 @@ const MyPage = () => {
   // };
 
   const ottNames = [
-    { name: 'ott', id: 'NETFLIX', value: 'NETFLIX'},
-    { name: 'ott', id: 'WATCHA', value: 'WATCHA' },
-    { name: 'ott', id: 'Disney+', value: 'Disney+' },
-    { name: 'ott', id: 'TVING', value: 'TVING' },
+    { name: 'ott', id: 'NETFLIX', value: 'NETFLIX', color: '#d92f27' },
+    { name: 'ott', id: 'WATCHA', value: 'WATCHA', color: '#f1355c' },
+    { name: 'ott', id: 'Disney+', value: 'Disney+', color: '#ffffff' },
+    { name: 'ott', id: 'TVING', value: 'TVING', color: '#ffffff' },
   ];
   const ottDates = [
-    { name: 'date', id: '1개월', value: '1개월'},
-    { name: 'date', id: '2개월', value: '2개월'},
-    { name: 'date', id: '3개월', value: '3개월'},
-    { name: 'date', id: '4개월', value: '4개월'},
-    { name: 'date', id: '5개월', value: '5개월'},
-    { name: 'date', id: '6개월', value: '6개월'},
-    { name: 'date', id: '7개월', value: '7개월'},
-    { name: 'date', id: '8개월', value: '8개월'},
-    { name: 'date', id: '9개월', value: '9개월'},
-    { name: 'date', id: '10개월', value: '10개월'},
-    { name: 'date', id: '11개월', value: '11개월'},
-    { name: 'date', id: '12개월', value: '12개월'},
+    { id: '1개월', value: '1개월' },
+    { id: '2개월', value: '2개월' },
+    { id: '3개월', value: '3개월' },
+    { id: '4개월', value: '4개월' },
+    { id: '5개월', value: '5개월' },
+    { id: '6개월', value: '6개월' },
+    { id: '7개월', value: '7개월' },
+    { id: '8개월', value: '8개월' },
+    { id: '9개월', value: '9개월' },
+    { id: '10개월', value: '10개월' },
+    { id: '11개월', value: '11개월' },
+    { id: '12개월', value: '12개월' },
   ];
 
-
-  const handleCheck = (e) => {
+  const handleCheck = (e, idx) => {
     setOttResult({
       ...ottResult,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
     console.log(e.target.value);
+    console.log(idx);
+    setOttSelected(idx);
+    setOttDateSelected(idx);
+    // console.log(e.target);
+    // console.log(e.target.value);
+    // console.log(e.target.value);
+  };
+
+  const ottBtnActiveHandler = (idx) => {
+    if (idx === ottSelected) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const ottDateBtnActiveHandler = (idx) => {
+    if (idx === ottDateSelected) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
 
+  const ottNameList = ottNames.map((item, index) => (
+    <FormButton
+        onClick={(e) => {
+          handleCheck(e, index);
+        }}
+        active={ottBtnActiveHandler(index)}
+        key={index}
+        name="ott"
+        value={item.id}
+        style={{
+          color: item.color,
+          textDecoration: 'none',
+          fontWeight: '700',
+        }}
+      >
+        {item.id}
+      </FormButton>
+  ));
 
-  // const ottNamesList = ottNames.map((name, index) =>
-  //   (<FormButton key={index}
-  //               onClick={handleCheck}>{name.id}</FormButton>));
 
-  const ottSubsDatesList = ottDates.map((date, index) => (<FormButton>
-    <b style={{ color: '#ffffff', textDecoration: 'none' }}
-      key={index}
-      >{date.id}</b>
-  </FormButton>));
 
+  const ottSubsDatesList = ottDates.map((date, index) => (
+    <FormButton
+        onClick={(e) => {
+          handleCheck(e, index);
+        }}
+        active={ottDateBtnActiveHandler(index)}
+        name="date"
+        key={index}
+        value={date.id}
+        style={{color: '#ffffff'}}>
+        {date.id}
+    </FormButton>
+  ));
 
 
 
@@ -91,86 +133,72 @@ const MyPage = () => {
         <Grid width="40rem" is_flex="space-between">
           <Grid margin="0 0 5rem 5rem">
             <Title>내구독</Title>
-              <SubsOtt>
-                <Text>현재 슬기롭게 콕! 사용 중이시네요</Text>
-                <OttWrapper>
-                  <SubsForm>
-                      <DateForm>
-                        <p><b style={{ color: '#d92f27', textDecoration: 'none' }}>NETFLIX</b><span>&emsp;<b></b>2022년 2월 10일까지</span></p>
-                      </DateForm>
-                      <CurrentSubForm>
-                        <p><b style={{ color: 'var(--main)', textDecoration: 'none' }}>이번구독</b></p>
-                      </CurrentSubForm>
-                      <NextSubForm>
-                        <p><b style={{ color: 'var(--main)', textDecoration: 'none' }}>다음구독</b></p>
-                      </NextSubForm>
-                  </SubsForm>
-                </OttWrapper>
-              </SubsOtt>
+            <SubsOtt>
+              <Text>현재 슬기롭게 콕! 사용 중이시네요</Text>
+              <OttWrapper>
+                <SubsForm>
+                  <DateForm>
+                    <p>
+                      <b style={{ color: '#d92f27', textDecoration: 'none' }}>
+                        NETFLIX
+                      </b>
+                      <span>
+                        &emsp;<b></b>2022년 2월 10일까지
+                      </span>
+                    </p>
+                  </DateForm>
+                  <CurrentSubForm>
+                    <p>
+                      <b
+                        style={{ color: 'var(--main)', textDecoration: 'none' }}
+                      >
+                        이번구독
+                      </b>
+                    </p>
+                  </CurrentSubForm>
+                  <NextSubForm>
+                    <p>
+                      <b
+                        style={{ color: 'var(--main)', textDecoration: 'none' }}
+                      >
+                        다음구독
+                      </b>
+                    </p>
+                  </NextSubForm>
+                </SubsForm>
+              </OttWrapper>
+            </SubsOtt>
           </Grid>
         </Grid>
 
         <Grid width="35rem">
           <Grid margin="0 0 0 0">
-
             <Title>구독 예약</Title>
-              <NextOtt>
-                <>
-                  <Text>다음달 원하는 <b>OTT</b>를 선택해주세요.</Text>
-                  <OttWrapper>
-                    <LoginForm>
+            <NextOtt>
+              <>
+                <Text>
+                  다음달 원하는 <b>OTT</b>를 선택해주세요.
+                </Text>
+                <OttWrapper>
+                  <LoginForm>
+                    {ottNameList}
+                  </LoginForm>
+                </OttWrapper>
+              </>
 
-                      {/* {ottNamesList} */}
+              <SubSetion>
+                <Text>
+                  원하는 <b>구독기간</b>를 선택해주세요.
+                </Text>
+                <DateWrapper>{ottSubsDatesList}</DateWrapper>
+              </SubSetion>
 
-                      <LoginForm>
-
-                        <FormButton onClick={handleCheck}
-                                    key="1"
-                                    name="ott"
-                                    value="netflix">
-                          <b style={{ color: '#d92f27', textDecoration: 'none' }}>NETFLIX</b>
-                        </FormButton>
-
-                        <FormButton onClick={handleCheck}
-                                    key="2"
-                                    name="ott"
-                                    value="watcha">
-                          <b style={{ color: '#f1355c', textDecoration: 'none'}}>WATCHA</b>
-                        </FormButton>
-
-                        <FormButton onClick={handleCheck}
-                                    key="3"
-                                    name="ott"
-                                    value="disney+">
-                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>Disney+</b>
-                        </FormButton>
-
-                        <FormButton onClick={handleCheck}
-                                    key="4"
-                                    name="ott"
-                                    value="tiving">
-                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>TVING</b>
-                        </FormButton>
-
-                    </LoginForm>
-
-
-                    </LoginForm>
-                  </OttWrapper>
-                </>
-
-                <SubSetion>
-                  <Text>원하는 <b>구독기간</b>를 선택해주세요.</Text>
-                    <DateWrapper>
-                      {ottSubsDatesList}
-                    </DateWrapper>
-                </SubSetion>
-
-                <Link to="/payfor" style={{textDecoration: 'none'}}>
-                  <SubsButton><b>예약/결제</b></SubsButton>
-                </Link>
-              </NextOtt>
-
+              <Link to="/payfor" style={{ textDecoration: 'none' }}>
+                <SubsButton>
+                  <b>예약/결제</b>
+                </SubsButton>
+              </Link>
+            </NextOtt>
           </Grid>
         </Grid>
       </Layout>
@@ -211,28 +239,18 @@ const SubSetion = styled.div`
   margin-top: 45px;
 `;
 
-const SubsOtt = styled.div`
+const SubsOtt = styled.div``;
 
-`;
+const NextOtt = styled.div``;
 
-const NextOtt = styled.div`
+const OttWrapper = styled.div``;
 
-`;
+const DateWrapper = styled.div``;
 
-const OttWrapper = styled.div`
-
-`;
-
-const DateWrapper = styled.div`
-
-`;
-
-
-  // margin-top: 5px;
-  // display: flex;
+// margin-top: 5px;
+// display: flex;
 
 const SubsForm = styled.div`
-
   text-align: center;
   width: 570px;
 
@@ -244,7 +262,6 @@ const SubsForm = styled.div`
 `;
 
 const DateForm = styled.div`
-
   border-radius: 5px;
   float: left;
 
@@ -265,7 +282,6 @@ const DateForm = styled.div`
 `;
 
 const CurrentSubForm = styled.div`
-
   border-radius: 5px;
   float: left;
   display: felx;
@@ -287,7 +303,6 @@ const CurrentSubForm = styled.div`
 `;
 
 const NextSubForm = styled.div`
-
   border-radius: 5px;
   float: left;
 
@@ -307,9 +322,7 @@ const NextSubForm = styled.div`
   }
 `;
 
-
 const LoginForm = styled.div`
-
   text-align: center;
   display: flex;
   width: 570px;
@@ -345,6 +358,8 @@ const FormButton = styled.button`
     // color: var(--deepdarkred);
     border: 2px solid var(--main);
   }
+
+  border: ${(props) => (props.active ? `2px solid var(--main);` : 'none')};
 `;
 
 const SubsButton = styled.button`
@@ -372,7 +387,6 @@ const SubsButton = styled.button`
     background: var(--main);
     );
 
-`
-
+`;
 
 export default MyPage;
