@@ -2,12 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 
 import useMotion from '../utils/useMotion';
-// import { useEffect, useState } from 'react';
-
-// 짱멋진모듈(가로스크롤)
-// import ScrollHorizontal from 'react-scroll-horizontal';
-
-//components
 
 const SignupPage = () => {
 
@@ -26,7 +20,6 @@ const SignupPage = () => {
 
           <SignupFrom>
             <p>Sign up</p>
-            <StyledInput autoComplete="name" name="name" placeholder="name"  />
             <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
             <StyledInput autoComplete="passward" name="passward" placeholder="Passward" />
             <FormButton><p2>Sign up</p2></FormButton>
