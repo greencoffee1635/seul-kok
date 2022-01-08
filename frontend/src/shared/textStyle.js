@@ -57,7 +57,7 @@ export const sub_1_mobile = css`
 
 // SurveyPage QuestionArea Answers
 export const sub_2 = css`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
 `;
 

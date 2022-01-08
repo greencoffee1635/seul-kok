@@ -414,7 +414,7 @@ const Answer = styled.button`
     width: 17rem;
     height: 4rem;
   }
-  outline: ${(props) => (props.active ? '5px solid var(--white)' : 'none')};
+  outline: ${(props) => (props.active ? '3px solid var(--white)' : 'none')};
   /* :hover {
     outline: 3px solid var(--main);
     // outline-offset: px;
