@@ -35,6 +35,25 @@ const LoginPage = () => {
             <LoginForm>
               <Link to="/main">
                 <FormButton>
+                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
+                </FormButton>
+              </Link>
+              <Link to="/main">
+                <FormButton>
+                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
+                </FormButton>
+              </Link>
+              <div>
+                간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
+              </div>
+            </LoginForm>
+          </LoginWrapper>
+
+
+          {/* <LoginWrapper>
+            <LoginForm>
+              <Link to="/main">
+                <FormButton>
                   <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
                 </FormButton>
               </Link>
@@ -47,7 +66,9 @@ const LoginPage = () => {
                 간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
               </div>
             </LoginForm>
-          </LoginWrapper>
+          </LoginWrapper> */}
+
+
         </LoginSetion>
       </SectionWrapper>
     </>
@@ -76,6 +97,8 @@ const LoginSetion = styled.div`
   margin-top: 8%;
 `;
 
+const StyledInput = styled.form`
+`;
 
 const LogoTitle = styled.header`
   color: var(--main);

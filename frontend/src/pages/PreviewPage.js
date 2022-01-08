@@ -1,26 +1,41 @@
-import React from 'react';
+import React, {useState, useMemo} from 'react';
 import styled, {keyframes} from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import MovieContentdData from '../Data/MovieContentData';
 
 // import { Grid } from '@mui/material';
 
 // components
 import Header from '../components/Header';
 // import Layout from '../components/Layout';
+import thumbnailData from '../Data/thumbnailData';
 
 
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
 
-const PreviewPage = () => {
+const PreviewPage = (props) => {
+
+  let { id } = useParams();
+  let [movieContent, setMovieContent] = useState(MovieContentdData);
+  let [movieUrl, setMovieUrl] = useState(thumbnailData);
+
+
+
+  function ThumbnailCard(props) {
+    return (<PictureCard onClick={() => window.open(`${props.movieUrl.url}`, '_blank')}>
+            <img alt="" src={process.env.PUBLIC_URL + `/Thumbnail/thumbnail${props.movieUrl.id}.png`} />
+            </PictureCard>);
+  }
+
 
   return (
     <>
-
+    {/* muted */}
     <MainScreen>
-        <MainVideo loop autoPlay>
-          <source src={process.env.PUBLIC_URL + `/video/video4.mp4`} type="video/mp4" />
+        <MainVideo muted loop autoPlay>
+          <source src={process.env.PUBLIC_URL + `/video/video${movieContent[id].id}.mp4`} type="video/mp4" />
         </MainVideo>
 
         <Header page="previewpage" />
@@ -28,7 +43,7 @@ const PreviewPage = () => {
           <MovieItem>
 
             <MovieTitle>
-              <p2>지옥</p2>
+              <p2>{movieContent[id].title}<sapn>&emsp;{movieContent[id].keyword}</sapn></p2>
             </MovieTitle>
 
             <MovieItemTitle>
@@ -36,12 +51,12 @@ const PreviewPage = () => {
             </MovieItemTitle>
 
             <MovieItemIntro>
-              <p>어느 날 기이한 존재로부터 지옥행을 선고받은 사람들. 충격과 두려움에 휩싸인 도시에 대혼란의 시대가 도래한다. 신의 심판을 외치며 세를 확장하려는 종교단체와 진실을 파헤치는 자들의 이야기.</p>
+              <p>{movieContent[id].content}</p>
               <IntroSection>
-                <p><b>개봉일</b> 2021년 11월 19일</p>
-                <p><b>장르</b> 범죄, 미스터리, 웹툰 한국 드라마</p>
-                <p><b>출연진</b> 유아인, 김현주, 박정민 등</p>
-                <p><b>상영시간</b> 에피소드 1~6편, 총 6시간 45분</p>
+                <p><b>개봉일</b> {movieContent[id].playdate}</p>
+                <p><b>장르</b> {movieContent[id].genre}</p>
+                <p><b>출연진</b> {movieContent[id].cast}</p>
+                <p><b>상영시간</b> {movieContent[id].time}</p>
               </IntroSection>
             </MovieItemIntro>
 
@@ -50,9 +65,13 @@ const PreviewPage = () => {
                 <p><b>관련영상</b></p>
               </PictureCardTitle>
               <PictureCardContent>
-                <PictureCard></PictureCard>
-                <PictureCard></PictureCard>
-                <PictureCard></PictureCard>
+
+                  {
+                    movieUrl.map((thumbnail, i)=>{
+                      return <ThumbnailCard movieUrl={thumbnail}/>
+                    })
+                  }
+
               </PictureCardContent>
             </PictureCardSection>
 
@@ -86,10 +105,8 @@ const scroll = keyframes`
 
 const MainScreen = styled.div`
   width: 100%;
-  height: 1000vh;
+  height: 230vh;
   background-color: black;
-  display: flex;
-
 
 `;
 
@@ -101,18 +118,16 @@ const MainVideo = styled.video`
 
 
 
-
 const MovieItem = styled.div`
 
 margin: 0 auto;
 
 width: 1010px;
-top: 90%;
+top: 99%;
 left: 15%;
 
 text-align: left;
 position: absolute;
-
 
   span {
     b {
@@ -125,6 +140,12 @@ position: absolute;
 const MovieTitle = styled.p`
   font-size: 45px;
   color: var(--main);
+
+  sapn {
+    color: #ffffff;
+    font-family: normal;
+    font-size: 20px;
+  }
 `;
 
 const MovieItemTitle = styled.p`
@@ -163,22 +184,38 @@ const PictureCardTitle = styled.p`
 
 
 const PictureCardContent = styled.div`
-  display: flex;
+  width: 1080px;
+  height: 300px;
+
   cursor: pointer;
+  display: flex;
+
+  top: 90%;
 `;
 
 
   const PictureCard = styled.div`
 
-  margin: auto;
-  width: 328px;
+  margin: 0 auto;
+
+  width: 350px;
   height: 230px;
-  background-color: var(--deepdarkred);
+  cursor: pointer;
+
   display: flex;
+
+  background-color: var(--deepdarkred);
+  overflow: hidden;
 
   &:hover {
     border: 3px solid;
     border-color: var(--main);
+  };
+
+  img {
+    object-fit:cover;
+    background-size: contain;
+  };
   `;
 
 
@@ -187,8 +224,8 @@ const PictureCardContent = styled.div`
   text-align: center;
   cusor: pointer;
 
-  width: 9rem;
-  height: 2.7rem;
+  width: 8rem;
+  height: 2.5rem;
   float: right;
 
   background: transparent;

@@ -22,7 +22,8 @@ export const head_2 = css`
 // ResultPage Title
 export const head_3 = css`
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Black Han Sans';
 `;
 
 export const head_4 = css`
@@ -34,6 +35,13 @@ export const head_4 = css`
     font-size: 3.6rem;
     margin-top: 5px;
   }
+`;
+
+// MyPage Title
+export const head_5 = css`
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: 'Black Han Sans';
 `;
 
 // QuestionPage Questions
@@ -63,6 +71,14 @@ export const sub_3 = css`
   font-size: 2rem;
   font-weight: 400;
 `;
+
+
+// MyPage Text
+export const sub_4 = css`
+  font-size: 1.1rem;
+  font-weight: 400;
+`;
+
 
 // // 예시
 // export const head_2 = css`
