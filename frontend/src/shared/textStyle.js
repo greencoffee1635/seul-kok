@@ -44,7 +44,7 @@ export const head_5 = css`
   font-family: 'Black Han Sans';
 `;
 
-// QuestionPage Questions
+// SurveyPage QuestionArea Questions
 export const sub_1 = css`
   font-size: 1.8rem;
   font-weight: 500;
@@ -55,7 +55,7 @@ export const sub_1_mobile = css`
   font-weight: 500;
 `;
 
-// QuestionPage Answers
+// SurveyPage QuestionArea Answers
 export const sub_2 = css`
   font-size: 1.5rem;
   font-weight: 500;
@@ -72,13 +72,11 @@ export const sub_3 = css`
   font-weight: 400;
 `;
 
-
 // MyPage Text
 export const sub_4 = css`
   font-size: 1.1rem;
   font-weight: 400;
 `;
-
 
 // // 예시
 // export const head_2 = css`

@@ -138,7 +138,7 @@ const SurveyPage = (props) => {
       });
   };
 
-  const parent = { width: '42rem', height: '37rem', margin: '3rem 12rem' };
+  const parent = { width: '42rem', height: '37rem', margin: '3rem 6rem' };
   const child = { width: '40rem', height: '35rem' };
 
   // if (loading)
@@ -259,8 +259,8 @@ const SurveyPage = (props) => {
                     >
                       <img
                         src={movies.poster}
-                        width="230px"
-                        height="320px"
+                        width="180px"
+                        height="260px"
                         alt="cardimg"
                       />
                     </CardWrapper>
@@ -299,7 +299,7 @@ const Button = styled.button`
   width: 13rem;
   height: 3rem;
   margin-top: 5rem;
-
+  margin-right: 13rem;
   background: transparent;
   border-radius: 15px;
   border: 2px solid var(--main);
@@ -443,10 +443,10 @@ const Wrapper = styled.div`
 const CardGrid = styled.div`
   display: grid !important;
   display: grid;
-  grid-template-rows: 320px 320px;
-  grid-template-columns: 230px 230px 230px 230px;
+  grid-template-rows: 260px 260px;
+  grid-template-columns: 180px 180px 180px 180px;
   /* grid-gap: 18rem 3rem; */
-  grid-gap: 1rem;
+  grid-gap: 0.8rem;
   cursor: pointer;
 
   div :hover {

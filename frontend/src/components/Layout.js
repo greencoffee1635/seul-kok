@@ -34,7 +34,7 @@ const Container = styled.section`
 `;
 
 const LayoutForm = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 3rem 0 3rem;
   display: flex;
@@ -58,7 +58,7 @@ const GridLayoutForm = styled.div`
   display: flex;
   justify-content: flex-start;
   box-sizing: border-box;
-  padding-top: 5rem;
+  padding-top: 2.5rem;
   ${({ theme }) => theme.device.tablet} {
     width: 100%;
   }

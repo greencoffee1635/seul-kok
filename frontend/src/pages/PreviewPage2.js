@@ -228,7 +228,7 @@ const PictureCardContent = styled.div`
   &:hover {
     color: #ffffff;
     background: var(--main);
-    );
+  };
 
 `
 
