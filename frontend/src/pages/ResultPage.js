@@ -15,7 +15,6 @@ import { CenterLayout } from '../components/Layout';
 
 import { head_3, sub_3 } from '../shared/textStyle';
 
-
 const cards = [...new Array(8)];
 
 const ResultPage = (props) => {
@@ -50,18 +49,25 @@ const ResultPage = (props) => {
 
   const [movieCard, setMovieCard] = useState();
 
+  const [genre, setGenre] = useState();
+
   return (
     <Template>
       <Background />
       <Header page="main" />
       <CenterLayout>
         <Grid>
-          <Title>____님의 이번달 OTT 슬콕! 하세요.</Title>
+          <Title>
+            <span style={{ color: 'var(--white)' }}>유가연</span>님의 이번달 OTT
+            슬콕! 하세요.
+          </Title>
         </Grid>
 
         <Grid>
           <Desc style={{ color: 'var(--main)' }}>
-            앉으나 서나 _____ 생각인 ____님!
+            앉으나 서나&nbsp;
+            <span style={{ color: 'var(--white)' }}>{getParams[0].genre}</span>
+            &nbsp;생각인&nbsp;<span style={{ color: 'var(--white)' }}>유가연</span>님!
           </Desc>
         </Grid>
 
