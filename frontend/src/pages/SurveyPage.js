@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 // components
@@ -24,7 +24,9 @@ const cards = [...new Array(8)];
 
 const SurveyPage = (props) => {
   const history = { useHistory };
-  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  // const [loading, setLoading] = useState(true);
   // const [posts, setPosts] = useState({});
   // 버튼
   // const [hoverState, setHoverState] = useState(null);
@@ -33,6 +35,42 @@ const SurveyPage = (props) => {
   // 설문 대답 저장
   const [answerList, setAnswerList] = useState([]);
 
+  const [getData, setGetData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`,
+      )
+      .then((res) => {
+        setGetData(res.data.contents); // 화면에 나타난다.
+        // setGetData(res.data); // 화면에 나타난다.
+        console.log(res.data); // console.log에 나타난다.
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // const getPageData = (data) => {
+  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
+  //   axios
+  //     .get(url, {
+  //       headers: {
+  //         'Content-Type': `multipart/form-data`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setGetData(res.data.contents);
+  //       // this.getData = res.data;
+  //       // console.log(this.getData);
+  //     })
+  //     .catch((err) => {
+  //       console.log('failed', err);
+  //     });
+  // };
+
+  // getPageData();
   const handleCheck = (e, index) => {
     setAnswerList((answerList) => [...answerList, e.target.value]);
     // setSurveyChecked(index);
@@ -42,14 +80,14 @@ const SurveyPage = (props) => {
     console.log(surveyResult);
   };
 
-  // const [movieCard, setMovieCard] = useState();
+  const [movieCard, setMovieCard] = useState();
 
   // useEffect((data) => {
   //   let formData = new FormData();
   //   // formData.append('survey', data.survey);
   //   // formData.append('survey', surveyResult);
   //   // console.log(surveyResult);
-  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey`;
+  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
   //   axios
   //     .get(url, formData, {
   //       // timeout: 10000,
@@ -59,7 +97,7 @@ const SurveyPage = (props) => {
   //     })
   //     .then((res) => {
   //       console.log(res);
-  //       console.log('res : ', res.data.contents);
+  //       console.log('res : ', res.data);
   //       setMovieCard(res.data.contents);
   //     })
   //     .catch((err) => {
@@ -119,20 +157,8 @@ const SurveyPage = (props) => {
     // console.log(bCheckedArray);
     // console.log(initialState.bCheckedArray);
     // console.log(initialState);
-    console.log(surveyResult);
+    // console.log(surveyResult);
   };
-
-  // const handleAnswerChange = value => {
-
-  //   // const selectedGender = value ? "100323" : "100324";
-  //   console.log(value);
-  //   setGender(value);
-  //   console.log(value === "100323" ? "Male" : "Female": '3' :);
-  //   // setUserInfo([...userInfo, e.target.value]);
-  //   if (typeof window !== "undefined") {
-  //     localStorage.setItem("userGender", value);
-  //   }
-  // };
 
   // 초기값 설정
   const initialState = {
@@ -145,7 +171,7 @@ const SurveyPage = (props) => {
   const handleClick = (data) => {
     // setIdFromButtonClick(id);
     let formData = new FormData();
-    formData.append('survey', data.survey);
+    // formData.append('survey', data.survey);
     formData.append('survey', surveyResult);
     console.log(surveyResult);
     // formData.append('pwd', this.userPasss);
@@ -160,19 +186,64 @@ const SurveyPage = (props) => {
       .then((res) => {
         // 받을 때
         // console.log('res : ', res.data.mostOTT);
-        console.log('res : ', res.data.contents);
+        // console.log('res : ', res.data.contents);
         // console.log('res : ', res.data.contents.info);
+        props.history.push({
+          pathname: '/result',
+          state: { contents: res.data.contents },
+        });
       })
       .catch((err) => {
         console.log('failed', err);
       });
-    props.history.push('/result');
+    // props.history.push('/result');
+    // props.history.push('/result');
   };
 
-  // {
-  //   pathname: "/set_account",
-  //   state: {userCell: userCell}
-  // }
+  // const asdf = (data) => {
+  //   // setIdFromButtonClick(id);
+  //   let formData = new FormData();
+  //   // formData.append('survey', data.survey);
+  //   // formData.append('survey', surveyResult);
+  //   // console.log(surveyResult);
+  //   // formData.append('pwd', this.userPasss);
+  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
+  //   axios
+  //     .post(url, formData, {
+  //       // timeout: 10000,
+  //       headers: {
+  //         'Content-Type': `multipart/form-data`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       // 받을 때
+  //       // console.log('res : ', res.data.mostOTT);
+  //       console.log('res : ', res.data.contents);
+  //       // console.log('res : ', res.data.contents.info);
+  //     })
+  //     .catch((err) => {
+  //       console.log('failed', err);
+  //     });
+  //   // props.history.push('/result');
+  //   props.history.push('/result');
+  // };
+
+  // const asdf = (data) => {
+  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
+  //   axios
+  //     .get(url, {
+  //       timeout: 10000,
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log('response : ', response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log('failed', error);
+  //     });
+  // };
 
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
@@ -187,6 +258,7 @@ const SurveyPage = (props) => {
     <Template>
       <Background />
       <Header />
+      {/* <button width="30px" onClick={asdf}></button> */}
       <GridLayout>
         <GridWrapper>
           <TitleWrapper>
@@ -199,6 +271,7 @@ const SurveyPage = (props) => {
               <br />
               알려주세요.
             </Title>
+            <div>{getData.poster}</div>
           </TitleWrapper>
           <Grid>
             {/* <Scroll> */}
@@ -287,7 +360,7 @@ const SurveyPage = (props) => {
           {/* <Grid width="30rem"> */}
           <TitleWrapper>
             <Title>
-              그동안
+              그동안&nbsp;
               <span style={{ color: 'var(--main)' }}>
                 즐겁게 본 <br />
                 컨텐츠
@@ -326,30 +399,59 @@ const SurveyPage = (props) => {
                   );
                 })}
               </CardGrid>
+              <ButtonWrapper>
+                <Button
+                  type="button"
+                  // onClick={() => props.history.push('/result')}
+                  onClick={handleClick}
+                >
+                  결과
+                </Button>
+              </ButtonWrapper>
             </Wrapper>
           </Grid>
+          {/* <button type="button" onClick={asdf}>
+            Fetch Test
+          </button> */}
           {/* <Grid>
             <div>
-              <button type="button" onClick={handleClick}>
-                Fetch Test
-              </button>
               <div>{posts.title}</div>
             </div>
           </Grid> */}
         </GridWrapper>
       </GridLayout>
-      <Button
-        type="button"
-        // onClick={() => props.history.push('/result')}
-        onClick={handleClick}
-      >
-        결과
-      </Button>
     </Template>
   );
 };
 
-const Button = styled.button``;
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* margin-top: -20rem; */
+`;
+
+const Button = styled.button`
+  text-align: center;
+  width: 13rem;
+  height: 3rem;
+  margin-top: 5rem;
+
+  background: transparent;
+  border-radius: 15px;
+  border: 2px solid var(--main);
+
+  color: var(--main);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: var(--white);
+    background: var(--main);
+    cursor: pointer;
+  }
+`;
 
 const Template = styled.main`
   width: 100%;
@@ -360,7 +462,7 @@ const GridWrapper = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: 35rem 61rem;
-  grid-template-rows: 35rem 35rem 5rem;
+  grid-template-rows: 35rem 35rem 1rem;
   grid-gap: 18rem 3rem;
   ${({ theme }) => theme.device.tablet} {
     grid-gap: 3rem 3rem;
@@ -449,11 +551,11 @@ const Answer = styled.button`
     height: 4rem;
   }
 
-  outline: ${(props) => (props.active ? '10px solid var(--violet)' : 'none')};
-  :hover {
+  outline: ${(props) => (props.active ? '5px solid var(--white)' : 'none')};
+  /* :hover {
     outline: 3px solid var(--main);
     // outline-offset: px;
-  }
+  } */
 `;
 
 // const Scroll = styled.div`

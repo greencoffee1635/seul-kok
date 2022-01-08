@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 // components
@@ -22,6 +22,9 @@ const cards = [...new Array(8)];
 const ResultPage = (props) => {
   // const location = useLocation();
   const history = { useHistory };
+  const location = useLocation();
+  const getParams = props.location.state.contents;
+  console.log('asdfasdfsdfs : ', getParams);
   // const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   // const child = { width: '40rem', height: '35rem' };
   const [movieResult, setMovieResult] = useState({});
@@ -45,7 +48,7 @@ const ResultPage = (props) => {
     let newArray = [...bCheckedArray];
     newArray[id] = !newArray[id];
     setCheckedArray(newArray);
-    console.log(newArray);
+    // console.log(newArray);
   };
 
   // useEffect(() => {
@@ -81,28 +84,28 @@ const ResultPage = (props) => {
   //     // setLoading(false)
   //     // setLoading(true)
   // };
-
+  // const location = useLocation();
   const [movieCard, setMovieCard] = useState();
 
-  useEffect((data) => {
-    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
-    axios
-      .get(url, {
-        // timeout: 10000,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((response) => {
-        console.log('response : ', response.data.mostOTT);
-        setMovieCard(response.data.contents)
-      })
-      .catch((error) => {
-        console.log('failed', error);
-      });
-  });
-  
-// 설문(question, answer) 제목 오티티종류 포스터
+  // useEffect(() => {
+  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
+  //   axios
+  //     .get(url, {
+  //       // timeout: 10000,
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     })
+  //     .then((res) => {
+  //       console.log('adsf : ', res.data.contents);
+  //       setMovieCard(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log('failed', err);
+  //     });
+  // }, []);
+
+  // 설문(question, answer) 제목 오티티종류 포스터
   // let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
   // axios
   //   .get(url, {
@@ -167,7 +170,7 @@ const ResultPage = (props) => {
         </Grid>
 
         <CardGrid>
-          {movieCard.map((index) => {
+          {MovieDummy[1].map((movie, index) => {
             return (
               <CardWrapper
                 active={activeHandler(index)}
@@ -176,7 +179,7 @@ const ResultPage = (props) => {
                 }}
               >
                 <img
-                  src={movieCard.poster}
+                  src={movie.poster}
                   width="230px"
                   height="320px"
                   alt="cardimg"
