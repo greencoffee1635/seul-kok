@@ -37,9 +37,9 @@ const SurveyPage = (props) => {
     setAnswerList((answerList) => [...answerList, e.target.value]);
     // setSurveyChecked(index);
     // setGenderClicked(1);
-    console.log(answerList);
+    // console.log(answerList);
     // console.log(initialState.answerList);
-    // console.log(surveyResult);
+    console.log(surveyResult);
   };
 
   const [bSurveyCheckedArray, setSurveyCheckedArray] = useState(
@@ -94,6 +94,7 @@ const SurveyPage = (props) => {
     // console.log(bCheckedArray);
     // console.log(initialState.bCheckedArray);
     // console.log(initialState);
+    console.log(surveyResult);
   };
 
   // const handleAnswerChange = value => {
@@ -114,7 +115,7 @@ const SurveyPage = (props) => {
     bCheckedArray: [true, false, true, false, true, false, true, false],
   };
 
-  const surveyResult = [initialState.answerList, initialState.bCheckedArray];
+  const surveyResult = [bSurveyCheckedArray, bCheckedArray];
 
   const handleClick = (data) => {
     // setIdFromButtonClick(id);
@@ -123,7 +124,7 @@ const SurveyPage = (props) => {
     formData.append('survey', surveyResult);
     console.log(surveyResult);
     // formData.append('pwd', this.userPasss);
-    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com:5000/survey`;
+    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey`;
     // http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey
     axios
       .post(url, formData, {
@@ -133,7 +134,10 @@ const SurveyPage = (props) => {
         },
       })
       .then((res) => {
+        // 받을 때
         console.log('res : ', res.data.mostOTT);
+        console.log('res : ', res.data.contents);
+        console.log('res : ', res.data.contents.info);
       })
       .catch((error) => {
         console.log('failed', error);
@@ -143,12 +147,12 @@ const SurveyPage = (props) => {
 
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
-  if (loading)
-    return (
-      <>
-        <Loading />
-      </>
-    );
+  // if (loading)
+  //   return (
+  //     <>
+  //       <Loading />
+  //     </>
+  //   );
 
   return (
     <Template>
