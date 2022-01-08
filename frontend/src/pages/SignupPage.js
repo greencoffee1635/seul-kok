@@ -20,7 +20,6 @@ const SignupPage = () => {
 
           <SignupFrom>
             <p>Sign up</p>
-            <StyledInput autoComplete="name" name="name" placeholder="name"  />
             <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
             <StyledInput autoComplete="passward" name="passward" placeholder="Passward" />
             <FormButton><p2>Sign up</p2></FormButton>
