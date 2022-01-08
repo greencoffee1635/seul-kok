@@ -5,14 +5,13 @@ import theme from '../shared/theme';
 import { ThemeProvider } from 'styled-components';
 import ScrollToTop from '../components/ScrollToTop';
 
-
 // pages
 import IntroPage from '../pages/IntroPage';
 import MainPage from '../pages/MainPage';
 import PreviewPage from '../pages/PreviewPage';
 import PreviewPage2 from '../pages/PreviewPage2';
-import QuestionPage from '../pages/QuestionPage';
-import PickPosterPage from '../pages/PickPosterPage';
+// import QuestionPage from '../pages/QuestionPage';
+// import PickPosterPage from '../pages/PickPosterPage';
 import ResultPage from '../pages/ResultPage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
@@ -20,6 +19,7 @@ import MyPage from '../pages/MyPage';
 import SurveyPage from '../pages/SurveyPage';
 import PayForPage from '../pages/PayForPage';
 import TeamPage from '../pages/TeamPage';
+// import Loading from '../pages/Loading';
 
 function App() {
   return (
@@ -43,6 +43,7 @@ function App() {
             <Route exact path="/mypage" component={MyPage} />
             <Route exact path="/payfor" component={PayForPage} />
             <Route exact path="/team" component={TeamPage} />
+            {/* <Route exact path="/loading" component={Loading} /> */}
           </Switch>
         </BrowserRouter>
         <GlobalStyle />

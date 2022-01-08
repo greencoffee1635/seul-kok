@@ -129,6 +129,7 @@ const StartButton = styled.button`
   &:hover {
     color: #ffffff;
     background: var(--main);
+    cursor: pointer;
   );
 
 `;
