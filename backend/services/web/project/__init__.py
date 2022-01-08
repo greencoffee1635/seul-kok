@@ -16,6 +16,7 @@ import sqlite3
 dbpath = '/home/app/web/project/tempdb.db'
 
 app = Flask(__name__)
+CORS(app)
 app.config.from_object("project.config.Config")
 db = SQLAlchemy(app)
 
