@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+
 // components
 import Header from '../components/Header';
 import Grid from '../components/Grid';
@@ -8,16 +10,21 @@ import Background from '../components/Background';
 // import Template from '../components/Template';
 
 import { CenterLayout } from '../components/Layout';
-import { surveyDummy, MovieDummy } from '../data/dummy';
+import { MovieDummy } from '../data/dummy';
+import { resultDummy } from '../data/resultDummy';
 
 import { head_3, sub_3 } from '../shared/textStyle';
+
+// import {useLocation} from "react-router";
 
 const cards = [...new Array(8)];
 
 const ResultPage = (props) => {
+  // const location = useLocation();
   const history = { useHistory };
-  const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
-  const child = { width: '40rem', height: '35rem' };
+  // const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
+  // const child = { width: '40rem', height: '35rem' };
+  const [movieResult, setMovieResult] = useState({});
 
   const [bCheckedArray, setCheckedArray] = useState(
     Array.from({ length: cards.length }, () => false),
@@ -40,6 +47,102 @@ const ResultPage = (props) => {
     setCheckedArray(newArray);
     console.log(newArray);
   };
+
+  // useEffect(() => {
+  //   effect;
+  //   return () => {
+  //     cleanup;
+  //   };
+  // }, [input]);
+
+  // const handleClick = (data) => {
+  //   // setIdFromButtonClick(id);
+  //   let formData = new FormData();
+  //   formData.append('survey', data.survey);
+  //   // formData.append('survey', surveyResult);
+  //   // console.log(surveyResult);
+  //   // formData.append('pwd', this.userPasss);
+  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com:5000/survey`;
+  //   // http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey
+  //   axios
+  //     .post(url, formData, {
+  //       // timeout: 10000,
+  //       headers: {
+  //         'Content-Type': `multipart/form-data`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       console.log('res : ', res.data.mostOTT);
+  //     })
+  //     .catch((error) => {
+  //       console.log('failed', error);
+  //     });
+  //     props.history.push('/result');
+  //     // setLoading(false)
+  //     // setLoading(true)
+  // };
+
+  const [movieCard, setMovieCard] = useState();
+
+  useEffect((data) => {
+    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
+    axios
+      .get(url, {
+        // timeout: 10000,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((response) => {
+        console.log('response : ', response.data.mostOTT);
+        setMovieCard(response.data.contents)
+      })
+      .catch((error) => {
+        console.log('failed', error);
+      });
+  });
+  
+// 설문(question, answer) 제목 오티티종류 포스터
+  // let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyopen`;
+  // axios
+  //   .get(url, {
+  //     timeout: 10000,
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data',
+  //     },
+  //   })
+  //   .then((response) => {
+  //     console.log('response : ', response.data.mostOTT);
+  //   })
+  //   .catch((error) => {
+  //     console.log('failed', error);
+  //   });
+
+  // const getRealTime = useCallback(async () => {
+  //   const res = await api.menu.getMenu(id);
+  //   console.log(res);
+  //   setMenu(() => {
+  //     const newMenu = [...res.data];
+  //     return newMenu;
+  //   });
+  //   //eslint-disable-next-line
+  // }, [id]);
+
+  // useEffect(() => {
+  //   getRealTime();
+  //   //eslint-disable-next-line
+  // }, []);
+
+  //   class Menu {
+  //     async getMenu(id) {
+  //         const res = axios.get('/food/menu', {
+  //             params: {
+  //                 kindsID: id,
+  //             },
+  //         });
+  //         return res;
+  //     }
+  // }
 
   return (
     <Template>
@@ -64,7 +167,7 @@ const ResultPage = (props) => {
         </Grid>
 
         <CardGrid>
-          {MovieDummy[1].map((movies, index) => {
+          {movieCard.map((index) => {
             return (
               <CardWrapper
                 active={activeHandler(index)}
@@ -73,7 +176,7 @@ const ResultPage = (props) => {
                 }}
               >
                 <img
-                  src={movies.image}
+                  src={movieCard.poster}
                   width="230px"
                   height="320px"
                   alt="cardimg"
@@ -157,9 +260,11 @@ const CardGrid = styled.div`
   grid-template-columns: 230px 230px 230px 230px;
   /* grid-gap: 18rem 3rem; */
   grid-gap: 1rem;
+  justify-content: center;
   cursor: pointer;
 
   div :hover {
+    /* outline: 3px solid var(--main); */
     outline: 3px solid var(--main);
     // outline-offset: px;
   }

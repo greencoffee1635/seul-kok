@@ -10,7 +10,7 @@ import Background from '../components/Background';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { GridLayout } from '../components/Layout';
-import { surveyDummy, MovieDummy } from '../data/dummy';
+import { SurveyDummy, MovieDummy } from '../data/dummy';
 import {
   head_2,
   sub_1,
@@ -41,6 +41,31 @@ const SurveyPage = (props) => {
     // console.log(initialState.answerList);
     console.log(surveyResult);
   };
+
+  // const [movieCard, setMovieCard] = useState();
+
+  // useEffect((data) => {
+  //   let formData = new FormData();
+  //   // formData.append('survey', data.survey);
+  //   // formData.append('survey', surveyResult);
+  //   // console.log(surveyResult);
+  //   let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey`;
+  //   axios
+  //     .get(url, formData, {
+  //       // timeout: 10000,
+  //       headers: {
+  //         'Content-Type': `multipart/form-data`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //       console.log('res : ', res.data.contents);
+  //       setMovieCard(res.data.contents);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // });
 
   const [bSurveyCheckedArray, setSurveyCheckedArray] = useState(
     Array.from({ length: questions.length }, () => 0),
@@ -124,8 +149,7 @@ const SurveyPage = (props) => {
     formData.append('survey', surveyResult);
     console.log(surveyResult);
     // formData.append('pwd', this.userPasss);
-    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey`;
-    // http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/survey
+    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
     axios
       .post(url, formData, {
         // timeout: 10000,
@@ -135,15 +159,20 @@ const SurveyPage = (props) => {
       })
       .then((res) => {
         // 받을 때
-        console.log('res : ', res.data.mostOTT);
+        // console.log('res : ', res.data.mostOTT);
         console.log('res : ', res.data.contents);
-        console.log('res : ', res.data.contents.info);
+        // console.log('res : ', res.data.contents.info);
       })
-      .catch((error) => {
-        console.log('failed', error);
+      .catch((err) => {
+        console.log('failed', err);
       });
     props.history.push('/result');
   };
+
+  // {
+  //   pathname: "/set_account",
+  //   state: {userCell: userCell}
+  // }
 
   const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
   const child = { width: '40rem', height: '35rem' };
@@ -182,7 +211,7 @@ const SurveyPage = (props) => {
                 className={'scrollbar'}
                 // animValues={int}
               >
-                {surveyDummy[1].map((survey, index) => {
+                {SurveyDummy[1].map((survey, index) => {
                   return (
                     <SurveyWrapper style={child}>
                       <Text>{survey.question}</Text>

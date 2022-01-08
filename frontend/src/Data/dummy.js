@@ -1,4 +1,4 @@
-export const surveyDummy = {
+export const SurveyDummy = {
   1: [
     {
       question: 'Q1. 과도한 공부와 업무로 번아웃이 온 당신. 이를 극복하기 위해',
@@ -9,7 +9,7 @@ export const surveyDummy = {
     },
     {
       question:
-        'Q2. 오랫동안 사귀었던 전 애인과 절친의 연애 사실을 알게되었다. 나는',
+        'Q2. 오랫동안 사귀었던 전 애인과 절친의 연애 사실을 알게 되었다. 나는',
       answer1: '바로 친구의 멱살을 잡는다. 우당탕탕',
       answer2: '사랑이 죄는 아니잖아. 이해해준다.',
       answer3: '직접 보기 전까지는 믿을 수 없어! 둘을 미행한다.',
