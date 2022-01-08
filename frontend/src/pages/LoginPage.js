@@ -39,7 +39,6 @@ const LoginPage = () => {
                 </FormButton>
               </Link>
               <Link to="/main">
-                //<a href={'http://seulkok.xyz/login'}>Log in with kakao</a>
                 <FormButton>
                   <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
                 </FormButton>
