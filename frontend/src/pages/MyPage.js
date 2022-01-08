@@ -68,9 +68,9 @@ const MyPage = () => {
 
 
 
-  const ottNamesList = ottNames.map((name, index) =>
-    (<FormButton key={index}
-                onClick={handleCheck}>{name.id}</FormButton>));
+  // const ottNamesList = ottNames.map((name, index) =>
+  //   (<FormButton key={index}
+  //               onClick={handleCheck}>{name.id}</FormButton>));
 
   const ottSubsDatesList = ottDates.map((date, index) => (<FormButton>
     <b style={{ color: '#ffffff', textDecoration: 'none' }}
@@ -120,7 +120,40 @@ const MyPage = () => {
                   <OttWrapper>
                     <LoginForm>
 
-                      {ottNamesList}
+                      {/* {ottNamesList} */}
+
+                      <LoginForm>
+
+                        <FormButton onClick={handleCheck}
+                                    key="1"
+                                    name="ott"
+                                    value="netflix">
+                          <b style={{ color: '#d92f27', textDecoration: 'none' }}>NETFLIX</b>
+                        </FormButton>
+
+                        <FormButton onClick={handleCheck}
+                                    key="2"
+                                    name="ott"
+                                    value="watcha">
+                          <b style={{ color: '#f1355c', textDecoration: 'none'}}>WATCHA</b>
+                        </FormButton>
+
+                        <FormButton onClick={handleCheck}
+                                    key="3"
+                                    name="ott"
+                                    value="disney+">
+                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>Disney+</b>
+                        </FormButton>
+
+                        <FormButton onClick={handleCheck}
+                                    key="4"
+                                    name="ott"
+                                    value="tiving">
+                          <b style={{ color: '#ffffff', textDecoration: 'none'}}>TVING</b>
+                        </FormButton>
+
+                    </LoginForm>
+
 
                     </LoginForm>
                   </OttWrapper>
