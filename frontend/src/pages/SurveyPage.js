@@ -105,10 +105,10 @@ const SurveyPage = (props) => {
   };
 
   // 초기값 설정
-  const initialState = {
-    answerList: ['1', '3', '4'],
-    bCheckedArray: [true, false, true, false, true, false, true, false],
-  };
+  // const initialState = {
+  //   answerList: ['1', '3', '4', '3', '1'],
+  //   bCheckedArray: [true, false, true, false, true, false, true, false],
+  // };
 
   const surveyResult = [bSurveyCheckedArray, bCheckedArray];
 
@@ -128,10 +128,12 @@ const SurveyPage = (props) => {
       .then((res) => {
         // 받을 때
         // console.log('res : ', res.data.contents);
-        props.history.push({
-          pathname: '/result',
-          state: { contents: res.data.contents },
-        });
+        // props.history.push({
+        //   pathname: '/result',
+        //   state: { contents: res.data.contents },
+        // });
+        localStorage.setItem('userSurvey', JSON.stringify(res.data));
+        props.history.push('/result');
       })
       .catch((err) => {
         console.log('failed', err);

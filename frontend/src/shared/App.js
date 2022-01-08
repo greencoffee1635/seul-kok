@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/main" component={MainPage} />
             <Route exact path="/preview" component={PreviewPage} />
             <Route exact path="/preview/:id" component={PreviewPage} />
-            <Route exact path="/preview2/:id" component={PreviewPage2} />
+            <Route exact path="/preview2" component={PreviewPage2} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
             {/* <Route exact path="/question" component={QuestionPage} />

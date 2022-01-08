@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import useMotion from '../utils/useMotion';
 
 // components
 import Header from '../components/Header';
@@ -21,9 +22,10 @@ const ResultPage = (props) => {
   // const location = useLocation();
   const history = { useHistory };
   const location = useLocation();
-  const getParams = props.location.state.contents;
-  console.log('surveyResultData : ', getParams);
+  // const getParams = props.location.state.contents;
+  // console.log('surveyResultData : ', getParams);
 
+  const getParams = JSON.parse(localStorage.getItem('userSurvey')).contents;
   const [movieResult, setMovieResult] = useState({});
 
   const [bCheckedArray, setCheckedArray] = useState(
@@ -51,33 +53,36 @@ const ResultPage = (props) => {
 
   const [genre, setGenre] = useState();
 
+  const [goToPreview, setGoToPreview] = useState();
+
+  const PreviewClick = (data) => {
+    let formData = new FormData();
+    // formData.append('survey', data.survey);
+    formData.append('ott', 'netflix');
+    formData.append('title', data.title);
+    console.log(data.title);
+    let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/detail`;
+    axios
+      .post(url, formData, {
+        // timeout: 10000,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        console.log('ABCDE', res.data.movieinfo);
+        localStorage.setItem('movieinfo', JSON.stringify(res.data));
+        props.history.push('/preview2');
+      })
+      .catch((err) => {
+        console.log('failed', err);
+      });
+  };
+
   return (
     <Template>
-      <Background />
       <Header page="main" />
       <CenterLayout>
-        <Grid>
-          <Title>
-            <span style={{ color: 'var(--white)' }}>유가연</span>님의 이번달 OTT
-            슬콕! 하세요.
-          </Title>
-        </Grid>
-
-        <Grid>
-          <Desc style={{ color: 'var(--main)' }}>
-            앉으나 서나&nbsp;
-            <span style={{ color: 'var(--white)' }}>{getParams[0].genre}</span>
-            &nbsp;생각인&nbsp;<span style={{ color: 'var(--white)' }}>유가연</span>님!
-          </Desc>
-        </Grid>
-
-        <ChartWrapper>
-          <Chart width="30rem" height="30rem"></Chart>
-        </ChartWrapper>
-        <Grid>
-          <Title>____님의 이번달 OTT 슬콕! 하세요.</Title>
-        </Grid>
-
         <CardGrid>
           {getParams.map((movie, index) => {
             return (
@@ -92,8 +97,8 @@ const ResultPage = (props) => {
                   width="230px"
                   height="320px"
                   alt="cardimg"
-                  onClick={() => props.history.push('/preview')}
-                  // onClick={()=>history.push}
+                  // onClick={PreviewClick}
+                  onClick={() => PreviewClick(movie)}
                 />
               </CardWrapper>
             );
@@ -110,35 +115,6 @@ const Template = styled.main`
   justify-content: center;
 `;
 
-const Title = styled.h2`
-  ${head_3}
-  color: var(--main);
-  display: flex;
-  /* text-align: center; */
-  justify-content: center;
-  ${({ theme }) => theme.device.mobile} {
-    justify-content: center;
-  }
-`;
-
-const Desc = styled.p`
-  display: flex;
-  justify-content: center;
-`;
-
-const ChartWrapper = styled.div`
-  justify-content: center;
-  display: flex;
-  align-items: center;
-`;
-
-const Chart = styled.div`
-  width: 40rem;
-  height: 40rem;
-  border: 5px solid var(--white);
-  background-color: var(--white);
-`;
-
 const CardGrid = styled.div`
   display: grid !important;
   display: grid;
@@ -150,9 +126,7 @@ const CardGrid = styled.div`
   cursor: pointer;
 
   div :hover {
-    /* outline: 3px solid var(--main); */
     outline: 3px solid var(--main);
-    // outline-offset: px;
   }
 `;
 

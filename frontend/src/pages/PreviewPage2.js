@@ -1,6 +1,6 @@
-import React, {useState, useMemo} from 'react';
-import styled, {keyframes} from 'styled-components';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
 import MovieContentdData from '../data/MovieContentData';
 
 // import { Grid } from '@mui/material';
@@ -8,51 +8,65 @@ import MovieContentdData from '../data/MovieContentData';
 // components
 import Header from '../components/Header';
 import useMotion from '../utils/useMotion';
-
+import axios from 'axios';
 
 // import Layout from '../components/Layout';
 
 const env = process.env;
-env.PUBLIC_URL = env.PUBLIC_URL || "";
+env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const PreviewPage2 = (props) => {
+  console.log('###################');
+  const history = { useHistory };
+  const location = useLocation();
+  const getParams = JSON.parse(localStorage.getItem('movieinfo')).movieinfo;
+  console.log('surveyResultData : ', getParams);
 
-  let { id } = useParams();
-  let [movieContent, setmovieContent] = useState(MovieContentdData);
-
+  // let { id } = useParams();
+  // let [movieContent, setmovieContent] = useState(MovieContentdData);
 
   return (
     <>
-
-    <MainScreen>
-
+      <MainScreen>
         <Header page="previewpage2" />
 
-          {/* <MainContent>
+        {/* <MainContent>
             <p dark {...useMotion('down', 1, 0.2)}>이번달 <b>추천 컨텐츠</b> 입니다. <br/></p>
           </MainContent> */}
 
-          <MovieItem dark {...useMotion('down', 1, 0.3)}>
+        <MovieItem dark {...useMotion('down', 1, 0.3)}>
+          <MovieTitle>
+            <p2>
+              {getParams.title}
+              <sapn>&emsp;{getParams.keyword}</sapn>
+            </p2>
+          </MovieTitle>
 
-            <MovieTitle>
-              <p2>{movieContent[id].title}<sapn>&emsp;{movieContent[id].keyword}</sapn></p2>
-            </MovieTitle>
+          <MovieItemTitle>
+            <p>
+              <b>영화 줄거리</b>
+            </p>
+          </MovieItemTitle>
 
-            <MovieItemTitle>
-              <p><b>영화 줄거리</b></p>
-            </MovieItemTitle>
+          <MovieItemIntro>
+            <p>{getParams.content}</p>
+            <IntroSection>
+              <p>
+                <b>개봉일</b> {getParams.playdate}
+              </p>
+              <p>
+                <b>장르</b> {getParams.genre}
+              </p>
+              <p>
+                <b>출연진</b> {getParams.cast}
+              </p>
+              <p>
+                <b>상영시간</b> {getParams.time}
+              </p>
+            </IntroSection>
+          </MovieItemIntro>
 
-            <MovieItemIntro>
-              <p>{movieContent[id].content}</p>
-              <IntroSection>
-                <p><b>개봉일</b> {movieContent[id].playdate}</p>
-                <p><b>장르</b> {movieContent[id].genre}</p>
-                <p><b>출연진</b> {movieContent[id].cast}</p>
-                <p><b>상영시간</b> {movieContent[id].time}</p>
-              </IntroSection>
-            </MovieItemIntro>
-
-            {/* <PictureCardSection>
+          {/* <PictureCardSection>
               <PictureCardTitle>
                 <p><b>관련영상</b></p>
               </PictureCardTitle>
@@ -63,22 +77,16 @@ const PreviewPage2 = (props) => {
               </PictureCardContent>
             </PictureCardSection> */}
 
-            <Link to="/main" style={{textDecoration: 'none'}}>
-              <BackButton><b>뒤로가기</b></BackButton>
-            </Link>
-          </MovieItem>
-
-
-    </MainScreen>
-
-  </>
-
-
+          <Link to="/main" style={{ textDecoration: 'none' }}>
+            <BackButton>
+              <b>뒤로가기</b>
+            </BackButton>
+          </Link>
+        </MovieItem>
+      </MainScreen>
+    </>
   );
 };
-
-
-
 
 const scroll = keyframes`
     0% {
@@ -99,10 +107,7 @@ const MainScreen = styled.div`
   height: 230vh;
   background-color: black;
   display: flex;
-
-
 `;
-
 
 const MainContent = styled.div`
   font-size: 2.8rem;
@@ -114,30 +119,25 @@ const MainContent = styled.div`
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;
-}
+  }
 `;
 
-
-
 const MovieItem = styled.div`
+  margin: 0 auto;
 
-margin: 0 auto;
+  width: 1010px;
+  top: 20%;
+  left: 15%;
 
-width: 1010px;
-top: 20%;
-left: 15%;
-
-text-align: left;
-position: absolute;
-
+  text-align: left;
+  position: absolute;
 
   span {
     b {
       color: var(--main);
     }
-  };
+  }
 `;
-
 
 const MovieTitle = styled.p`
   font-size: 45px;
@@ -167,31 +167,25 @@ const IntroSection = styled.div`
   }
 `;
 
-
-
 const PictureCardSection = styled.div`
-
   margin-top: 100px;
   width: 1010px;
   height: 400px;
 
   justify-content: space-between;
-
-  `;
+`;
 
 const PictureCardTitle = styled.p`
   font-size: 30px;
   color: #ffffff;
 `;
 
-
 const PictureCardContent = styled.div`
   display: flex;
   cursor: pointer;
 `;
 
-
-  const PictureCard = styled.div`
+const PictureCard = styled.div`
 
   margin: auto;
   width: 328px;
@@ -204,9 +198,7 @@ const PictureCardContent = styled.div`
     border-color: var(--main);
   `;
 
-
-  const BackButton = styled.button`
-
+const BackButton = styled.button`
   text-align: center;
   cursor: pointer;
 
@@ -228,9 +220,7 @@ const PictureCardContent = styled.div`
   &:hover {
     color: #ffffff;
     background: var(--main);
-  };
-
-`
-
+  }
+`;
 
 export default PreviewPage2;
