@@ -53,7 +53,8 @@ const LayoutForm = styled.div`
 
 const GridLayoutForm = styled.div`
   width: 100%;
-  margin: 0 3rem 0 9.6rem;
+  /* margin: 0 3rem 0 9.6rem; */
+  /* margin: 0 3rem 0 9.6rem; */
   display: flex;
   justify-content: flex-start;
   box-sizing: border-box;

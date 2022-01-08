@@ -1,5 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { useHistory, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 // components
 import Header from '../components/Header';
@@ -8,17 +10,46 @@ import Background from '../components/Background';
 // import Template from '../components/Template';
 
 import { CenterLayout } from '../components/Layout';
+// import { MovieDummy } from '../data/dummy';
+// import { resultDummy } from '../data/resultDummy';
 
 import { head_3, sub_3 } from '../shared/textStyle';
 
-const cards = [...new Array(8)].map((x, i) => ({
-  name: `card ${i}`,
-  img: 'https://source.unsplash.com/random',
-}));
 
-const ResultPage = () => {
-  const parent = { width: '40rem', height: '37rem', margin: '3rem 12rem' };
-  const child = { width: '40rem', height: '35rem' };
+const cards = [...new Array(8)];
+
+const ResultPage = (props) => {
+  // const location = useLocation();
+  const history = { useHistory };
+  const location = useLocation();
+  const getParams = props.location.state.contents;
+  console.log('surveyResultData : ', getParams);
+
+  const [movieResult, setMovieResult] = useState({});
+
+  const [bCheckedArray, setCheckedArray] = useState(
+    Array.from({ length: cards.length }, () => false),
+  );
+
+  const activeHandler = (idx) => {
+    if (bCheckedArray[idx] === true) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // console.log(bCheckedArray);
+
+  const setChecked = (id) => {
+    let newArray = [...bCheckedArray];
+    newArray[id] = !newArray[id];
+    setCheckedArray(newArray);
+    // console.log(newArray);
+  };
+
+  const [movieCard, setMovieCard] = useState();
+
   return (
     <Template>
       <Background />
@@ -42,12 +73,25 @@ const ResultPage = () => {
         </Grid>
 
         <CardGrid>
-          {cards.map((card) => (
-            <div>
-              <img src={card.img} width="230px" height="320px" alt="cardimg" />
-              {/* <p>{card.name}</p> */}
-            </div>
-          ))}
+          {getParams.map((movie, index) => {
+            return (
+              <CardWrapper
+                active={activeHandler(index)}
+                onClick={() => {
+                  setChecked(index);
+                }}
+              >
+                <img
+                  src={movie.poster}
+                  width="230px"
+                  height="320px"
+                  alt="cardimg"
+                  onClick={() => props.history.push('/preview')}
+                  // onClick={()=>history.push}
+                />
+              </CardWrapper>
+            );
+          })}
         </CardGrid>
       </CenterLayout>
     </Template>
@@ -91,18 +135,24 @@ const Chart = styled.div`
 
 const CardGrid = styled.div`
   display: grid !important;
-  grid-template-rows: auto auto;
-  grid-auto-flow: column;
+  display: grid;
+  grid-template-rows: 320px 320px;
+  grid-template-columns: 230px 230px 230px 230px;
+  /* grid-gap: 18rem 3rem; */
   grid-gap: 1rem;
+  justify-content: center;
   cursor: pointer;
-  /* & img :hover {
-    border: 3px solid;
-    border-color: var(--main);
-  } */
-  &:last-child :hover {
-    border: 2px solid var(--main);
-    /* border-color:  */
+
+  div :hover {
+    /* outline: 3px solid var(--main); */
+    outline: 3px solid var(--main);
+    // outline-offset: px;
   }
+`;
+
+const CardWrapper = styled.div`
+  outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
+  outline-offset: -2px;
 `;
 
 export default ResultPage;

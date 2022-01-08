@@ -1,16 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useLocation } from "react-router";
 
 
 //components
 import useMotion from '../utils/useMotion';
 import MovieCard from '../components/MovieCard';
 import { head_4 } from '../shared/textStyle';
+import MovieContentdData from '../data/MovieContentData';
 
 
 
-const ComingSoonPage = (propss) => {
+const ComingSoonPage = (props) => {
+
+  let { id } = useParams();
+
+  const previews = ['1', '2', '3', '4']
+  const previewsList = previews.map((numbers) => numbers);
+
+  let [movieContent, setmovieContent] = useState(MovieContentdData);
 
 
   return (
@@ -26,9 +35,12 @@ const ComingSoonPage = (propss) => {
         {/* <p2 dark {...useMotion('up', 2, 0.8)}> <p2 style={{color: '#e8384c'}}>슬톡</p2>이 추천해요.</p2> */}
       </MainContent>
 
-      <Link to ="preview" style={{textDecoration: 'none'}} >
-        <MovieCard />
-      </Link>
+      {/* ${previewsList} */}
+
+        {/* <Link to = {{pathname: `/preview/1`}}> */}
+          <MovieCard/>
+        {/* </Link>; */}
+
 
       <Link to="/survey" style={{textDecoration: 'none'}}>
         <StartButton><span>이달의 OTT 추천받기</span></StartButton>
@@ -66,7 +78,7 @@ const MainContent = styled.div`
 // const StartButton = styled.button`
 
 //   text-align: center;
-//   cusor: pointer;
+//   cursor: pointer;
 
 //   width: 13rem;
 //   height: 3rem;
@@ -78,7 +90,7 @@ const MainContent = styled.div`
 
 //   color: #ffffff;
 //   font-style: normal;
-//   font-wight: bold;
+//   font-weight: bold;
 //   font-size: 1.2rem;
 //   span {
 //     font-weight: bold;
@@ -96,7 +108,7 @@ const MainContent = styled.div`
 const StartButton = styled.button`
 
   text-align: center;
-  cusor: pointer;
+  cursor: pointer;
 
   width: 13rem;
   height: 3rem;
@@ -108,7 +120,7 @@ const StartButton = styled.button`
 
   color: var(--main);
   font-style: normal;
-  font-wight: bold;
+  font-weight: bold;
   font-size: 1.2rem;
   span {
     font-weight: bold;
@@ -117,6 +129,7 @@ const StartButton = styled.button`
   &:hover {
     color: #ffffff;
     background: var(--main);
+    cursor: pointer;
   );
 
 `;
