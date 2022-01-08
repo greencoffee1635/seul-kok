@@ -38,7 +38,8 @@ const LoginPage = () => {
                   <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
                 </FormButton>
               </Link>
-              <Link to="/login">
+              <Link to="/main">
+                <a href={'http://seulkok.xyz/login'}>Log in with kakao</a>
                 <FormButton>
                   <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
                 </FormButton>
