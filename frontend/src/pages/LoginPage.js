@@ -38,11 +38,11 @@ const LoginPage = () => {
                   <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
                 </FormButton>
               </Link>
-              <Link to="/main">
-                <FormButton>
+
+                <FormButton herf = 'http://seulkok.xyz/login'>
                   <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
                 </FormButton>
-              </Link>
+
               <div>
                 간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
               </div>
