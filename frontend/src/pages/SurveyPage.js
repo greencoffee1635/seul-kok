@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal';
 import { useHistory, useLocation } from 'react-router-dom';
+import useMotion from '../utils/useMotion';
 import axios from 'axios';
 
 // components
@@ -140,7 +141,7 @@ const SurveyPage = (props) => {
       <GridLayout>
         <GridWrapper>
           <TitleWrapper>
-            <Title>
+            <Title dark {...useMotion('down', 1, 0.2)}>
               <span style={{ color: 'var(--main)' }}>주어진 상황</span>에 맞게
               <br />
               <span style={{ color: 'var(--main)' }}>선택</span>하고
@@ -211,7 +212,7 @@ const SurveyPage = (props) => {
           </Grid>
 
           <TitleWrapper>
-            <Title>
+            <Title dark {...useMotion('up', 1, 0.2)}>
               그동안&nbsp;
               <span style={{ color: 'var(--main)' }}>
                 즐겁게 본 <br />

@@ -27,7 +27,7 @@ const PreviewPage = (props) => {
     <>
     {/* muted */}
     <MainScreen>
-        <MainVideo muted loop autoPlay>
+        <MainVideo loop autoPlay>
           <source src={process.env.PUBLIC_URL + `/video/video${movieContent[id].id}.mp4`} type="video/mp4" />
         </MainVideo>
 

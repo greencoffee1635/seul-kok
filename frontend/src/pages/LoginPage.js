@@ -23,6 +23,8 @@ const LoginPage = () => {
             </p>
           </MainContent>
 
+
+
           <LoginWrapper>
             <LoginForm>
               <Link to="/main">
@@ -49,7 +51,6 @@ const LoginPage = () => {
               </div>
             </LoginForm>
           </LoginWrapper>
-
           {/* <LoginWrapper>
             <LoginForm>
               <Link to="/main">

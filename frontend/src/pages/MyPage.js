@@ -40,6 +40,7 @@ const MyPage = (props) => {
     { id: '12개월', value: '12개월' },
   ];
 
+
   const handleCheckOtt = (e, idx) => {
     setOttResult({
       ...ottResult,
@@ -60,25 +61,33 @@ const MyPage = (props) => {
     setOttDateSelected(idx);
   };
 
+
   const handleClick = (data) => {
     let formData = new FormData();
-    formData.append('mypage', ottResult);
+    formData.append('ott', ottResult.ott);
+    formData.append('date', ottResult.date);
+    console.log(ottResult);
+    // formData.append('pwd', this.userPasss);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/mypage`;
 
     axios
       .post(url, formData, {
         headers: {
-          'Content-Type': `multipart/form-data`,
-        },
+          'Content-Type': 'multipart/form-data'
+        }
       })
       .then((res) => {
-        // console.log('res : ', res.data.mostOTT);
+        localStorage.setItem('nextOTT', res.data.nextOTT);
+        console.log('res : ', res.data.nextOTT);
+        props.history.push('/payfor');
       })
       .catch((error) => {
         // console.log('failed', error);
       });
-    props.history.push('/payfor');
   };
+
+
+  let subsNextOtt = localStorage.getItem('nextOTT')
 
   const ottBtnActiveHandler = (idx) => {
     if (idx === ottSelected) {
@@ -138,7 +147,7 @@ const MyPage = (props) => {
           <Grid margin="0 0 5rem 5rem">
             <Title>내구독</Title>
             <SubsOtt>
-              <Text>현재 슬기롭게 콕! 사용 중이시네요</Text>
+              <Text>현재 슬기롭게 콕! 사용 중이시네요.</Text>
               <OttWrapper>
                 <SubsForm>
                   <DateForm>
@@ -157,6 +166,7 @@ const MyPage = (props) => {
                         style={{ color: 'var(--main)', textDecoration: 'none' }}
                       >
                         이번구독
+                        <CurrentOTT>NETFLIX</CurrentOTT>
                       </b>
                     </p>
                   </CurrentSubForm>
@@ -166,7 +176,11 @@ const MyPage = (props) => {
                         style={{ color: 'var(--main)', textDecoration: 'none' }}
                       >
                         다음구독
+                        <CurrentOTT>{subsNextOtt}</CurrentOTT>
                       </b>
+                    </p>
+                    <p>
+
                     </p>
                   </NextSubForm>
                 </SubsForm>
@@ -318,6 +332,11 @@ const NextSubForm = styled.div`
   }
 `;
 
+const CurrentOTT = styled.div`
+  height: 300px;
+  font-size: 500px;
+`;
+
 const LoginForm = styled.div`
   text-align: center;
   display: flex;
@@ -358,7 +377,7 @@ const FormButton = styled.button`
 const SubsButton = styled.button`
 
   text-align: center;
-  cursor: pointer;
+  cusor: pointer;
 
   width: 8rem;
   height: 2.5rem;
@@ -372,7 +391,7 @@ const SubsButton = styled.button`
 
   color: var(--main);
   font-style: normal;
-  font-weight: bold;
+  font-wight: bold;
   font-size: 1.2rem;
 
   &:hover {

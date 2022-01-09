@@ -25,8 +25,9 @@ const MovieCard = (props) => {
           <p2>{props.card.ott}</p2>
         </MovieIntro>
         <MovieContent>
-          <p2>{props.card.title} <sapn>{props.card.playdate}</sapn> </p2>
-          <p>{props.card.content} ... <b>미리보기</b></p>
+          {/* <p2>{props.card.title} <sapn>{props.card.playdate}</sapn> </p2>
+          <p>{props.card.content} ... <b>미리보기</b></p> */}
+          <sapn>{props.card.playdate}</sapn>
         </MovieContent>
       </Card>
     )
@@ -178,21 +179,35 @@ const MovieContent = styled.div`
 
   position: absolute;
 
-  p2, p {
-    position: absolute;
-    opacity: 0;
+  // p2, p {
+  //   position: absolute;
+  //   opacity: 0;
 
-  }
+  // }
 
-  p2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
+  // p2 {
+  //   font-size: 20px;
+  //   margin-bottom: 20px;
+  // }
 
   sapn {
     font-family: none;
-    font-size: 12px;
+    font-size: 20px;
+    opacity: 0;
+
+    :& hover {
+      width: 100%; height:100%; border-radius: 50%;
+      text-align: center;
+      color: black;
+      position:absolute; left: 0; top:0;
+      padding: 60px 20px;
+      box-sizing: border-box;
+      transition: all 1s ease-in-out;
+      opacity: 100;
+      transform: scale(0);
+    }
   }
+
 
   `;
 

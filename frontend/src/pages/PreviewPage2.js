@@ -21,7 +21,6 @@ const PreviewPage2 = (props) => {
     <>
       <MainScreen>
         <Header page="previewpage2" />
-
         <MovieItem dark {...useMotion('down', 1, 0.3)}>
           <MovieTitle>
             <p2>
@@ -53,17 +52,6 @@ const PreviewPage2 = (props) => {
               </p>
             </IntroSection>
           </MovieItemIntro>
-
-          {/* <PictureCardSection>
-              <PictureCardTitle>
-                <p><b>관련영상</b></p>
-              </PictureCardTitle>
-              <PictureCardContent>
-                <PictureCard></PictureCard>
-                <PictureCard></PictureCard>
-                <PictureCard></PictureCard>
-              </PictureCardContent>
-            </PictureCardSection> */}
 
           <Link to="/result" style={{ textDecoration: 'none' }}>
             <BackButton>
