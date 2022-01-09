@@ -87,12 +87,12 @@ const ResultPage = (props) => {
           <b>결과</b>가 궁금하시죠? <br />
           앉으나 서나&nbsp;<b> 드라마 </b> 생각 중인
           <span style={{ color: 'var(--main)' }}>
-          &nbsp;<b>유가연</b>
+            &nbsp;<b>유가연</b>
           </span>
           님!
         </p>
         <p2 dark {...useMotion('down', 1, 0.2)}>
-          <span style={{ color: '#e8384c' }}>유가연</span>님의 이번달 슬콕
+          <span style={{ color: '#e8384c' }}>유가연</span>님의 이번 달 슬콕
           결과는?
         </p2>
       </MainContent>
@@ -185,16 +185,29 @@ const ResultPage = (props) => {
             );
           })}
         </CardGrid>
+      <ButtonWrap>
+        <p2>
+          <span style={{ color: 'var(--main)' }}>유가연</span>님의 이번&nbsp;달&nbsp;추천 
+          &nbsp;<span style={{ color: 'var(--main)' }}>OTT
+          <span style={{ color: 'var(--white)' }}>는</span>&nbsp;
+          <span style={{ color: 'var(--main)' }}>넷플릭스</span><span style={{ color: 'var(--white)' }}>입니다.</span></span>
+        </p2>
+        </ButtonWrap>
       </FavContent>
 
       <Link to="mypage" style={{ textDecoration: 'none' }}>
         <BackButton>
-          <b>마이페이지</b>
+          <b>구독 관리</b>
         </BackButton>
       </Link>
     </SectionWrapper>
   );
 };
+
+const ButtonWrap = styled.div`
+  margin-top: 70px;
+`;
+
 
 const Title = styled.h2`
   ${head_3}

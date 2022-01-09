@@ -18,7 +18,7 @@ const IntroPage = (props) => {
 
         <MainContent>
 
-          <p dark {...useMotion('down', 1, 0.2)}><b>NEXFLIX</b>, <b>WATCHA</b>, <b>Disney+</b>, <b>TVING</b><br/>
+          <p dark {...useMotion('down', 1, 0.2)}><b>NETFLIX</b>, <b>WATCHA</b>, <b>Disney+</b>, <b>TVING</b><br/>
           매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
 
           <p2 dark {...useMotion('up', 2, 0.8)}>이제 <p2 style={{color: '#e8384c'}}>슬</p2>기롭게 <p2 style={{color: '#e8384c'}}>콕</p2>! 해결 해드릴게요</p2>
