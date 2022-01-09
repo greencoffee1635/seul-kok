@@ -65,7 +65,7 @@ const PreviewPage2 = (props) => {
               </PictureCardContent>
             </PictureCardSection> */}
 
-          <Link to="/main" style={{ textDecoration: 'none' }}>
+          <Link to="/result" style={{ textDecoration: 'none' }}>
             <BackButton>
               <b>뒤로가기</b>
             </BackButton>
