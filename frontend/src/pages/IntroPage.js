@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
+import useMotion from '../utils/useMotion';
 import { Link } from "react-router-dom";
 
-// components
-import useMotion from '../utils/useMotion';
+// import styled, { keyframes } from 'styled-components';
+// import { Link } from 'react-scroll';
 
 const IntroPage = (props) => {
+
+
   return (
     <SectionWrapper>
 
@@ -13,23 +16,33 @@ const IntroPage = (props) => {
             SEULKOK
           </LogoTitle>
 
-          <MainContent>
-            <p dark {...useMotion('down', 1, 0.2)}><b>NETFLIX</b>, <b>WATCHA</b>, <b>Disney+</b>, <b>TVING</b><br/>
-            매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
+        <MainContent>
 
-            <p2 dark {...useMotion('up', 2, 0.8)}>이제 <p2 style={{color: '#e8384c'}}>슬</p2>기롭게 <p2 style={{color: '#e8384c'}}>콕</p2>! 해결 해드릴게요</p2>
-          </MainContent>
+          <p dark {...useMotion('down', 1, 0.2)}><b>NEXFLIX</b>, <b>WATCHA</b>, <b>Disney+</b>, <b>TVING</b><br/>
+          매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
 
-          <Link to="/main" style={{textDecoration: 'none'}}>
-              <StartButton><p2>START</p2></StartButton>
-          </Link>
+          <p2 dark {...useMotion('up', 2, 0.8)}>이제 <p2 style={{color: '#e8384c'}}>슬</p2>기롭게 <p2 style={{color: '#e8384c'}}>콕</p2>! 해결 해드릴게요</p2>
 
-          <a href="/login"
-              style={{color:'#e8384c', textDecoration: 'none', fontSize: '1rem'}}><p>슬기롭게 콕! <b>LogIn</b></p></a>
+        </MainContent>
+
+        <Link to="/main" style={{textDecoration: 'none'}}>
+          {/* <ButtonWrapper> */}
+            <StartButton><p2>START</p2></StartButton>
+          {/* </ButtonWrapper> */}
+        </Link>
+
+
+        <a href="/login"
+            style={{color:'#ffffff', textDecoration: 'none', fontSize: '1rem'}}><p>슬기롭게 콕! <p2 style={{color: 'var(--main'}}>LogIn</p2></p></a>
+
 
     </SectionWrapper>
-  );
-};
+
+  )
+}
+
+
+//가로, 세로, 중앙
 
 const SectionWrapper = styled.div`
   background: radial-gradient(
@@ -51,7 +64,8 @@ const SectionWrapper = styled.div`
   p {
     font-family: normal;
   }
-`;
+
+  `;
 
 const LogoTitle = styled.header`
   color: var(--main);
@@ -83,6 +97,7 @@ const StartButton = styled.button`
   border: 2px solid var(--main);
   background: transparent;
 
+
   color: var(--main);
   font-style: normal;
   font-weight: bold;
@@ -91,7 +106,14 @@ const StartButton = styled.button`
     color: #ffffff;
     background: var(--main);
   }
+
+
+
+
   margin-top: 40px;
 `
+
+// background: linear-gradient(80deg, #e8384c 0.73%, #b63140 100%);
+
 
 export default IntroPage

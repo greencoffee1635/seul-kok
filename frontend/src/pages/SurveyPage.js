@@ -94,18 +94,18 @@ const SurveyPage = (props) => {
   };
 
   // 초기값 설정
-  const initialState = {
-    answerList: [1, 3, 4, 3, 1],
-    bCheckedArray: [true, false, true, false, true, false, true, false],
-  };
+  // const initialState = {
+  //   answerList: [1, 3, 4, 3, 1],
+  //   bCheckedArray: [true, false, true, false, true, false, true, false],
+  // };
 
-  const surveyResult = [bSurveyCheckedArray, bSurveyCheckedArray];
+  const surveyResult = [bCheckedArray, bSurveyCheckedArray];
 
   const handleClick = (data) => {
     let formData = new FormData();
     // formData.append('survey', surveyResult);
     formData.append('survey', bSurveyCheckedArray);
-    formData.append('contents', bSurveyCheckedArray);
+    formData.append('contents', bCheckedArray);
     // console.log(surveyResult);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
     axios
