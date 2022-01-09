@@ -25,7 +25,6 @@ const SignupPage = () => {
             <FormButton><p2>Sign up</p2></FormButton>
             {/* <div>아직 <b>슬콕</b>을 이용 중이지 않으시다면? <span2 style={{color:'#e8384c'}}><b>Sign up</b></span2></div> */}
           </SignupFrom>
-
           </MainContent>
 
     </SectionWrapper>
