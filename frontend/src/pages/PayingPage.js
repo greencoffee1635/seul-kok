@@ -11,7 +11,7 @@ import useMotion from '../utils/useMotion';
 //components
 // import SignupTemplate from '../components/SignupTemplate';
 
-const PayForPage = () => {
+const PayingPage = () => {
   return (
     <>
       <SectionWrapper>
@@ -21,41 +21,22 @@ const PayForPage = () => {
           </LogoTitle>
 
           <MainContent>
-            <p dark {...useMotion('down', 1, 0.2)}>
-              이번달은 <b>어떤 OTT</b>를 <b>구독</b>과 결제할까요? <br />
-              <b>구독 예약</b>과 <b>결제</b>까지! <br />
-              <p2 dark {...useMotion('down', 1, 0.2)}>
-                <span style={{ color: '#e8384c' }}>슬콕</span>에서 편리하게 관리하세요!
+            <p dark {...useMotion('down', 2, 3)}>
+              결제 완료 되었습니다.<br />
+              <p2 dark {...useMotion('down', 1, 0.2)}>오늘도
+                <span style={{ color: '#e8384c' }}> 편리하게 슬콕</span>
               </p2>
             </p>
           </MainContent>
 
           <LoginWrapper>
-
-            <Link to="/paying">
-              <LoginForm>
+            <LoginForm>
+                <Link to="mypage">
                   <FormButton>
-                    <b style={{ textDecoration: 'none' }}>공동인증서</b>로 한 번에 등록하기
+                    <b style={{ textDecoration: 'none' }}>결제완료</b>
                   </FormButton>
-
-                  <FormButton>
-                    <b style={{ textDecoration: 'none'}}>신용 및 체크카드</b>
-                  </FormButton>
-
-                  <FormButton>
-                    <b style={{ textDecoration: 'none'}}>은행 계좌</b>
-                  </FormButton>
-
-                  <FormButton>
-                    <b style={{ textDecoration: 'none'}}>네이버페이</b> 간편결제
-                  </FormButton>
-
-                  {/* <FormButton>
-                    <b style={{ textDecoration: 'none'}}>완료</b>
-                  </FormButton> */}
-              </LoginForm>
-            </Link>
-
+                </Link>
+            </LoginForm>
           </LoginWrapper>
         </LoginSetion>
       </SectionWrapper>
@@ -143,4 +124,4 @@ const FormButton = styled.button`
   }
 `;
 
-export default PayForPage;
+export default PayingPage;

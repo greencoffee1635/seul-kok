@@ -28,10 +28,6 @@ const PreviewPage2 = (props) => {
 
         <Header page="previewpage2" />
 
-          {/* <MainContent>
-            <p dark {...useMotion('down', 1, 0.2)}>이번달 <b>추천 컨텐츠</b> 입니다. <br/></p>
-          </MainContent> */}
-
           <MovieItem dark {...useMotion('down', 1, 0.3)}>
 
             <MovieTitle>
