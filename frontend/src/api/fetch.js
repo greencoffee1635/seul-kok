@@ -9,11 +9,11 @@ const fetchData = async (num) => {
       headers: { Authorization: '내 토큰 보내주기' },
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       // return response.data;
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
   return response;
 };

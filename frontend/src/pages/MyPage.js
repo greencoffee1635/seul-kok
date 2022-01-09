@@ -45,8 +45,8 @@ const MyPage = (props) => {
       ...ottResult,
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.value);
-    console.log(idx);
+    // console.log(e.target.value);
+    // console.log(idx);
     setOttSelected(idx);
   };
 
@@ -55,15 +55,14 @@ const MyPage = (props) => {
       ...ottResult,
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.value);
-    console.log(idx);
+    // console.log(e.target.value);
+    // console.log(idx);
     setOttDateSelected(idx);
   };
 
   const handleClick = (data) => {
     let formData = new FormData();
     formData.append('mypage', ottResult);
-    console.log();
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/mypage`;
 
     axios
@@ -73,10 +72,10 @@ const MyPage = (props) => {
         },
       })
       .then((res) => {
-        console.log('res : ', res.data.mostOTT);
+        // console.log('res : ', res.data.mostOTT);
       })
       .catch((error) => {
-        console.log('failed', error);
+        // console.log('failed', error);
       });
     props.history.push('/payfor');
   };

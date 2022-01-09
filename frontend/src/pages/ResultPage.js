@@ -60,7 +60,7 @@ const ResultPage = (props) => {
     // formData.append('survey', data.survey);
     formData.append('ott', data.ott);
     formData.append('title', data.title);
-    console.log(data.title);
+    // console.log(data.title);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/detail`;
     axios
       .post(url, formData, {
@@ -70,12 +70,12 @@ const ResultPage = (props) => {
         },
       })
       .then((res) => {
-        console.log('ABCDE', res.data.movieinfo);
+        // console.log('ABCDE', res.data.movieinfo);
         localStorage.setItem('movieinfo', JSON.stringify(res.data));
-        props.history.push('/preview2');
+        // props.history.push('/preview2');
       })
       .catch((err) => {
-        console.log('failed', err);
+        // console.log('failed', err);
       });
   };
 

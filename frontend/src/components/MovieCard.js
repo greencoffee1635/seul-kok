@@ -33,7 +33,7 @@ const MovieCard = (props) => {
   };
 
   return (
-    <MainScetion>
+    <MainSection>
 
       {
         card.map((carddata, i)=>{
@@ -57,13 +57,13 @@ const MovieCard = (props) => {
       <MovieCards card={card[3]} /> */}
 
 
-    </MainScetion>
+    </MainSection>
   )
 }
 
 
 
-const MainScetion = styled.div`
+const MainSection = styled.div`
 
   margin-top: 300px;
   margin: auto;

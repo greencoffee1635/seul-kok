@@ -15,7 +15,7 @@ const PreviewPage2 = (props) => {
   const history = { useHistory };
   const location = useLocation();
   const getParams = JSON.parse(localStorage.getItem('movieinfo')).movieinfo;
-  console.log('surveyResultData : ', getParams);
+  // console.log('surveyResultData : ', getParams);
 
   return (
     <>

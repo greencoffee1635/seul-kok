@@ -95,16 +95,18 @@ const SurveyPage = (props) => {
 
   // 초기값 설정
   const initialState = {
-    answerList: ['1', '3', '4', '3', '1'],
+    answerList: [1, 3, 4, 3, 1],
     bCheckedArray: [true, false, true, false, true, false, true, false],
   };
 
-  const surveyResult = [bSurveyCheckedArray, bCheckedArray];
+  const surveyResult = [bSurveyCheckedArray, bSurveyCheckedArray];
 
   const handleClick = (data) => {
     let formData = new FormData();
-    formData.append('survey', surveyResult);
-    console.log(surveyResult);
+    // formData.append('survey', surveyResult);
+    formData.append('survey', bSurveyCheckedArray);
+    formData.append('contents', bSurveyCheckedArray);
+    // console.log(surveyResult);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/surveyresult`;
     axios
       .post(url, formData, {
@@ -124,7 +126,7 @@ const SurveyPage = (props) => {
         props.history.push('/result');
       })
       .catch((err) => {
-        console.log('failed', err);
+        // console.log('failed', err);
       });
   };
 
