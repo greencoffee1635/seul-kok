@@ -18,7 +18,7 @@ const IntroPage = (props) => {
 
         <MainContent>
 
-          <p dark {...useMotion('down', 1, 0.2)}><b>NEXFLIX</b>, <b>WATCHA</b>, <b>Desney+</b>, <b>TVING</b><br/>
+          <p dark {...useMotion('down', 1, 0.2)}><b>NEXFLIX</b>, <b>WATCHA</b>, <b>Disney+</b>, <b>TVING</b><br/>
           매번 <b>구독</b>과 <b>취소</b>의 <b>반복</b>, 귀찮으시죠?</p>
 
           <p2 dark {...useMotion('up', 2, 0.8)}>이제 <p2 style={{color: '#e8384c'}}>슬</p2>기롭게 <p2 style={{color: '#e8384c'}}>콕</p2>! 해결 해드릴게요</p2>
@@ -33,7 +33,7 @@ const IntroPage = (props) => {
 
 
         <a href="/login"
-            style={{color:'#e8384c', textDecoration: 'none', fontSize: '1rem'}}><p>슬기롭게 콕! <b>LogIn</b></p></a>
+            style={{color:'#ffffff', textDecoration: 'none', fontSize: '1rem'}}><p>슬기롭게 콕! <p2 style={{color: 'var(--main'}}>LogIn</p2></p></a>
 
 
     </SectionWrapper>
@@ -83,40 +83,6 @@ const MainContent = styled.div`
   }
 `;
 
-// const ButtonWrapper = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `
-
-// const StartButton = styled.button`
-//   display: inline;
-//   text-align: center;
-//   text-decoration: none;
-//   cursor: pointer;
-//   align-items: center;
-
-//   width: 7.2rem;
-//   height: 3rem;
-
-//   border-radius: 15px;
-//   border: none;
-//   background: var(--main);
-
-
-//   color: #ffffff;
-//   font-style: normal;
-//   font-weight: bold;
-//   font-size: 1.5rem;
-//   &:hover {
-//     color: var(--black);
-//   }
-
-
-
-
-//   margin-top: 40px;
-// `
 const StartButton = styled.button`
   display: inline;
   text-align: center;

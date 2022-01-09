@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 
+// components
 import useMotion from '../utils/useMotion';
 
 const SignupPage = () => {
-
-
   return (
     <>
     <SectionWrapper>
@@ -17,7 +16,6 @@ const SignupPage = () => {
         <p dark {...useMotion('down', 1, 0.2)}>간단한 구독과 관리 <b>슬콕</b> <br/>
         <p2 dark {...useMotion('down', 1, 0.2)}> 이제 <span style={{color:'#e8384c'}}>슬콕</span>과 함께하세요</p2></p>
 
-
           <SignupFrom>
             <p>Sign up</p>
             <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
@@ -25,13 +23,12 @@ const SignupPage = () => {
             <FormButton><p2>Sign up</p2></FormButton>
             {/* <div>아직 <b>슬콕</b>을 이용 중이지 않으시다면? <span2 style={{color:'#e8384c'}}><b>Sign up</b></span2></div> */}
           </SignupFrom>
-
           </MainContent>
 
     </SectionWrapper>
     </>
-  )
-}
+  );
+};
 
 const SectionWrapper = styled.div`
   background: radial-gradient(
@@ -47,8 +44,7 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-
-  `;
+`;
 
 const LogoTitle = styled.header`
   color: var(--main);
@@ -94,9 +90,6 @@ const SignupFrom = styled.div`
   }
 `;
 
-// padding-top: 20px;
-// padding-left: 30px;
-
 const StyledInput =styled.input`
   font-size: 1rem;
   color: white;
@@ -120,12 +113,6 @@ const StyledInput =styled.input`
   }
 `;
 
-// background-color: rgba(229, 62, 68, 0.08);
-// background-color: #321316;
-// background-color: transparent
-// background-color: var(--main);
-// background: rgba(255, 255, 255, 0.15);
-
 const FormButton = styled.button`
   font-size: 1rem;
   color: #ffffff;
@@ -137,6 +124,7 @@ const FormButton = styled.button`
 
   width: 94.3%;
   height: 40px;
+  cursor: pointer;
 
   background-color: var(--main);
   &:hover {
@@ -144,9 +132,7 @@ const FormButton = styled.button`
       to right,
       var(--main), #5a292f
     );
-
-  cursor: pointer;
-
+  }
 `
 
 

@@ -1,16 +1,10 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
-
 // components
 import Header from '../components/Header';
 import useMotion from '../utils/useMotion';
 import ComingSoonPage from './ComingSoonPage';
-
-
-
-// import Layout from '../components/Layout';
-
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
@@ -19,10 +13,9 @@ const MainPage = () => {
 
   return (
     <>
-
     {/* muted */}
     <MainScreen>
-        <MainVideo muted loop autoPlay>
+        <MainVideo loop autoPlay>
           <source src={process.env.PUBLIC_URL + `/video/video00.mp4`} type="video/mp4" />
         </MainVideo>
 
@@ -42,12 +35,8 @@ const MainPage = () => {
 
           <ComingSoonPage />
 
-
     </MainScreen>
-
   </>
-
-
   );
 };
 
@@ -72,16 +61,12 @@ const MainScreen = styled.div`
   display: flex;
 `;
 
-
 const MainVideo = styled.video`
   width: 100%;
   position: absolute;
-  `;
-
-
+`;
 
 const MainItem = styled.div`
-
   z-index: 999999;
   width: 600px;
   height: 500px;
@@ -92,15 +77,11 @@ const MainItem = styled.div`
   justify-content: left;
   position: absolute;
   flex-direction: column;
+`;
 
-  `;
-
-
-  const ScrollImage = styled.div`
-
+const ScrollImage = styled.div`
   width: 100%;
   align-items: center;
-
   span {
     position: absolute;
     top: 88%;
@@ -115,9 +96,7 @@ const MainItem = styled.div`
     -webkit-animation: ${scroll} 2.5s infinite;
     animation: ${scroll} 2.8s infinite;
     box-sizing: border-box;
+    }
 `;
-
-
-
 
 export default MainPage;

@@ -19,6 +19,7 @@ import MyPage from '../pages/MyPage';
 import SurveyPage from '../pages/SurveyPage';
 import PayForPage from '../pages/PayForPage';
 import TeamPage from '../pages/TeamPage';
+import PayingPage from '../pages/PayingPage';
 // import Loading from '../pages/Loading';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
             <Route exact path="/main" component={MainPage} />
             <Route exact path="/preview" component={PreviewPage} />
             <Route exact path="/preview/:id" component={PreviewPage} />
-            <Route exact path="/preview2/:id" component={PreviewPage2} />
+            <Route exact path="/preview2" component={PreviewPage2} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
             {/* <Route exact path="/question" component={QuestionPage} />
@@ -42,6 +43,7 @@ function App() {
             <Route exact path="/result" component={ResultPage} />
             <Route exact path="/mypage" component={MyPage} />
             <Route exact path="/payfor" component={PayForPage} />
+            <Route exact path="/paying" component={PayingPage} />
             <Route exact path="/team" component={TeamPage} />
             {/* <Route exact path="/loading" component={Loading} /> */}
           </Switch>

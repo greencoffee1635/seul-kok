@@ -20,9 +20,7 @@ const TeamPage = (props) => {
 
   return (
     <>
-
     <MainScreen>
-
         <Header page="previewpage2" />
 
           <MainContent>
@@ -69,36 +67,26 @@ const TeamPage = (props) => {
 
           </MainContent>
 
-
-
     </MainScreen>
-
   </>
-
-
   );
 };
 
-
-
-
 const scroll = keyframes`
-    0% {
-      transform: rotate(-45deg) translate(0, 0);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(-45deg) translate(-20px, 20px);
-      opacity: 0;
-    }
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
 `;
 
-
 const ScrollImage = styled.div`
-
   width: 100%;
   align-items: center;
 
@@ -116,9 +104,8 @@ const ScrollImage = styled.div`
     -webkit-animation: ${scroll} 2.5s infinite;
     animation: ${scroll} 2.8s infinite;
     box-sizing: border-box;
+  }
 `;
-
-
 
 const MainScreen = styled.div`
   width: 100%;
@@ -131,17 +118,12 @@ const MainScreen = styled.div`
     #000000 100%
   ),
   #594fa9;
-
-
 `;
 
 
 const MainContent = styled.div`
-
   width: 1010px;
-
   font-size: 1.1rem;
-
   margin-top: 15%;
   margin-left: 15%;
   color: #ffffff;
@@ -157,21 +139,16 @@ const MainContent = styled.div`
 
 const TeamContent = styled.div `
   margin-top: 280px;
-
-  `;
+`;
 
 
 const MovieItem = styled.div`
-
-margin: 0 auto;
-
-width: 1010px;
-top: 20%;
-left: 15%;
-
-text-align: left;
-position: absolute;
-
+  margin: 0 auto;
+  width: 1010px;
+  top: 20%;
+  left: 15%;
+  text-align: left;
+  position: absolute;
 
   span {
     b {
@@ -181,19 +158,16 @@ position: absolute;
 `;
 
 
-  const FrontEnd = styled.div`
+const FrontEnd = styled.div`
   color: #ffffff;
-  `;
+`;
 
-  const BackButton = styled.button`
-
+const BackButton = styled.button`
   text-align: center;
   cursor: pointer;
-
   width: 8rem;
   height: 2.5rem;
   float: right;
-
   margin-top: 50px;
 
   background: transparent;
@@ -208,8 +182,7 @@ position: absolute;
   &:hover {
     color: #ffffff;
     background: var(--main);
-    );
-
+  };
 `
 
 

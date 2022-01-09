@@ -3,14 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import useMotion from '../utils/useMotion';
-// import { useEffect, useState } from 'react';
-
-// 짱멋진모듈(가로스크롤)
-// import ScrollHorizontal from 'react-scroll-horizontal';
-
-//components
-// import SignupTemplate from '../components/SignupTemplate';
-
 
 const LoginPage = () => {
   return (
@@ -31,44 +23,51 @@ const LoginPage = () => {
             </p>
           </MainContent>
 
+
+
           <LoginWrapper>
             <LoginForm>
               <Link to="/main">
                 <FormButton>
-                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
+                  <b style={{ color: '#55ca6c', textDecoration: 'none' }}>
+                    NAVER
+                  </b>
+                  로 로그인
                 </FormButton>
               </Link>
+
               <Link to="/main">
                 <FormButton>
-                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
+                  <b style={{ color: '#f9e14c', textDecoration: 'none' }}>
+                    Kakao
+                  </b>
+                  로 로그인
                 </FormButton>
               </Link>
+
               <div>
-                간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
+                간단하게 <b style={{ color: 'var(--main)' }}>슬콕</b>을
+                이용하세요!
               </div>
             </LoginForm>
           </LoginWrapper>
-
-
           {/* <LoginWrapper>
             <LoginForm>
               <Link to="/main">
                 <FormButton>
-                  <b style={{ color: '#55ca6c', textDecoration: 'none' }}>NAVER</b>로 로그인
+                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
                 </FormButton>
               </Link>
-
-                <FormButton herf = 'http://seulkok.xyz/login'>
-                  <b style={{ color: '#f9e14c', textDecoration: 'none'}}>Kakao</b>로 로그인
+              <Link to="/main">
+                <FormButton>
+                  <StyledInput autoComplete="email" name="email" placeholder="Email address"  />
                 </FormButton>
-
+              </Link>
               <div>
                 간단하게 <b style={{color: 'var(--main)'}}>슬콕</b>을 이용하세요!
               </div>
             </LoginForm>
           </LoginWrapper> */}
-
-
         </LoginSetion>
       </SectionWrapper>
     </>
@@ -76,12 +75,8 @@ const LoginPage = () => {
 };
 
 const SectionWrapper = styled.div`
-  background: radial-gradient(
-    40% 40% at 50% 50%,
-    #2f1316 0%,
-    #000000 100%
-  ),
-  #594fa9;
+  background: radial-gradient(40% 40% at 50% 50%, #2f1316 0%, #000000 100%),
+    #594fa9;
 
   width: 100%;
   height: 100vh;
@@ -89,7 +84,6 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  // justify-content:center;
   text-align: center;
 `;
 
@@ -97,8 +91,7 @@ const LoginSetion = styled.div`
   margin-top: 8%;
 `;
 
-const StyledInput = styled.form`
-`;
+const StyledInput = styled.form``;
 
 const LogoTitle = styled.header`
   color: var(--main);

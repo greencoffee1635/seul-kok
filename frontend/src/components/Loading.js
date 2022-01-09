@@ -8,7 +8,6 @@ const Loading = (props) => {
     <Template>
       <Background />
       <Container>
-        {/* <Text>결제 후 구독 예약 중입니다.</Text> */}
         {props.page === 'subscribe' ? (
           <Text>결제 후 구독 예약 중입니다.</Text>
         ) : (
