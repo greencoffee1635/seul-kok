@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
-import MovieContentdData from '../data/MovieContentData';
+import MovieContentdData from '../Data/MovieContentData';
 
 // components
 import Header from '../components/Header';

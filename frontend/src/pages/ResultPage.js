@@ -12,8 +12,8 @@ import useMotion from '../utils/useMotion';
 
 // import Template from '../components/Template';
 import { CenterLayout } from '../components/Layout';
-// import { MovieDummy } from '../data/dummy';
-// import { resultDummy } from '../data/resultDummy';
+// import { MovieDummy } from '../Data/dummy';
+// import { resultDummy } from '../Data/resultDummy';
 import { head_3, sub_3 } from '../shared/textStyle';
 
 const cards = [...new Array(8)];

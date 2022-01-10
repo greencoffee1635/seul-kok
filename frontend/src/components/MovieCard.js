@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import MovieCardData from '../data/MovieCardData';
+import MovieCardData from '../Data/MovieCardData';
 import { Link, useParams, useHistory, withRouter } from "react-router-dom";
-// import MovieCardData from '../data/MovieCardData';
+// import MovieCardData from '../Data/MovieCardData';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
