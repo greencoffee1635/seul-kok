@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Grid } from '@mui/material';
 
 // components
-import Logo from '../components/Logo';
+import Logo from './Logo';
 import HeaderMenu from './HeaderMenu';
 
 const Header = (props) => {
@@ -29,7 +29,7 @@ const NavContainer = styled.div`
   position: fixed;
   top: 0;
   z-index: 99;
-  background-color: null;
+  background-color: transparent;
 `;
 
 const NavDiv = styled.div`
@@ -44,7 +44,7 @@ const NavDiv = styled.div`
 const StyledGrid = styled(Grid)`
   padding-top: 3.4rem;
   justify-content: center;
-  background-color: null;
+  background-color: transparent;
 `;
 
 const InnerDiv = styled.div`

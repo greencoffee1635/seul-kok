@@ -5,3 +5,5 @@ __pycache
 # .env.prod
 # .env.prod.db
 README.md
+build/
+tempdb.db

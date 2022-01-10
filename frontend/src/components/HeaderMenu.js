@@ -1,19 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
-// import {Grid} from '@mui/material';
+import { useHistory, Link } from 'react-router-dom';
 
 // components
 import { head_1 } from '../shared/textStyle';
 
 const HeaderMenu = () => {
+  const history = useHistory();
+
   return (
-    <>
-        <Menus>
-            <div>이달의 OTT</div>
-            <div>마이페이지</div>
-            <div>팀소개</div>
-        </Menus>
-    </>
+    <Menus>
+      <Link to ="survey" style={{textDecoration: 'none'}}>
+        <MenuItem>
+          이달의 OTT
+        </MenuItem>
+      </Link>
+      <Link to ="mypage" style={{textDecoration: 'none'}}>
+        <MenuItem>
+          마이페이지
+        </MenuItem>
+      </Link>
+      <Link to ="team" style={{textDecoration: 'none'}}>
+      <MenuItem>
+        팀소개
+      </MenuItem>
+      </Link>
+    </Menus>
   );
 };
 
@@ -35,22 +47,30 @@ const HeaderMenu = () => {
 //   cursor: pointer;
 // `;
 
-const Menus = styled.div`
+const Menus = styled.ul`
   ${head_1}
   color: white;
   display: flex;
-  alignItems: center;
-  font-weight: bold;
-  div {
-    margin-left: 30px;
-    &:hover {
-      color: var(--main);
-    }
+  align-items: center;
+  font-weight: normal;
+`;
+
+const MenuItem = styled.li`
+  ${head_1}
+  display: flex;
+  color: #ffffff;
+  /* text-align: center;
+  justify-content: space-between;
+  margin-left: 5rem; */
+  margin-left: 30px;
+  cursor: pointer;
+  :hover {
+    font-weight: bold;
+    color: var(--main);
   }
 `;
+
 // margin-left: 1rem;
 // flex-grow: 0;
-
-
 
 export default HeaderMenu;
