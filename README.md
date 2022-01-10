@@ -75,7 +75,7 @@
 - 개인 시청 기록을 통한 성향 분석
 - OTT와 개인 분석 결과를 통해 안성맞춤인 OTT와 작품 추천
 
-## 6. 기술 및 라이브러리
+## 6. 기술 스택 및 라이브러리
 
 - Front-end : Javascript, React.js, Styled-components, Axios, React Router DOM, Mui
 - Back-end : Python, Flask, Docker, NginX, Gunicorn, PostgreSQL, SQlite3
