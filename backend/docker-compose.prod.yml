@@ -9,7 +9,6 @@ services:
     volumes:
       - static_volume:/home/app/web/project/static
       - media_volume:/home/app/web/project/media
-      # - /home/team18/seulkok/backend/services/web/project:/home/app/web/project
     expose:
       - 5000
     env_file:
@@ -25,13 +24,23 @@ services:
   nginx:
     build: ./services/nginx
     volumes:
-    #   - static_volume:/home/app/web/project/static
       - media_volume:/home/app/web/project/media
-    #   - react_volume:/home/app/web
+      # - /home/team18/seulkok/backend/services/nginx/nginx.conf:/etc/nginx/conf.d
+      # - /home/team18/seulkok/backend/services/nginx/conf:/etc/nginx/ssl
+      # - /home/team18/seulkok/backend/services/nginx/conf:/var/www/certbot
     ports:
       - 80:80
+        # - 443:443
     depends_on:
       - web
+  # certbot:
+  #   image: certbot/certbot:latest
+  #   command:certonly --webroot --webroot-path=/var/www/certbot --email myemail@google.com --agree-tos --no-eff-email -d domain.com
+  #   volumes:
+  #     - /home/team18/seulkok/backend/services/nginx/conf:
+  #     - /home/team18/seulkok/backend/services/nginx/logs:
+  #     - /home/team18/seulkok/backend/services/nginx/data:
+
 
 volumes:
   postgres_data_prod:
