@@ -406,7 +406,7 @@ const CardGrid = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  outline: ${(props) => (props.active ? '3px solid var(--main)' : 'none')};
+  outline: ${(props) => (props.active ? '4px solid var(--main)' : 'none')};
   outline-offset: -2px;
 `;
 

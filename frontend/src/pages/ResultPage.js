@@ -85,7 +85,7 @@ const ResultPage = (props) => {
       <MainContent>
         <p dark {...useMotion('down', 1, 0.2)}>
           <b>결과</b>가 궁금하시죠? <br />
-          앉으나 서나&nbsp;<b> 드라마 </b> 생각 중인
+          앉으나 서나&nbsp;<b> {/*{getParams[1].genre}*/}드라마 </b> 생각 중인
           <span style={{ color: 'var(--main)' }}>
             &nbsp;<b>유가연</b>
           </span>
@@ -114,7 +114,7 @@ const ResultPage = (props) => {
 
         <DramaResult>
           <p2 style={{ color: '#ffffff' }}>
-            <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘드라마’</b>를
+            <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘{/*{getParams[1].genre}*/}드라마’</b>를
             좋아하시는군요!
           </p2>
           <p>
@@ -192,7 +192,7 @@ const ResultPage = (props) => {
             <span style={{ color: 'var(--main)' }}>
               OTT
               <span style={{ color: 'var(--white)' }}>는</span>&nbsp;
-              <span style={{ color: 'var(--main)' }}>넷플릭스</span>
+              <span style={{ color: 'var(--main)' }}>{getParams[0].ott}</span>
               <span style={{ color: 'var(--white)' }}>입니다.</span>
             </span>
           </p2>
@@ -291,7 +291,7 @@ const CardGrid = styled.div`
   cursor: pointer;
   div :hover {
     /* outline: 3px solid var(--main); */
-    outline: 3px solid var(--main);
+    outline: 4px solid var(--main);
     // outline-offset: px;
   }
 `;
