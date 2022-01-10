@@ -66,7 +66,7 @@ const MyPage = (props) => {
     let formData = new FormData();
     formData.append('ott', ottResult.ott);
     formData.append('date', ottResult.date);
-    console.log(ottResult);
+    // console.log(ottResult);
     // formData.append('pwd', this.userPasss);
     let url = `http://elice-kdt-3rd-team-18.koreacentral.cloudapp.azure.com/api/mypage`;
 
@@ -78,7 +78,7 @@ const MyPage = (props) => {
       })
       .then((res) => {
         localStorage.setItem('nextOTT', res.data.nextOTT);
-        console.log('res : ', res.data.nextOTT);
+        // console.log('res : ', res.data.nextOTT);
         props.history.push('/payfor');
       })
       .catch((error) => {
