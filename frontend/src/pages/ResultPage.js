@@ -113,7 +113,7 @@ const ResultPage = (props) => {
         </AmeResult>
 
         <DramaResult>
-          <p2 style={{ color: 'var(--white)' }}>
+          <p2 style={{ color: '#ffffff' }}>
             <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘드라마’</b>를
             좋아하시는군요!
           </p2>
@@ -127,7 +127,7 @@ const ResultPage = (props) => {
         </DramaResult>
 
         <MovieResult>
-          <p2 style={{ color: 'var(--white)' }}>
+          <p2 style={{ color: '#ffffff' }}>
             <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘영화’</b> 를
             더 좋아하시는군요!
           </p2>
@@ -233,7 +233,7 @@ const MainContent = styled.div`
   margin-top: 160px;
   font-size: 2.3rem;
   line-height: 3.8rem;
-  color: var(--white);
+  color: #ffffff;
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;
@@ -251,7 +251,7 @@ const FavContent = styled.div`
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;
-    color: var(--white);
+    color: #ffffff;
   }
 `;
 
@@ -261,7 +261,7 @@ const DramaResult = styled.div`
 
 const ResultContent = styled.div`
   margin-top: 100px;
-  color: var(--white)
+  color: #ffffff;
   font-size: 1.3rem;
   img {
     width: 600px;
@@ -282,13 +282,13 @@ const EndResult = styled.div`
 const CardGrid = styled.div`
   margin-top: 50px;
   display: grid !important;
+  display: grid;
   grid-template-rows: 320px 320px;
   grid-template-columns: 230px 230px 230px 230px;
   /* grid-gap: 18rem 3rem; */
   grid-gap: 1rem;
   justify-content: center;
   cursor: pointer;
-
   div :hover {
     /* outline: 3px solid var(--main); */
     outline: 3px solid var(--main);
@@ -314,7 +314,7 @@ const BackButton = styled.button`
   font-weight: bold;
   font-size: 1.2rem;
   &:hover {
-    color: var(--white);
+    color: #ffffff;
     background: var(--main);
   }
 `;

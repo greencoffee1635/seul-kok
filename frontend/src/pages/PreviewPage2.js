@@ -36,8 +36,11 @@ const PreviewPage2 = (props) => {
           </MovieItemTitle>
 
           <MovieItemIntro>
-            <p>{getParams.content}</p>
+            <p>{getParams.desc}</p>
             <IntroSection>
+              {/* <p>
+                <b>OTT</b> {getParams.ott}
+              </p> */}
               <p>
                 <b>개봉일</b> {getParams.playdate}
               </p>
@@ -160,7 +163,6 @@ const PictureCardContent = styled.div`
 `;
 
 const PictureCard = styled.div`
-
   margin: auto;
   width: 328px;
   height: 230px;
