@@ -320,7 +320,7 @@ const ScrollWrapper = styled.div`
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(120, 120, 120, 0.4);
+      background-color: transparent;
       border-radius: 2px;
     }
     width: 80%;

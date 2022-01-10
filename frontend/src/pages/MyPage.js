@@ -156,7 +156,7 @@ const MyPage = (props) => {
                         NETFLIX
                       </b>
                       <span>
-                        &emsp;<b></b>2022년 2월 10일까지
+                        &emsp;<b></b>2022년 2월 12일까지
                       </span>
                     </p>
                   </DateForm>
