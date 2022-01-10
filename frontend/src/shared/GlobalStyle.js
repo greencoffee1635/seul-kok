@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
         src: url(${BlackHanSans}) format('woff'),
             url(${BlackHanSans}) format('woff2');
         font-weight: 400;
+        text-decoration: none;
     }
 
     * {
@@ -25,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     /* letter-spacing: -0.015em; */
     }
 
-    body{
+    body {
         margin: 0;
         padding: 0;
     }

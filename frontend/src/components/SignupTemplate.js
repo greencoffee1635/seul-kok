@@ -10,12 +10,13 @@ const SignupTemplate = ({ children }) => {
 }
 
 const SignupTemplateBlock = styled.div`
-  width: 600px;
-  height: 300px;
+  width: 580px;
+  height: 310px;
+  position: relative;
 
   background: linear-gradient(
     to bottom right,
-    #3c161b, black
+    #541b22, black
   );
   border: 3px solid;
   border-radius: 16px;
@@ -23,12 +24,11 @@ const SignupTemplateBlock = styled.div`
 
   margin: 0 auto;
 
-  margin-top: 0.3%;
+
   margin-bottom: 32px;
   display: flex;
   flex-direction: column;
-
-  text-align: left;
+  align-items: center;
 
 `;
 export default SignupTemplate;
