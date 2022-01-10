@@ -51,7 +51,7 @@ export const sub_1 = css`
 `;
 
 export const sub_1_mobile = css`
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 500;
 `;
 
@@ -62,7 +62,7 @@ export const sub_2 = css`
 `;
 
 export const sub_2_mobile = css`
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 500;
 `;
 

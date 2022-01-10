@@ -113,7 +113,7 @@ const ResultPage = (props) => {
         </AmeResult>
 
         <DramaResult>
-          <p2 style={{ color: '#ffffff' }}>
+          <p2 style={{ color: 'var(--white)' }}>
             <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘드라마’</b>를
             좋아하시는군요!
           </p2>
@@ -127,7 +127,7 @@ const ResultPage = (props) => {
         </DramaResult>
 
         <MovieResult>
-          <p2 style={{ color: '#ffffff' }}>
+          <p2 style={{ color: 'var(--white)' }}>
             <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘영화’</b> 를
             더 좋아하시는군요!
           </p2>
@@ -185,13 +185,17 @@ const ResultPage = (props) => {
             );
           })}
         </CardGrid>
-      <ButtonWrap>
-        <p2>
-          <span style={{ color: 'var(--main)' }}>유가연</span>님의 이번&nbsp;달&nbsp;추천 
-          &nbsp;<span style={{ color: 'var(--main)' }}>OTT
-          <span style={{ color: 'var(--white)' }}>는</span>&nbsp;
-          <span style={{ color: 'var(--main)' }}>넷플릭스</span><span style={{ color: 'var(--white)' }}>입니다.</span></span>
-        </p2>
+        <ButtonWrap>
+          <p2>
+            <span style={{ color: 'var(--main)' }}>유가연</span>님의
+            이번&nbsp;달&nbsp;추천 &nbsp;
+            <span style={{ color: 'var(--main)' }}>
+              OTT
+              <span style={{ color: 'var(--white)' }}>는</span>&nbsp;
+              <span style={{ color: 'var(--main)' }}>넷플릭스</span>
+              <span style={{ color: 'var(--white)' }}>입니다.</span>
+            </span>
+          </p2>
         </ButtonWrap>
       </FavContent>
 
@@ -204,31 +208,23 @@ const ResultPage = (props) => {
   );
 };
 
-const ButtonWrap = styled.div`
-  margin-top: 70px;
-`;
-
-
-const Title = styled.h2`
-  ${head_3}
-  color: #ffffff;
-  margin-top: 50px;
-  /* text-align: center; */
-  justify-content: center;
-  ${({ theme }) => theme.device.mobile} {
-    justify-content: center;
-  }
-`;
+// const Title = styled.h2`
+//   ${head_3}
+//   color: #ffffff;
+//   margin-top: 50px;
+//   /* text-align: center; */
+//   justify-content: center;
+//   ${({ theme }) => theme.device.mobile} {
+//     justify-content: center;
+//   }
+// `;
 
 const SectionWrapper = styled.div`
   background: var(--black);
-
   width: 100%;
   height: 450vh;
-
   display: flex;
   flex-direction: column;
-
   text-align: center;
   position: absolute;
 `;
@@ -237,8 +233,7 @@ const MainContent = styled.div`
   margin-top: 160px;
   font-size: 2.3rem;
   line-height: 3.8rem;
-  color: #ffffff;
-
+  color: var(--white);
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;
@@ -253,11 +248,10 @@ const FavContent = styled.div`
   margin-top: 100px;
   margin-bottom: 100px;
   font-size: 2.3rem;
-
   p2 {
     font-size: 3.6rem;
     margin-top: 5px;
-    color: #ffffff;
+    color: var(--white);
   }
 `;
 
@@ -267,14 +261,11 @@ const DramaResult = styled.div`
 
 const ResultContent = styled.div`
   margin-top: 100px;
-
-  color: #ffffff;
+  color: var(--white)
   font-size: 1.3rem;
-
   img {
     width: 600px;
   }
-
   p2 {
     font-size: 30px;
   }
@@ -291,7 +282,6 @@ const EndResult = styled.div`
 const CardGrid = styled.div`
   margin-top: 50px;
   display: grid !important;
-  display: grid;
   grid-template-rows: 320px 320px;
   grid-template-columns: 230px 230px 230px 230px;
   /* grid-gap: 18rem 3rem; */
@@ -314,23 +304,23 @@ const CardWrapper = styled.div`
 const BackButton = styled.button`
   text-align: center;
   cursor: pointer;
-
   width: 8rem;
   height: 2.5rem;
-
   background: transparent;
   border-radius: 12px;
   border: 2px solid var(--main);
-
   color: var(--main);
   font-style: normal;
   font-weight: bold;
   font-size: 1.2rem;
-
   &:hover {
-    color: #ffffff;
+    color: var(--white);
     background: var(--main);
   }
+`;
+
+const ButtonWrap = styled.div`
+  margin-top: 70px;
 `;
 
 export default ResultPage;

@@ -163,7 +163,7 @@ const SurveyPage = (props) => {
                 {SurveyDummy[1].map((survey, index) => {
                   return (
                     <SurveyWrapper style={child}>
-                      <Text>{survey.question}</Text>
+                      <QuestionTitle>{survey.question}</QuestionTitle>
                       <Answer
                         value="1"
                         active={activeSurveyHandler(index, 1)}
@@ -262,33 +262,6 @@ const SurveyPage = (props) => {
   );
 };
 
-const ButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const Button = styled.button`
-  text-align: center;
-  width: 13rem;
-  height: 3rem;
-  margin-top: 5rem;
-  margin-right: 13rem;
-  background: transparent;
-  border-radius: 15px;
-  border: 2px solid var(--main);
-  color: var(--main);
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.2rem;
-
-  &:hover {
-    color: var(--white);
-    background: var(--main);
-    cursor: pointer;
-  }
-`;
-
 const Template = styled.main`
   width: 100%;
   min-height: calc(200vh - 100px);
@@ -316,6 +289,7 @@ const TitleWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin-left: 9.6rem;
+
   ${({ theme }) => theme.device.tablet} {
     margin-left: 6rem;
   }
@@ -327,17 +301,9 @@ const TitleWrapper = styled.div`
 const Title = styled.h2`
   ${head_2}
   color: var(--white);
+
   ${({ theme }) => theme.device.mobile} {
     justify-content: center;
-  }
-`;
-
-const Text = styled.p`
-  ${sub_1}
-  color: var(--white);
-  width: 39rem;
-  ${({ theme }) => theme.device.mobile} {
-    ${sub_1_mobile}
   }
 `;
 
@@ -354,11 +320,12 @@ const ScrollWrapper = styled.div`
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(111, 111, 111, 0.1);
+      background-color: rgba(120, 120, 120, 0.4);
       border-radius: 2px;
     }
     width: 80%;
   }
+
   ${({ theme }) => theme.device.mobile} {
     max-width: 35rem;
   }
@@ -369,6 +336,20 @@ const SurveyWrapper = styled.section`
   margin-left: 0.5rem;
   margin-right: 2rem;
   justify-content: center;
+  ${({ theme }) => theme.device.mobile} {
+    ${sub_1_mobile}/* width: 37rem; */
+  }
+`;
+
+const QuestionTitle = styled.p`
+  ${sub_1}
+  color: var(--white);
+  /* width: 39rem; */
+
+  ${({ theme }) => theme.device.mobile} {
+    ${sub_1_mobile}
+    width: 34rem;
+  }
 `;
 
 const Answer = styled.button`
@@ -377,11 +358,11 @@ const Answer = styled.button`
   height: 3.2rem;
   margin-top: 1rem;
   cursor: pointer;
-
   background: linear-gradient(80deg, var(--main) 0.73%, var(--darkred) 100%);
   color: var(--white);
   border-radius: 13px;
   border: none;
+
   ${({ theme }) => theme.device.mobile} {
     ${sub_2_mobile}
     width: 17rem;
@@ -429,6 +410,33 @@ const CardWrapper = styled.div`
   outline-offset: -2px;
 `;
 
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const Button = styled.button`
+  text-align: center;
+  width: 13rem;
+  height: 3rem;
+  margin-top: 5rem;
+  margin-right: 13rem;
+  background: transparent;
+  border-radius: 15px;
+  border: 2px solid var(--main);
+  color: var(--main);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: var(--white);
+    background: var(--main);
+    cursor: pointer;
+  }
+`;
+
 const scroll = keyframes`
   0% {
     transform: rotate(-45deg) translate(0, 0);
@@ -443,20 +451,20 @@ const scroll = keyframes`
     }
 `;
 
-const Arrow = styled.div`
-  /* padding-top: 5rem; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center !important;
-  cursor: pointer;
-  span {
-    width: 40px;
-    height: 40px;
-    border-left: 2px solid rgba(242, 38, 62, 0.41);
-    border-bottom: 2px solid rgba(242, 38, 62, 0.41);
-    transform: rotate(-45deg);
-    animation: ${scroll} 2.8s infinite;
-  }
-`;
+// const Arrow = styled.div`
+//   /* padding-top: 5rem; */
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center !important;
+//   cursor: pointer;
+//   span {
+//     width: 40px;
+//     height: 40px;
+//     border-left: 2px solid rgba(242, 38, 62, 0.41);
+//     border-bottom: 2px solid rgba(242, 38, 62, 0.41);
+//     transform: rotate(-45deg);
+//     animation: ${scroll} 2.8s infinite;
+//   }
+// `;
 
 export default SurveyPage;
