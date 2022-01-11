@@ -114,7 +114,7 @@ const ResultPage = (props) => {
 
         <DramaResult>
           <p2 style={{ color: '#ffffff' }}>
-            <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘{/*{getParams[1].genre}*/}드라마’</b>를
+            <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘{getParams[0].genre}’</b>를
             좋아하시는군요!
           </p2>
           <p>
