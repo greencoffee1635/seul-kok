@@ -158,12 +158,13 @@ def moviedetail():
                 c.execute(f"select * from {ott_table} where title='{title}';")
                 movieinfo = c.fetchall()[0]
                 c.close()
-            desc = movieinfo[3]
+            desc = movieinfo[4]
             playdate = random.choice(datelist)
-            genre = movieinfo[1]
-            cast = movieinfo[5]
-            keyword = movieinfo[2]
-            time = movieinfo[7]
+            genre = movieinfo[2]
+            cast = movieinfo[6]
+            keyword = movieinfo[3]
+            time = movieinfo[8]
+            poster = movieinfo[7]
         except:
             desc = '1991년 소말리아의 수도 모가디슈에서는 내전으로 총성이 끊이지 않는다. 대한민국의 UN 가입을 위해 그곳에 파견된 대사관 직원들은 살아남기 위해 하루하루를 버텨내고, 설상가상 북한 대사관 일행들이 도움을 요청하며 문을 두드리는데… 1분 정보: 소말리아의 모가디슈는 대한민국 국민의 출입이 금지된 지역이라 실제 촬영은 모로코의 에사우이라에서 진행했다. 코로나19 상황에서 2020년 성수기의 흥행작이었던 <다만 악에서 구하소서> 이후 대략 1년 만에 300만을 돌파한 영화!'
             playdate = '2021년 7월 28일'
@@ -179,7 +180,8 @@ def moviedetail():
             'genre' : genre,
             'cast' : cast,
             'keyword' : keyword,
-            'time' : time
+            'time' : time,
+            'poster' : poster
         }
         data = {'movieinfo':info }
         api_res = jsonify(data)
