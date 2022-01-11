@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
-import MovieContentdData from '../Data/MovieContentData';
+import MovieContentdData from '../data/MovieContentData';
 
 // components
 import Header from '../components/Header';
 // import Layout from '../components/Layout';
-import thumbnailData from '../Data/thumbnailData';
+import thumbnailData from '../data/thumbnailData';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";

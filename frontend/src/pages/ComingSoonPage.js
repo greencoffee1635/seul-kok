@@ -7,7 +7,7 @@ import { useLocation } from "react-router";
 import useMotion from '../utils/useMotion';
 import MovieCard from '../components/MovieCard';
 import { head_4 } from '../shared/textStyle';
-import MovieContentdData from '../Data/MovieContentData';
+import MovieContentdData from '../data/MovieContentData';
 
 const ComingSoonPage = (props) => {
 

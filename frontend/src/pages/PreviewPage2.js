@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
-import MovieContentdData from '../Data/MovieContentData';
+import MovieContentdData from '../data/MovieContentData';
 
 // components
 import Header from '../components/Header';
@@ -22,6 +22,7 @@ const PreviewPage2 = (props) => {
       <MainScreen>
         <Header page="previewpage2" />
         <MovieItem dark {...useMotion('down', 1, 0.3)}>
+          <img src={getParams.poster} alt="" />
           <MovieTitle>
             <p2>
               {getParams.title}
@@ -83,7 +84,7 @@ const scroll = keyframes`
 
 const MainScreen = styled.div`
   width: 100%;
-  height: 230vh;
+  height: calc(160vh - 100px);
   background-color: black;
   display: flex;
 `;
@@ -106,7 +107,6 @@ const MovieItem = styled.div`
   width: 1010px;
   top: 20%;
   left: 15%;
-
   text-align: left;
   position: absolute;
 
@@ -120,7 +120,6 @@ const MovieItem = styled.div`
 const MovieTitle = styled.p`
   font-size: 45px;
   color: var(--main);
-
   sapn {
     color: #ffffff;
     font-family: normal;

@@ -11,7 +11,7 @@ import Background from '../components/Background';
 import Header from '../components/Header';
 // import Loading from '../components/Loading';
 import { GridLayout } from '../components/Layout';
-import { SurveyDummy, MovieDummy } from '../Data/dummy';
+import { SurveyDummy, MovieDummy } from '../data/dummy';
 import {
   head_2,
   sub_1,

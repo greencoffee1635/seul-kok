@@ -12,8 +12,7 @@ import useMotion from '../utils/useMotion';
 
 // import Template from '../components/Template';
 import { CenterLayout } from '../components/Layout';
-// import { MovieDummy } from '../Data/dummy';
-// import { resultDummy } from '../Data/resultDummy';
+// import { MovieDummy, resultDummy} from '../data/dummy';
 import { head_3, sub_3 } from '../shared/textStyle';
 
 const cards = [...new Array(8)];
@@ -85,7 +84,7 @@ const ResultPage = (props) => {
       <MainContent>
         <p dark {...useMotion('down', 1, 0.2)}>
           <b>결과</b>가 궁금하시죠? <br />
-          앉으나 서나&nbsp;<b> {/*{getParams[1].genre}*/}드라마 </b> 생각 중인
+          앉으나 서나&nbsp;<b>{/* {getParams[0].genre} */}드라마 </b> 생각 중인
           <span style={{ color: 'var(--main)' }}>
             &nbsp;<b>유가연</b>
           </span>
@@ -104,7 +103,7 @@ const ResultPage = (props) => {
             작품을 가장 좋아하시는군요!
           </p2>
           <p>
-            미국 작품이 많은 순서는
+            미국 작품이 많은 순서는&nbsp;
             <b style={{ color: 'var(--main)' }}>WATCHA</b>
             &gt;Tving&gt;NETFLIX&gt;Disney+ 예요!
           </p>
@@ -114,11 +113,12 @@ const ResultPage = (props) => {
 
         <DramaResult>
           <p2 style={{ color: '#ffffff' }}>
-            <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘{getParams[0].genre}’</b>를
+            <b>유가연</b>님은{' '}
+            <b style={{ color: 'var(--main)' }}>‘{/* {getParams[0].genre} */}드라마’</b>를
             좋아하시는군요!
           </p2>
           <p>
-            드라마와 액션 장르 보유 비중 순위는
+            드라마와 액션 장르 보유 비중 순위는&nbsp;
             <b style={{ color: 'var(--main)' }}>Tving</b>
             &gt;WATCHA&gt;NETFLIX&gt;Disney+ 예요!
           </p>
@@ -128,7 +128,7 @@ const ResultPage = (props) => {
 
         <MovieResult>
           <p2 style={{ color: '#ffffff' }}>
-            <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘영화’</b> 를
+            <b>유가연</b>님은 <b style={{ color: 'var(--main)' }}>‘영화’</b>를
             더 좋아하시는군요!
           </p2>
           <p>
@@ -159,7 +159,7 @@ const ResultPage = (props) => {
 
       <FavContent>
         <p2>
-          <span style={{ color: 'var(--main)' }}>유가연</span>님의 이번달&nbsp;
+          <span style={{ color: 'var(--main)' }}>유가연</span>님의 이번 달&nbsp;
           <span style={{ color: 'var(--main)' }}>가장 좋아할만한 컨텐츠</span>
         </p2>
 
@@ -188,7 +188,7 @@ const ResultPage = (props) => {
         <ButtonWrap>
           <p2>
             <span style={{ color: 'var(--main)' }}>유가연</span>님의
-            이번&nbsp;달&nbsp;추천 &nbsp;
+            이번&nbsp;달&nbsp;추천&nbsp;
             <span style={{ color: 'var(--main)' }}>
               OTT
               <span style={{ color: 'var(--white)' }}>는</span>&nbsp;
@@ -222,7 +222,7 @@ const ResultPage = (props) => {
 const SectionWrapper = styled.div`
   background: var(--black);
   width: 100%;
-  height: 450vh;
+  height: calc(400vh - 100px);
   display: flex;
   flex-direction: column;
   text-align: center;
