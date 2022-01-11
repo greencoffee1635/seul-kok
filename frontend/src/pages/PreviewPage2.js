@@ -84,7 +84,7 @@ const scroll = keyframes`
 
 const MainScreen = styled.div`
   width: 100%;
-  height: calc(160vh - 100px);
+  height: calc(200vh - 100px);
   background-color: black;
   display: flex;
 `;

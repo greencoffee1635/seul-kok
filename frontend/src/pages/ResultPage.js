@@ -222,7 +222,7 @@ const ResultPage = (props) => {
 const SectionWrapper = styled.div`
   background: var(--black);
   width: 100%;
-  height: calc(400vh - 100px);
+  height: calc(440vh - 100px);
   display: flex;
   flex-direction: column;
   text-align: center;
