@@ -1,7 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/public/video/*.mp4
-
 # dependencies
 /node_modules
 /.pnp
@@ -27,3 +25,11 @@ yarn-error.log*
 
 #도커세팅용
 Dockerfile
+
+# Large media files
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
