@@ -2,7 +2,7 @@
 
 - OTT / 슬콕 : 슬기로운 집콕생활에서 나에게 알맞은 OTT를 콕! 집어가세요
 
-- [슬콕 링크](http://seulkok.xyz/)
+- [슬콕 링크](http://seulkok.xyz/) / [데모](https://www.youtube.com/watch?v=Ai4nD-tUl-w)
 
 ## 1. 프로젝트 소개
 
